@@ -1,0 +1,9 @@
+{
+	"credit": "StaticSkizzles | Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"2": "item/rum",
+		"3": "item/rum_overlay",
+		"particle": "item/rum"
+	}
+}

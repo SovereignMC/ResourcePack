@@ -1,0 +1,8 @@
+{
+	"credit": "StaticSkizzles | Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"4": "item/vodka",
+		"5": "item/vodka_overlay"
+	}
+}

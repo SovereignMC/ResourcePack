@@ -1,0 +1,1 @@
+{"parent":"item/generated","textures":{"layer0":"item/snowball"},"overrides":[{"predicate":{"custom_model_data":1000},"model":"item/projectiles/lmg_bullet"},{"predicate":{"custom_model_data":1001},"model":"item/projectiles/pistol_bullet"},{"predicate":{"custom_model_data":1002},"model":"item/projectiles/rifle_bullet"}]}

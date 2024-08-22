@@ -1,0 +1,9 @@
+{
+	"credit": "StaticSkizzles | Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"2": "item/red_wine",
+		"3": "item/red_wine_overlay",
+		"particle": "item/red_wine"
+	}
+}

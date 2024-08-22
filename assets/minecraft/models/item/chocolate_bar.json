@@ -1,0 +1,8 @@
+{
+	"credit": "StaticSkizzles | Made with Blockbench",
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"1": "item/chocolate_bar",
+		"particle": "item/chocolate_bar"
+	}
+}
