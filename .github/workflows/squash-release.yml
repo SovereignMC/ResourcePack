@@ -1,4 +1,5 @@
 name: Optimize resource pack
+permissions: write-all
 on: [push]
 jobs:
   packsquash:
