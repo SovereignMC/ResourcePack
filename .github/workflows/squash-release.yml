@@ -19,7 +19,7 @@ jobs:
             pack_directory = '.'
             output_file_path = '/tmp/pack.zip'
             
-      - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' > /tmp/hash.txt" # Generate Pack Hash
+      - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' | tr -d \"\n\" > /tmp/hash.txt" # Generate Pack Hash
       
       - name: Tag and create release
         uses: softprops/action-gh-release@v2
