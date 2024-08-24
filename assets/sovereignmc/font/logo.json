@@ -1,5 +1,19 @@
-{"providers": [
-	{"type":"bitmap","file":"sovereignmc:font/smc_typelogo.png","chars":[""],"ascent":5,"height":20},
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/smc_typelogo.png",
+      "chars": [""],
+      "ascent": 0,
+      "height": 80
+    },
 
-	{"type":"bitmap","file":"sovereignmc:font/smc.png","chars":[""],"ascent":30,"height":30}
-]}
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/smc.png",
+      "chars": [""],
+      "ascent": 0,
+      "height": 50
+    }
+  ]
+}
