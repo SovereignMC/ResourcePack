@@ -1,0 +1,5 @@
+{"providers": [
+	{"type":"bitmap","file":"sovereignmc:font/smc_typelogo.png","chars":[""],"ascent":5,"height":20},
+
+	{"type":"bitmap","file":"sovereignmc:font/smc.png","chars":[""],"ascent":30,"height":30}
+]}
