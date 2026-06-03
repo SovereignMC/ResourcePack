@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "argentum:block/output_crate_t1_front",
+    "down": "argentum:block/output_crate_t1_bottom",
+    "up": "argentum:block/output_crate_t1_top",
+    "north": "argentum:block/output_crate_t1_front",
+    "south": "argentum:block/output_crate_t1_back",
+    "west": "argentum:block/output_crate_t1_left",
+    "east": "argentum:block/output_crate_t1_right"
+  }
+}

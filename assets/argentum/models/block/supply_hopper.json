@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "argentum:block/supply_hopper_side",
+    "down": "argentum:block/supply_hopper_bottom",
+    "up": "argentum:block/supply_hopper_bottom",
+    "north": "argentum:block/supply_hopper_side",
+    "south": "argentum:block/supply_hopper_side",
+    "west": "argentum:block/supply_hopper_side",
+    "east": "argentum:block/supply_hopper_side"
+  }
+}
