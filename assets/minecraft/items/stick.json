@@ -1,4 +1,4 @@
-  {
+{
   "model": {
     "type": "range_dispatch",
     "property": "custom_model_data",
@@ -9,15 +9,15 @@
     "entries": [
       {
         "threshold": 100,
-        "model": { "type": "model", "model": "sov:torpedo/standard" }
+        "model": { "type": "model", "model": "minecraft:torpedo/standard" }
       },
       {
         "threshold": 101,
-        "model": { "type": "model", "model": "sov:torpedo/light" }
+        "model": { "type": "model", "model": "minecraft:torpedo/light" }
       },
       {
         "threshold": 102,
-        "model": { "type": "model", "model": "sov:torpedo/heavy" }
+        "model": { "type": "model", "model": "minecraft:torpedo/heavy" }
       }
     ]
   }
