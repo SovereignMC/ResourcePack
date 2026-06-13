@@ -1,0 +1,4 @@
+/ignored/
+/.idea/
+*.zip
+./build.sh
