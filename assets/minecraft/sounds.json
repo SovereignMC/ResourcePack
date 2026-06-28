@@ -9,5 +9,7 @@
   "shoot.18inch": { "sounds": [{ "name": "sov:shoot_18inch" }] },
   "torp_shoot": { "sounds": [{ "name": "sov:torpedo_shoot" }] },
   "torp_alarm": { "sounds": [{ "name": "sov:torpedo_alarm" }] },
-  "torp_beep": { "sounds": [{ "name": "sov:torpedo_beep" }] }
+  "torp_beep": { "sounds": [{ "name": "sov:torpedo_beep" }] },
+  "radar_scan": { "sounds": [{ "name": "minecraft:radar_scan" }] },
+  "radar_detected": { "sounds": [{ "name": "minecraft:radar_detected" }] }
 }
