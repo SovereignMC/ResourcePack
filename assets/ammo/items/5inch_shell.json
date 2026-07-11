@@ -1,6 +1,9 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "ammo:item/5inch_shell"
+    "model": "ammo:item/ammo_model",
+    "tints": [
+      { "type": "minecraft:constant", "value": 6579295 }
+    ]
   }
 }
