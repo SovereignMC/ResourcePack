@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "argentum:block/big_capacitor_side",
+    "down": "argentum:block/big_capacitor_bottom",
+    "up": "argentum:block/big_capacitor_top",
+    "north": "argentum:block/big_capacitor_side",
+    "south": "argentum:block/big_capacitor_side",
+    "west": "argentum:block/big_capacitor_side",
+    "east": "argentum:block/big_capacitor_side"
+  }
+}

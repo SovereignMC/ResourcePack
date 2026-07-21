@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "argentum:block/big_capacitor"
+    "model": "argentum:block/large_capacitor"
   }
 }
