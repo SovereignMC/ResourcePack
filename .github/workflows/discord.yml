@@ -1,0 +1,54 @@
+name: Discord Commit Notification
+
+on:
+  push:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[nodiscord]')"
+    steps:
+      - name: Send Discord notifications per commit
+        env:
+          COMMITS_JSON: ${{ toJson(github.event.commits) }}
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          echo "$COMMITS_JSON" | jq -c '.[]' | while IFS= read -r commit; do
+            short_id=$(echo "$commit" | jq -r '.id[0:7]')
+            message=$(echo "$commit" | jq -r '.message')
+            timestamp=$(echo "$commit" | jq -r '.timestamp')
+            url=$(echo "$commit" | jq -r '.url')
+            author=$(echo "$commit" | jq -r '.author.name')
+
+            payload=$(jq -n \
+              --arg title "[$REPO_NAME:$REF_NAME] $short_id by $author" \
+              --arg desc "$message" \
+              --arg ts "$timestamp" \
+              --arg url "$url" \
+              '{
+                username: "GitHub",
+                avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                embeds: [{
+                  title: $title,
+                  url: $url,
+                  description: $desc,
+                  color: 2302520,
+                  timestamp: $ts
+                }]
+              }')
+
+            status=$(curl -sS -o /dev/null -w "%{http_code}" \
+              -X POST -H "Content-Type: application/json" \
+              -d "$payload" "$WEBHOOK_URL")
+
+            echo "Sent commit $short_id -> HTTP $status"
+
+            if [ "$status" = "429" ]; then
+              echo "Rate limited, backing off 3s"
+              sleep 3
+            else
+              sleep 1.5
+            fi
+          done
