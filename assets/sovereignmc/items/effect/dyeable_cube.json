@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sovereignmc:block/effect/dyeable_cube",
+    "tints": [
+      {
+        "type": "minecraft:dye",
+        "default": -2136971968
+      }
+    ]
+  }
+}
