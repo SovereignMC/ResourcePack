@@ -13,7 +13,7 @@ Copyright (c) 2019 TheBusyBiscuit
 - License: MIT
 
 ### Tinker's Construct
-Argentum textures and other assets are used from [Tinker's Construct](https://github.com/SlimeKnights/TinkersConstruct?tab=readme-ov-file) by the [SlimeKnights](https://github.com/SlimeKnights) team and their relevant contributors, licensed under the [MIT License](https://github.com/Slimefun/Resourcepack/blob/master/LICENSE).
+Argentum textures and other assets are used from [Tinker's Construct](https://github.com/SlimeKnights/TinkersConstruct) by the [SlimeKnights](https://github.com/SlimeKnights) team and their relevant contributors, licensed under the [MIT License](https://github.com/SlimeKnights/TinkersConstruct/blob/1.20.1/LICENSE).
 
 Copyright (c) 2022 SlimeKnights
 - Source: https://github.com/SlimeKnights/TinkersConstruct
