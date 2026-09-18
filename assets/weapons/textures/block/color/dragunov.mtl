@@ -1,0 +1,20 @@
+# Made in Blockbench 4.12.2
+newmtl m_6bd241fa-0a09-2e1c-a33f-baf4f079edba
+map_Kd gun_base2_color.png
+newmtl m_acba7f0b-fd30-68b3-360f-9e17b73642e3
+map_Kd gun_base_color.png
+newmtl m_d4f450e8-36b2-bde7-d265-ebb5247202cf
+map_Kd gun_light2_color.png
+newmtl m_808d9c9c-a4d1-7714-4281-c69b5bfaed7a
+map_Kd gun_wood_orange.png
+newmtl m_f701bf91-d719-a8e0-0582-7f0ec2a27c2e
+map_Kd gun_wood_orange_darker.png
+newmtl m_f8f59c2c-dc89-0982-bc82-76aff570b8a2
+map_Kd gun_base_shadow.png
+newmtl m_93fd16b1-dac3-2eae-83be-07d49b7df77e
+map_Kd gun_base2_shadow.png
+newmtl m_752eea3a-e9dd-071a-b078-1db60fca2e34
+map_Kd gun_light_color.png
+newmtl m_4e6a8350-6cf9-5558-c10f-642a2042cc37
+map_Kd brass.png
+newmtl none

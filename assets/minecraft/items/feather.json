@@ -1,0 +1,49 @@
+{
+    "model": {
+        "type": "minecraft:range_dispatch",
+        "property": "minecraft:custom_model_data",
+        "index": 0,
+        "entries": [
+            {
+                "threshold": 10,
+                "model": { "type": "minecraft:model", "model": "weapons:item/ak47" }
+            },
+            {
+                "threshold": 11,
+                "model": { "type": "minecraft:model", "model": "weapons:item/m14" }
+            },
+            {
+                "threshold": 12,
+                "model": { "type": "minecraft:model", "model": "weapons:item/g3" }
+            },
+            {
+                "threshold": 20,
+                "model": { "type": "minecraft:model", "model": "weapons:item/ppsh_41" }
+            },
+            {
+                "threshold": 21,
+                "model": { "type": "minecraft:model", "model": "weapons:item/uzi" }
+            },
+            {
+                "threshold": 22,
+                "model": { "type": "minecraft:model", "model": "weapons:item/m3_grease_gun" }
+            },
+            {
+                "threshold": 30,
+                "model": { "type": "minecraft:model", "model": "weapons:item/dragunov" }
+            },
+            {
+                "threshold": 31,
+                "model": { "type": "minecraft:model", "model": "weapons:item/ssg_69" }
+            },
+            {
+                "threshold": 32,
+                "model": { "type": "minecraft:model", "model": "weapons:item/remington" }
+            }
+        ],
+        "fallback": {
+            "type": "minecraft:model",
+            "model": "minecraft:item/feather"
+        }
+    }
+}
