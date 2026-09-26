@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "weapons:ammo/45_acp_magazine"
+    "layer0": "weapons:item/45_acp_magazine"
   }
 }

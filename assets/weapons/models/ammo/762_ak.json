@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "weapons:ammo/762_ak"
+    "layer0": "weapons:item/762_ak"
   }
 }
