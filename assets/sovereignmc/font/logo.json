@@ -3,15 +3,18 @@
     {
       "type": "bitmap",
       "file": "sovereignmc:font/smc_typelogo.png",
-      "chars": [""],
+      "chars": [
+        "\uE002"
+      ],
       "ascent": 0,
       "height": 80
     },
-
     {
       "type": "bitmap",
       "file": "sovereignmc:font/smc.png",
-      "chars": [""],
+      "chars": [
+        "\uE003"
+      ],
       "ascent": 0,
       "height": 50
     }
