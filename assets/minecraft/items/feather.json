@@ -39,6 +39,30 @@
             {
                 "threshold": 32,
                 "model": { "type": "minecraft:model", "model": "weapons:item/remington" }
+            },
+            {
+                "threshold": 1000001,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/762_nato" }
+            },
+            {
+                "threshold": 1000002,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/762_ak" }
+            },
+            {
+                "threshold": 1000003,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/30_06_magazine" }
+            },
+            {
+                "threshold": 1000004,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/9_mm_magazine" }
+            },
+            {
+                "threshold": 1000005,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/45_acp_magazine" }
+            },
+            {
+                "threshold": 1000006,
+                "model": { "type": "minecraft:model", "model": "weapons:ammo/tokarev_drum" }
             }
         ],
         "fallback": {

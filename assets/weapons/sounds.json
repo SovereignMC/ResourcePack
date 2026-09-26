@@ -1,0 +1,13 @@
+{
+    "ak47.fire": { "sounds": [{ "name": "weapons:ak47_fire"}] },
+    "g3.fire": { "sounds": [{ "name": "weapons:g3_fire"}] },
+    "fn_fal.fire": { "sounds": [{ "name": "weapons:fn_fal_fire"}] },
+    "m14.fire": { "sounds": [{ "name": "weapons:m14_fire"}] },
+    "uzi.fire": { "sounds": [{ "name": "weapons:uzi_fire"}] },
+    "ppsh41.fire": { "sounds": [{ "name": "weapons:ppsh41_fire"}] },
+    "m3_greaser.fire": { "sounds": [{ "name": "weapons:m3_greaser_fire"}] },
+    "ssg69.fire": { "sounds": [{ "name": "weapons:ssg69_fire"}] },
+    "dragunov.fire": { "sounds": [{ "name": "weapons:dragunov_fire"}] },
+    "r700.fire": { "sounds": [{ "name": "weapons:r700_fire"}] },
+    "generic.hitmarker": { "sounds": [{ "name": "weapons:hitmarker"}] }
+}
