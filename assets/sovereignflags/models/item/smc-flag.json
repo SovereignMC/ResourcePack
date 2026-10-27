@@ -9,9 +9,9 @@
 	"elements": [
 		{
 			"name": "pole",
-			"from": [6, -67, 6],
-			"to": [10, 33, 10],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"from": [11.2, -10.4, 7.2],
+			"to": [12.8, 29.6, 8.8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 16.4, 8]},
 			"faces": {
 				"north": {"uv": [1, 0, 2, 12.5], "texture": "#0"},
 				"east": {"uv": [0, 0, 1, 12.5], "texture": "#0"},
@@ -23,8 +23,8 @@
 		},
 		{
 			"name": "pike",
-			"from": [8, -71, 5],
-			"to": [8, -63, 11],
+			"from": [12, -12, 6.8],
+			"to": [12, -8.8, 9.2],
 			"faces": {
 				"east": {"uv": [8, 0, 9.5, 1], "texture": "#0"},
 				"west": {"uv": [9.5, 0, 11, 1], "texture": "#0"}
@@ -32,8 +32,8 @@
 		},
 		{
 			"name": "flag",
-			"from": [-58, -13, 8],
-			"to": [6, 27, 8],
+			"from": [-14.4, 11.2, 8],
+			"to": [11.2, 27.2, 8],
 			"faces": {
 				"north": {"uv": [0, 0, 16, 10], "texture": "#1"},
 				"south": {"uv": [0, 0, 16, 10], "texture": "#1"}
@@ -42,40 +42,46 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-123.48, -83.5, -126.82],
-			"translation": [5.75, 60.5, 6.25]
+			"rotation": [-59, -83.5, -126.82],
+			"translation": [4.75, 23.5, 35.25],
+			"scale": [2.5, 2.5, 2.5]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [72, 95, 0],
-			"translation": [-6.25, 16.5, 72]
+			"translation": [-6.25, 16.5, 38],
+			"scale": [2.5, 2.5, 2.5]
 		},
 		"firstperson_righthand": {
 			"translation": [3, 0.75, 0],
-			"scale": [0.4, 0.39, 0.37]
+			"scale": [0.32, 0.31, 0.33]
 		},
 		"firstperson_lefthand": {
-			"translation": [3, 3, 0],
-			"scale": [0.09, 0.09, 0.1]
+			"rotation": [0, 180, 0],
+			"translation": [1.75, 2.25, 1.75],
+			"scale": [0.225, 0.225, 0.25]
 		},
 		"ground": {
-			"translation": [0, 55, 0]
+			"translation": [-9.75, 31.5, 0],
+			"scale": [2.5, 2.5, 2.5]
 		},
 		"gui": {
-			"translation": [-7.5, 0.5, 0],
-			"scale": [0.28, 0.3, 0.3]
+			"translation": [5.25, -5.75, 0],
+			"scale": [0.58, 0.59, 0.59]
 		},
 		"head": {
-			"translation": [-0.75, 50, -0.75]
+			"translation": [-10.25, 19.5, -0.75],
+			"scale": [2.5, 2.5, 2.5]
 		},
 		"fixed": {
 			"rotation": [0, 0, 46],
-			"translation": [-13.75, 14.5, 0]
+			"translation": [-5.75, -7.75, 0],
+			"scale": [2.5, 2.5, 2.5]
 		}
 	},
 	"groups": [
 		{
 			"name": "root",
-			"origin": [8, 0, 8],
+			"origin": [12, 16.4, 8],
 			"scope": 0,
 			"color": 0,
 			"children": [
@@ -83,7 +89,7 @@
 				1,
 				{
 					"name": "flag",
-					"origin": [7, 22, 8],
+					"origin": [11.6, 25.2, 8],
 					"scope": 0,
 					"color": 9,
 					"children": [2]
