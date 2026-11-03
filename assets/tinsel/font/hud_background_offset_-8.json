@@ -1,0 +1,94 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/start.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_1.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_2.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_4.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_8.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_16.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_32.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_64.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/middle_128.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tinsel:font/hud_background_offset_-8/end.png",
+      "ascent": 21,
+      "height": 28,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}
