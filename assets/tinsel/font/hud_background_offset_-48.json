@@ -2,90 +2,90 @@
   "providers": [
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/start.png",
+      "file": "tinsel:font/hud_background_offset_-48/start.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_1.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_1.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_2.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_2.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_4.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_4.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_8.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_8.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_16.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_16.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_32.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_32.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_64.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_64.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/middle_128.png",
+      "file": "tinsel:font/hud_background_offset_-48/middle_128.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
     },
     {
       "type": "bitmap",
-      "file": "tinsel:font/hud_background/end.png",
+      "file": "tinsel:font/hud_background_offset_-48/end.png",
       "ascent": 61,
-      "height": 20,
+      "height": 68,
       "chars": [
         ""
       ]
