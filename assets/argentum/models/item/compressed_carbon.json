@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/compressed_carbon"
+    "layer0": "argentum:item/consumables/compressed_carbon"
   }
 }

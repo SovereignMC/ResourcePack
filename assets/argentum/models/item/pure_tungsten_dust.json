@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/pure_tungsten_dust"
+    "layer0": "argentum:item/dust/pure_tungsten_dust"
   }
 }

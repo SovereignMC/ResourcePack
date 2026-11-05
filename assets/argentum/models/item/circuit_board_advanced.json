@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/circuit_board_advanced"
+    "layer0": "argentum:item/components/circuit_board_advanced"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/solder_ingot"
+    "layer0": "argentum:item/metallurgy/solder_ingot"
   }
 }

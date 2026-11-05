@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/inputarrow"
+    "layer0": "argentum:item/ui/inputarrow"
   }
 }

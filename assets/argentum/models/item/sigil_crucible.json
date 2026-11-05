@@ -2,9 +2,9 @@
   "format_version": "1.21.6",
   "credit": "Made with Blockbench",
   "textures": {
-    "4": "argentum:item/crucible_gray",
-    "7": "argentum:item/gun_light_color",
-    "particle": "argentum:item/crucible_gray"
+    "4": "argentum:item/components/crucible_gray",
+    "7": "argentum:item/components/gun_light_color",
+    "particle": "argentum:item/components/crucible_gray"
   },
   "elements": [
     {

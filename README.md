@@ -14,6 +14,33 @@ Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/Resourc
 
 ## Credits
 
+## Textures
+
+Argentum textures are organized into category subfolders — never dump new PNGs
+flat into `textures/item/` or `textures/block/`. `tools/verify-pack.ps1` fails
+CI on flat or unresolvable references.
+
+```
+assets/argentum/textures/
+├── item/
+│   ├── sigils/        sigil_of_* + sigil_crucible
+│   ├── metallurgy/    ingots, alloys, raw ores, unrefined_gold_ore
+│   ├── dust/          impure_* and pure_* dusts, sulfur_dust
+│   ├── components/    circuits, electrodes, cores, blades, magnets, buckets, rods
+│   ├── consumables/   essences, condensed fluids, sulfate, cooling_salt, carbon chunks
+│   └── ui/            inputarrow, outputarrow (GUI decoration icons)
+└── block/
+    ├── machines/      machine face sets (brewer, transformer, water_tank, alternator, ...)
+    ├── capacitors/    *_capacitor_{bottom,side,top}
+    ├── crates/        output_crate face sets
+    └── supply/        supply_hopper, elevator_block
+```
+
+Rules:
+- Texture file NAMES stay stable — code binds `argentum:<id>` via item models.
+- Move a texture = update the referencing JSON's `textures.*` values in the same commit.
+- `tools/verify-pack.ps1` must stay green (also runs in CI and before PackSquash releases).
+
 ### Horizon's End Resource Pack
 Movecraft effects and other assets are taken from the [Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by [HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors, licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 - Source: https://github.com/HorizonsEndMC/ResourcePack

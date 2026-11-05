@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "argentum:item/essence_of_life_1"
+    "layer0": "argentum:item/consumables/essence_of_life_1"
   }
 }

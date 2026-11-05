@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/ender_essence_2"
+    "layer0": "argentum:item/consumables/ender_essence_2"
   }
 }

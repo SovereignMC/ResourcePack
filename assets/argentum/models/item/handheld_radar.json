@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "texture": "argentum:item/handheld_radar"
+    "texture": "argentum:item/components/handheld_radar"
   },
   "elements": [
     {

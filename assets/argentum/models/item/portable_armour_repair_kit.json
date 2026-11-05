@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "argentum:item/portable_armour_repair_kit"
+    "layer0": "argentum:item/components/portable_armour_repair_kit"
   }
 }

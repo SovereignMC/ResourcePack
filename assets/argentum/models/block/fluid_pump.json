@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "argentum:block/fluid_pump"
+    "all": "argentum:block/machines/fluid_pump"
   }
 }

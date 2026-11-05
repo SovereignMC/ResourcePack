@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "argentum:item/phosphor_bronze"
+    "layer0": "argentum:item/metallurgy/phosphor_bronze"
   }
 }

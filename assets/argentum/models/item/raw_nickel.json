@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "argentum:item/raw_nickel"
+    "layer0": "argentum:item/metallurgy/raw_nickel"
   }
 }

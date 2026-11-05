@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "argentum:item/mixing_blade"
+    "layer0": "argentum:item/components/mixing_blade"
   }
 }

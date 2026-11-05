@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/copper_wire"
+    "layer0": "argentum:item/components/copper_wire"
   }
 }

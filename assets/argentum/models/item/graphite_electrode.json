@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/graphite_electrode"
+    "layer0": "argentum:item/components/graphite_electrode"
   }
 }

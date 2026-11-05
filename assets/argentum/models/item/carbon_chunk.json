@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/carbon_chunk"
+    "layer0": "argentum:item/consumables/carbon_chunk"
   }
 }

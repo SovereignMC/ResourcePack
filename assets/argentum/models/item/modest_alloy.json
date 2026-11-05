@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/modest_alloy"
+    "layer0": "argentum:item/metallurgy/modest_alloy"
   }
 }

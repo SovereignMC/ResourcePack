@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "argentum:block/brewer_side",
-    "down": "argentum:block/brewer_bottomtop",
-    "up": "argentum:block/brewer_bottomtop",
-    "north": "argentum:block/brewer_side",
-    "south": "argentum:block/brewer_side",
-    "west": "argentum:block/brewer_side",
-    "east": "argentum:block/brewer_side"
+    "particle": "argentum:block/machines/brewer_side",
+    "down": "argentum:block/machines/brewer_bottomtop",
+    "up": "argentum:block/machines/brewer_bottomtop",
+    "north": "argentum:block/machines/brewer_side",
+    "south": "argentum:block/machines/brewer_side",
+    "west": "argentum:block/machines/brewer_side",
+    "east": "argentum:block/machines/brewer_side"
   }
 }

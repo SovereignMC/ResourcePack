@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:item/pure_chromium_ingot"
+    "layer0": "argentum:item/metallurgy/pure_chromium_ingot"
   }
 }
