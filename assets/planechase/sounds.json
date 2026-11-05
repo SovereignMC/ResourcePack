@@ -1,0 +1,13 @@
+{
+  "cockpit.callout.100": { "subtitle": "subtitles.planechase.cockpit.callout", "sounds": [{ "name": "planechase:cockpit/callout_100" }] },
+  "cockpit.callout.50": { "subtitle": "subtitles.planechase.cockpit.callout", "sounds": [{ "name": "planechase:cockpit/callout_50" }] },
+  "cockpit.callout.40": { "subtitle": "subtitles.planechase.cockpit.callout", "sounds": [{ "name": "planechase:cockpit/callout_40" }] },
+  "cockpit.callout.30": { "subtitle": "subtitles.planechase.cockpit.callout", "sounds": [{ "name": "planechase:cockpit/callout_30" }] },
+  "cockpit.callout.20": { "subtitle": "subtitles.planechase.cockpit.callout", "sounds": [{ "name": "planechase:cockpit/callout_20" }] },
+  "cockpit.callout.retard": { "subtitle": "subtitles.planechase.cockpit.retard", "sounds": [{ "name": "planechase:cockpit/callout_retard" }] },
+  "cockpit.stall": { "subtitle": "subtitles.planechase.cockpit.stall", "sounds": [{ "name": "planechase:cockpit/stall_warning" }] },
+  "cockpit.terrain_pull_up": { "subtitle": "subtitles.planechase.cockpit.terrain", "sounds": [{ "name": "planechase:cockpit/terrain_pull_up" }] },
+  "cockpit.too_low_terrain": { "subtitle": "subtitles.planechase.cockpit.too_low", "sounds": [{ "name": "planechase:cockpit/too_low_terrain" }] },
+  "cockpit.altitude_alert": { "subtitle": "subtitles.planechase.cockpit.altitude", "sounds": [{ "name": "planechase:cockpit/altitude_alert" }] },
+  "cockpit.seatbelt": { "subtitle": "subtitles.planechase.cockpit.seatbelt", "sounds": [{ "name": "planechase:cockpit/seatbelt_chime" }] }
+}
