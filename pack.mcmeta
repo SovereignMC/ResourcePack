@@ -1,7 +1,7 @@
 {
   "pack": {
     "pack_format": 64,
-    "description": "§6SMC - Argentum Revamped",
+    "description": "§6SovereignMC's ResourcePack",
     "supported_formats": [64, 64],
     "min_format": [64, 0],
     "max_format": [75, 0]

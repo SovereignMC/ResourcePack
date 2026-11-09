@@ -1,4 +1,4 @@
-# SMC — Argentum Revamped
+# SovereignMC's ResourcePack
 
 The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It ships the custom content the server depends on: item and block models for guns, ammo and torpedoes, sovereign flags, GUI and HUD graphics, aircraft callouts, and AnimatedArchitecture door sounds.
 
