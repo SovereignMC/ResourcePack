@@ -18,3 +18,8 @@ Textures used by Argentum and other assets are taken from [Tinker's Construct](h
 Copyright (c) 2022 SlimeKnights
 - Source: https://github.com/SlimeKnights/TinkersConstruct
 - License: MIT
+
+### Animated Architecture
+Sound effects used by the pack's BigDoors/AnimatedArchitecture events are taken from the AnimatedArchitecture support pack by [PimvanderLoos](https://github.com/PimvanderLoos/AnimatedArchitecture), licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+- Source: https://github.com/PimvanderLoos/AnimatedArchitecture
+- License: GPL-3.0

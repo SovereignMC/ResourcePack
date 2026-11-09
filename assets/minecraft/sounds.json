@@ -11,5 +11,10 @@
   "torp_alarm": { "sounds": [{ "name": "sov:torpedo_alarm" }] },
   "torp_beep": { "sounds": [{ "name": "sov:torpedo_beep" }] },
   "radar_scan": { "sounds": [{ "name": "minecraft:radar_scan" }] },
-  "radar_detected": { "sounds": [{ "name": "minecraft:radar_detected" }] }
+  "radar_detected": { "sounds": [{ "name": "minecraft:radar_detected" }] },
+  "bd.dragging1": { "sounds": [{ "name": "minecraft:custom/dragging1" }] },
+  "bd.dragging2": { "sounds": [{ "name": "minecraft:custom/dragging2" }] },
+  "bd.closing-vault-door": { "sounds": [{ "name": "minecraft:custom/closing-vault-door" }] },
+  "bd.drawbridge-rattling": { "sounds": [{ "name": "minecraft:custom/drawbridge-rattling" }] },
+  "bd.thud": { "sounds": [{ "name": "minecraft:custom/thud" }] }
 }
