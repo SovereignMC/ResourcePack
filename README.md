@@ -1,4 +1,18 @@
-# Credits
+# SMC — Argentum Revamped
+
+The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It ships the custom content the server depends on: item and block models for guns, ammo and torpedoes, sovereign flags, GUI and HUD graphics, aircraft callouts, and AnimatedArchitecture door sounds.
+
+## Play with us
+
+- Server: `play.sovereignmc.net`
+- Website: https://sovereignmc.net
+- Minecraft: **1.21+**
+
+## Download
+
+Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/ResourcePack/releases/latest) and drop it into your `resourcepacks` folder — no unzipping needed.
+
+## Credits
 
 ### Horizon's End Resource Pack
 Movecraft effects and other assets are taken from the [Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by [HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors, licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
