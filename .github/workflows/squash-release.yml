@@ -1,6 +1,10 @@
 name: Optimize resource pack
 permissions: write-all
-on: [push]
+on:
+  push:
+    paths:
+      - 'assets/**'
+      - 'pack.mcmeta'
 jobs:
   packsquash:
     name: Optimize resource pack
