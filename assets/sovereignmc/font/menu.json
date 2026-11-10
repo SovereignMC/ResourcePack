@@ -1,0 +1,76 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_bar_events.png",
+      "chars": [
+        "\ue004"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_footer_events.png",
+      "chars": [
+        "\ue005"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_bar_nations.png",
+      "chars": [
+        "\ue006"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_footer_nations.png",
+      "chars": [
+        "\ue007"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_bar_practice.png",
+      "chars": [
+        "\ue008"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_footer_practice.png",
+      "chars": [
+        "\ue009"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_title.png",
+      "chars": [
+        "\ue00a"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_body.png",
+      "chars": [
+        "\ue00b"
+      ],
+      "ascent": 7,
+      "height": 9
+    }
+  ]
+}
