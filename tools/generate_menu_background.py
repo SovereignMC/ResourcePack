@@ -87,7 +87,7 @@ PANELS = (
         {"text": "\nfor updates."},
     ]),
     ("nations", "\uE006", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS", "\uE00E",
-     "700:1 Earth Map Geopol Towny\nPlanes, Ships, PvP,\nWars and Industry"),
+     "1:750 Earth Map Geopol Towny\nPlanes, Ships, PvP,\nWars and Industry"),
     ("practice", "\uE007", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE", "\uE00F",
      "Practice your PvP skills or Design cutting-edge ships in Plots, "
      "the sky's the limit"),
