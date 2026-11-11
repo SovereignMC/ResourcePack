@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 """Draw the selector dialogue's vanilla container panels and print the /dialog command.
 
-Each panel is a 96 x 135 px `minecraft:container`-style window, cut into 9 px
+Each panel is a 192 x 252 px `minecraft:container`-style window, cut into 9 px
 rows so the client's fixed line pitch (see gio/gjy in the 1.21.11 jar) can draw
-it: a 15 px bevel with the vanilla palette, a title row carrying a 1 px accent
-rule, an inset field, a status row and the closing bevel. Every row is one
+it: a 3 px bevel with the vanilla palette, a title row carrying a 1 px accent
+rule, a 24 line inset field, a status row and the closing bevel. Every row is one
 bitmap glyph in `sovereignmc:menu` (ascent 7 / height 9), repeated down the
 dialogue by the Rust builder.
 
 Writes (relative to --pack-dir):
-    assets/sovereignmc/textures/font/menu_top.png            96x9 RGBA
-    assets/sovereignmc/textures/font/menu_label_<panel>.png  96x9 RGBA
-    assets/sovereignmc/textures/font/menu_body_top.png       96x9 RGBA
-    assets/sovereignmc/textures/font/menu_body.png           96x9 RGBA
-    assets/sovereignmc/textures/font/menu_body_bottom.png    96x9 RGBA
-    assets/sovereignmc/textures/font/menu_status.png         96x9 RGBA
-    assets/sovereignmc/textures/font/menu_bottom.png         96x9 RGBA
+    assets/sovereignmc/textures/font/menu_top.png            192x9 RGBA
+    assets/sovereignmc/textures/font/menu_label_<panel>.png  192x9 RGBA
+    assets/sovereignmc/textures/font/menu_body_top.png       192x9 RGBA
+    assets/sovereignmc/textures/font/menu_body.png           192x9 RGBA
+    assets/sovereignmc/textures/font/menu_body_bottom.png    192x9 RGBA
+    assets/sovereignmc/textures/font/menu_status.png         192x9 RGBA
+    assets/sovereignmc/textures/font/menu_bottom.png         192x9 RGBA
     assets/sovereignmc/font/menu.json
 
 Example:
@@ -29,9 +29,8 @@ import os
 
 from PIL import Image, ImageDraw
 
-WIDTH, HEIGHT = 96, 9
-PANEL_HEIGHT = 135
-BODY_ROWS = 11
+WIDTH, HEIGHT = 192, 9
+BODY_ROWS = 24
 ASCENT, GLYPH_HEIGHT = 7, 9
 
 # `minecraft:textures/gui/container/inventory.png` and `.../container/slot.png`
@@ -47,9 +46,13 @@ FIELD_EDGE = (55, 55, 55, 255)
 BAND = (0x2B, 0x2B, 0x2B, 255)
 
 # Inset field: 1 px of plate on each side of the window's bevel.
-FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM = 4, 18, WIDTH - 5, 115
+FIELD_LEFT, FIELD_TOP, FIELD_RIGHT = 4, 18, WIDTH - 5
+# The field's rows are the pack's body rows; its white bottom bevel sits one row
+# above the last line, which belongs to the status band.
+FIELD_BOTTOM = FIELD_TOP + HEIGHT * BODY_ROWS - 2
 RULE_ROW = FIELD_TOP - 1
 STATUS_ROW = FIELD_BOTTOM + 1
+PANEL_HEIGHT = STATUS_ROW + 19
 
 TOP_GLYPH = "\uE004"
 BODY_TOP_GLYPH = "\uE008"
@@ -119,8 +122,8 @@ def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
         draw.line([(FIELD_LEFT, FIELD_BOTTOM), (FIELD_RIGHT, FIELD_BOTTOM)], fill=LIGHT)
         draw.line([(FIELD_RIGHT, FIELD_TOP), (FIELD_RIGHT, FIELD_BOTTOM)], fill=LIGHT)
 
-    # Line -> panel pixel offset. The body is eleven lines: the field's top
-    # edge, nine plain lines and the field's bottom edge.
+    # Line -> panel pixel offset. The body is the field: its top edge, the plain
+    # rows and its bottom edge.
     offsets = {
         "top": 0,
         "label": 9,
@@ -210,7 +213,7 @@ def contents() -> list[dict]:
                 left = panel_left(index) + (WIDTH - text_width(title)) // 2
                 if left != pen:
                     flat.append(advance(left - pen))
-                flat.append({"text": title, "color": "#404040", "font": TEXT_FONT, "bold": True})
+                flat.append({"text": title, "color": panel[3], "font": TEXT_FONT, "bold": True})
                 pen = left + text_width(title)
         # Pad every row out to the panel rows' width so the client's per-line
         # centring cannot shift the panels against each other.
@@ -224,7 +227,7 @@ def dialog() -> dict:
     return {
         "type": "minecraft:notice",
         "title": "SovereignMC",
-        "body": {"type": "minecraft:plain_message", "width": 310, "contents": contents()},
+        "body": {"type": "minecraft:plain_message", "width": 600, "contents": contents()},
         "action": {"label": "Close"},
     }
 
