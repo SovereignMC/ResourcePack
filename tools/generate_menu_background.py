@@ -76,14 +76,20 @@ CAPTION_BOTTOM = FIELD_BOTTOM - 1
 CAPTION_PADDING = 4
 CAPTION_COLOR = "#E8E8E8"
 
+# The caption is a text component: a string, or a list of spans to colour part
+# of it (the Discord invite keeps the brand blurple).
+DISCORD_BLURPLE = "#5865F2"
+
 PANELS = (
-    ("events", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS", "\uE00D",
-     "We host regular events in here. see discord for info"),
+    ("events", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS", "\uE00D", [
+        {"text": "We regularly host PvP, War,\nMovecraft Events.\nCheck the "},
+        {"text": "Discord Server", "color": DISCORD_BLURPLE},
+        {"text": "\nfor updates."},
+    ]),
     ("nations", "\uE006", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS", "\uE00E",
-     "1000:1 resolution World Map Geopol Towny Nations simulator. "
-     "Movecraft, Planes, PvP, Wars and Industry"),
+     "700:1 Earth Map Geopol Towny\nPlanes, Ships, PvP,\nWars and Industry"),
     ("practice", "\uE007", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE", "\uE00F",
-     "Practice your PvP skills in /duels or Design cutting-edge ships in Plots, "
+     "Practice your PvP skills or Design cutting-edge ships in Plots, "
      "the sky's the limit"),
 )
 ART_DIR = "art"
@@ -165,7 +171,7 @@ def hit_slice() -> Image.Image:
     return image
 
 
-def panel_art(name: str, caption_text: str, pack_dir: str,
+def panel_art(name: str, caption: str | list[dict], pack_dir: str,
               client_jar: str | None) -> Image.Image:
     """The whole 24 row field: vanilla field art, the screenshot and its caption.
 
@@ -197,8 +203,10 @@ def panel_art(name: str, caption_text: str, pack_dir: str,
         raise SystemExit("no client jar: the caption needs minecraft:default")
     renderer = render_text.Renderer(render_text.AssetSource(pack_dir, jar, None))
     width = ART_WIDTH - 2 * CAPTION_PADDING
-    rendered = renderer.render({"text": caption_text, "color": CAPTION_COLOR,
-                                "font": TEXT_FONT},
+    if isinstance(caption, str):
+        caption = [{"text": caption}]
+    rendered = renderer.render({"color": CAPTION_COLOR, "font": TEXT_FONT,
+                                "extra": caption},
                                width=width, zoom=1, background=(0, 0, 0, 0))
     pad = render_text.BODY_PADDING
     band = rendered.crop((pad, pad, rendered.width - pad, rendered.height - pad))
