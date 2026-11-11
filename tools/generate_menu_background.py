@@ -42,9 +42,12 @@ PLATE = (198, 198, 198, 255)
 SHADOW = (85, 85, 85, 255)
 FIELD = (139, 139, 139, 255)
 FIELD_EDGE = (55, 55, 55, 255)
+# Title and status rows are dark bands, so the light palette's accent text keeps
+# the contrast the plain #404040-on-plate container grey loses without a shadow.
+BAND = (0x2B, 0x2B, 0x2B, 255)
 
 # Inset field: 1 px of plate on each side of the window's bevel.
-FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM = 4, 18, WIDTH - 5, 116
+FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM = 4, 18, WIDTH - 5, 115
 RULE_ROW = FIELD_TOP - 1
 STATUS_ROW = FIELD_BOTTOM + 1
 
@@ -93,11 +96,23 @@ def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
     image = window_pixels()
     draw = ImageDraw.Draw(image)
 
-    if kind == "label":
-        # The accent rule closes the title row; vanilla container titles are
-        # single-colour, so this keeps the three panels apart.
+    if kind == "top":
+        # The band starts one row into the bevel row: vanilla caps ink the row
+        # at the top of their line, so a band starting on the text line would
+        # leave the letters flush against its edge.
+        draw.line([(FIELD_LEFT, HEIGHT - 1), (FIELD_RIGHT, HEIGHT - 1)], fill=BAND)
+    elif kind == "label":
+        draw.rectangle([FIELD_LEFT, 9, FIELD_RIGHT, RULE_ROW - 1], fill=BAND)
+        # The accent rule closes the title band and keeps the three panels apart.
         draw.line([(FIELD_LEFT, RULE_ROW), (FIELD_RIGHT, RULE_ROW)], fill=accent + (255,))
+    elif kind == "status":
+        draw.rectangle([FIELD_LEFT, STATUS_ROW, FIELD_RIGHT, STATUS_ROW + 8], fill=BAND)
     elif kind.startswith("body"):
+        if kind == "body_bottom":
+            # The status band starts one row early, leaving the same 1 px gap
+            # above its text as the title band has above the panel name.
+            draw.line([(FIELD_LEFT, FIELD_BOTTOM + 1), (FIELD_RIGHT, FIELD_BOTTOM + 1)],
+                      fill=BAND)
         draw.rectangle([FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM], fill=FIELD)
         draw.line([(FIELD_LEFT, FIELD_TOP), (FIELD_RIGHT, FIELD_TOP)], fill=FIELD_EDGE)
         draw.line([(FIELD_LEFT, FIELD_TOP), (FIELD_LEFT, FIELD_BOTTOM)], fill=FIELD_EDGE)
@@ -111,7 +126,7 @@ def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
         "label": 9,
         "body_top": FIELD_TOP,
         "body": FIELD_TOP + 9,
-        "body_bottom": FIELD_BOTTOM - HEIGHT + 1,
+        "body_bottom": FIELD_BOTTOM - HEIGHT + 2,
         "status": STATUS_ROW,
         "bottom": STATUS_ROW + HEIGHT,
     }
