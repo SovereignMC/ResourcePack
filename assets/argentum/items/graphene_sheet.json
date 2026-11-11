@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "argentum:block/graphene_sheet"
+    "model": "argentum:item/graphene_sheet"
   }
 }

@@ -47,6 +47,7 @@ $ITEM_CONSUMABLES = @(
     'cooling_salt', 'ender_essence_1', 'ender_essence_2', 'essence_of_life_1', 'sulfate'
 )
 $ITEM_UI = @('inputarrow', 'outputarrow')
+$ITEM_TOOLS = @('climbing_pickaxe', 'gold_pan', 'nether_gold_pan')
 $ITEM_METALLURGY_EXPLICIT = @(
     'chromium_steel', 'hardened_steel', 'nickel_alloy', 'modest_alloy', 'phosphor_bronze',
     'unrefined_gold_ore'
@@ -61,6 +62,13 @@ $BLOCK_MACHINES = @(
     'water_tank_bottom', 'water_tank_side', 'water_tank_top'
 )
 $BLOCK_SUPPLY = @('supply_hopper_bottom', 'supply_hopper_side', 'elevator_block')
+# Slimefun-style basic machines (flat 2D icons, used by item/generated models)
+$BLOCK_BASIC_MACHINES = @(
+    'enhanced_crafting_table', 'grind_stone', 'ore_crusher', 'compressor', 'smeltery',
+    'pressure_chamber', 'ore_washer', 'table_saw', 'automated_panning_machine',
+    'composter', 'crucible', 'block_placer', 'output_chest', 'automatic_ignition_chamber',
+    'reinforced_furnace', 'carbonado_edged_furnace'
+)
 
 function Resolve-ItemCategory([string]$name) {
     if ($ITEM_DELETE -contains $name) { return '_DELETE_' }
@@ -72,6 +80,7 @@ function Resolve-ItemCategory([string]$name) {
     }
     if ($ITEM_CONSUMABLES -contains $name) { return 'consumables' }
     if ($ITEM_UI -contains $name) { return 'ui' }
+    if ($ITEM_TOOLS -contains $name) { return 'tools' }
     if ($name -like 'impure_*_dust' -or $name -like 'pure_*_dust' -or
         $name -eq 'sulfur_dust' -or $name -eq 'unrefined_gold_dust') { return 'dust' }
     if ($ITEM_METALLURGY_EXPLICIT -contains $name) { return 'metallurgy' }
@@ -86,6 +95,8 @@ function Resolve-BlockCategory([string]$name) {
     if ($name -like 'output_crate_*') { return 'crates' }
     if ($BLOCK_SUPPLY -contains $name) { return 'supply' }
     if ($BLOCK_MACHINES -contains $name) { return 'machines' }
+    if ($BLOCK_BASIC_MACHINES -contains $name) { return 'basic_machines' }
+    if ($name -like 'enhanced_furnace_*') { return 'basic_machines' }
     return $null
 }
 

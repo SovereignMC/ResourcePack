@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "argentum:block/machines/graphene_sheet"
+    "layer0": "argentum:item/metallurgy/graphene_sheet"
   }
 }

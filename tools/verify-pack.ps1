@@ -22,12 +22,27 @@ $MODEL_REF_WARNLIST = @(
     'item/alternator', 'item/big_capacitor', 'item/brewer', 'item/carbonado_capacitor',
     'item/connector', 'item/electric_motor', 'item/elevator_block', 'item/energized_capacitor',
     'item/fluid_pump', 'item/heater', 'item/large_capacitor', 'item/medium_capacitor',
-    'item/regulator', 'item/small_capacitor', 'item/steam_turbine', 'item/transformer',
-    'item/water_tank', 'block/graphene_sheet'
+    'item/small_capacitor', 'item/steam_turbine', 'item/transformer', 'item/water_tank'
 )
+
+# Texture category subfolders (keep in sync with README.md). A ref into any other
+# subfolder is a hard failure so new categories are added deliberately.
+$TEXTURE_CATEGORIES = @{
+    'item'  = @('sigils', 'metallurgy', 'dust', 'components', 'consumables', 'ui', 'tools')
+    'block' = @('machines', 'basic_machines', 'capacitors', 'crates', 'supply')
+}
 
 foreach ($png in Get-ChildItem 'assets/argentum/textures' -Recurse -Filter *.png -File) {
     $allTextures.Add($png.FullName)
+}
+
+# resource locations only allow [a-z0-9_.-/]; spaces/uppercase make assets unloadable
+$assetsRoot = (Resolve-Path 'assets').Path
+foreach ($f in Get-ChildItem 'assets' -Recurse -File) {
+    $relAsset = $f.FullName.Substring($assetsRoot.Length + 1).Replace([char]92, [char]47)
+    if ($relAsset -cnotmatch '^[a-z0-9_.\-/]+$') {
+        $fail.Add("invalid resource location (allowed: a-z 0-9 _ . - /): assets/$relAsset")
+    }
 }
 
 function Test-ModelRef([string]$refPath, [string]$file) {
@@ -45,6 +60,10 @@ function Test-TextureRef([string]$refPath, [string]$file) {
     $texFile = Join-Path 'assets/argentum' ("textures/" + $refPath + ".png")
     if ($refPath -match '^(item|block)/[^/]+$') {
         $warn.Add("texture ref not in a category subfolder: argentum:$refPath in $file")
+    } elseif ($refPath -match '^(item|block)/([^/]+)/') {
+        if ($TEXTURE_CATEGORIES[$Matches[1]] -notcontains $Matches[2]) {
+            $fail.Add("texture ref uses unknown category '$($Matches[2])': argentum:$refPath in $file (add it to TEXTURE_CATEGORIES + README)")
+        }
     }
     if (Test-Path $texFile) {
         $referencedTextures.Add((Resolve-Path $texFile).Path)

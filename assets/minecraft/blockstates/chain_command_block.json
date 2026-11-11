@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "conditional\u003dfalse,facing\u003ddown": {
+      "model": "argentum:block/steam_turbine",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003deast": {
+      "model": "minecraft:block/chain_command_block",
+      "y": 90
+    },
+    "conditional\u003dfalse,facing\u003dnorth": {
+      "model": "argentum:block/transformer",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dsouth": {
+      "model": "argentum:block/water_tank",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dup": {
+      "model": "argentum:block/supply_hopper",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dwest": {
+      "model": "minecraft:block/chain_command_block",
+      "y": 270
+    },
+    "conditional\u003dtrue,facing\u003ddown": {
+      "model": "argentum:block/output_crate_t2",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003deast": {
+      "model": "argentum:block/small_capacitor",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dnorth": {
+      "model": "argentum:block/output_crate_t4",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dsouth": {
+      "model": "argentum:block/output_crate_t5",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dup": {
+      "model": "argentum:block/output_crate_t3",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dwest": {
+      "model": "argentum:block/output_crate_t6",
+      "y": 180
+    }
+  }
+}

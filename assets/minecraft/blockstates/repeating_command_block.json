@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "conditional\u003dfalse,facing\u003ddown": {
+      "model": "argentum:block/energized_capacitor",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003deast": {
+      "model": "argentum:block/output_crate_t1",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dnorth": {
+      "model": "argentum:block/heater",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dsouth": {
+      "model": "argentum:block/large_capacitor",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dup": {
+      "model": "argentum:block/fluid_pump",
+      "y": 180
+    },
+    "conditional\u003dfalse,facing\u003dwest": {
+      "model": "argentum:block/medium_capacitor",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003ddown": {
+      "model": "argentum:block/elevator_block",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003deast": {
+      "model": "argentum:block/electric_motor",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dnorth": {
+      "model": "argentum:block/big_capacitor",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dsouth": {
+      "model": "argentum:block/brewer",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dup": {
+      "model": "argentum:block/alternator",
+      "y": 180
+    },
+    "conditional\u003dtrue,facing\u003dwest": {
+      "model": "argentum:block/carbonado_capacitor",
+      "y": 180
+    }
+  }
+}

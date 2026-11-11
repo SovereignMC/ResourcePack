@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "argentum:block/machines/auto_anvil_side",
+    "down": "argentum:block/machines/auto_anvil_bottom",
+    "up": "argentum:block/machines/auto_anvil_top",
+    "north": "argentum:block/machines/auto_anvil_side",
+    "south": "argentum:block/machines/auto_anvil_side",
+    "west": "argentum:block/machines/auto_anvil_side",
+    "east": "argentum:block/machines/auto_anvil_side"
+  }
+}

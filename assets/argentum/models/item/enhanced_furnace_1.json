@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "argentum:block/basic_machines/enhanced_furnace_1"
+  }
+}
