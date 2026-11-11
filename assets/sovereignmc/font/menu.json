@@ -29,36 +29,36 @@
     },
     {
       "type": "bitmap",
+      "file": "sovereignmc:font/menu_panel_events.png",
+      "chars": [
+        "\ue00d"
+      ],
+      "ascent": 7,
+      "height": 216
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_panel_nations.png",
+      "chars": [
+        "\ue00e"
+      ],
+      "ascent": 7,
+      "height": 216
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/menu_panel_practice.png",
+      "chars": [
+        "\ue00f"
+      ],
+      "ascent": 7,
+      "height": 216
+    },
+    {
+      "type": "bitmap",
       "file": "sovereignmc:font/menu_top.png",
       "chars": [
         "\ue004"
-      ],
-      "ascent": 7,
-      "height": 9
-    },
-    {
-      "type": "bitmap",
-      "file": "sovereignmc:font/menu_body_top.png",
-      "chars": [
-        "\ue008"
-      ],
-      "ascent": 7,
-      "height": 9
-    },
-    {
-      "type": "bitmap",
-      "file": "sovereignmc:font/menu_body.png",
-      "chars": [
-        "\ue009"
-      ],
-      "ascent": 7,
-      "height": 9
-    },
-    {
-      "type": "bitmap",
-      "file": "sovereignmc:font/menu_body_bottom.png",
-      "chars": [
-        "\ue00a"
       ],
       "ascent": 7,
       "height": 9

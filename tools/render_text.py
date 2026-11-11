@@ -570,9 +570,16 @@ def self_test(source: AssetSource) -> int:
         menu = source.font("sovereignmc:menu")
         glyph = menu.glyph(0xE004)
         if glyph is not None:
-            check("96 px slice advance", glyph.advance, 97)
+            check("192 px slice advance", glyph.advance, 193)
             check("slice ascent", glyph.ascent, 7)
-            check("slice drawn size", glyph.size, (96, 9))
+            check("slice drawn size", glyph.size, (192, 9))
+        field = menu.glyph(0xE00D)
+        if field is not None:
+            # One tall glyph carries the whole 24 row field; the client and this
+            # renderer both place its top on the glyph's line.
+            check("field ascent", field.ascent, 7)
+            check("field drawn size", field.size, (192, 216))
+            check("field advance", field.advance, 193)
         spacing = source.font("tinsel:spacing")
         check("tinsel -256", spacing.glyph(0xF8F7).advance, -256)
         check("tinsel +32", spacing.glyph(0xE005).advance, 32)

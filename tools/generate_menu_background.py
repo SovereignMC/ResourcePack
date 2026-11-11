@@ -11,12 +11,15 @@ dialogue by the Rust builder.
 Writes (relative to --pack-dir):
     assets/sovereignmc/textures/font/menu_top.png            192x9 RGBA
     assets/sovereignmc/textures/font/menu_label_<panel>.png  192x9 RGBA
-    assets/sovereignmc/textures/font/menu_body_top.png       192x9 RGBA
-    assets/sovereignmc/textures/font/menu_body.png           192x9 RGBA
-    assets/sovereignmc/textures/font/menu_body_bottom.png    192x9 RGBA
+    assets/sovereignmc/textures/font/menu_panel_<panel>.png  192x216 RGBA
     assets/sovereignmc/textures/font/menu_status.png         192x9 RGBA
     assets/sovereignmc/textures/font/menu_bottom.png         192x9 RGBA
     assets/sovereignmc/font/menu.json
+
+`menu_panel_<panel>.png` is the whole 24 row field in one glyph: the vanilla
+field art with that panel's screenshot cropped into the inset area and the
+caption laid out under it, so the client draws the field in one line and the
+remaining field rows only carry the click overlays.
 
 Example:
     python3 tools/generate_menu_background.py --pack-dir .
@@ -55,17 +58,30 @@ STATUS_ROW = FIELD_BOTTOM + 1
 PANEL_HEIGHT = STATUS_ROW + 19
 
 TOP_GLYPH = "\uE004"
-BODY_TOP_GLYPH = "\uE008"
-BODY_GLYPH = "\uE009"
-BODY_BOTTOM_GLYPH = "\uE00A"
 STATUS_GLYPH = "\uE00B"
 BOTTOM_GLYPH = "\uE00C"
 
+# The field: a 24 row composite per panel, carrying the screenshot and caption.
+ART_TOP = FIELD_TOP + 1
+ART_LEFT, ART_RIGHT = FIELD_LEFT + 1, FIELD_RIGHT - 1
+ART_WIDTH = ART_RIGHT - ART_LEFT + 1
+ART_HEIGHT = 144
+CAPTION_TOP = ART_TOP + ART_HEIGHT + 1
+CAPTION_BOTTOM = FIELD_BOTTOM - 1
+CAPTION_PADDING = 4
+CAPTION_COLOR = "#E8E8E8"
+
 PANELS = (
-    ("events", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS"),
-    ("nations", "\uE006", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS"),
-    ("practice", "\uE007", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE"),
+    ("events", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS", "\uE00D",
+     "We host regular events in here. see discord for info"),
+    ("nations", "\uE006", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS", "\uE00E",
+     "1000:1 resolution World Map Geopol Towny Nations simulator. "
+     "Movecraft, Planes, PvP, Wars and Industry"),
+    ("practice", "\uE007", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE", "\uE00F",
+     "Practice your PvP skills in /duels or Design cutting-edge ships in Plots, "
+     "the sky's the limit"),
 )
+ART_DIR = "art"
 FONT_ID = "sovereignmc:menu"
 TEXT_FONT = "minecraft:default"
 
@@ -137,17 +153,75 @@ def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
     return image.crop((0, top, WIDTH, top + HEIGHT))
 
 
+def panel_art(name: str, caption_text: str, pack_dir: str,
+              client_jar: str | None) -> Image.Image:
+    """The whole 24 row field: vanilla field art, the screenshot and its caption.
+
+    Drawing it as one glyph keeps the client from re-pitching the field, so the
+    screenshot lands on exact pixels; `menu.json` gives it ascent 7 and height
+    216, which the renderer and the client both read as "top of this line".
+    """
+    image = Image.new("RGBA", (WIDTH, HEIGHT * BODY_ROWS), (0, 0, 0, 0))
+    rows = [panel_slice(PANELS[0][2], "body_top")]
+    rows += [panel_slice(PANELS[0][2], "body")] * (BODY_ROWS - 2)
+    rows.append(panel_slice(PANELS[0][2], "body_bottom"))
+    for index, row in enumerate(rows):
+        image.paste(row, (0, index * HEIGHT))
+
+    source = Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                     ART_DIR, f"{name}.png")).convert("RGB")
+    crop_width = min(source.width, round(source.height * ART_WIDTH / ART_HEIGHT))
+    left = (source.width - crop_width) // 2
+    shot = source.crop((left, 0, left + crop_width, source.height))
+    shot = shot.resize((ART_WIDTH, ART_HEIGHT), Image.Resampling.LANCZOS)
+    # Composite rows are panel rows shifted by FIELD_TOP.
+    origin = -FIELD_TOP
+    image.paste(shot, (ART_LEFT, ART_TOP + origin))
+
+    import render_text
+
+    jar = render_text.find_client_jar(client_jar)
+    if jar is None:
+        raise SystemExit("no client jar: the caption needs minecraft:default")
+    renderer = render_text.Renderer(render_text.AssetSource(pack_dir, jar, None))
+    width = ART_WIDTH - 2 * CAPTION_PADDING
+    rendered = renderer.render({"text": caption_text, "color": CAPTION_COLOR,
+                                "font": TEXT_FONT},
+                               width=width, zoom=1, background=(0, 0, 0, 0))
+    pad = render_text.BODY_PADDING
+    band = rendered.crop((pad, pad, rendered.width - pad, rendered.height - pad))
+    lines = []
+    for index in range(band.height // HEIGHT):
+        strip = band.crop((0, index * HEIGHT, band.width, (index + 1) * HEIGHT))
+        ink = strip.getbbox()
+        if ink is not None:
+            lines.append(strip.crop((ink[0], 0, ink[2], HEIGHT)))
+    band_height = CAPTION_BOTTOM - CAPTION_TOP + 1
+    top = CAPTION_TOP + origin + (band_height - len(lines) * HEIGHT) // 2
+    ImageDraw.Draw(image).rectangle(
+        [ART_LEFT, CAPTION_TOP + origin, ART_RIGHT, CAPTION_BOTTOM + origin], fill=BAND)
+    for index, line in enumerate(lines):
+        x = ART_LEFT + (ART_WIDTH - line.width) // 2
+        image.alpha_composite(line, (x, top + index * HEIGHT))
+    return image
+
+
 def font_definition() -> dict:
     providers = []
-    for name, glyph, _accent, _colour, _title in PANELS:
+    for name, glyph, _accent, _colour, _title, art_glyph, _caption in PANELS:
         providers.append({
             "type": "bitmap",
             "file": f"sovereignmc:font/menu_label_{name}.png",
             "chars": [glyph], "ascent": ASCENT, "height": GLYPH_HEIGHT,
         })
-    for kind, glyph in (("top", TOP_GLYPH), ("body_top", BODY_TOP_GLYPH),
-                        ("body", BODY_GLYPH), ("body_bottom", BODY_BOTTOM_GLYPH),
-                        ("status", STATUS_GLYPH), ("bottom", BOTTOM_GLYPH)):
+    for name, _glyph, _accent, _colour, _title, art_glyph, _caption in PANELS:
+        providers.append({
+            "type": "bitmap",
+            "file": f"sovereignmc:font/menu_panel_{name}.png",
+            "chars": [art_glyph], "ascent": ASCENT, "height": HEIGHT * BODY_ROWS,
+        })
+    for kind, glyph in (("top", TOP_GLYPH), ("status", STATUS_GLYPH),
+                        ("bottom", BOTTOM_GLYPH)):
         providers.append({
             "type": "bitmap",
             "file": f"sovereignmc:font/menu_{kind}.png",
@@ -200,13 +274,22 @@ def glyph_row(glyphs) -> tuple[list[dict], int]:
 
 def contents() -> list[dict]:
     flat: list[dict] = []
-    rows = [TOP_GLYPH, None, BODY_TOP_GLYPH] + [BODY_GLYPH] * (BODY_ROWS - 2) + \
-           [BODY_BOTTOM_GLYPH, STATUS_GLYPH, BOTTOM_GLYPH]
+    # `None` is the title row, `"field"` the 24 row composite, `"blank"` a field
+    # row that only exists to carry the click overlay.
+    rows = [TOP_GLYPH, None, "field"] + ["blank"] * (BODY_ROWS - 1) + \
+           [STATUS_GLYPH, BOTTOM_GLYPH]
     line_width = panel_left(2) + WIDTH + 1
     for row in rows:
-        glyphs = [PANELS[index][1] if row is None else row for index in range(3)]
-        components, pen = glyph_row(glyphs)
-        flat.extend(components)
+        if row == "blank":
+            flat.append(advance(line_width))
+            pen = line_width
+        else:
+            if row == "field":
+                glyphs = [panel[5] for panel in PANELS]
+            else:
+                glyphs = [PANELS[index][1] if row is None else row for index in range(3)]
+            components, pen = glyph_row(glyphs)
+            flat.extend(components)
         if row is None:
             for index, panel in enumerate(PANELS):
                 title = panel[4]
@@ -264,6 +347,8 @@ def snbt(value, ascii_only: bool = False) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--pack-dir", default=".")
+    parser.add_argument("--client-jar",
+                        help="Minecraft client jar, for the captions' minecraft:default")
     parser.add_argument("--escape", action="store_true",
                         help="emit \\uXXXX escapes instead of raw auxiliary characters")
     args = parser.parse_args()
@@ -273,14 +358,22 @@ def main() -> None:
     os.makedirs(texture_dir, exist_ok=True)
     os.makedirs(font_dir, exist_ok=True)
 
-    for name, _glyph, accent, _colour, _title in PANELS:
+    for name, _glyph, accent, _colour, _title, _art_glyph, caption in PANELS:
         path = os.path.join(texture_dir, f"menu_label_{name}.png")
         panel_slice(accent, "label").save(path)
         print(path)
-    for kind in ("top", "body_top", "body", "body_bottom", "status", "bottom"):
+        path = os.path.join(texture_dir, f"menu_panel_{name}.png")
+        panel_art(name, caption, args.pack_dir, args.client_jar).save(path)
+        print(path)
+    for kind in ("top", "status", "bottom"):
         path = os.path.join(texture_dir, f"menu_{kind}.png")
         panel_slice(PANELS[0][2], kind).save(path)
         print(path)
+    for stale in (f"menu_{kind}.png" for kind in ("body_top", "body", "body_bottom")):
+        path = os.path.join(texture_dir, stale)
+        if os.path.exists(path):
+            os.remove(path)
+            print(f"removed {path}")
 
     font_path = os.path.join(font_dir, "menu.json")
     with open(font_path, "w", encoding="utf-8") as handle:
