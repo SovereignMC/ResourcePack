@@ -60,6 +60,11 @@ PANEL_HEIGHT = STATUS_ROW + 19
 TOP_GLYPH = "\uE004"
 STATUS_GLYPH = "\uE00B"
 BOTTOM_GLYPH = "\uE00C"
+# 192 x 9 and fully transparent except for one pixel in the last column, which
+# keeps the glyph's advance at 193 while the field art above it stays visible.
+# The client picks the hovered character by x, line by line, so every field row
+# needs its own hit glyph to carry the panel's click and hover events.
+HIT_GLYPH = "\uE010"
 
 # The field: a 24 row composite per panel, carrying the screenshot and caption.
 ART_TOP = FIELD_TOP + 1
@@ -153,6 +158,13 @@ def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
     return image.crop((0, top, WIDTH, top + HEIGHT))
 
 
+def hit_slice() -> Image.Image:
+    """Invisible click target: no ink, but the last column keeps the advance."""
+    image = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    image.putpixel((WIDTH - 1, 0), (0, 0, 0, 1))
+    return image
+
+
 def panel_art(name: str, caption_text: str, pack_dir: str,
               client_jar: str | None) -> Image.Image:
     """The whole 24 row field: vanilla field art, the screenshot and its caption.
@@ -220,6 +232,11 @@ def font_definition() -> dict:
             "file": f"sovereignmc:font/menu_panel_{name}.png",
             "chars": [art_glyph], "ascent": ASCENT, "height": HEIGHT * BODY_ROWS,
         })
+    providers.append({
+        "type": "bitmap",
+        "file": "sovereignmc:font/menu_hit.png",
+        "chars": [HIT_GLYPH], "ascent": ASCENT, "height": GLYPH_HEIGHT,
+    })
     for kind, glyph in (("top", TOP_GLYPH), ("status", STATUS_GLYPH),
                         ("bottom", BOTTOM_GLYPH)):
         providers.append({
@@ -260,29 +277,43 @@ def panel_left(index: int) -> int:
     return index * (WIDTH + 5)
 
 
+def panel_events(index: int) -> dict:
+    """Click and hover for panel `index`, added to every component of its column."""
+    return {
+        "click_event": {"action": "custom", "id": f"sovereignmc:menu/{index}"},
+        "hover_event": {"action": "show_text",
+                        "value": {"text": f"Click to join {PANELS[index][0]}"}},
+    }
+
+
+def advance_for(delta: int, index: int) -> dict:
+    return {**advance(delta), **panel_events(index)}
+
+
 def glyph_row(glyphs) -> tuple[list[dict], int]:
     components: list[dict] = []
     pen = 0
     for index, glyph in enumerate(glyphs):
         left = panel_left(index)
         if left != pen:
-            components.append(advance(left - pen))
-        components.append({"text": glyph, "font": FONT_ID})
+            components.append(advance_for(left - pen, index))
+        components.append({"text": glyph, "font": FONT_ID, **panel_events(index)})
         pen = left + WIDTH + 1
     return components, pen
 
 
 def contents() -> list[dict]:
     flat: list[dict] = []
-    # `None` is the title row, `"field"` the 24 row composite, `"blank"` a field
-    # row that only exists to carry the click overlay.
+    # `None` is the title row, `"field"` the 24 row composite, `"blank"` one of
+    # the field rows the composite covers, which still needs a hit glyph: the
+    # client resolves the hovered component per line and by x.
     rows = [TOP_GLYPH, None, "field"] + ["blank"] * (BODY_ROWS - 1) + \
            [STATUS_GLYPH, BOTTOM_GLYPH]
     line_width = panel_left(2) + WIDTH + 1
     for row in rows:
         if row == "blank":
-            flat.append(advance(line_width))
-            pen = line_width
+            components, pen = glyph_row([HIT_GLYPH] * 3)
+            flat.extend(components)
         else:
             if row == "field":
                 glyphs = [panel[5] for panel in PANELS]
@@ -295,13 +326,14 @@ def contents() -> list[dict]:
                 title = panel[4]
                 left = panel_left(index) + (WIDTH - text_width(title)) // 2
                 if left != pen:
-                    flat.append(advance(left - pen))
-                flat.append({"text": title, "color": panel[3], "font": TEXT_FONT, "bold": True})
+                    flat.append(advance_for(left - pen, index))
+                flat.append({"text": title, "color": panel[3], "font": TEXT_FONT,
+                             "bold": True, **panel_events(index)})
                 pen = left + text_width(title)
         # Pad every row out to the panel rows' width so the client's per-line
         # centring cannot shift the panels against each other.
         if pen < line_width:
-            flat.append(advance(line_width - pen))
+            flat.append(advance_for(line_width - pen, len(PANELS) - 1))
         flat.append({"text": "\n"})
     return flat
 
@@ -365,6 +397,9 @@ def main() -> None:
         path = os.path.join(texture_dir, f"menu_panel_{name}.png")
         panel_art(name, caption, args.pack_dir, args.client_jar).save(path)
         print(path)
+    path = os.path.join(texture_dir, "menu_hit.png")
+    hit_slice().save(path)
+    print(path)
     for kind in ("top", "status", "bottom"):
         path = os.path.join(texture_dir, f"menu_{kind}.png")
         panel_slice(PANELS[0][2], kind).save(path)

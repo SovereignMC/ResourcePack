@@ -56,6 +56,15 @@
     },
     {
       "type": "bitmap",
+      "file": "sovereignmc:font/menu_hit.png",
+      "chars": [
+        "\ue010"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
       "file": "sovereignmc:font/menu_top.png",
       "chars": [
         "\ue004"

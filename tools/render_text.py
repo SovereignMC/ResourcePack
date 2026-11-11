@@ -573,6 +573,11 @@ def self_test(source: AssetSource) -> int:
             check("192 px slice advance", glyph.advance, 193)
             check("slice ascent", glyph.ascent, 7)
             check("slice drawn size", glyph.size, (192, 9))
+        hit = menu.glyph(0xE010)
+        if hit is not None:
+            # Transparent per-row click target: no ink, but a full 193 px advance.
+            check("hit glyph advance", hit.advance, 193)
+            check("hit glyph drawn size", hit.size, (192, 9))
         field = menu.glyph(0xE00D)
         if field is not None:
             # One tall glyph carries the whole 24 row field; the client and this
