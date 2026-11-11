@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
-"""Draw the menu banner panels and print the /dialog command that labels them.
+"""Draw the selector dialogue's vanilla container panels and print the /dialog command.
 
-Each panel is a stack of 96x20 slices exposed as bitmap glyphs in
-sovereignmc:menu (ascent 13 / height 20, the metrics tinsel:hud_background
-uses). One slice per text line, so the panels are three glyph columns repeated
-down the dialog; the headers carry the labels as ordinary text components
-placed with tinsel:spacing, and the body slices are empty inset rows waiting
-for images and copy to be dropped in later.
+Each panel is a 96 x 135 px `minecraft:container`-style window, cut into 9 px
+rows so the client's fixed line pitch (see gio/gjy in the 1.21.11 jar) can draw
+it: a 15 px bevel with the vanilla palette, a title row carrying a 1 px accent
+rule, an inset field, a status row and the closing bevel. Every row is one
+bitmap glyph in `sovereignmc:menu` (ascent 7 / height 9), repeated down the
+dialogue by the Rust builder.
 
 Writes (relative to --pack-dir):
-    assets/sovereignmc/textures/font/menu_body.png              96x20 RGBA
-    assets/sovereignmc/textures/font/menu_header_<panel>.png    96x20 RGBA
-    assets/sovereignmc/textures/font/menu_footer_<panel>.png    96x20 RGBA
+    assets/sovereignmc/textures/font/menu_top.png            96x9 RGBA
+    assets/sovereignmc/textures/font/menu_label_<panel>.png  96x9 RGBA
+    assets/sovereignmc/textures/font/menu_body_top.png       96x9 RGBA
+    assets/sovereignmc/textures/font/menu_body.png           96x9 RGBA
+    assets/sovereignmc/textures/font/menu_body_bottom.png    96x9 RGBA
+    assets/sovereignmc/textures/font/menu_status.png         96x9 RGBA
+    assets/sovereignmc/textures/font/menu_bottom.png         96x9 RGBA
     assets/sovereignmc/font/menu.json
 
 Example:
@@ -26,101 +30,106 @@ import os
 from PIL import Image, ImageDraw
 
 WIDTH, HEIGHT = 96, 9
-GAP = 4
-BODY_ROWS = 12
-# The client lays text out on a fixed 9 px line pitch (see gio/gjy in the 1.21.11
-# jar): a taller glyph does not push the next line down, it gets overdrawn. So the
-# slices are exactly one line tall and ascent 7 puts a slice on rows 0..8.
+PANEL_HEIGHT = 135
+BODY_ROWS = 11
 ASCENT, GLYPH_HEIGHT = 7, 9
 
+# `minecraft:textures/gui/container/inventory.png` and `.../container/slot.png`
+# palette: 1 px black frame, 2 px light bevel, plate, 2 px shadow bevel.
+FRAME = (0, 0, 0, 255)
+LIGHT = (255, 255, 255, 255)
+PLATE = (198, 198, 198, 255)
+SHADOW = (85, 85, 85, 255)
+FIELD = (139, 139, 139, 255)
+FIELD_EDGE = (55, 55, 55, 255)
+
+# Inset field: 1 px of plate on each side of the window's bevel.
+FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM = 4, 18, WIDTH - 5, 116
+RULE_ROW = FIELD_TOP - 1
+STATUS_ROW = FIELD_BOTTOM + 1
+
+TOP_GLYPH = "\uE004"
+BODY_TOP_GLYPH = "\uE008"
+BODY_GLYPH = "\uE009"
+BODY_BOTTOM_GLYPH = "\uE00A"
+STATUS_GLYPH = "\uE00B"
+BOTTOM_GLYPH = "\uE00C"
+
 PANELS = (
-    ("events", "\uE004", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS"),
-    ("nations", "\uE006", "\uE007", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS"),
-    ("practice", "\uE008", "\uE009", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE"),
+    ("events", "\uE005", (0xE0, 0x7B, 0x24), "#FFC24D", "EVENTS"),
+    ("nations", "\uE006", (0xC9, 0xA2, 0x27), "#FFE08A", "NATIONS"),
+    ("practice", "\uE007", (0x2F, 0x86, 0xB8), "#8FE3FF", "PRACTICE"),
 )
-TITLE_GLYPH = "\uE00A"
-BODY_GLYPH = "\uE00B"
 FONT_ID = "sovereignmc:menu"
 TEXT_FONT = "minecraft:default"
 
-PLATE = (0, 0, 0, 165)
-INSET = (0, 0, 0, 60)
-BEVEL_DARK = (0, 0, 0, 235)
-DIVIDER = (0, 0, 0, 190)
 
-
-def _layer() -> tuple[Image.Image, ImageDraw.ImageDraw]:
-    image = Image.new("RGBA", (WIDTH, HEIGHT))
-    return image, ImageDraw.Draw(image)
-
-
-def _plate() -> Image.Image:
-    image, draw = _layer()
-    draw.rectangle([0, 0, WIDTH - 1, HEIGHT - 1], fill=PLATE)
+def window_pixels() -> Image.Image:
+    """One panel window: rounded frame, vanilla bevel, inset field, accent rule."""
+    image = Image.new("RGBA", (WIDTH, PANEL_HEIGHT), PLATE)
+    px = image.load()
+    # 2 px bevel: light on the top/left, shadow on the bottom/right.
+    for y in range(1, PANEL_HEIGHT - 1):
+        px[1, y], px[2, y] = LIGHT, LIGHT
+        px[WIDTH - 2, y], px[WIDTH - 3, y] = SHADOW, SHADOW
+    for x in range(1, WIDTH - 1):
+        px[x, 1], px[x, 2] = LIGHT, LIGHT
+        px[x, PANEL_HEIGHT - 2], px[x, PANEL_HEIGHT - 3] = SHADOW, SHADOW
+    # 1 px black frame, then the 2 px corners the vanilla textures round off.
+    for x in range(WIDTH):
+        px[x, 0] = px[x, PANEL_HEIGHT - 1] = FRAME
+    for y in range(PANEL_HEIGHT):
+        px[0, y] = px[WIDTH - 1, y] = FRAME
+    for x, y in ((0, 0), (1, 0), (0, 1),
+                 (WIDTH - 1, 0), (WIDTH - 2, 0), (WIDTH - 1, 1),
+                 (0, PANEL_HEIGHT - 1), (1, PANEL_HEIGHT - 1), (0, PANEL_HEIGHT - 2),
+                 (WIDTH - 1, PANEL_HEIGHT - 1), (WIDTH - 2, PANEL_HEIGHT - 1),
+                 (WIDTH - 1, PANEL_HEIGHT - 2)):
+        px[x, y] = (0, 0, 0, 0)
     return image
 
 
-def _frame(accent: tuple[int, int, int] | None, divider: bool) -> Image.Image:
-    """Dark side borders, optional accent rule on the last row. No light bevels."""
-    image, draw = _layer()
-    draw.line([(0, 0), (0, HEIGHT - 1)], fill=BEVEL_DARK)
-    draw.line([(WIDTH - 1, 0), (WIDTH - 1, HEIGHT - 1)], fill=BEVEL_DARK)
-    if accent is not None:
-        draw.line([(1, HEIGHT - 1), (WIDTH - 2, HEIGHT - 1)], fill=accent + (255,))
-    if divider:
-        draw.line([(1, HEIGHT - 1), (WIDTH - 2, HEIGHT - 1)], fill=DIVIDER)
-    return image
+def panel_slice(accent: tuple[int, int, int], kind: str) -> Image.Image:
+    image = window_pixels()
+    draw = ImageDraw.Draw(image)
 
+    if kind == "label":
+        # The accent rule closes the title row; vanilla container titles are
+        # single-colour, so this keeps the three panels apart.
+        draw.line([(FIELD_LEFT, RULE_ROW), (FIELD_RIGHT, RULE_ROW)], fill=accent + (255,))
+    elif kind.startswith("body"):
+        draw.rectangle([FIELD_LEFT, FIELD_TOP, FIELD_RIGHT, FIELD_BOTTOM], fill=FIELD)
+        draw.line([(FIELD_LEFT, FIELD_TOP), (FIELD_RIGHT, FIELD_TOP)], fill=FIELD_EDGE)
+        draw.line([(FIELD_LEFT, FIELD_TOP), (FIELD_LEFT, FIELD_BOTTOM)], fill=FIELD_EDGE)
+        draw.line([(FIELD_LEFT, FIELD_BOTTOM), (FIELD_RIGHT, FIELD_BOTTOM)], fill=LIGHT)
+        draw.line([(FIELD_RIGHT, FIELD_TOP), (FIELD_RIGHT, FIELD_BOTTOM)], fill=LIGHT)
 
-def build_bar(accent: tuple[int, int, int]) -> Image.Image:
-    """Accent band that caps each panel; the label goes on the row below it."""
-    image = _plate()
-    band, draw = _layer()
-    draw.rectangle([0, 0, WIDTH - 1, HEIGHT - 1], fill=accent + (255,))
-    draw.line([(0, HEIGHT - 1), (WIDTH - 1, HEIGHT - 1)], fill=BEVEL_DARK)
-    image.alpha_composite(band)
-    return image
-
-
-def build_title() -> Image.Image:
-    """Plain plate row: the label text sits on this one."""
-    image = _plate()
-    frame, draw = _layer()
-    draw.line([(0, 0), (0, HEIGHT - 1)], fill=BEVEL_DARK)
-    draw.line([(WIDTH - 1, 0), (WIDTH - 1, HEIGHT - 1)], fill=BEVEL_DARK)
-    image.alpha_composite(frame)
-    return image
-
-
-def build_body() -> Image.Image:
-    """Flat inset row: no bevel lines, so the panel reads as one dark surface."""
-    image = _plate()
-    inset, draw = _layer()
-    draw.rectangle([3, 1, WIDTH - 4, HEIGHT - 2], fill=INSET)
-    image.alpha_composite(inset)
-    image.alpha_composite(_frame(None, divider=True))
-    return image
-
-
-def build_footer(accent: tuple[int, int, int]) -> Image.Image:
-    image = _plate()
-    stripe, draw = _layer()
-    draw.rectangle([1, HEIGHT - 2, WIDTH - 2, HEIGHT - 1], fill=accent + (230,))
-    image.alpha_composite(stripe)
-    image.alpha_composite(_frame(None, divider=False))
-    return image
+    # Line -> panel pixel offset. The body is eleven lines: the field's top
+    # edge, nine plain lines and the field's bottom edge.
+    offsets = {
+        "top": 0,
+        "label": 9,
+        "body_top": FIELD_TOP,
+        "body": FIELD_TOP + 9,
+        "body_bottom": FIELD_BOTTOM - HEIGHT + 1,
+        "status": STATUS_ROW,
+        "bottom": STATUS_ROW + HEIGHT,
+    }
+    top = offsets[kind]
+    return image.crop((0, top, WIDTH, top + HEIGHT))
 
 
 def font_definition() -> dict:
     providers = []
-    for name, bar, footer, _accent, _colour, _title in PANELS:
-        for kind, glyph in (("bar", bar), ("footer", footer)):
-            providers.append({
-                "type": "bitmap",
-                "file": f"sovereignmc:font/menu_{kind}_{name}.png",
-                "chars": [glyph], "ascent": ASCENT, "height": GLYPH_HEIGHT,
-            })
-    for kind, glyph in (("title", TITLE_GLYPH), ("body", BODY_GLYPH)):
+    for name, glyph, _accent, _colour, _title in PANELS:
+        providers.append({
+            "type": "bitmap",
+            "file": f"sovereignmc:font/menu_label_{name}.png",
+            "chars": [glyph], "ascent": ASCENT, "height": GLYPH_HEIGHT,
+        })
+    for kind, glyph in (("top", TOP_GLYPH), ("body_top", BODY_TOP_GLYPH),
+                        ("body", BODY_GLYPH), ("body_bottom", BODY_BOTTOM_GLYPH),
+                        ("status", STATUS_GLYPH), ("bottom", BOTTOM_GLYPH)):
         providers.append({
             "type": "bitmap",
             "file": f"sovereignmc:font/menu_{kind}.png",
@@ -156,7 +165,7 @@ def text_width(text: str) -> int:
 
 
 def panel_left(index: int) -> int:
-    return index * (WIDTH + 1 + GAP)
+    return index * (WIDTH + 5)
 
 
 def glyph_row(glyphs) -> tuple[list[dict], int]:
@@ -173,34 +182,26 @@ def glyph_row(glyphs) -> tuple[list[dict], int]:
 
 def contents() -> list[dict]:
     flat: list[dict] = []
-
-    bars, pen = glyph_row([panel[1] for panel in PANELS])
-    line_width = pen
-    flat.extend(bars)
-
-    flat.append({"text": "\n"})
-    titles, pen = glyph_row([TITLE_GLYPH] * len(PANELS))
-    flat.extend(titles)
-    for index, panel in enumerate(PANELS):
-        title = panel[5]
-        left = panel_left(index) + (WIDTH - text_width(title)) // 2
-        if left != pen:
-            flat.append(advance(left - pen))
-        flat.append({"text": title, "color": panel[4], "font": TEXT_FONT, "bold": True})
-        pen = left + text_width(title)
-    # Pad the label line back out to the glyph lines' width so every line of the
-    # body measures the same, whatever alignment the dialog applies per line.
-    if pen < line_width:
-        flat.append(advance(line_width - pen))
-
-    for _ in range(BODY_ROWS):
+    rows = [TOP_GLYPH, None, BODY_TOP_GLYPH] + [BODY_GLYPH] * (BODY_ROWS - 2) + \
+           [BODY_BOTTOM_GLYPH, STATUS_GLYPH, BOTTOM_GLYPH]
+    line_width = panel_left(2) + WIDTH + 1
+    for row in rows:
+        glyphs = [PANELS[index][1] if row is None else row for index in range(3)]
+        components, pen = glyph_row(glyphs)
+        flat.extend(components)
+        if row is None:
+            for index, panel in enumerate(PANELS):
+                title = panel[4]
+                left = panel_left(index) + (WIDTH - text_width(title)) // 2
+                if left != pen:
+                    flat.append(advance(left - pen))
+                flat.append({"text": title, "color": "#404040", "font": TEXT_FONT, "bold": True})
+                pen = left + text_width(title)
+        # Pad every row out to the panel rows' width so the client's per-line
+        # centring cannot shift the panels against each other.
+        if pen < line_width:
+            flat.append(advance(line_width - pen))
         flat.append({"text": "\n"})
-        row, _ = glyph_row([BODY_GLYPH] * len(PANELS))
-        flat.extend(row)
-
-    flat.append({"text": "\n"})
-    footers, _ = glyph_row([panel[2] for panel in PANELS])
-    flat.extend(footers)
     return flat
 
 
@@ -254,15 +255,13 @@ def main() -> None:
     os.makedirs(texture_dir, exist_ok=True)
     os.makedirs(font_dir, exist_ok=True)
 
-    for name, _bar, _footer, accent, _colour, _title in PANELS:
-        for kind, image in (("bar", build_bar(accent)),
-                            ("footer", build_footer(accent))):
-            path = os.path.join(texture_dir, f"menu_{kind}_{name}.png")
-            image.save(path)
-            print(path)
-    for kind, image in (("title", build_title()), ("body", build_body())):
+    for name, _glyph, accent, _colour, _title in PANELS:
+        path = os.path.join(texture_dir, f"menu_label_{name}.png")
+        panel_slice(accent, "label").save(path)
+        print(path)
+    for kind in ("top", "body_top", "body", "body_bottom", "status", "bottom"):
         path = os.path.join(texture_dir, f"menu_{kind}.png")
-        image.save(path)
+        panel_slice(PANELS[0][2], kind).save(path)
         print(path)
 
     font_path = os.path.join(font_dir, "menu.json")
