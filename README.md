@@ -59,6 +59,9 @@ Rules:
 - Texture file NAMES stay stable — code binds `argentum:<id>` via item models.
 - Move a texture = update the referencing JSON's `textures.*` values in the same commit.
 - `tools/verify-pack.ps1` must stay green (also runs in CI and before PackSquash releases).
+- `tools/verify_argentum_refs.py` mirrors those checks (plus the 16x16 RGBA tile audit and
+  the Argentum ids StructuresRevamped resolves) for machines without `pwsh`; run
+  `python3 tools/verify_argentum_refs.py`. CI still runs `verify-pack.ps1`.
 
 ### Horizon's End Resource Pack
 Movecraft effects and other assets are taken from the [Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by [HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors, licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
