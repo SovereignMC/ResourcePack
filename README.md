@@ -12,6 +12,18 @@ The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It shi
 
 Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/ResourcePack/releases/latest) and drop it into your `resourcepacks` folder — no unzipping needed.
 
+## PlaneChase projectiles
+
+Blocky bomb and bullet models for PlaneChase, meant to be shown as PacketEvents-sent ItemDisplays
+whose item has `item_model` = `planechase:<name>`: `bullet_standard`, `bullet_tracer`, `bullet_ap`,
+`shell_cannon`, `bomb_gp`, `bomb_heavy`, `bomb_cluster`, `bomb_incendiary`, `bomb_tnt`.
+
+- Textures: `assets/planechase/textures/item/projectile/`. Models: `assets/planechase/models/item/`.
+- Blockbench sources and a contact sheet: `tools/art/projectiles/`.
+- The nose points to model -Z. On an ItemDisplay with the identity `fixed`/`head` transform, it faces
+  the entity's local +Z. Each model is centred on x = y = 8 and z of about 8, so the display sits at the
+  projectile's middle.
+
 ## Credits
 
 ## Textures
