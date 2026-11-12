@@ -1,51 +1,51 @@
 {
   "variants": {
-    "conditional\u003dfalse,facing\u003ddown": {
-      "model": "argentum:block/steam_turbine",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003deast": {
-      "model": "minecraft:block/chain_command_block",
-      "y": 90
-    },
-    "conditional\u003dfalse,facing\u003dnorth": {
-      "model": "argentum:block/transformer",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dsouth": {
-      "model": "argentum:block/water_tank",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dup": {
-      "model": "argentum:block/supply_hopper",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dwest": {
-      "model": "minecraft:block/chain_command_block",
-      "y": 270
-    },
-    "conditional\u003dtrue,facing\u003ddown": {
-      "model": "argentum:block/output_crate_t2",
-      "y": 180
-    },
-    "conditional\u003dtrue,facing\u003deast": {
+    "conditional=false,facing=down": {
       "model": "argentum:block/small_capacitor",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dnorth": {
-      "model": "argentum:block/output_crate_t4",
+    "conditional=false,facing=east": {
+      "model": "minecraft:block/chain_command_block",
+      "y": 90
+    },
+    "conditional=false,facing=north": {
+      "model": "argentum:block/supply_hopper",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dsouth": {
-      "model": "argentum:block/output_crate_t5",
+    "conditional=false,facing=south": {
+      "model": "argentum:block/transformer",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dup": {
+    "conditional=false,facing=up": {
+      "model": "argentum:block/steam_turbine",
+      "y": 180
+    },
+    "conditional=false,facing=west": {
+      "model": "argentum:block/water_tank",
+      "y": 180
+    },
+    "conditional=true,facing=down": {
+      "model": "argentum:block/output_crate_t1",
+      "y": 180
+    },
+    "conditional=true,facing=east": {
+      "model": "argentum:block/output_crate_t6",
+      "y": 180
+    },
+    "conditional=true,facing=north": {
       "model": "argentum:block/output_crate_t3",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dwest": {
-      "model": "argentum:block/output_crate_t6",
+    "conditional=true,facing=south": {
+      "model": "argentum:block/output_crate_t4",
+      "y": 180
+    },
+    "conditional=true,facing=up": {
+      "model": "argentum:block/output_crate_t2",
+      "y": 180
+    },
+    "conditional=true,facing=west": {
+      "model": "argentum:block/output_crate_t5",
       "y": 180
     }
   }
