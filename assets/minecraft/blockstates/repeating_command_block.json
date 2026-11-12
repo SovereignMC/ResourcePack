@@ -1,51 +1,51 @@
 {
   "variants": {
-    "conditional\u003dfalse,facing\u003ddown": {
-      "model": "argentum:block/energized_capacitor",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003deast": {
-      "model": "argentum:block/output_crate_t1",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dnorth": {
-      "model": "argentum:block/heater",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dsouth": {
-      "model": "argentum:block/large_capacitor",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dup": {
-      "model": "argentum:block/fluid_pump",
-      "y": 180
-    },
-    "conditional\u003dfalse,facing\u003dwest": {
-      "model": "argentum:block/medium_capacitor",
-      "y": 180
-    },
-    "conditional\u003dtrue,facing\u003ddown": {
-      "model": "argentum:block/elevator_block",
-      "y": 180
-    },
-    "conditional\u003dtrue,facing\u003deast": {
+    "conditional=false,facing=down": {
       "model": "argentum:block/electric_motor",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dnorth": {
+    "conditional=false,facing=east": {
+      "model": "argentum:block/medium_capacitor",
+      "y": 180
+    },
+    "conditional=false,facing=north": {
+      "model": "argentum:block/fluid_pump",
+      "y": 180
+    },
+    "conditional=false,facing=south": {
+      "model": "argentum:block/heater",
+      "y": 180
+    },
+    "conditional=false,facing=up": {
+      "model": "argentum:block/energized_capacitor",
+      "y": 180
+    },
+    "conditional=false,facing=west": {
+      "model": "argentum:block/large_capacitor",
+      "y": 180
+    },
+    "conditional=true,facing=down": {
+      "model": "argentum:block/elevator_block",
+      "y": 180
+    },
+    "conditional=true,facing=east": {
+      "model": "argentum:block/carbonado_capacitor",
+      "y": 180
+    },
+    "conditional=true,facing=north": {
+      "model": "argentum:block/auto_anvil",
+      "y": 180
+    },
+    "conditional=true,facing=south": {
       "model": "argentum:block/big_capacitor",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dsouth": {
-      "model": "argentum:block/brewer",
-      "y": 180
-    },
-    "conditional\u003dtrue,facing\u003dup": {
+    "conditional=true,facing=up": {
       "model": "argentum:block/alternator",
       "y": 180
     },
-    "conditional\u003dtrue,facing\u003dwest": {
-      "model": "argentum:block/carbonado_capacitor",
+    "conditional=true,facing=west": {
+      "model": "argentum:block/brewer",
       "y": 180
     }
   }
