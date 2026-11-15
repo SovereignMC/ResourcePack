@@ -86,7 +86,7 @@ WARN line 0: glyph box y=-2..18 exceeds the body box 4..67 -> clipped
 | font | glyphs |
 |---|---|
 | `sovereignmc:menu` | selector panels from the top of their line: large `\uE00D`/`\uE00E`/`\uE00F`, 192 x 216 (24 lines, the old 600 px dialogue); compact `\uE011`/`\uE012`/`\uE013`, 152 x 180 (20 lines, fits a 480x270 GUI = 1920x1080 at scale 4). The lobby picks one per player via a footer toggle |
-| `sovereignmc:logo` | `\uE002` type logo (31 px, sized for the dialogue header), `\uE003` mark |
+| `sovereignmc:logo` | `\uE002` type logo (80 px, the full selector dialogue's title), `\uE004` the same logo at 31 px (compact dialogue, fits the header), `\uE003` mark |
 | `sovereignmc:spaces` | `U+CE000`…`U+D2000`, advances −8192…+8192 |
 | `tinsel:spacing` | power-of-two steps: `U+E000`…`U+E00A` = +1…+1024, `U+F8FF`…`U+F8F5` = −1…−1024 |
 | `tinsel:hud_background` | bar slices, `ascent 13 / height 20` |

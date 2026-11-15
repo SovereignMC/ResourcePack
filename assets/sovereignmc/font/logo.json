@@ -6,6 +6,15 @@
       "chars": [
         "\uE002"
       ],
+      "ascent": 0,
+      "height": 80
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/smc_typelogo.png",
+      "chars": [
+        "\uE004"
+      ],
       "ascent": 17,
       "height": 31
     },
