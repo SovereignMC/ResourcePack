@@ -20,7 +20,7 @@ python3 tools/render_text.py --client-jar ~/client-1.21.11.jar --self-test
 ```
 
 `--self-test` asserts the ported metrics (line pitch 9, ascent 7, `A`=6, `I`=4,
-bold +1, space 4, pack slice 97/7/96×9, `tinsel:spacing` steps, wrap counts).
+bold +1, space 4, selector panel 121/7/120×153, `tinsel:spacing` steps, wrap counts).
 It must print `0 failure(s)`; if not, the client's metrics changed and every render
 below is suspect.
 
@@ -32,15 +32,15 @@ below is suspect.
 | JSON component | `--component '{"text":"hi","extra":[{"text":"!"}]}'` |
 | JSON array of components | `--component '[{"text":"a"},{"text":"\n"},{"text":"b"}]'` |
 | file: component, array, body or whole dialog | `--json dialog.json` |
-| nothing | renders `tools/generate_menu_background.py`'s banner |
+| nothing | renders a placeholder line |
 
 Dialog and body shapes are unwrapped automatically: `{"body":{"contents":…,"width":…}}`
 and `{"contents":…,"width":…}` both work, and the declared `width` becomes the wrap
 width unless `--width` overrides it.
 
 ```bash
-# the menu banner, at 3x
-python3 tools/render_text.py --client-jar ~/client.jar
+# the lobby selector dialogue (SMC_DUMP_DIALOG=1 cargo test dump_selector writes it)
+python3 tools/render_text.py --client-jar ~/client.jar --json /tmp/smc_selector_dialog.json --width 0
 
 # how the translucent plate reads over the world (bright backdrop)
 python3 tools/render_text.py --client-jar ~/client.jar --bg 6b8299 --zoom 3
@@ -85,8 +85,8 @@ WARN line 0: glyph box y=-2..18 exceeds the body box 4..67 -> clipped
 
 | font | glyphs |
 |---|---|
-| `sovereignmc:menu` | `\uE004`/`\uE006`/`\uE008` accent bars, `\uE00A` title row, `\uE00B` body row, `\uE005`/`\uE007`/`\uE009` footers |
-| `sovereignmc:logo` | `\uE002` type logo, `\uE003` mark |
+| `sovereignmc:menu` | `\uE00D`/`\uE00E`/`\uE00F` selector panels, 120 x 153 (17 lines) from the top of their line |
+| `sovereignmc:logo` | `\uE002` type logo (31 px, sized for the dialogue header), `\uE003` mark |
 | `sovereignmc:spaces` | `U+CE000`…`U+D2000`, advances −8192…+8192 |
 | `tinsel:spacing` | power-of-two steps: `U+E000`…`U+E00A` = +1…+1024, `U+F8FF`…`U+F8F5` = −1…−1024 |
 | `tinsel:hud_background` | bar slices, `ascent 13 / height 20` |

@@ -18,7 +18,7 @@ Usage:
     python3 tools/render_text.py --snbt '{text:"hi",font:"sovereignmc:menu"}'
     python3 tools/render_text.py --component '{"text":"hi","color":"#FFC24D"}'
     python3 tools/render_text.py --json dialog.json --width 310 --zoom 4
-    python3 tools/render_text.py                       # the generated menu banner
+    python3 tools/render_text.py                       # a placeholder line
     python3 tools/render_text.py --self-test
 """
 from __future__ import annotations
@@ -538,16 +538,7 @@ def resolve_input(document, fallback_width: int | None):
 
 
 def default_component() -> dict:
-    """The menu banner from tools/generate_menu_background.py, if it is present."""
-    import importlib.util
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "generate_menu_background.py")
-    if not os.path.isfile(path):
-        return {"text": "hello"}
-    spec = importlib.util.spec_from_file_location("generate_menu_background", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module.dialog()
+    return {"text": "hello"}
 
 
 def self_test(source: AssetSource) -> int:
@@ -567,24 +558,12 @@ def self_test(source: AssetSource) -> int:
     check("space advance", vanilla.glyph(ord(" ")).advance, 4)
 
     if os.path.isdir(os.path.join(source.pack_dir, "assets/sovereignmc/font")):
-        menu = source.font("sovereignmc:menu")
-        glyph = menu.glyph(0xE004)
-        if glyph is not None:
-            check("192 px slice advance", glyph.advance, 193)
-            check("slice ascent", glyph.ascent, 7)
-            check("slice drawn size", glyph.size, (192, 9))
-        hit = menu.glyph(0xE010)
-        if hit is not None:
-            # Transparent per-row click target: no ink, but a full 193 px advance.
-            check("hit glyph advance", hit.advance, 193)
-            check("hit glyph drawn size", hit.size, (192, 9))
-        field = menu.glyph(0xE00D)
-        if field is not None:
-            # One tall glyph carries the whole 24 row field; the client and this
-            # renderer both place its top on the glyph's line.
-            check("field ascent", field.ascent, 7)
-            check("field drawn size", field.size, (192, 216))
-            check("field advance", field.advance, 193)
+        panel = source.font("sovereignmc:menu").glyph(0xE00D)
+        if panel is not None:
+            # One tall glyph per selector panel, drawn from the top of its line.
+            check("panel ascent", panel.ascent, 7)
+            check("panel drawn size", panel.size, (120, 153))
+            check("panel advance", panel.advance, 121)
         spacing = source.font("tinsel:spacing")
         check("tinsel -256", spacing.glyph(0xF8F7).advance, -256)
         check("tinsel +32", spacing.glyph(0xE005).advance, 32)
