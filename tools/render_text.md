@@ -20,7 +20,7 @@ python3 tools/render_text.py --client-jar ~/client-1.21.11.jar --self-test
 ```
 
 `--self-test` asserts the ported metrics (line pitch 9, ascent 7, `A`=6, `I`=4,
-bold +1, space 4, selector panel 121/7/120×153, `tinsel:spacing` steps, wrap counts).
+bold +1, space 4, selector panels (large 193/7/192×216, compact 153/7/152×180), `tinsel:spacing` steps, wrap counts).
 It must print `0 failure(s)`; if not, the client's metrics changed and every render
 below is suspect.
 
@@ -85,7 +85,7 @@ WARN line 0: glyph box y=-2..18 exceeds the body box 4..67 -> clipped
 
 | font | glyphs |
 |---|---|
-| `sovereignmc:menu` | `\uE00D`/`\uE00E`/`\uE00F` selector panels, 120 x 153 (17 lines) from the top of their line |
+| `sovereignmc:menu` | selector panels from the top of their line: large `\uE00D`/`\uE00E`/`\uE00F`, 192 x 216 (24 lines, the old 600 px dialogue); compact `\uE011`/`\uE012`/`\uE013`, 152 x 180 (20 lines, fits a 480x270 GUI = 1920x1080 at scale 4). The lobby picks one per player via a footer toggle |
 | `sovereignmc:logo` | `\uE002` type logo (31 px, sized for the dialogue header), `\uE003` mark |
 | `sovereignmc:spaces` | `U+CE000`…`U+D2000`, advances −8192…+8192 |
 | `tinsel:spacing` | power-of-two steps: `U+E000`…`U+E00A` = +1…+1024, `U+F8FF`…`U+F8F5` = −1…−1024 |

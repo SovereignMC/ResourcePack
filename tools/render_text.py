@@ -558,12 +558,13 @@ def self_test(source: AssetSource) -> int:
     check("space advance", vanilla.glyph(ord(" ")).advance, 4)
 
     if os.path.isdir(os.path.join(source.pack_dir, "assets/sovereignmc/font")):
-        panel = source.font("sovereignmc:menu").glyph(0xE00D)
-        if panel is not None:
-            # One tall glyph per selector panel, drawn from the top of its line.
-            check("panel ascent", panel.ascent, 7)
-            check("panel drawn size", panel.size, (120, 153))
-            check("panel advance", panel.advance, 121)
+        for code, size, name in ((0xE00D, (192, 216), "large"), (0xE011, (152, 180), "compact")):
+            panel = source.font("sovereignmc:menu").glyph(code)
+            if panel is not None:
+                # One tall glyph per selector panel, drawn from the top of its line.
+                check(f"{name} panel ascent", panel.ascent, 7)
+                check(f"{name} panel drawn size", panel.size, size)
+                check(f"{name} panel advance", panel.advance, size[0] + 1)
         spacing = source.font("tinsel:spacing")
         check("tinsel -256", spacing.glyph(0xF8F7).advance, -256)
         check("tinsel +32", spacing.glyph(0xE005).advance, 32)
