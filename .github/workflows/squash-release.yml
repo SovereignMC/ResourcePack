@@ -23,8 +23,8 @@ jobs:
           fetch-depth: 0 # A non-shallow repository clone is required
 
       - name: Verify texture references
-        shell: pwsh
-        run: tools/verify-pack.ps1
+        shell: bash
+        run: tools/verify-pack.sh
 
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v4

@@ -254,4 +254,4 @@ foreach ($json in Get-ChildItem 'assets/argentum' -Recurse -Filter *.json -File)
 Write-Host ("Rewrote {0} texture ref(s) across {1} JSON file(s)." -f $script:refsRewritten, $filesChanged)
 
 Write-Host ''
-Write-Host 'DONE. Review with git status / git diff, then run tools/verify-pack.ps1'
+Write-Host 'DONE. Review with git status / git diff, then run tools/verify-pack.sh'

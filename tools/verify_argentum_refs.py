@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Offline mirror of tools/verify-pack.ps1 (which needs pwsh) plus the
-argentum asset checks this repo's CI cannot run on Linux.
+"""Runs independently of tools/verify-pack.sh (which needs bash + jq) and adds
+the argentum asset checks verify-pack.sh does not do.
 
-Rules mirrored from verify-pack.ps1:
+Rules mirrored from verify-pack.sh:
   * every "parent": "argentum:..." resolves to models/<path>.json
   * every texture ref (textures.* values) resolves to textures/<path>.png
   * every items/*.json "model" ref resolves to models/<path>.json OR is allowlisted
@@ -36,7 +36,7 @@ ASSETS = ROOT / "assets"
 ARGENTUM = ASSETS / "argentum"
 
 # items defs whose model ref has no models/*.json today. Keep in sync with the pack
-# (mirrors $MODEL_REF_WARNLIST in verify-pack.ps1).
+# (mirrors MODEL_REF_WARNLIST in verify-pack.sh).
 MODEL_REF_WARNLIST = {
     "item/alternator",
     "item/big_capacitor",

@@ -29,7 +29,7 @@ whose item has `item_model` = `planechase:<name>`: `bullet_standard`, `bullet_tr
 ## Textures
 
 Argentum textures are organized into category subfolders — never dump new PNGs
-flat into `textures/item/` or `textures/block/`. `tools/verify-pack.ps1` fails
+flat into `textures/item/` or `textures/block/`. `tools/verify-pack.sh` fails
 CI on flat or unresolvable references.
 
 ```
@@ -54,14 +54,14 @@ assets/argentum/textures/
 Rules:
 - Paths must be valid resource locations: lowercase `a-z 0-9 _ . - /` only, no spaces
   (verify-pack fails otherwise).
-- A new category folder must be added to `TEXTURE_CATEGORIES` in `tools/verify-pack.ps1`
+- A new category folder must be added to `TEXTURE_CATEGORIES` in `tools/verify-pack.sh`
   and to the mapping tables in `tools/migrate-textures.ps1`.
 - Texture file NAMES stay stable — code binds `argentum:<id>` via item models.
 - Move a texture = update the referencing JSON's `textures.*` values in the same commit.
-- `tools/verify-pack.ps1` must stay green (also runs in CI and before PackSquash releases).
+- `tools/verify-pack.sh` must stay green (also runs in CI and before PackSquash releases).
 - `tools/verify_argentum_refs.py` mirrors those checks (plus the 16x16 RGBA tile audit and
-  the Argentum ids StructuresRevamped resolves) for machines without `pwsh`; run
-  `python3 tools/verify_argentum_refs.py`. CI still runs `verify-pack.ps1`.
+  the Argentum ids StructuresRevamped resolves) and adds checks `verify-pack.sh` does not do;
+  run `python3 tools/verify_argentum_refs.py`. CI runs `tools/verify-pack.sh`.
 
 ### Horizon's End Resource Pack
 Movecraft effects and other assets are taken from the [Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by [HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors, licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).

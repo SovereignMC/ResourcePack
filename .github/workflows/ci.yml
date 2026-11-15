@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run verify-pack
-        shell: pwsh
-        run: tools/verify-pack.ps1
+        shell: bash
+        run: tools/verify-pack.sh
