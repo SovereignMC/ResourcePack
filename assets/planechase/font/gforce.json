@@ -1,0 +1,40 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "planechase:font/gforce_overlay_1.png",
+      "height": 256,
+      "ascent": 125,
+      "chars": [
+        "\ue100"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/gforce_overlay_2.png",
+      "height": 256,
+      "ascent": 125,
+      "chars": [
+        "\ue101"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/gforce_overlay_3.png",
+      "height": 256,
+      "ascent": 125,
+      "chars": [
+        "\ue102"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/gforce_overlay_4.png",
+      "height": 256,
+      "ascent": 125,
+      "chars": [
+        "\ue103"
+      ]
+    }
+  ]
+}
