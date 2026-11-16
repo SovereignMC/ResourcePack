@@ -1,6 +1,6 @@
 {
 	"model": {
 		"type": "minecraft:model",
-		"model": "planechase:item/bomb_gp"
+		"model": "planechase:item/rocket_light"
 	}
 }

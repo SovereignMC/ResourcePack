@@ -1,6 +1,6 @@
 {
 	"model": {
 		"type": "minecraft:model",
-		"model": "planechase:item/shell_cannon"
+		"model": "planechase:item/bomb_shell"
 	}
 }

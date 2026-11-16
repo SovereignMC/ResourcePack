@@ -16,7 +16,11 @@ Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/Resourc
 
 Blocky bomb and bullet models for PlaneChase, meant to be shown as PacketEvents-sent ItemDisplays
 whose item has `item_model` = `planechase:<name>`: `bullet_standard`, `bullet_tracer`, `bullet_ap`,
-`shell_cannon`, `bomb_gp`, `bomb_heavy`, `bomb_cluster`, `bomb_incendiary`, `bomb_tnt`.
+`bomb_shell`, `bomb_general_purpose`, `bomb_heavy`, `bomb_cluster`, `bomb_cluster_bomblet` (the cluster bomb's
+submunitions), `bomb_incendiary`, and the unguided rockets `rocket_light` and `rocket_heavy`.
+Flat 16x16 ammo item sprites for the items the plugin hands out: `ammo_fighter_round`,
+`ammo_canister_shell`, `ammo_canister_pellet`, `ammo_light_rocket`, `ammo_heavy_rocket`
+(`assets/planechase/textures/item/`).
 
 - Textures: `assets/planechase/textures/item/projectile/`. Models: `assets/planechase/models/item/`.
 - Blockbench sources and a contact sheet: `tools/art/projectiles/`.
