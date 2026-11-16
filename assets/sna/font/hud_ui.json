@@ -1,0 +1,67 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/button_on.png",
+      "ascent": 7,
+      "height": 16,
+      "chars": [
+        "\uE300"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/button_off.png",
+      "ascent": 7,
+      "height": 16,
+      "chars": [
+        "\uE301"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/button_neutral.png",
+      "ascent": 7,
+      "height": 16,
+      "chars": [
+        "\uE302"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/led_on.png",
+      "ascent": 2,
+      "height": 6,
+      "chars": [
+        "\uE303"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/led_off.png",
+      "ascent": 2,
+      "height": 6,
+      "chars": [
+        "\uE304"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/separator.png",
+      "ascent": 4,
+      "height": 4,
+      "chars": [
+        "\uE305"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_ui/key_stripe.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": [
+        "\uE306"
+      ]
+    }
+  ]
+}

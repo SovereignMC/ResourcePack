@@ -1,0 +1,193 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/battle.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE200"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/next.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE201"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/town_green.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE202"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/town_blue.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE203"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/town_red.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE204"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/town_yellow.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE205"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/outskirts.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE206"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/safe.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE207"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/war.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE208"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/wild.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE209"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/ocean.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/visible.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/hidden.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/region.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/assault.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/def.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE20F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/capture.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE210"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/respawn.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE211"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/warning.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE212"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/battle_red.png",
+      "ascent": -12,
+      "height": 10,
+      "chars": [
+        "\uE213"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/stripe.png",
+      "ascent": -7,
+      "height": 20,
+      "chars": [
+        "\uE214"
+      ]
+    }
+  ]
+}
