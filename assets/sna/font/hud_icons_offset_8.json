@@ -188,6 +188,24 @@
       "chars": [
         "\uE214"
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/hull.png",
+      "ascent": 0,
+      "height": 10,
+      "chars": [
+        "\uE215"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/speed.png",
+      "ascent": 0,
+      "height": 10,
+      "chars": [
+        "\uE216"
+      ]
     }
   ]
 }
