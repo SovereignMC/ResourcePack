@@ -1,0 +1,355 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_start.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE400"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_end.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE401"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_1.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE402"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_2.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE403"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_4.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE404"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_8.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE405"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_16.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE406"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_32.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE407"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_64.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE408"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/panel_fill_128.png",
+      "ascent": 55,
+      "height": 56,
+      "chars": [
+        "\uE409"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/spine.png",
+      "ascent": 54,
+      "height": 54,
+      "chars": [
+        "\uE40A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/well.png",
+      "ascent": 50,
+      "height": 50,
+      "chars": [
+        "\uE40B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/well_corners.png",
+      "ascent": 50,
+      "height": 50,
+      "chars": [
+        "\uE40C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/generic.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE40D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_corvette.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE40E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_destroyer.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE40F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_light_cruiser.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE410"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_heavy_cruiser.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE411"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_battlecruiser.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE412"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_battleship.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE413"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_freighter.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE414"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_ifv.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE415"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_mbt.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE416"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_truck.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE417"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_train.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE418"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_shipyard.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE419"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_turret.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/gauge_frame.png",
+      "ascent": 19,
+      "height": 19,
+      "chars": [
+        "\uE41B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/gauge_segment_on.png",
+      "ascent": 17,
+      "height": 17,
+      "chars": [
+        "\uE41C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/gauge_segment_off.png",
+      "ascent": 17,
+      "height": 17,
+      "chars": [
+        "\uE41D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_stripe.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE41E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_1.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE41F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_2.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE420"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_4.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE421"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_8.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE422"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_16.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE423"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_32.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE424"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_64.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE425"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/chip_fill_128.png",
+      "ascent": 20,
+      "height": 20,
+      "chars": [
+        "\uE426"
+      ]
+    }
+  ]
+}
