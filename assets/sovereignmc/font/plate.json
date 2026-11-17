@@ -245,11 +245,164 @@
     },
     {
       "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_deep_mine.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_quarry.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_mud_pit.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_woodcutter.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_crop_farm.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE41F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_crusher.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE420"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_sawmill.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE421"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_smelter.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE422"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_electrolysis.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE423"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_concrete_mixer.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE424"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_enchant_centrifuge.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE425"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_sigil_altar.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE426"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_workshop.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE427"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_power_plant.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE428"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_armoury.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE429"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_munitions.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE42A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/struct_town_hall.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE42B"
+      ]
+    },
+    {
+      "type": "bitmap",
       "file": "sovereignmc:font/plate/gauge_frame.png",
       "ascent": 19,
       "height": 19,
       "chars": [
-        "\uE41B"
+        "\uE42C"
       ]
     },
     {
@@ -258,7 +411,7 @@
       "ascent": 17,
       "height": 17,
       "chars": [
-        "\uE41C"
+        "\uE42D"
       ]
     },
     {
@@ -267,7 +420,7 @@
       "ascent": 17,
       "height": 17,
       "chars": [
-        "\uE41D"
+        "\uE42E"
       ]
     },
     {
@@ -276,7 +429,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE41E"
+        "\uE42F"
       ]
     },
     {
@@ -285,7 +438,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE41F"
+        "\uE430"
       ]
     },
     {
@@ -294,7 +447,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE420"
+        "\uE431"
       ]
     },
     {
@@ -303,7 +456,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE421"
+        "\uE432"
       ]
     },
     {
@@ -312,7 +465,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE422"
+        "\uE433"
       ]
     },
     {
@@ -321,7 +474,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE423"
+        "\uE434"
       ]
     },
     {
@@ -330,7 +483,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE424"
+        "\uE435"
       ]
     },
     {
@@ -339,7 +492,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE425"
+        "\uE436"
       ]
     },
     {
@@ -348,7 +501,7 @@
       "ascent": 20,
       "height": 20,
       "chars": [
-        "\uE426"
+        "\uE437"
       ]
     }
   ]
