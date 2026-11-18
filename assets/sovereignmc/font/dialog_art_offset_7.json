@@ -1,0 +1,748 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "\uE200": -1
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_1x1.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE300"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_1x2.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE301"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_4x1.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE302"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_4x2.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE303"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_16x1.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE304"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_16x2.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE305"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_64x1.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE306"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/veil_64x2.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE307"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_banner_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE400"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_banner_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE401"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_banner_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE402"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_sword_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE404"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_sword_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE405"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_sword_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE406"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_shield_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE408"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_shield_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE409"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_shield_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE40A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_head_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE40C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_head_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE40D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_head_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE40E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_clock_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE410"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_clock_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE411"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_clock_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE412"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_bell_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE414"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_bell_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE415"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_bell_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE416"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chest_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE418"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chest_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE419"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chest_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE41A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_lock_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE41C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_lock_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE41D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_lock_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE41E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chat_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE420"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chat_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE421"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_chat_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE422"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_scroll_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE424"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_scroll_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE425"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_scroll_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE426"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tag_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE428"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tag_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE429"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tag_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE42A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tent_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE42C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tent_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE42D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_tent_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE42E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_town_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE430"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_town_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE431"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_town_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE432"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_book_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE434"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_book_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE435"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_book_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE436"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_star_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE438"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_star_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE439"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_star_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE43A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_map_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE43C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_map_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE43D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_map_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE43E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_plus_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE440"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_plus_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE441"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_plus_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE442"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_cross_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE444"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_cross_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE445"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_cross_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE446"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_coin_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE448"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_coin_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE449"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_coin_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE44A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_heart_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE44C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_heart_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE44D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_heart_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE44E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_flag_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE450"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_flag_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE451"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_flag_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE452"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_compass_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE454"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_compass_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE455"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_compass_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE456"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_check_1.png",
+      "ascent": 0,
+      "height": 12,
+      "chars": [
+        "\uE458"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_check_2.png",
+      "ascent": 0,
+      "height": 24,
+      "chars": [
+        "\uE459"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/icon_check_4.png",
+      "ascent": 0,
+      "height": 48,
+      "chars": [
+        "\uE45A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/mark_radio_ring.png",
+      "ascent": 0,
+      "height": 10,
+      "chars": [
+        "\uE500"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/mark_radio_inner.png",
+      "ascent": 0,
+      "height": 10,
+      "chars": [
+        "\uE501"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/mark_radio_inner_hole.png",
+      "ascent": 0,
+      "height": 10,
+      "chars": [
+        "\uE502"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/mark_radio_dot.png",
+      "ascent": 0,
+      "height": 7,
+      "chars": [
+        "\uE503"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/mark_check.png",
+      "ascent": 0,
+      "height": 8,
+      "chars": [
+        "\uE504"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2602 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "\uE200": -1
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x1.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE000"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x2.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x3.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE002"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x4.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE003"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x5.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE004"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x6.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE005"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x7.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE006"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x8.png",
+      "ascent": 4,
+      "height": 8,
+      "chars": [
+        "\uE007"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x9.png",
+      "ascent": 4,
+      "height": 9,
+      "chars": [
+        "\uE008"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x10.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE009"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x11.png",
+      "ascent": 4,
+      "height": 11,
+      "chars": [
+        "\uE00A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x12.png",
+      "ascent": 4,
+      "height": 12,
+      "chars": [
+        "\uE00B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x13.png",
+      "ascent": 4,
+      "height": 13,
+      "chars": [
+        "\uE00C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x14.png",
+      "ascent": 4,
+      "height": 14,
+      "chars": [
+        "\uE00D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x15.png",
+      "ascent": 4,
+      "height": 15,
+      "chars": [
+        "\uE00E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x16.png",
+      "ascent": 4,
+      "height": 16,
+      "chars": [
+        "\uE00F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x17.png",
+      "ascent": 4,
+      "height": 17,
+      "chars": [
+        "\uE010"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x18.png",
+      "ascent": 4,
+      "height": 18,
+      "chars": [
+        "\uE011"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x19.png",
+      "ascent": 4,
+      "height": 19,
+      "chars": [
+        "\uE012"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x20.png",
+      "ascent": 4,
+      "height": 20,
+      "chars": [
+        "\uE013"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x21.png",
+      "ascent": 4,
+      "height": 21,
+      "chars": [
+        "\uE014"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x22.png",
+      "ascent": 4,
+      "height": 22,
+      "chars": [
+        "\uE015"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x23.png",
+      "ascent": 4,
+      "height": 23,
+      "chars": [
+        "\uE016"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x24.png",
+      "ascent": 4,
+      "height": 24,
+      "chars": [
+        "\uE017"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x25.png",
+      "ascent": 4,
+      "height": 25,
+      "chars": [
+        "\uE018"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x26.png",
+      "ascent": 4,
+      "height": 26,
+      "chars": [
+        "\uE019"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x27.png",
+      "ascent": 4,
+      "height": 27,
+      "chars": [
+        "\uE01A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x28.png",
+      "ascent": 4,
+      "height": 28,
+      "chars": [
+        "\uE01B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x29.png",
+      "ascent": 4,
+      "height": 29,
+      "chars": [
+        "\uE01C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x30.png",
+      "ascent": 4,
+      "height": 30,
+      "chars": [
+        "\uE01D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x31.png",
+      "ascent": 4,
+      "height": 31,
+      "chars": [
+        "\uE01E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x32.png",
+      "ascent": 4,
+      "height": 32,
+      "chars": [
+        "\uE01F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x33.png",
+      "ascent": 4,
+      "height": 33,
+      "chars": [
+        "\uE020"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x34.png",
+      "ascent": 4,
+      "height": 34,
+      "chars": [
+        "\uE021"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x35.png",
+      "ascent": 4,
+      "height": 35,
+      "chars": [
+        "\uE022"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x36.png",
+      "ascent": 4,
+      "height": 36,
+      "chars": [
+        "\uE023"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x37.png",
+      "ascent": 4,
+      "height": 37,
+      "chars": [
+        "\uE024"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x38.png",
+      "ascent": 4,
+      "height": 38,
+      "chars": [
+        "\uE025"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x39.png",
+      "ascent": 4,
+      "height": 39,
+      "chars": [
+        "\uE026"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x40.png",
+      "ascent": 4,
+      "height": 40,
+      "chars": [
+        "\uE027"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x41.png",
+      "ascent": 4,
+      "height": 41,
+      "chars": [
+        "\uE028"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x42.png",
+      "ascent": 4,
+      "height": 42,
+      "chars": [
+        "\uE029"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x43.png",
+      "ascent": 4,
+      "height": 43,
+      "chars": [
+        "\uE02A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x44.png",
+      "ascent": 4,
+      "height": 44,
+      "chars": [
+        "\uE02B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x45.png",
+      "ascent": 4,
+      "height": 45,
+      "chars": [
+        "\uE02C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x46.png",
+      "ascent": 4,
+      "height": 46,
+      "chars": [
+        "\uE02D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x47.png",
+      "ascent": 4,
+      "height": 47,
+      "chars": [
+        "\uE02E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x48.png",
+      "ascent": 4,
+      "height": 48,
+      "chars": [
+        "\uE02F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x49.png",
+      "ascent": 4,
+      "height": 49,
+      "chars": [
+        "\uE030"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x50.png",
+      "ascent": 4,
+      "height": 50,
+      "chars": [
+        "\uE031"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x51.png",
+      "ascent": 4,
+      "height": 51,
+      "chars": [
+        "\uE032"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x52.png",
+      "ascent": 4,
+      "height": 52,
+      "chars": [
+        "\uE033"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x53.png",
+      "ascent": 4,
+      "height": 53,
+      "chars": [
+        "\uE034"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x54.png",
+      "ascent": 4,
+      "height": 54,
+      "chars": [
+        "\uE035"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x55.png",
+      "ascent": 4,
+      "height": 55,
+      "chars": [
+        "\uE036"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x56.png",
+      "ascent": 4,
+      "height": 56,
+      "chars": [
+        "\uE037"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x57.png",
+      "ascent": 4,
+      "height": 57,
+      "chars": [
+        "\uE038"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x58.png",
+      "ascent": 4,
+      "height": 58,
+      "chars": [
+        "\uE039"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x59.png",
+      "ascent": 4,
+      "height": 59,
+      "chars": [
+        "\uE03A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x60.png",
+      "ascent": 4,
+      "height": 60,
+      "chars": [
+        "\uE03B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x61.png",
+      "ascent": 4,
+      "height": 61,
+      "chars": [
+        "\uE03C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x62.png",
+      "ascent": 4,
+      "height": 62,
+      "chars": [
+        "\uE03D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x63.png",
+      "ascent": 4,
+      "height": 63,
+      "chars": [
+        "\uE03E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x64.png",
+      "ascent": 4,
+      "height": 64,
+      "chars": [
+        "\uE03F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x65.png",
+      "ascent": 4,
+      "height": 65,
+      "chars": [
+        "\uE040"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x66.png",
+      "ascent": 4,
+      "height": 66,
+      "chars": [
+        "\uE041"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x67.png",
+      "ascent": 4,
+      "height": 67,
+      "chars": [
+        "\uE042"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x68.png",
+      "ascent": 4,
+      "height": 68,
+      "chars": [
+        "\uE043"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x69.png",
+      "ascent": 4,
+      "height": 69,
+      "chars": [
+        "\uE044"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x70.png",
+      "ascent": 4,
+      "height": 70,
+      "chars": [
+        "\uE045"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x71.png",
+      "ascent": 4,
+      "height": 71,
+      "chars": [
+        "\uE046"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_1x72.png",
+      "ascent": 4,
+      "height": 72,
+      "chars": [
+        "\uE047"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x1.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE048"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x2.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE049"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x3.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE04A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x4.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE04B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x5.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE04C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x6.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE04D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x7.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE04E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x8.png",
+      "ascent": 4,
+      "height": 8,
+      "chars": [
+        "\uE04F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x9.png",
+      "ascent": 4,
+      "height": 9,
+      "chars": [
+        "\uE050"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x10.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE051"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x11.png",
+      "ascent": 4,
+      "height": 11,
+      "chars": [
+        "\uE052"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x12.png",
+      "ascent": 4,
+      "height": 12,
+      "chars": [
+        "\uE053"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x13.png",
+      "ascent": 4,
+      "height": 13,
+      "chars": [
+        "\uE054"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x14.png",
+      "ascent": 4,
+      "height": 14,
+      "chars": [
+        "\uE055"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x15.png",
+      "ascent": 4,
+      "height": 15,
+      "chars": [
+        "\uE056"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x16.png",
+      "ascent": 4,
+      "height": 16,
+      "chars": [
+        "\uE057"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x17.png",
+      "ascent": 4,
+      "height": 17,
+      "chars": [
+        "\uE058"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x18.png",
+      "ascent": 4,
+      "height": 18,
+      "chars": [
+        "\uE059"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x19.png",
+      "ascent": 4,
+      "height": 19,
+      "chars": [
+        "\uE05A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x20.png",
+      "ascent": 4,
+      "height": 20,
+      "chars": [
+        "\uE05B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x21.png",
+      "ascent": 4,
+      "height": 21,
+      "chars": [
+        "\uE05C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x22.png",
+      "ascent": 4,
+      "height": 22,
+      "chars": [
+        "\uE05D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x23.png",
+      "ascent": 4,
+      "height": 23,
+      "chars": [
+        "\uE05E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x24.png",
+      "ascent": 4,
+      "height": 24,
+      "chars": [
+        "\uE05F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x25.png",
+      "ascent": 4,
+      "height": 25,
+      "chars": [
+        "\uE060"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x26.png",
+      "ascent": 4,
+      "height": 26,
+      "chars": [
+        "\uE061"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x27.png",
+      "ascent": 4,
+      "height": 27,
+      "chars": [
+        "\uE062"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x28.png",
+      "ascent": 4,
+      "height": 28,
+      "chars": [
+        "\uE063"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x29.png",
+      "ascent": 4,
+      "height": 29,
+      "chars": [
+        "\uE064"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x30.png",
+      "ascent": 4,
+      "height": 30,
+      "chars": [
+        "\uE065"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x31.png",
+      "ascent": 4,
+      "height": 31,
+      "chars": [
+        "\uE066"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x32.png",
+      "ascent": 4,
+      "height": 32,
+      "chars": [
+        "\uE067"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x33.png",
+      "ascent": 4,
+      "height": 33,
+      "chars": [
+        "\uE068"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x34.png",
+      "ascent": 4,
+      "height": 34,
+      "chars": [
+        "\uE069"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x35.png",
+      "ascent": 4,
+      "height": 35,
+      "chars": [
+        "\uE06A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x36.png",
+      "ascent": 4,
+      "height": 36,
+      "chars": [
+        "\uE06B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x37.png",
+      "ascent": 4,
+      "height": 37,
+      "chars": [
+        "\uE06C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x38.png",
+      "ascent": 4,
+      "height": 38,
+      "chars": [
+        "\uE06D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x39.png",
+      "ascent": 4,
+      "height": 39,
+      "chars": [
+        "\uE06E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x40.png",
+      "ascent": 4,
+      "height": 40,
+      "chars": [
+        "\uE06F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x41.png",
+      "ascent": 4,
+      "height": 41,
+      "chars": [
+        "\uE070"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x42.png",
+      "ascent": 4,
+      "height": 42,
+      "chars": [
+        "\uE071"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x43.png",
+      "ascent": 4,
+      "height": 43,
+      "chars": [
+        "\uE072"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x44.png",
+      "ascent": 4,
+      "height": 44,
+      "chars": [
+        "\uE073"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x45.png",
+      "ascent": 4,
+      "height": 45,
+      "chars": [
+        "\uE074"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x46.png",
+      "ascent": 4,
+      "height": 46,
+      "chars": [
+        "\uE075"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x47.png",
+      "ascent": 4,
+      "height": 47,
+      "chars": [
+        "\uE076"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x48.png",
+      "ascent": 4,
+      "height": 48,
+      "chars": [
+        "\uE077"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x49.png",
+      "ascent": 4,
+      "height": 49,
+      "chars": [
+        "\uE078"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x50.png",
+      "ascent": 4,
+      "height": 50,
+      "chars": [
+        "\uE079"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x51.png",
+      "ascent": 4,
+      "height": 51,
+      "chars": [
+        "\uE07A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x52.png",
+      "ascent": 4,
+      "height": 52,
+      "chars": [
+        "\uE07B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x53.png",
+      "ascent": 4,
+      "height": 53,
+      "chars": [
+        "\uE07C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x54.png",
+      "ascent": 4,
+      "height": 54,
+      "chars": [
+        "\uE07D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x55.png",
+      "ascent": 4,
+      "height": 55,
+      "chars": [
+        "\uE07E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x56.png",
+      "ascent": 4,
+      "height": 56,
+      "chars": [
+        "\uE07F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x57.png",
+      "ascent": 4,
+      "height": 57,
+      "chars": [
+        "\uE080"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x58.png",
+      "ascent": 4,
+      "height": 58,
+      "chars": [
+        "\uE081"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x59.png",
+      "ascent": 4,
+      "height": 59,
+      "chars": [
+        "\uE082"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x60.png",
+      "ascent": 4,
+      "height": 60,
+      "chars": [
+        "\uE083"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x61.png",
+      "ascent": 4,
+      "height": 61,
+      "chars": [
+        "\uE084"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x62.png",
+      "ascent": 4,
+      "height": 62,
+      "chars": [
+        "\uE085"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x63.png",
+      "ascent": 4,
+      "height": 63,
+      "chars": [
+        "\uE086"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x64.png",
+      "ascent": 4,
+      "height": 64,
+      "chars": [
+        "\uE087"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x65.png",
+      "ascent": 4,
+      "height": 65,
+      "chars": [
+        "\uE088"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x66.png",
+      "ascent": 4,
+      "height": 66,
+      "chars": [
+        "\uE089"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x67.png",
+      "ascent": 4,
+      "height": 67,
+      "chars": [
+        "\uE08A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x68.png",
+      "ascent": 4,
+      "height": 68,
+      "chars": [
+        "\uE08B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x69.png",
+      "ascent": 4,
+      "height": 69,
+      "chars": [
+        "\uE08C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x70.png",
+      "ascent": 4,
+      "height": 70,
+      "chars": [
+        "\uE08D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x71.png",
+      "ascent": 4,
+      "height": 71,
+      "chars": [
+        "\uE08E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_4x72.png",
+      "ascent": 4,
+      "height": 72,
+      "chars": [
+        "\uE08F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x1.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE090"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x2.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE091"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x3.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE092"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x4.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE093"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x5.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE094"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x6.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE095"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x7.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE096"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x8.png",
+      "ascent": 4,
+      "height": 8,
+      "chars": [
+        "\uE097"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x9.png",
+      "ascent": 4,
+      "height": 9,
+      "chars": [
+        "\uE098"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x10.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE099"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x11.png",
+      "ascent": 4,
+      "height": 11,
+      "chars": [
+        "\uE09A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x12.png",
+      "ascent": 4,
+      "height": 12,
+      "chars": [
+        "\uE09B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x13.png",
+      "ascent": 4,
+      "height": 13,
+      "chars": [
+        "\uE09C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x14.png",
+      "ascent": 4,
+      "height": 14,
+      "chars": [
+        "\uE09D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x15.png",
+      "ascent": 4,
+      "height": 15,
+      "chars": [
+        "\uE09E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x16.png",
+      "ascent": 4,
+      "height": 16,
+      "chars": [
+        "\uE09F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x17.png",
+      "ascent": 4,
+      "height": 17,
+      "chars": [
+        "\uE0A0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x18.png",
+      "ascent": 4,
+      "height": 18,
+      "chars": [
+        "\uE0A1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x19.png",
+      "ascent": 4,
+      "height": 19,
+      "chars": [
+        "\uE0A2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x20.png",
+      "ascent": 4,
+      "height": 20,
+      "chars": [
+        "\uE0A3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x21.png",
+      "ascent": 4,
+      "height": 21,
+      "chars": [
+        "\uE0A4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x22.png",
+      "ascent": 4,
+      "height": 22,
+      "chars": [
+        "\uE0A5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x23.png",
+      "ascent": 4,
+      "height": 23,
+      "chars": [
+        "\uE0A6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x24.png",
+      "ascent": 4,
+      "height": 24,
+      "chars": [
+        "\uE0A7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x25.png",
+      "ascent": 4,
+      "height": 25,
+      "chars": [
+        "\uE0A8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x26.png",
+      "ascent": 4,
+      "height": 26,
+      "chars": [
+        "\uE0A9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x27.png",
+      "ascent": 4,
+      "height": 27,
+      "chars": [
+        "\uE0AA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x28.png",
+      "ascent": 4,
+      "height": 28,
+      "chars": [
+        "\uE0AB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x29.png",
+      "ascent": 4,
+      "height": 29,
+      "chars": [
+        "\uE0AC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x30.png",
+      "ascent": 4,
+      "height": 30,
+      "chars": [
+        "\uE0AD"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x31.png",
+      "ascent": 4,
+      "height": 31,
+      "chars": [
+        "\uE0AE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x32.png",
+      "ascent": 4,
+      "height": 32,
+      "chars": [
+        "\uE0AF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x33.png",
+      "ascent": 4,
+      "height": 33,
+      "chars": [
+        "\uE0B0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x34.png",
+      "ascent": 4,
+      "height": 34,
+      "chars": [
+        "\uE0B1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x35.png",
+      "ascent": 4,
+      "height": 35,
+      "chars": [
+        "\uE0B2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x36.png",
+      "ascent": 4,
+      "height": 36,
+      "chars": [
+        "\uE0B3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x37.png",
+      "ascent": 4,
+      "height": 37,
+      "chars": [
+        "\uE0B4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x38.png",
+      "ascent": 4,
+      "height": 38,
+      "chars": [
+        "\uE0B5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x39.png",
+      "ascent": 4,
+      "height": 39,
+      "chars": [
+        "\uE0B6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x40.png",
+      "ascent": 4,
+      "height": 40,
+      "chars": [
+        "\uE0B7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x41.png",
+      "ascent": 4,
+      "height": 41,
+      "chars": [
+        "\uE0B8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x42.png",
+      "ascent": 4,
+      "height": 42,
+      "chars": [
+        "\uE0B9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x43.png",
+      "ascent": 4,
+      "height": 43,
+      "chars": [
+        "\uE0BA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x44.png",
+      "ascent": 4,
+      "height": 44,
+      "chars": [
+        "\uE0BB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x45.png",
+      "ascent": 4,
+      "height": 45,
+      "chars": [
+        "\uE0BC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x46.png",
+      "ascent": 4,
+      "height": 46,
+      "chars": [
+        "\uE0BD"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x47.png",
+      "ascent": 4,
+      "height": 47,
+      "chars": [
+        "\uE0BE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x48.png",
+      "ascent": 4,
+      "height": 48,
+      "chars": [
+        "\uE0BF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x49.png",
+      "ascent": 4,
+      "height": 49,
+      "chars": [
+        "\uE0C0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x50.png",
+      "ascent": 4,
+      "height": 50,
+      "chars": [
+        "\uE0C1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x51.png",
+      "ascent": 4,
+      "height": 51,
+      "chars": [
+        "\uE0C2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x52.png",
+      "ascent": 4,
+      "height": 52,
+      "chars": [
+        "\uE0C3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x53.png",
+      "ascent": 4,
+      "height": 53,
+      "chars": [
+        "\uE0C4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x54.png",
+      "ascent": 4,
+      "height": 54,
+      "chars": [
+        "\uE0C5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x55.png",
+      "ascent": 4,
+      "height": 55,
+      "chars": [
+        "\uE0C6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x56.png",
+      "ascent": 4,
+      "height": 56,
+      "chars": [
+        "\uE0C7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x57.png",
+      "ascent": 4,
+      "height": 57,
+      "chars": [
+        "\uE0C8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x58.png",
+      "ascent": 4,
+      "height": 58,
+      "chars": [
+        "\uE0C9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x59.png",
+      "ascent": 4,
+      "height": 59,
+      "chars": [
+        "\uE0CA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x60.png",
+      "ascent": 4,
+      "height": 60,
+      "chars": [
+        "\uE0CB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x61.png",
+      "ascent": 4,
+      "height": 61,
+      "chars": [
+        "\uE0CC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x62.png",
+      "ascent": 4,
+      "height": 62,
+      "chars": [
+        "\uE0CD"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x63.png",
+      "ascent": 4,
+      "height": 63,
+      "chars": [
+        "\uE0CE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x64.png",
+      "ascent": 4,
+      "height": 64,
+      "chars": [
+        "\uE0CF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x65.png",
+      "ascent": 4,
+      "height": 65,
+      "chars": [
+        "\uE0D0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x66.png",
+      "ascent": 4,
+      "height": 66,
+      "chars": [
+        "\uE0D1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x67.png",
+      "ascent": 4,
+      "height": 67,
+      "chars": [
+        "\uE0D2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x68.png",
+      "ascent": 4,
+      "height": 68,
+      "chars": [
+        "\uE0D3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x69.png",
+      "ascent": 4,
+      "height": 69,
+      "chars": [
+        "\uE0D4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x70.png",
+      "ascent": 4,
+      "height": 70,
+      "chars": [
+        "\uE0D5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x71.png",
+      "ascent": 4,
+      "height": 71,
+      "chars": [
+        "\uE0D6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_16x72.png",
+      "ascent": 4,
+      "height": 72,
+      "chars": [
+        "\uE0D7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x1.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0D8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x2.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0D9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x3.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0DA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x4.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0DB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x5.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0DC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x6.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0DD"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x7.png",
+      "ascent": 4,
+      "height": 7,
+      "chars": [
+        "\uE0DE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x8.png",
+      "ascent": 4,
+      "height": 8,
+      "chars": [
+        "\uE0DF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x9.png",
+      "ascent": 4,
+      "height": 9,
+      "chars": [
+        "\uE0E0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x10.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE0E1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x11.png",
+      "ascent": 4,
+      "height": 11,
+      "chars": [
+        "\uE0E2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x12.png",
+      "ascent": 4,
+      "height": 12,
+      "chars": [
+        "\uE0E3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x13.png",
+      "ascent": 4,
+      "height": 13,
+      "chars": [
+        "\uE0E4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x14.png",
+      "ascent": 4,
+      "height": 14,
+      "chars": [
+        "\uE0E5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x15.png",
+      "ascent": 4,
+      "height": 15,
+      "chars": [
+        "\uE0E6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x16.png",
+      "ascent": 4,
+      "height": 16,
+      "chars": [
+        "\uE0E7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x17.png",
+      "ascent": 4,
+      "height": 17,
+      "chars": [
+        "\uE0E8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x18.png",
+      "ascent": 4,
+      "height": 18,
+      "chars": [
+        "\uE0E9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x19.png",
+      "ascent": 4,
+      "height": 19,
+      "chars": [
+        "\uE0EA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x20.png",
+      "ascent": 4,
+      "height": 20,
+      "chars": [
+        "\uE0EB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x21.png",
+      "ascent": 4,
+      "height": 21,
+      "chars": [
+        "\uE0EC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x22.png",
+      "ascent": 4,
+      "height": 22,
+      "chars": [
+        "\uE0ED"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x23.png",
+      "ascent": 4,
+      "height": 23,
+      "chars": [
+        "\uE0EE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x24.png",
+      "ascent": 4,
+      "height": 24,
+      "chars": [
+        "\uE0EF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x25.png",
+      "ascent": 4,
+      "height": 25,
+      "chars": [
+        "\uE0F0"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x26.png",
+      "ascent": 4,
+      "height": 26,
+      "chars": [
+        "\uE0F1"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x27.png",
+      "ascent": 4,
+      "height": 27,
+      "chars": [
+        "\uE0F2"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x28.png",
+      "ascent": 4,
+      "height": 28,
+      "chars": [
+        "\uE0F3"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x29.png",
+      "ascent": 4,
+      "height": 29,
+      "chars": [
+        "\uE0F4"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x30.png",
+      "ascent": 4,
+      "height": 30,
+      "chars": [
+        "\uE0F5"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x31.png",
+      "ascent": 4,
+      "height": 31,
+      "chars": [
+        "\uE0F6"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x32.png",
+      "ascent": 4,
+      "height": 32,
+      "chars": [
+        "\uE0F7"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x33.png",
+      "ascent": 4,
+      "height": 33,
+      "chars": [
+        "\uE0F8"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x34.png",
+      "ascent": 4,
+      "height": 34,
+      "chars": [
+        "\uE0F9"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x35.png",
+      "ascent": 4,
+      "height": 35,
+      "chars": [
+        "\uE0FA"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x36.png",
+      "ascent": 4,
+      "height": 36,
+      "chars": [
+        "\uE0FB"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x37.png",
+      "ascent": 4,
+      "height": 37,
+      "chars": [
+        "\uE0FC"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x38.png",
+      "ascent": 4,
+      "height": 38,
+      "chars": [
+        "\uE0FD"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x39.png",
+      "ascent": 4,
+      "height": 39,
+      "chars": [
+        "\uE0FE"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x40.png",
+      "ascent": 4,
+      "height": 40,
+      "chars": [
+        "\uE0FF"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x41.png",
+      "ascent": 4,
+      "height": 41,
+      "chars": [
+        "\uE100"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x42.png",
+      "ascent": 4,
+      "height": 42,
+      "chars": [
+        "\uE101"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x43.png",
+      "ascent": 4,
+      "height": 43,
+      "chars": [
+        "\uE102"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x44.png",
+      "ascent": 4,
+      "height": 44,
+      "chars": [
+        "\uE103"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x45.png",
+      "ascent": 4,
+      "height": 45,
+      "chars": [
+        "\uE104"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x46.png",
+      "ascent": 4,
+      "height": 46,
+      "chars": [
+        "\uE105"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x47.png",
+      "ascent": 4,
+      "height": 47,
+      "chars": [
+        "\uE106"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x48.png",
+      "ascent": 4,
+      "height": 48,
+      "chars": [
+        "\uE107"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x49.png",
+      "ascent": 4,
+      "height": 49,
+      "chars": [
+        "\uE108"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x50.png",
+      "ascent": 4,
+      "height": 50,
+      "chars": [
+        "\uE109"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x51.png",
+      "ascent": 4,
+      "height": 51,
+      "chars": [
+        "\uE10A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x52.png",
+      "ascent": 4,
+      "height": 52,
+      "chars": [
+        "\uE10B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x53.png",
+      "ascent": 4,
+      "height": 53,
+      "chars": [
+        "\uE10C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x54.png",
+      "ascent": 4,
+      "height": 54,
+      "chars": [
+        "\uE10D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x55.png",
+      "ascent": 4,
+      "height": 55,
+      "chars": [
+        "\uE10E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x56.png",
+      "ascent": 4,
+      "height": 56,
+      "chars": [
+        "\uE10F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x57.png",
+      "ascent": 4,
+      "height": 57,
+      "chars": [
+        "\uE110"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x58.png",
+      "ascent": 4,
+      "height": 58,
+      "chars": [
+        "\uE111"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x59.png",
+      "ascent": 4,
+      "height": 59,
+      "chars": [
+        "\uE112"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x60.png",
+      "ascent": 4,
+      "height": 60,
+      "chars": [
+        "\uE113"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x61.png",
+      "ascent": 4,
+      "height": 61,
+      "chars": [
+        "\uE114"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x62.png",
+      "ascent": 4,
+      "height": 62,
+      "chars": [
+        "\uE115"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x63.png",
+      "ascent": 4,
+      "height": 63,
+      "chars": [
+        "\uE116"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x64.png",
+      "ascent": 4,
+      "height": 64,
+      "chars": [
+        "\uE117"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x65.png",
+      "ascent": 4,
+      "height": 65,
+      "chars": [
+        "\uE118"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x66.png",
+      "ascent": 4,
+      "height": 66,
+      "chars": [
+        "\uE119"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x67.png",
+      "ascent": 4,
+      "height": 67,
+      "chars": [
+        "\uE11A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x68.png",
+      "ascent": 4,
+      "height": 68,
+      "chars": [
+        "\uE11B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x69.png",
+      "ascent": 4,
+      "height": 69,
+      "chars": [
+        "\uE11C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x70.png",
+      "ascent": 4,
+      "height": 70,
+      "chars": [
+        "\uE11D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x71.png",
+      "ascent": 4,
+      "height": 71,
+      "chars": [
+        "\uE11E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/dialog/solid_64x72.png",
+      "ascent": 4,
+      "height": 72,
+      "chars": [
+        "\uE11F"
+      ]
+    }
+  ]
+}
