@@ -28,6 +28,20 @@ Flat 16x16 ammo item sprites for the items the plugin hands out: `ammo_fighter_r
   the entity's local +Z. Each model is centred on x = y = 8 and z of about 8, so the display sits at the
   projectile's middle.
 
+## GUI skins font
+
+`assets/sovereignmc/font/gui_skins.json` maps pixel-art inventory backgrounds
+(`assets/sovereignmc/textures/gui/skins/*.png`) to private-use codepoints; the client
+draws the title and "Inventory" label on top. Codepoints: `U+E600..U+E63D` backgrounds
+(chest/anvil skins), `U+E700..U+E710` structure emblems (32x32 logos copied from SovereignPlates; 16x16 item icons live under `item/guide/`), `U+E6C0..U+E6C2` LCD segment/lamp overlays, `U+E6D0..U+E6DB`,
+`U+E6E0..U+E6EB`, `U+E6F0..U+E6FB` LCD digits `0-9 / %` for window rows 5, 3 and 0, `U+E720..U+E72B` the guide-coloured row 5 digits.
+
+The generator also writes the 16x16 control icons (`item/ui/`, custom_model_data states via `items/ui/*.json`) and the guide structure icons (`item/guide/`). Icon art lives in `tools/gui-skins/icons.mjs`.
+
+`tools/gui-skins/skins.json` is the source of truth (ids, codepoints, grids, decor); the
+PNGs and the font JSON are generated and committed. Never edit them by hand. Regenerate
+with `node tools/gui-skins/generate.mjs` (Node, no dependencies; output is deterministic).
+
 ## Credits
 
 ## Textures

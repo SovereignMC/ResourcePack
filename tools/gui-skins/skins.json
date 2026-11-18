@@ -1,0 +1,3596 @@
+{
+ "_doc": "Source of truth for GUI skin glyphs. Font key sovereignmc:gui_skins. Spaces font sovereignmc:spaces: codepoint 0xD0000+n advances n px (n in -8192..8192). Chest title origin (8,6), anvil title origin (60,6). A bitmap glyph with ascent A has its top at window y = 13 - A. Bitmap advance = width + 1. Decor 'label' draws in bayInk (for dark bays) unless tone='ink' (for the light chassis); guide skin always uses ink. tabtrack may carry c0..c1 to limit the strip to those columns (default whole row).",
+ "font": "sovereignmc:gui_skins",
+ "spaces_font": "sovereignmc:spaces",
+ "texture_dir": "assets/sovereignmc/textures/gui/skins",
+ "texture_ref": "sovereignmc:gui/skins/<id>.png",
+ "grid_legend": {
+  ".": "no socket (chassis/decor shows)",
+  "S": "socket",
+  "H": "highlighted socket (accent frame)",
+  "c": "socket, cyan rim (charge)",
+  "f": "socket, orange rim (fuel)",
+  "k": "socket, brown rim (crate)",
+  "P": "pin socket (socket + dashed gold outline + faint pin)"
+ },
+ "geometry": {
+  "cell": "socket frame top-left = (7+col*18, 17+row*18), 18x18; item drawn at +1,+1",
+  "lcd": "rect x=7+c0*18+1, y=17+r*18+2, w=(c1-c0+1)*18-2, h=14",
+  "lcd_segments": "baked off-segments 3x6 at x = lcdX+10, step 4, while x < lcdX+w-3, y = lcdY+4; baked off-lamp 4x4 at (lcdX+3, lcdY+5)",
+  "digits": "3x10 glyphs (3x5 font, rows doubled), centred: x = lcdX + floor((w - (len*4-1))/2), y = lcdY+3"
+ },
+ "overlays": [
+  {
+   "id": "seg_on",
+   "codepoint": "U+E6C0",
+   "size": [
+    3,
+    6
+   ],
+   "window_y": 113,
+   "ascent": -100,
+   "colour": "lcdOn"
+  },
+  {
+   "id": "lamp_on",
+   "codepoint": "U+E6C1",
+   "size": [
+    4,
+    4
+   ],
+   "window_y": 114,
+   "ascent": -101,
+   "colour": "lcdOn"
+  },
+  {
+   "id": "lamp_off",
+   "codepoint": "U+E6C2",
+   "size": [
+    4,
+    4
+   ],
+   "window_y": 114,
+   "ascent": -101,
+   "colour": "#e05050"
+  },
+  {
+   "id": "digits_row5",
+   "codepoints": "U+E6D0..U+E6DB = 0-9, /, %",
+   "size": [
+    3,
+    10
+   ],
+   "window_y": 112,
+   "ascent": -99,
+   "colour": "lcdOn (steel/admin) ; guide skin uses its own lcdOn"
+  },
+  {
+   "id": "digits_row3",
+   "codepoints": "U+E6E0..U+E6EB = 0-9, /, %",
+   "size": [
+    3,
+    10
+   ],
+   "window_y": 76,
+   "ascent": -63,
+   "colour": "lcdOn"
+  },
+  {
+   "id": "digits_row0",
+   "codepoints": "U+E6F0..U+E6FB = 0-9, /, %",
+   "size": [
+    3,
+    10
+   ],
+   "window_y": 22,
+   "ascent": -9,
+   "colour": "guide lcdOn #f2c463"
+  },
+  {
+   "id": "digits_row5_guide",
+   "codepoints": "U+E720..U+E72B = 0-9, /, %",
+   "size": [
+    3,
+    10
+   ],
+   "window_y": 112,
+   "ascent": -99,
+   "colour": "guide lcdOn #f2c463"
+  }
+ ],
+ "skins": [
+  {
+   "id": "out_extraction",
+   "codepoint": "U+E600",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "OutputGuiBuilder (gui_layout OUTPUT)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "chevron"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "chevron",
+     "flip": true
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "OUTPUT"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "YIELD"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "MODE"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "cfkSH...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "in_1row",
+   "codepoint": "U+E601",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "InputGuiBuilder, input_slots/9 = 1",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "text": "INPUT HOPPER"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "text": "9 SLOTS",
+     "align": "right"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "shutter",
+     "r0": 2,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "MODE"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    ".........",
+    ".........",
+    ".........",
+    "cfkSH...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "in_2row",
+   "codepoint": "U+E602",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "InputGuiBuilder, input_slots/9 = 2",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "text": "INPUT HOPPER"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "text": "18 SLOTS",
+     "align": "right"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "shutter",
+     "r0": 3,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "MODE"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".........",
+    ".........",
+    "cfkSH...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "in_3row",
+   "codepoint": "U+E603",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "InputGuiBuilder, input_slots/9 = 3",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "text": "INPUT HOPPER"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "text": "27 SLOTS",
+     "align": "right"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "shutter",
+     "r0": 4,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "MODE"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".........",
+    "cfkSH...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "in_4row",
+   "codepoint": "U+E604",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "InputGuiBuilder, input_slots/9 = 4",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "text": "INPUT HOPPER"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "text": "36 SLOTS",
+     "align": "right"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "MODE"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "cfkSH...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "fuel_extraction_1row",
+   "codepoint": "U+E610",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=1, category extraction",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 3,
+     "r1": 1,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 2,
+   "grid": [
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    150
+   ]
+  },
+  {
+   "id": "fuel_extraction_2row",
+   "codepoint": "U+E611",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=2, category extraction",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 3,
+     "r1": 2,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 3,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    168
+   ]
+  },
+  {
+   "id": "fuel_extraction_3row",
+   "codepoint": "U+E612",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=3, category extraction",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 3,
+     "r1": 3,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "fuel_extraction_4row",
+   "codepoint": "U+E613",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=4, category extraction",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 4,
+     "c1": 3,
+     "r1": 4,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "fuel_processing_1row",
+   "codepoint": "U+E614",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=1, category processing",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 3,
+     "r1": 1,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 2,
+   "grid": [
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    150
+   ]
+  },
+  {
+   "id": "fuel_processing_2row",
+   "codepoint": "U+E615",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=2, category processing",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 3,
+     "r1": 2,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 3,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    168
+   ]
+  },
+  {
+   "id": "fuel_processing_3row",
+   "codepoint": "U+E616",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=3, category processing",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 3,
+     "r1": 3,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "fuel_processing_4row",
+   "codepoint": "U+E617",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=4, category processing",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 4,
+     "c1": 3,
+     "r1": 4,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "fuel_power_1row",
+   "codepoint": "U+E618",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "power",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=1, category power",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 3,
+     "r1": 1,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 2,
+   "grid": [
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    150
+   ]
+  },
+  {
+   "id": "fuel_power_2row",
+   "codepoint": "U+E619",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "power",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=2, category power",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 3,
+     "r1": 2,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 3,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    168
+   ]
+  },
+  {
+   "id": "fuel_power_3row",
+   "codepoint": "U+E61A",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "power",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=3, category power",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 3,
+     "r1": 3,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "fuel_power_4row",
+   "codepoint": "U+E61B",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "power",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=4, category power",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 4,
+     "c1": 3,
+     "r1": 4,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "fuel_military_1row",
+   "codepoint": "U+E61C",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=1, category military",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 3,
+     "r1": 1,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 2,
+   "grid": [
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    150
+   ]
+  },
+  {
+   "id": "fuel_military_2row",
+   "codepoint": "U+E61D",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=2, category military",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 3,
+     "r1": 2,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 3,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    168
+   ]
+  },
+  {
+   "id": "fuel_military_3row",
+   "codepoint": "U+E61E",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=3, category military",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 3,
+     "r1": 3,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "fuel_military_4row",
+   "codepoint": "U+E61F",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "FuelInputGuiBuilder (FUEL layout + fuel button), fuelRows=4, category military",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 4,
+     "c1": 3,
+     "r1": 4,
+     "text": "^ FUEL BAY"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "pattern": "vent"
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H...."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "repair_1row",
+   "codepoint": "U+E620",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "RepairGuiBuilder, input rows 1",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 1
+    },
+    {
+     "t": "shutter",
+     "r0": 2,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "bolt",
+     "c": 3,
+     "r": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 5,
+     "text": "ITEM"
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "REPAIR"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    ".........",
+    ".........",
+    ".........",
+    "cfk.HS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "repair_2row",
+   "codepoint": "U+E621",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "RepairGuiBuilder, input rows 2",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 2
+    },
+    {
+     "t": "shutter",
+     "r0": 3,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "bolt",
+     "c": 3,
+     "r": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 5,
+     "text": "ITEM"
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "REPAIR"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".........",
+    ".........",
+    "cfk.HS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "repair_3row",
+   "codepoint": "U+E622",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "RepairGuiBuilder, input rows 3",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 3
+    },
+    {
+     "t": "shutter",
+     "r0": 4,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "bolt",
+     "c": 3,
+     "r": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 5,
+     "text": "ITEM"
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "REPAIR"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".........",
+    "cfk.HS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "repair_4row",
+   "codepoint": "U+E623",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "RepairGuiBuilder, input rows 4",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "hazard"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "bolt",
+     "c": 3,
+     "r": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 5,
+     "text": "ITEM"
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "REPAIR"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "....H....",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "cfk.HS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "workshop_menu",
+   "codepoint": "U+E624",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "crafting",
+   "used_by": "Workshop main menu (WorkshopView + MainMenuBottomRow)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "grid",
+     "text": "RECIPE CATEGORIES"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "BENCH"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "TOOLS"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5,
+     "pattern": "grain"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 8,
+     "r1": 5,
+     "pattern": "grain"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "....k...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "workshop_category",
+   "codepoint": "U+E625",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "crafting",
+   "used_by": "Workshop category page (CategoryBottomRow)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "grid",
+     "text": "RECIPES"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "BENCH"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "TOOLS"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 0,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 1,
+     "r0": 5,
+     "c1": 2,
+     "r1": 5,
+     "pattern": "grain"
+    },
+    {
+     "t": "bay",
+     "c0": 3,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "PAGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "S..SkS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "sawmill",
+   "codepoint": "U+E626",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "processing",
+   "used_by": "SawmillGuiBuilder",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "saw"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "CUT"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "LIST"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 2,
+     "r1": 5,
+     "pattern": "grain"
+    },
+    {
+     "t": "bay",
+     "c0": 3,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "PAGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "...SkS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "sigil_altar",
+   "codepoint": "U+E627",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "arcane",
+   "used_by": "SigilAltarGuiBuilder",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "rune"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "RITUAL"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "SIGILS"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 2,
+     "r1": 5,
+     "pattern": "rune"
+    },
+    {
+     "t": "bay",
+     "c0": 3,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "PAGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "...SkS..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "munitions",
+   "codepoint": "U+E628",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "military",
+   "used_by": "MunitionsFactoryGuiBuilder",
+   "decor": [
+    {
+     "t": "tabtrack",
+     "r": 0
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "ARMS"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "LINE"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 4,
+     "c1": 4,
+     "r": 5
+    },
+    {
+     "t": "plate",
+     "c0": 6,
+     "r0": 5,
+     "c1": 8,
+     "r1": 5,
+     "pattern": "hazard"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "SSSSSSSSS",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "cfkS.S..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "townhall_root",
+   "codepoint": "U+E629",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallMenuService root",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "crest",
+     "text": "STRUCTURE FAMILIES"
+    },
+    {
+     "t": "plate",
+     "c0": 8,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 2,
+     "trim": true
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 3,
+     "r1": 3,
+     "text": "v PINNED"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "text": "UP TO 9",
+     "align": "right"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "trim": true
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 8,
+     "r1": 5,
+     "pattern": "seal"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".......H.",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "....H....",
+    "PPPPPPPPP",
+    "........."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "townhall_info",
+   "codepoint": "U+E62A",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallInfoGui (items moved to 10,13,16; back to 40)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "crest"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 2,
+     "r1": 3,
+     "trim": true
+    },
+    {
+     "t": "bay",
+     "c0": 3,
+     "r0": 1,
+     "c1": 5,
+     "r1": 3,
+     "trim": true
+    },
+    {
+     "t": "bay",
+     "c0": 6,
+     "r0": 1,
+     "c1": 8,
+     "r1": 3,
+     "trim": true
+    },
+    {
+     "t": "lcd",
+     "c0": 0,
+     "c1": 2,
+     "r": 3
+    },
+    {
+     "t": "lcd",
+     "c0": 3,
+     "c1": 5,
+     "r": 3
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 3
+    },
+    {
+     "t": "label",
+     "c0": 0,
+     "c1": 2,
+     "r": 2,
+     "text": "CAP"
+    },
+    {
+     "t": "label",
+     "c0": 3,
+     "c1": 5,
+     "r": 2,
+     "text": "ENERGY"
+    },
+    {
+     "t": "label",
+     "c0": 6,
+     "c1": 8,
+     "r": 2,
+     "text": "FAMILIES"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 4,
+     "c1": 3,
+     "r1": 4
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 8,
+     "r1": 5,
+     "pattern": "seal"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".H..H..H.",
+    ".........",
+    ".........",
+    "....S....",
+    "........."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "ledger",
+   "codepoint": "U+E62B",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "ManagementGuiService, FreeRegistrationGuiService",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "crest"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4,
+     "trim": true
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 2,
+     "r1": 4,
+     "text": "LEDGER"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "TOWN"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 2,
+     "r1": 5,
+     "pattern": "seal"
+    },
+    {
+     "t": "bay",
+     "c0": 3,
+     "r0": 5,
+     "c1": 5,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 4,
+     "c1": 4,
+     "r": 5
+    },
+    {
+     "t": "plate",
+     "c0": 6,
+     "r0": 5,
+     "c1": 8,
+     "r1": 5,
+     "pattern": "seal"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    "HSSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "...S.S..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "townhall_list",
+   "codepoint": "U+E62C",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallCategoryGui, TownHallSearchResultsGui (TOWN_HALL_PAGED_STRUCTURE + pagination 46/49/52)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "crest"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4,
+     "trim": true
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".S.....S.",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".S..H..S."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "townhall_structure_privileged",
+   "codepoint": "U+E62D",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallStructurePage PRIVILEGED_STRUCTURE",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "crest"
+    },
+    {
+     "t": "bay",
+     "c0": 2,
+     "r0": 1,
+     "c1": 6,
+     "r1": 2,
+     "trim": true
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 1,
+     "r1": 2,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 7,
+     "r0": 1,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "seal"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    ".S.....S.",
+    "...SHS...",
+    "....S....",
+    "........."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "townhall_structure",
+   "codepoint": "U+E62E",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallStructurePage REGULAR_STRUCTURE",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "crest"
+    },
+    {
+     "t": "bay",
+     "c0": 2,
+     "r0": 1,
+     "c1": 6,
+     "r1": 2,
+     "trim": true
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 1,
+     "c1": 1,
+     "r1": 2,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 7,
+     "r0": 1,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "pattern": "seal"
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    ".S.....S.",
+    "...SHS...",
+    ".........",
+    "........."
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "structure_info",
+   "codepoint": "U+E62F",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "StructureInfoService",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "OUTPUT"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "INFO"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 3,
+     "text": "RUN"
+    },
+    {
+     "t": "gap",
+     "c": 4,
+     "text": "STAT"
+    },
+    {
+     "t": "gap",
+     "c": 6.5,
+     "text": "FUEL CHARGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "cfkHS...."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_page",
+   "codepoint": "U+E630",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "Every guide screen on GuiConstants.MAIN_MENU_STRUCTURE / PAGED_GUI_STRUCTURE \u2014 header standard: back 0, home 1, search 8; page digits LCD at 49",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 4,
+     "c1": 4,
+     "r": 5
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "SS......S",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".S.....S."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_detail",
+   "codepoint": "U+E631",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "GuideStructureDetailGui",
+   "decor": [
+    {
+     "t": "tabtrack",
+     "r": 0
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".S.SHSSS.",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".S..H..S."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_machine",
+   "codepoint": "U+E632",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "BasicMachineDetailGui (header/frame marker panes removed)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 3,
+     "r1": 3,
+     "blueprint": true
+    },
+    {
+     "t": "bay",
+     "c0": 5,
+     "r0": 1,
+     "c1": 7,
+     "r1": 3,
+     "sheet": true
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 4,
+     "c1": 7,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 3,
+     "text": "PATTERN"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 3,
+     "text": "INPUT"
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 4,
+     "r1": 4,
+     "text": "OUT"
+    },
+    {
+     "t": "arrow",
+     "c": 4,
+     "r": 2
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".S..H..S.",
+    ".SSS.SSS.",
+    ".SSS.SSS.",
+    ".SSS.SSS.",
+    ".SSSSSSS.",
+    ".S..H..S."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_blueprint",
+   "codepoint": "U+E633",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "MultiblockVisualizerGui",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "lcd",
+     "c0": 5,
+     "c1": 5,
+     "r": 0
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 5,
+     "blueprint": true
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 5,
+     "text": "LAYER"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 5,
+     "text": "TOP"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".S..H.SSS",
+    ".........",
+    ".........",
+    ".........",
+    ".........",
+    "........."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_crafting",
+   "codepoint": "U+E634",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "VanillaRecipeGui",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 3,
+     "r1": 3,
+     "sheet": true
+    },
+    {
+     "t": "arrow",
+     "c": 5,
+     "r": 2
+    },
+    {
+     "t": "result",
+     "c": 6,
+     "r": 2
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    ".S..H....",
+    ".SSS.....",
+    ".SSSS.S..",
+    ".SSS.....",
+    "........."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "guide_recipe_step",
+   "codepoint": "U+E635",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "RecipeViewRenderer RECIPE_STEP_LAYOUT",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 2,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "bay",
+     "c0": 6,
+     "r0": 0,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "SSS...SSS",
+    "SSS.H.SSS",
+    "SSSSSSSSS",
+    "SSS.S.SSS",
+    "SSS.S.SSS"
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "guide_vanilla_step",
+   "codepoint": "U+E636",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "RecipeViewRenderer VANILLA_STEP_LAYOUT",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0,
+     "pattern": "ribbon"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 3,
+     "r1": 3,
+     "sheet": true
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    ".S..H....",
+    ".SSSSH...",
+    ".SSSS....",
+    ".SSSS....",
+    "....S...."
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "guide_brewer",
+   "codepoint": "U+E637",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "ArgentumBrewerMockGui (W/L/R/a-d marker panes removed)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 0,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 8,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    },
+    {
+     "t": "label",
+     "c0": 1,
+     "c1": 1,
+     "r": 1,
+     "text": "BTL"
+    },
+    {
+     "t": "label",
+     "c0": 2,
+     "c1": 2,
+     "r": 1,
+     "text": "ICE"
+    },
+    {
+     "t": "label",
+     "c0": 3,
+     "c1": 3,
+     "r": 1,
+     "text": "FUEL"
+    },
+    {
+     "t": "label",
+     "c0": 4,
+     "c1": 4,
+     "r": 1,
+     "text": "1"
+    },
+    {
+     "t": "label",
+     "c0": 5,
+     "c1": 5,
+     "r": 1,
+     "text": "2"
+    },
+    {
+     "t": "label",
+     "c0": 6,
+     "c1": 6,
+     "r": 1,
+     "text": "3"
+    },
+    {
+     "t": "label",
+     "c0": 7,
+     "c1": 7,
+     "r": 1,
+     "text": "4"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 2,
+     "c1": 7,
+     "r1": 2,
+     "sheet": true
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "text": "v OUTPUT BUFFER"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    ".SS.H.SS.",
+    ".........",
+    ".SSSSSSS.",
+    ".........",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "anvil_admin",
+   "codepoint": "U+E638",
+   "kind": "anvil",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "TownHallNicknameMenu, TownHallAnvilSearchMenu",
+   "decor": [],
+   "size": [
+    176,
+    166
+   ]
+  },
+  {
+   "id": "anvil_guide",
+   "codepoint": "U+E639",
+   "kind": "anvil",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "GuideAnvilSearchMenu",
+   "decor": [],
+   "size": [
+    176,
+    166
+   ]
+  },
+  {
+   "id": "argentum_brewer",
+   "codepoint": "U+E63A",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "arcane",
+   "used_by": "ArgentumRevamped BrewerGuiLayout (machine)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 1,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 7,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 3,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 5,
+     "r1": 0
+    },
+    {
+     "t": "label",
+     "c0": 1,
+     "c1": 1,
+     "r": 1,
+     "text": "BTL",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 2,
+     "c1": 2,
+     "r": 1,
+     "text": "ICE",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 3,
+     "c1": 3,
+     "r": 1,
+     "text": "FUEL",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 4,
+     "c1": 4,
+     "r": 1,
+     "text": "1",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 5,
+     "c1": 5,
+     "r": 1,
+     "text": "2",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 6,
+     "c1": 6,
+     "r": 1,
+     "text": "3",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 7,
+     "c1": 7,
+     "r": 1,
+     "text": "4",
+     "tone": "ink"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 2,
+     "c1": 7,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3,
+     "text": "v OUTPUT BUFFER"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 4,
+     "c1": 8,
+     "r1": 4
+    }
+   ],
+   "rows": 5,
+   "grid": [
+    "..S.H.S..",
+    ".........",
+    ".SSfSSSS.",
+    ".........",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    204
+   ]
+  },
+  {
+   "id": "guide_structure",
+   "codepoint": "U+E63B",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "used_by": "GuideStructureDetailGui (content rows 1-2 skip cols 0-1, which hold the emblem plaque)",
+   "decor": [
+    {
+     "t": "tabtrack",
+     "r": 0
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "emblem",
+     "c0": 0,
+     "r0": 1,
+     "c1": 1,
+     "r1": 2
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 4,
+     "c1": 4,
+     "r": 5
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    "SS.SHSS.S",
+    "..SSSSSSS",
+    "..SSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".S.....S."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "guide_home",
+   "codepoint": "U+E63C",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "rows": 6,
+   "size": [
+    176,
+    222
+   ],
+   "used_by": "GuideHomeGui: 6 chapter tiles (3x2 cells each, cols 0-2/3-5/6-8 x rows 1-2/3-4), search 8, recently viewed 50-52",
+   "grid": [
+    "........S",
+    ".........",
+    ".........",
+    ".........",
+    ".........",
+    ".....SSS."
+   ],
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 7,
+     "r1": 0,
+     "text": "CHOOSE A CHAPTER"
+    },
+    {
+     "t": "chapters"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 4,
+     "r1": 5,
+     "text": "RECENTLY VIEWED"
+    }
+   ]
+  },
+  {
+   "id": "guide_chapter",
+   "codepoint": "U+E63D",
+   "kind": "chest",
+   "skin": "guide",
+   "accent": "guide",
+   "rows": 6,
+   "size": [
+    176,
+    222
+   ],
+   "used_by": "GuideChapterGui: back 0, home 1, tabs 2-7, search 8, content 9-44, prev 46, page LCD 49, next 52",
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    ".S.....S."
+   ],
+   "decor": [
+    {
+     "t": "tabtrack",
+     "r": 0,
+     "c0": 2,
+     "c1": 7
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 1,
+     "c1": 8,
+     "r1": 4,
+     "sheet": true
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 5,
+     "c1": 3,
+     "r1": 5
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 5,
+     "c1": 6,
+     "r1": 5
+    },
+    {
+     "t": "lcd",
+     "c0": 4,
+     "c1": 4,
+     "r": 5
+    }
+   ]
+  }
+ ],
+ "emblems": {
+  "_doc": "Structure logos reused from SovereignPlates. Source: assets/sovereignmc/textures/font/plate/struct_<family>.png (32x48; the logo is the top 32x32, 16x16 pixel art at 2x). Emblem glyph = that 32x32 copied unchanged. Drawn on guide_structure at window (9,37): ascent = 13-37 = -24, height 32, advance 33. Plaque decor 'emblem' = cells c0..c1 x r0..r1 (window 7..43 x 35..71): leather fill (guide.leather) with a 1px leatherLo outer line, 1px leatherHi inner bevel, and an accent (guide #a0442c) corner tick on each corner; no sockets.",
+  "window_xy": [
+   9,
+   37
+  ],
+  "ascent": -24,
+  "height": 32,
+  "glyphs": [
+   {
+    "family": "deep_mine",
+    "codepoint": "U+E700",
+    "file": "emblem_deep_mine"
+   },
+   {
+    "family": "quarry",
+    "codepoint": "U+E701",
+    "file": "emblem_quarry"
+   },
+   {
+    "family": "mud_pit",
+    "codepoint": "U+E702",
+    "file": "emblem_mud_pit"
+   },
+   {
+    "family": "woodcutter",
+    "codepoint": "U+E703",
+    "file": "emblem_woodcutter"
+   },
+   {
+    "family": "crop_farm",
+    "codepoint": "U+E704",
+    "file": "emblem_crop_farm"
+   },
+   {
+    "family": "crusher",
+    "codepoint": "U+E705",
+    "file": "emblem_crusher"
+   },
+   {
+    "family": "sawmill",
+    "codepoint": "U+E706",
+    "file": "emblem_sawmill"
+   },
+   {
+    "family": "smelter",
+    "codepoint": "U+E707",
+    "file": "emblem_smelter"
+   },
+   {
+    "family": "electrolysis",
+    "codepoint": "U+E708",
+    "file": "emblem_electrolysis"
+   },
+   {
+    "family": "concrete_mixer",
+    "codepoint": "U+E709",
+    "file": "emblem_concrete_mixer"
+   },
+   {
+    "family": "enchant_centrifuge",
+    "codepoint": "U+E70A",
+    "file": "emblem_enchant_centrifuge"
+   },
+   {
+    "family": "sigil_altar",
+    "codepoint": "U+E70B",
+    "file": "emblem_sigil_altar"
+   },
+   {
+    "family": "workshop",
+    "codepoint": "U+E70C",
+    "file": "emblem_workshop"
+   },
+   {
+    "family": "power_plant",
+    "codepoint": "U+E70D",
+    "file": "emblem_power_plant"
+   },
+   {
+    "family": "armoury",
+    "codepoint": "U+E70E",
+    "file": "emblem_armoury"
+   },
+   {
+    "family": "munitions",
+    "codepoint": "U+E70F",
+    "file": "emblem_munitions"
+   },
+   {
+    "family": "town_hall",
+    "codepoint": "U+E710",
+    "file": "emblem_town_hall"
+   }
+  ]
+ },
+ "item_icons": {
+  "_doc": "Same logos as 16x16 item icons for guide structure items: downscale the 32x32 logo by taking the top-left pixel of each 2x2 block (pixel-exact). Write textures/item/guide/struct_<family>.png, models/item/guide/struct_<family>.json ({\"parent\":\"minecraft:item/generated\",\"textures\":{\"layer0\":\"sovereignmc:item/guide/struct_<family>\"}}) and items/guide/struct_<family>.json ({\"model\":{\"type\":\"minecraft:model\",\"model\":\"sovereignmc:item/guide/struct_<family>\"}}). Plugin sets item_model sovereignmc:guide/struct_<family>.",
+  "families": [
+   "deep_mine",
+   "quarry",
+   "mud_pit",
+   "woodcutter",
+   "crop_farm",
+   "crusher",
+   "sawmill",
+   "smelter",
+   "electrolysis",
+   "concrete_mixer",
+   "enchant_centrifuge",
+   "sigil_altar",
+   "workshop",
+   "power_plant",
+   "armoury",
+   "munitions",
+   "town_hall"
+  ],
+  "family_from_type_key": "strip a trailing _T<digits>, lowercase; ENCHANTMENT_CENTRIFUGE -> enchant_centrifuge, MUNITIONS_FACTORY -> munitions; anything not in families -> no logo"
+ },
+ "chapter_tiles": {
+  "_doc": "decor 'chapters' on guide_home: for chapter i (0..5) tile = cells cols (i%3)*3..+2, rows 1+(i//3)*2..+1; tile rect x=cx(c0)+1,y=cy(r0)+1,w=52,h=34: bevel('#ecdfb9','#fbf3dc','#9b814d'); 20x20 leather inset plate at (x+16,y+2) with the chapter icon (control art) at (x+18,y+4) 1x; label in guide ink centred at y+25; 1px accent rule at y+h-3 from x+3 to x+w-4. Copy the look of the GSCREENS 'Structures Guide' draw() in the controls proposal page.",
+  "tiles": [
+   {
+    "icon": "ch_start",
+    "label": "START HERE"
+   },
+   {
+    "icon": "ch_structures",
+    "label": "STRUCTURES"
+   },
+   {
+    "icon": "ch_items",
+    "label": "MATERIALS"
+   },
+   {
+    "icon": "ch_military",
+    "label": "MILITARY"
+   },
+   {
+    "icon": "ch_machines",
+    "label": "MACHINES"
+   },
+   {
+    "icon": "ch_reference",
+    "label": "REFERENCE"
+   }
+  ]
+ },
+ "controls": {
+  "_doc": "Control icons, 16x16, art ported from the controls proposal page (ART/COL/TIERS DSL in /tmp/claude-1000/-home-rattly-compiles-sovereignmc/7251c3db-1621-423a-9d90-2698bc9622c1/scratchpad/gui-controls/index.src.html). Item model key sovereignmc:ui/<id>. Textures textures/item/ui/<id>.png (single state) or <id>_<n>.png; models models/item/ui/<id>[_<n>].json parent minecraft:item/generated. Item definition items/ui/<id>.json: single state -> plain minecraft:model; multi-state -> minecraft:range_dispatch on minecraft:custom_model_data index 0 with thresholds 1..n-1 and fallback = state 0. 'blank' is a fully transparent 16x16 (invisible hotspot). State meaning: page_prev/page_next 0 enabled,1 disabled(grey); charge 0..4 = fill level; crate 0 linked,1 linking,2 none/broken; run 0 running,1 paused; pin 0 pinned,1 unpinned; layer_up/down 0 enabled,1 disabled(grey).",
+  "icons": [
+   {
+    "id": "blank",
+    "states": 1
+   },
+   {
+    "id": "back",
+    "states": 1
+   },
+   {
+    "id": "home",
+    "states": 1
+   },
+   {
+    "id": "close",
+    "states": 1
+   },
+   {
+    "id": "search",
+    "states": 1
+   },
+   {
+    "id": "page_prev",
+    "states": 2
+   },
+   {
+    "id": "page_next",
+    "states": 2
+   },
+   {
+    "id": "page_info",
+    "states": 1
+   },
+   {
+    "id": "charge",
+    "states": 5
+   },
+   {
+    "id": "fuel",
+    "states": 1
+   },
+   {
+    "id": "crate",
+    "states": 3
+   },
+   {
+    "id": "mode",
+    "states": 1
+   },
+   {
+    "id": "run",
+    "states": 2
+   },
+   {
+    "id": "repair",
+    "states": 1
+   },
+   {
+    "id": "status",
+    "states": 1
+   },
+   {
+    "id": "info",
+    "states": 1
+   },
+   {
+    "id": "pin",
+    "states": 2
+   },
+   {
+    "id": "nickname",
+    "states": 1
+   },
+   {
+    "id": "deregister",
+    "states": 1
+   },
+   {
+    "id": "cap",
+    "states": 1
+   },
+   {
+    "id": "families",
+    "states": 1
+   },
+   {
+    "id": "ticket",
+    "states": 1
+   },
+   {
+    "id": "confirm",
+    "states": 1
+   },
+   {
+    "id": "view_tree",
+    "states": 1
+   },
+   {
+    "id": "view_list",
+    "states": 1
+   },
+   {
+    "id": "view_used",
+    "states": 1
+   },
+   {
+    "id": "producer",
+    "states": 1
+   },
+   {
+    "id": "layer_up",
+    "states": 2
+   },
+   {
+    "id": "layer_down",
+    "states": 2
+   },
+   {
+    "id": "lock",
+    "states": 1
+   },
+   {
+    "id": "empty",
+    "states": 1
+   },
+   {
+    "id": "unknown",
+    "states": 1
+   },
+   {
+    "id": "tier_0",
+    "states": 1
+   },
+   {
+    "id": "tier_1",
+    "states": 1
+   },
+   {
+    "id": "tier_2",
+    "states": 1
+   },
+   {
+    "id": "tier_3",
+    "states": 1
+   },
+   {
+    "id": "tier_4",
+    "states": 1
+   },
+   {
+    "id": "tier_5",
+    "states": 1
+   },
+   {
+    "id": "ch_start",
+    "states": 1
+   },
+   {
+    "id": "ch_structures",
+    "states": 1
+   },
+   {
+    "id": "ch_items",
+    "states": 1
+   },
+   {
+    "id": "ch_military",
+    "states": 1
+   },
+   {
+    "id": "ch_machines",
+    "states": 1
+   },
+   {
+    "id": "ch_reference",
+    "states": 1
+   }
+  ]
+ }
+}
