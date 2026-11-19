@@ -254,6 +254,86 @@ function renderAnvil(v, seed) {
   return ctx;
 }
 
+// ---------- industrial bleed (out-of-bounds decor, crates) ----------
+// style 'industrial_crate'; v.bleed = [left, top, right, bottom] px drawn outside the 176-wide window. The glyph is
+// (176+l+r) x (H+t+b); ascent = 13 + t; title code shifts by -(origin + l) instead of -origin.
+const IND = { pipe: '#5d636b', pipeHi: '#a3aab2', pipeLo: '#2b2f35', pipeMid: '#7b828b', flange: '#474c53', haz: '#e0a12a', hazDk: '#1d1f22', valve: '#b8352b', valveHi: '#e0584b', gaugeFace: '#e9e4d6', gaugeRim: '#2b2f35', needle: '#c0392b', skid: '#3a3f46', lampOff: '#3a2c14' };
+function vpipe(c, x, y0, y1, w = 8) {
+  R(c, x, y0, w, y1 - y0, IND.pipe); R(c, x, y0, 1, y1 - y0, IND.pipeLo); R(c, x + w - 1, y0, 1, y1 - y0, IND.pipeLo);
+  R(c, x + 2, y0, 2, y1 - y0, IND.pipeHi); R(c, x + 4, y0, 1, y1 - y0, IND.pipeMid);
+}
+function hpipe(c, x0, x1, y, h = 8) {
+  R(c, x0, y, x1 - x0, h, IND.pipe); R(c, x0, y, x1 - x0, 1, IND.pipeLo); R(c, x0, y + h - 1, x1 - x0, 1, IND.pipeLo);
+  R(c, x0, y + 2, x1 - x0, 2, IND.pipeHi); R(c, x0, y + 4, x1 - x0, 1, IND.pipeMid);
+}
+function flangeV(c, x, y, w = 8) { R(c, x - 2, y, w + 4, 4, IND.flange); R(c, x - 2, y, w + 4, 1, IND.pipeHi); R(c, x - 2, y + 3, w + 4, 1, IND.pipeLo); R(c, x - 1, y + 1, 1, 1, IND.pipeHi); R(c, x + w, y + 1, 1, 1, IND.pipeHi); }
+function flangeH(c, x, y, h = 8) { R(c, x, y - 2, 4, h + 4, IND.flange); R(c, x, y - 2, 1, h + 4, IND.pipeHi); R(c, x + 3, y - 2, 1, h + 4, IND.pipeLo); R(c, x + 1, y - 1, 1, 1, IND.pipeHi); R(c, x + 1, y + h, 1, 1, IND.pipeHi); }
+function elbow(c, x, y) { // vertical pipe at x coming down, turning right at y (8x8 joint)
+  R(c, x, y, 8, 8, IND.pipe); R(c, x, y, 1, 8, IND.pipeLo); R(c, x, y + 7, 8, 1, IND.pipeLo); R(c, x + 2, y, 2, 4, IND.pipeHi); R(c, x + 2, y + 2, 6, 2, IND.pipeHi);
+}
+function disc(c, cxp, cyp, r, col) { for (let j = -r; j <= r; j++) for (let i = -r; i <= r; i++) if (i * i + j * j <= r * r + r) R(c, cxp + i, cyp + j, 1, 1, col); }
+function ring(c, cxp, cyp, r, col) { for (let j = -r; j <= r; j++) for (let i = -r; i <= r; i++) { const d = i * i + j * j; if (d <= r * r + r && d > (r - 1) * (r - 1) + (r - 1)) R(c, cxp + i, cyp + j, 1, 1, col); } }
+function valve(c, cxp, cyp) { ring(c, cxp, cyp, 6, IND.valve); ring(c, cxp, cyp, 5, IND.valveHi); R(c, cxp - 5, cyp, 11, 1, IND.valve); R(c, cxp, cyp - 5, 1, 11, IND.valve); disc(c, cxp, cyp, 1, IND.pipeLo); }
+function gauge(c, cxp, cyp, frac) {
+  disc(c, cxp, cyp, 8, IND.gaugeRim); disc(c, cxp, cyp, 6, IND.gaugeFace);
+  for (let k = 0; k <= 4; k++) { const a = Math.PI * (0.75 + k * 0.375); R(c, Math.round(cxp + Math.cos(a) * 5), Math.round(cyp + Math.sin(a) * 5), 1, 1, IND.gaugeRim); }
+  R(c, cxp + 3, cyp + 3, 2, 2, IND.needle); // red zone
+  const a = Math.PI * (0.75 + frac * 1.5); for (let i = 0; i <= 4; i++) R(c, Math.round(cxp + Math.cos(a) * i), Math.round(cyp + Math.sin(a) * i), 1, 1, IND.needle);
+  R(c, cxp, cyp, 1, 1, IND.gaugeRim);
+}
+function hazard(c, x, y, w, h) { for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) R(c, x + i, y + j, 1, 1, (((i + j) >> 2) & 1) ? IND.hazDk : IND.haz); }
+function blit(dst, src, ox, oy) {
+  for (let y = 0; y < src.h; y++) for (let x = 0; x < src.w; x++) {
+    const s = (y * src.w + x) * 4; if (src.data[s + 3] === 0) continue; const d = ((y + oy) * dst.w + x + ox) * 4;
+    dst.data[d] = src.data[s]; dst.data[d + 1] = src.data[s + 1]; dst.data[d + 2] = src.data[s + 2]; dst.data[d + 3] = 255;
+  }
+}
+function industrialCrate(v, win) {
+  const S = SKINS[v.skin], acc = ACC[v.accent], tier = v.tier, rows = v.rows;
+  const [L, T, Rr, B] = v.bleed, W = win.w + L + Rr, H = win.h + T + B;
+  const topH = 17 + rows * 18;
+  // --- in-window additions (window coords) ---
+  // heavy riveted frame around the crate bay
+  const bx = 5, by = 15, bw = 166, bh = rows * 18 + 4;
+  R(win, bx, by, bw, 1, IND.hazDk); R(win, bx, by + bh - 1, bw, 1, IND.hazDk); R(win, bx, by, 1, bh, IND.hazDk); R(win, bx + bw - 1, by, 1, bh, IND.hazDk);
+  // tier lamps in the header, right side (title text stays on the left)
+  const lx = 168 - 6 * 6;
+  for (let i = 0; i < 6; i++) { const x = lx + i * 6; R(win, x - 1, 4, 6, 7, IND.hazDk); R(win, x, 5, 4, 5, i < tier ? acc : IND.lampOff); if (i < tier) R(win, x, 5, 2, 1, '#ffe3a1'); }
+  txt(win, 'T' + tier, lx - 12, 5, S.ink);
+  // discharge chute in the "Inventory" gap, right of the label
+  const gy = topH + 1; hazard(win, 62, gy + 2, 30, 7);
+  R(win, 61, gy + 1, 32, 1, IND.hazDk); R(win, 61, gy + 9, 32, 1, IND.hazDk); R(win, 61, gy + 1, 1, 9, IND.hazDk); R(win, 92, gy + 1, 1, 9, IND.hazDk);
+  txt(win, 'DISCHARGE', 98, gy + 3, S.ink); ctx_chev(win, 136, gy + 2, acc); ctx_chev(win, 146, gy + 2, acc); ctx_chev(win, 156, gy + 2, acc);
+  // --- bleed canvas ---
+  const out = new Canvas(W, H);
+  // skids under the window
+  for (const sx of [L + 14, L + win.w - 44]) { R(out, sx, T + win.h - 6, 30, 6 + B, IND.skid); R(out, sx, T + win.h - 6, 30, 1, IND.pipeHi); R(out, sx, T + win.h + B - 1, 30, 1, IND.pipeLo); for (let i = 3; i < 30; i += 8) R(out, sx + i, T + win.h + 1, 2, 2, IND.pipeLo); }
+  // left feed pipe: from the top edge down to the bay mid-row, elbow into the window
+  const midY = T + 17 + Math.floor(rows * 18 / 2) - 4;
+  vpipe(out, 6, 0, midY); elbow(out, 6, midY); hpipe(out, 14, L + 4, midY); flangeH(out, L - 4, midY);
+  for (let y = 10; y < midY - 10; y += 34) flangeV(out, 6, y);
+  valve(out, 10, Math.min(midY - 14, T + 10));
+  // right conduit + pressure gauge (needle tracks tier fill)
+  vpipe(out, W - 13, T + 18, T + win.h - 12, 6); flangeV(out, W - 13, T + 18, 6); flangeV(out, W - 13, T + win.h - 16, 6);
+  hpipe(out, L + win.w - 4, W - 13, T + 22, 5);
+  R(out, W - 18, T + 34, 12, 3, IND.flange); gauge(out, W - 12, T + 46, (tier - 1) / 5);
+  // hazard header bar above the window with a stencil tag
+  const hx = L + 18, hw = win.w - 36; R(out, hx - 1, 0, hw + 2, T + 3, IND.hazDk); hazard(out, hx, 2, hw, T - 4);
+  const tag = 'CRATE T' + tier + ' - ' + tier * 9 + ' SLOTS'; const tgw = tw(tag) + 10, tgx = L + Math.floor((win.w - tgw) / 2);
+  R(out, tgx - 1, 1, tgw + 2, T - 2, IND.hazDk); bevel(out, tgx, 2, tgw, T - 4, S.plate, S.plateHi, S.plateLo); txt(out, tag, tgx + 5, 2 + Math.floor((T - 4 - 5) / 2), S.ink);
+  // brackets bolting the header to the window
+  for (const bxp of [hx + 6, hx + hw - 12]) { R(out, bxp, T - 2, 6, 6, IND.flange); R(out, bxp + 2, T, 2, 2, IND.pipeHi); }
+  blit(out, win, L, T);
+  // corner girder brackets overlapping the window corners
+  for (const [x, y, fx, fy] of [[L - 4, T - 2, 1, 1], [L + win.w - 10, T - 2, -1, 1], [L - 4, T + win.h - 12, 1, -1], [L + win.w - 10, T + win.h - 12, -1, -1]]) {
+    R(out, x, y, 14, 14, IND.skid); R(out, x + 1, y + 1, 12, 12, IND.flange);
+    R(out, x + 1, y + 1, 12, 1, IND.pipeHi); R(out, x + 1, y + 1, 1, 12, IND.pipeHi);
+    R(out, x + 3, y + 3, 2, 2, IND.pipeLo); R(out, x + 9, y + 9, 2, 2, IND.pipeLo); R(out, x + 3, y + 3, 1, 1, IND.pipeHi); R(out, x + 9, y + 9, 1, 1, IND.pipeHi);
+  }
+  return out;
+}
+function ctx_chev(c, x, y, col) { for (let j = 0; j < 4; j++) { R(c, x + j, y + j, 1, 2, col); R(c, x + 6 - j, y + j, 1, 2, col); } }
+
 // ---------- overlays ----------
 function solid(w, h, col) { const c = new Canvas(w, h); R(c, 0, 0, w, h, col); return c; }
 function digit(ch, col) { const c = new Canvas(3, 10); c.fillStyle = col; const g = F[ch]; for (let j = 0; j < 15; j++) if (g[j] === '1') c.fillRect(j % 3, ((j / 3) | 0) * 2, 1, 2); return c; }
@@ -276,7 +356,9 @@ for (const v of spec.skins) {
   const seed = cp(v.codepoint);
   const ctx = v.kind === 'anvil' ? renderAnvil(v, seed) : renderChest(v, seed);
   if (ctx.w !== v.size[0] || ctx.h !== v.size[1]) throw new Error('size mismatch ' + v.id);
-  emit(v.id, ctx, seed, 13, ctx.h);
+  if (v.bleed && v.style !== 'industrial_crate') throw new Error('bleed needs style industrial_crate: ' + v.id);
+  const out = v.style === 'industrial_crate' ? industrialCrate(v, ctx) : ctx;
+  emit(v.id, out, seed, 13 + (v.bleed ? v.bleed[1] : 0), out.h);
 }
 const ov = Object.fromEntries(spec.overlays.map(o => [o.id, o]));
 const steelOn = SKINS.steel.lcdOn, guideOn = SKINS.guide.lcdOn;

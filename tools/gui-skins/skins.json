@@ -1,5 +1,5 @@
 {
- "_doc": "Source of truth for GUI skin glyphs. Font key sovereignmc:gui_skins. Spaces font sovereignmc:spaces: codepoint 0xD0000+n advances n px (n in -8192..8192). Chest title origin (8,6), anvil title origin (60,6). A bitmap glyph with ascent A has its top at window y = 13 - A. Bitmap advance = width + 1. Decor 'label' draws in bayInk (for dark bays) unless tone='ink' (for the light chassis); guide skin always uses ink. tabtrack may carry c0..c1 to limit the strip to those columns (default whole row).",
+ "_doc": "Source of truth for GUI skin glyphs. Font key sovereignmc:gui_skins. Spaces font sovereignmc:spaces: codepoint 0xD0000+n advances n px (n in -8192..8192). Chest title origin (8,6), anvil title origin (60,6). A bitmap glyph with ascent A has its top at window y = 13 - A. Bitmap advance = width + 1. Decor 'label' draws in bayInk (for dark bays) unless tone='ink' (for the light chassis); guide skin always uses ink. tabtrack may carry c0..c1 to limit the strip to those columns (default whole row). Optional style 'industrial_crate' with bleed=[left,top,right,bottom] draws pipes, gauge and hazard header outside the window: the glyph is (176+l+r)x(H+t+b), font ascent 13+t, and the title shifts by -(origin+l) before it (advance = glyph width + 1). size stays the window size; tier (1-6) drives lamps, gauge and stencil.",
  "font": "sovereignmc:gui_skins",
  "spaces_font": "sovereignmc:spaces",
  "texture_dir": "assets/sovereignmc/textures/gui/skins",
@@ -3262,6 +3262,454 @@
      "r": 5
     }
    ]
+  },
+  {
+   "id": "argentum_auto_anvil",
+   "codepoint": "U+E63E",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "crafting",
+   "used_by": "ArgentumRevamped AutoAnvilGuiLayout (machine)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 0,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 2,
+     "r0": 0,
+     "c1": 3,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 5,
+     "r0": 0,
+     "c1": 6,
+     "r1": 0
+    },
+    {
+     "t": "plate",
+     "c0": 8,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "label",
+     "c0": 0,
+     "c1": 1,
+     "r": 1,
+     "text": "TOOL >",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 3,
+     "c1": 4,
+     "r": 1,
+     "text": "ALLOY >",
+     "tone": "ink"
+    },
+    {
+     "t": "label",
+     "c0": 6,
+     "c1": 7,
+     "r": 1,
+     "text": "FUEL >",
+     "tone": "ink"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "text": "v REPAIRED TOOLS"
+    },
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 3,
+     "c1": 8,
+     "r1": 3
+    }
+   ],
+   "rows": 4,
+   "grid": [
+    ".S..H..S.",
+    "..H..S..f",
+    ".........",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    186
+   ]
+  },
+  {
+   "id": "sigil_crucible",
+   "codepoint": "U+E63F",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "arcane",
+   "used_by": "ArgentumRevamped SigilCrucibleListener (slot machine)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 2,
+     "r1": 0,
+     "pattern": "vent"
+    },
+    {
+     "t": "plate",
+     "c0": 3,
+     "r0": 0,
+     "c1": 5,
+     "r1": 0,
+     "text": "- SPIN -"
+    },
+    {
+     "t": "plate",
+     "c0": 6,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "pattern": "vent",
+     "flip": true
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 1
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 1,
+     "text": ">"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 1,
+     "text": "<"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 2,
+     "c1": 8,
+     "r1": 2,
+     "pattern": "rune"
+    }
+   ],
+   "rows": 3,
+   "grid": [
+    ".........",
+    "..H.H.H..",
+    "........."
+   ],
+   "size": [
+    176,
+    168
+   ]
+  },
+  {
+   "id": "argentum_items_admin",
+   "codepoint": "U+E640",
+   "kind": "chest",
+   "skin": "admin",
+   "accent": "admin",
+   "used_by": "ArgentumRevamped ArgentumItemsGui (/ag gui)",
+   "decor": [
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0,
+     "text": "ARGENTUM REGISTRY  -  CLICK TO TAKE"
+    },
+    {
+     "t": "bay",
+     "c0": 1,
+     "r0": 1,
+     "c1": 7,
+     "r1": 4
+    },
+    {
+     "t": "rail",
+     "c": 0,
+     "r0": 1,
+     "r1": 4,
+     "text": "ITEMS"
+    },
+    {
+     "t": "rail",
+     "c": 8,
+     "r0": 1,
+     "r1": 4,
+     "text": "ADMIN"
+    },
+    {
+     "t": "plate",
+     "c0": 0,
+     "r0": 5,
+     "c1": 2,
+     "r1": 5,
+     "pattern": "grid"
+    },
+    {
+     "t": "lcd",
+     "c0": 6,
+     "c1": 8,
+     "r": 5
+    },
+    {
+     "t": "gap",
+     "c": 7,
+     "text": "PAGE"
+    }
+   ],
+   "rows": 6,
+   "grid": [
+    ".........",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    ".SSSSSSS.",
+    "...S.S..."
+   ],
+   "size": [
+    176,
+    222
+   ]
+  },
+  {
+   "id": "crate_t1",
+   "codepoint": "U+E641",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t1 (9 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 0
+    }
+   ],
+   "tier": 1,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 1,
+   "grid": [
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    132
+   ],
+   "style": "industrial_crate"
+  },
+  {
+   "id": "crate_t2",
+   "codepoint": "U+E642",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t2 (18 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 1
+    }
+   ],
+   "tier": 2,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 2,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    150
+   ],
+   "style": "industrial_crate"
+  },
+  {
+   "id": "crate_t3",
+   "codepoint": "U+E643",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t3 (27 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 2
+    }
+   ],
+   "tier": 3,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 3,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    168
+   ],
+   "style": "industrial_crate"
+  },
+  {
+   "id": "crate_t4",
+   "codepoint": "U+E644",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t4 (36 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 3
+    }
+   ],
+   "tier": 4,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 4,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    186
+   ],
+   "style": "industrial_crate"
+  },
+  {
+   "id": "crate_t5",
+   "codepoint": "U+E645",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t5 (45 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 4
+    }
+   ],
+   "tier": 5,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 5,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    204
+   ],
+   "style": "industrial_crate"
+  },
+  {
+   "id": "crate_t6",
+   "codepoint": "U+E646",
+   "kind": "chest",
+   "skin": "steel",
+   "accent": "extraction",
+   "used_by": "CustomBlocks BlockInventory via ArgentumRevamped OutputBlockListener, output_crate_t6 (54 slots)",
+   "decor": [
+    {
+     "t": "bay",
+     "c0": 0,
+     "r0": 0,
+     "c1": 8,
+     "r1": 5
+    }
+   ],
+   "tier": 6,
+   "bleed": [
+    24,
+    18,
+    24,
+    6
+   ],
+   "rows": 6,
+   "grid": [
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS",
+    "SSSSSSSSS"
+   ],
+   "size": [
+    176,
+    222
+   ],
+   "style": "industrial_crate"
   }
  ],
  "emblems": {

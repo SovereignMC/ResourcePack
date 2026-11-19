@@ -32,8 +32,8 @@ Flat 16x16 ammo item sprites for the items the plugin hands out: `ammo_fighter_r
 
 `assets/sovereignmc/font/gui_skins.json` maps pixel-art inventory backgrounds
 (`assets/sovereignmc/textures/gui/skins/*.png`) to private-use codepoints; the client
-draws the title and "Inventory" label on top. Codepoints: `U+E600..U+E63D` backgrounds
-(chest/anvil skins), `U+E700..U+E710` structure emblems (32x32 logos copied from SovereignPlates; 16x16 item icons live under `item/guide/`), `U+E6C0..U+E6C2` LCD segment/lamp overlays, `U+E6D0..U+E6DB`,
+draws the title and "Inventory" label on top. Codepoints: `U+E600..U+E640` backgrounds
+(chest/anvil skins; `U+E63E..U+E640` Argentum Auto Anvil, Sigil Crucible, `/ag gui`), `U+E641..U+E646` industrial Output Crate T1-T6 skins (224 px wide, drawn 24 px past each side and 18 px above the window: ascent 31, the title shifts −32 before the glyph), `U+E700..U+E710` structure emblems (32x32 logos copied from SovereignPlates; 16x16 item icons live under `item/guide/`), `U+E6C0..U+E6C2` LCD segment/lamp overlays, `U+E6D0..U+E6DB`,
 `U+E6E0..U+E6EB`, `U+E6F0..U+E6FB` LCD digits `0-9 / %` for window rows 5, 3 and 0, `U+E720..U+E72B` the guide-coloured row 5 digits.
 
 The generator also writes the 16x16 control icons (`item/ui/`, custom_model_data states via `items/ui/*.json`) and the guide structure icons (`item/guide/`). Icon art lives in `tools/gui-skins/icons.mjs`.
