@@ -1,0 +1,62 @@
+name: Wiki art
+# Renders the in-game wiki's images, nav icons and heading font into the pack, then cuts a
+# release only when the output changed.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: wiki-art
+  cancel-in-progress: false
+jobs:
+  generate:
+    name: Regenerate wiki art
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/wiki-art/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2 jq
+          pip install -r tools/wiki-art/requirements.txt
+
+      - name: Cache downloaded wiki images
+        uses: actions/cache@v4
+        with:
+          path: tools/wiki-art/.cache
+          key: wiki-art-images-${{ github.run_id }}
+          restore-keys: wiki-art-images-
+
+      - name: Generate
+        run: python3 tools/wiki-art/generate.py
+
+      - name: Verify pack
+        run: tools/verify-pack.sh
+
+      - name: Commit and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain assets/sovereignwiki tools/wiki-art/allocations.json)" ]; then
+            echo "Wiki art unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/sovereignwiki tools/wiki-art/allocations.json
+          git commit -m "chore(wiki): regenerate wiki art"
+          git push origin HEAD:main
+          # Pushes made with GITHUB_TOKEN do not trigger squash-release's push trigger.
+          gh workflow run squash-release.yml --ref main

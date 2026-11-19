@@ -8,6 +8,8 @@ on:
     paths:
       - 'assets/**'
       - 'pack.mcmeta'
+  # wiki-art.yml pushes with GITHUB_TOKEN, which does not fire the push trigger above.
+  workflow_dispatch:
 # One release at a time, in push order, so "latest" is always the newest commit.
 concurrency:
   group: release
@@ -36,6 +38,12 @@ jobs:
             
       - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' | tr -d \"\n\" > /tmp/hash.txt" # Generate Pack Hash
       
+      - name: Stage wiki index
+        run: |
+          if [ -f assets/sovereignwiki/index.json ]; then
+            cp assets/sovereignwiki/index.json /tmp/wiki-index.json
+          fi
+
       - name: Tag and create release
         uses: softprops/action-gh-release@v2
         with:
@@ -45,3 +53,5 @@ jobs:
           files: |
             /tmp/pack.zip
             /tmp/hash.txt
+            /tmp/wiki-index.json
+          fail_on_unmatched_files: false

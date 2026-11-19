@@ -1,0 +1,274 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/fb4561a60077.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/8c7c12ea34ac.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/5c1934a6ae5f.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀂"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/2d8bb71b309d.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀃"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/ff01a09eb16a.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀄"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/5b0554d81b99.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀅"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/5d2eb30ddd37.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀆"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/577923ebcab8.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/f44657644d2b.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀈"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/77f96f2703ee.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀉"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/b12ff1e9a6a6.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀊"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/7bd455df3f33.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀋"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/c8fb1a3f9211.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀌"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/e819206beae2.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀍"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/5bf09309cd1a.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀎"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/82ea0f7592de.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀏"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/eab100ae2728.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀐"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/6ee90aafa653.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/8c2542503348.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀒"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/dee4caf40d1b.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀓"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/a355878975f6.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀔"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/ec30eb3c4fe8.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀕"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/e174762d1904.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀖"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/76075b78dd21.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀗"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/e24be32e2243.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀘"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/b34166e3d86c.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀙"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/6ab4d7c1891c.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀚"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/d9e5ea614c5c.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/04c494eca57e.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀜"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignwiki:font/wiki/icon/aacbab9e4919.png",
+      "height": 8,
+      "ascent": 7,
+      "chars": [
+        "􀀝"
+      ]
+    }
+  ]
+}
