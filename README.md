@@ -1,6 +1,9 @@
 # SovereignMC's ResourcePack
 
-The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It ships the custom content the server depends on: item and block models for guns, ammo and torpedoes, sovereign flags, GUI and HUD graphics, aircraft callouts, and AnimatedArchitecture door sounds.
+The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It ships the
+custom content the server depends on: item and block models for guns, ammo and torpedoes,
+sovereign flags, GUI and HUD graphics, aircraft callouts, and AnimatedArchitecture door
+sounds.
 
 ## Play with us
 
@@ -10,97 +13,74 @@ The official resource pack for **SovereignMC**, a 1.21+ Minecraft server. It shi
 
 ## Download
 
-Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/ResourcePack/releases/latest) and drop it into your `resourcepacks` folder — no unzipping needed.
+Grab `pack.zip` from the [latest release](https://github.com/SovereignMC/ResourcePack/releases/latest)
+and drop it into your `resourcepacks` folder — no unzipping needed.
 
-## PlaneChase projectiles
+## What's inside
 
-Blocky bomb and bullet models for PlaneChase, meant to be shown as PacketEvents-sent ItemDisplays
-whose item has `item_model` = `planechase:<name>`: `bullet_standard`, `bullet_tracer`, `bullet_ap`,
-`bomb_shell`, `bomb_general_purpose`, `bomb_heavy`, `bomb_cluster`, `bomb_cluster_bomblet` (the cluster bomb's
-submunitions), `bomb_incendiary`, and the unguided rockets `rocket_light` and `rocket_heavy`.
-Flat 16x16 ammo item sprites for the items the plugin hands out: `ammo_fighter_round`,
-`ammo_canister_shell`, `ammo_canister_pellet`, `ammo_light_rocket`, `ammo_heavy_rocket`
-(`assets/planechase/textures/item/`).
+- Weapon, ammo, torpedo and PlaneChase projectile models
+- Argentum item, machine and GUI art
+- Sovereign flags and structure emblems
+- Menu, dialogue, HUD and sidebar fonts and skins
+- Explosion particles, cannon, torpedo, turret and aircraft callout sounds
 
-- Textures: `assets/planechase/textures/item/projectile/`. Models: `assets/planechase/models/item/`.
-- Blockbench sources and a contact sheet: `tools/art/projectiles/`.
-- The nose points to model -Z. On an ItemDisplay with the identity `fixed`/`head` transform, it faces
-  the entity's local +Z. Each model is centred on x = y = 8 and z of about 8, so the display sits at the
-  projectile's middle.
+## License
 
-## GUI skins font
+The pack's own content is **proprietary and source-available**. All rights are reserved,
+commercial use is not allowed, and you may only use the pack as SovereignMC permits —
+in practice, to play on SovereignMC. Everything else needs prior written permission.
+Read [LICENSE](LICENSE) for the full terms.
 
-`assets/sovereignmc/font/gui_skins.json` maps pixel-art inventory backgrounds
-(`assets/sovereignmc/textures/gui/skins/*.png`) to private-use codepoints; the client
-draws the title and "Inventory" label on top. Codepoints: `U+E600..U+E640` backgrounds
-(chest/anvil skins; `U+E63E..U+E640` Argentum Auto Anvil, Sigil Crucible, `/ag gui`), `U+E641..U+E646` industrial Output Crate T1-T6 skins (224 px wide, drawn 24 px past each side and 18 px above the window: ascent 31, the title shifts −32 before the glyph), `U+E700..U+E710` structure emblems (32x32 logos copied from SovereignPlates; 16x16 item icons live under `item/guide/`), `U+E6C0..U+E6C2` LCD segment/lamp overlays, `U+E6D0..U+E6DB`,
-`U+E6E0..U+E6EB`, `U+E6F0..U+E6FB` LCD digits `0-9 / %` for window rows 5, 3 and 0, `U+E720..U+E72B` the guide-coloured row 5 digits.
+Some material comes from third-party projects and remains under their own licenses. Those
+licenses take precedence over [LICENSE](LICENSE) for the material they cover; see Credits
+below.
 
-The generator also writes the 16x16 control icons (`item/ui/`, custom_model_data states via `items/ui/*.json`) and the guide structure icons (`item/guide/`). Icon art lives in `tools/gui-skins/icons.mjs`.
-
-`tools/gui-skins/skins.json` is the source of truth (ids, codepoints, grids, decor); the
-PNGs and the font JSON are generated and committed. Never edit them by hand. Regenerate
-with `node tools/gui-skins/generate.mjs` (Node, no dependencies; output is deterministic).
+The pack is provided as is, with no guarantee of availability, compatibility or fitness
+for any purpose.
 
 ## Credits
 
-## Textures
-
-Argentum textures are organized into category subfolders — never dump new PNGs
-flat into `textures/item/` or `textures/block/`. `tools/verify-pack.sh` fails
-CI on flat or unresolvable references.
-
-```
-assets/argentum/textures/
-├── item/
-│   ├── sigils/        sigil_of_* + sigil_crucible
-│   ├── metallurgy/    ingots, alloys, raw ores, unrefined_gold_ore
-│   ├── dust/          impure_* and pure_* dusts, sulfur_dust
-│   ├── components/    circuits, electrodes, cores, blades, magnets, buckets, rods
-│   ├── consumables/   essences, condensed fluids, sulfate, cooling_salt, carbon chunks
-│   ├── tools/         climbing_pickaxe, gold_pan, nether_gold_pan
-│   └── ui/            inputarrow, outputarrow (GUI decoration icons)
-└── block/
-    ├── machines/      machine face sets (brewer, transformer, water_tank, alternator, ...)
-    ├── basic_machines/ Slimefun basic machine icons (2D, item/generated): multiblocks,
-    │                   enhanced_furnace_1..11, composter, crucible, block_placer, ...
-    ├── capacitors/    *_capacitor_{bottom,side,top}
-    ├── crates/        output_crate face sets
-    └── supply/        supply_hopper, elevator_block
-```
-
-Rules:
-- Paths must be valid resource locations: lowercase `a-z 0-9 _ . - /` only, no spaces
-  (verify-pack fails otherwise).
-- A new category folder must be added to `TEXTURE_CATEGORIES` in `tools/verify-pack.sh`
-  and to the mapping tables in `tools/migrate-textures.ps1`.
-- Texture file NAMES stay stable — code binds `argentum:<id>` via item models.
-- Move a texture = update the referencing JSON's `textures.*` values in the same commit.
-- `tools/verify-pack.sh` must stay green (also runs in CI and before PackSquash releases).
-- `tools/verify_argentum_refs.py` mirrors those checks (plus the 16x16 RGBA tile audit and
-  the Argentum ids StructuresRevamped resolves) and adds checks `verify-pack.sh` does not do;
-  run `python3 tools/verify_argentum_refs.py`. CI runs `tools/verify-pack.sh`.
-
 ### Horizon's End Resource Pack
-Movecraft effects and other assets are taken from the [Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by [HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors, licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+
+Movecraft effects and other assets are taken from the
+[Horizon's End Resource Pack](https://github.com/HorizonsEndMC/ResourcePack) by
+[HorizonsEndMC](https://github.com/HorizonsEndMC) and their relevant contributors,
+licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+
 - Source: https://github.com/HorizonsEndMC/ResourcePack
 - License: https://creativecommons.org/licenses/by-sa/4.0/
 
 ### Slimefun4 Resource Pack
-Textures used by Argentum and other assets are taken from the [Slimefun Resourcepack](https://github.com/Slimefun/Resourcepack) by [TheBusyBiscuit](https://github.com/TheBusyBiscuit), [Slimefun](https://github.com/Slimefun) team and their relevant contributors, licensed under the [MIT License](https://github.com/Slimefun/Resourcepack/blob/master/LICENSE).
+
+Textures used by Argentum and other assets are taken from the
+[Slimefun Resourcepack](https://github.com/Slimefun/Resourcepack) by
+[TheBusyBiscuit](https://github.com/TheBusyBiscuit),
+[Slimefun](https://github.com/Slimefun) team and their relevant contributors, licensed
+under the [MIT License](https://github.com/Slimefun/Resourcepack/blob/master/LICENSE).
 
 Copyright (c) 2019 TheBusyBiscuit
+
 - Source: https://github.com/Slimefun/Resourcepack
-- License: MIT
+- License: MIT — see [LICENSE-SLIMEFUN](LICENSE-SLIMEFUN)
 
 ### Tinker's Construct
-Textures used by Argentum and other assets are taken from [Tinker's Construct](https://github.com/SlimeKnights/TinkersConstruct) by the [SlimeKnights](https://github.com/SlimeKnights) team and their relevant contributors, licensed under the [MIT License](https://github.com/SlimeKnights/TinkersConstruct/blob/1.20.1/LICENSE).
+
+Textures used by Argentum and other assets are taken from
+[Tinker's Construct](https://github.com/SlimeKnights/TinkersConstruct) by the
+[SlimeKnights](https://github.com/SlimeKnights) team and their relevant contributors,
+licensed under the [MIT License](https://github.com/SlimeKnights/TinkersConstruct/blob/1.20.1/LICENSE).
 
 Copyright (c) 2022 SlimeKnights
+
 - Source: https://github.com/SlimeKnights/TinkersConstruct
-- License: MIT
+- License: MIT — see [LICENSE-TINKERSCONSTRUCT](LICENSE-TINKERSCONSTRUCT)
 
 ### Animated Architecture
-Sound effects used by the pack's BigDoors/AnimatedArchitecture events are taken from the AnimatedArchitecture support pack by [PimvanderLoos](https://github.com/PimvanderLoos/AnimatedArchitecture), licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+
+Sound effects used by the pack's BigDoors/AnimatedArchitecture events are taken from the
+AnimatedArchitecture support pack by
+[PimvanderLoos](https://github.com/PimvanderLoos/AnimatedArchitecture), licensed under the
+[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+
 - Source: https://github.com/PimvanderLoos/AnimatedArchitecture
-- License: GPL-3.0
+- License: GPL-3.0 — see [LICENSE-ANIMATEDARCHITECTURE](LICENSE-ANIMATEDARCHITECTURE)
