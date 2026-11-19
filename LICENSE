@@ -1,0 +1,155 @@
+SOVEREIGNMC RESOURCE PACK LICENSE
+
+Copyright (c) 2024-2026 SovereignMC and its contributors.
+All Rights Reserved.
+
+This license applies to the SovereignMC ResourcePack (the "Pack"): its textures, models,
+item definitions, fonts, sounds, configuration, tools, scripts and documentation, except
+for the Third-Party Material identified in Section 6.
+
+
+1. SOURCE-AVAILABLE, NOT OPEN SOURCE
+
+The Pack's source files are made publicly available so that players, server operators and
+reviewers can inspect what the Pack contains and what the server sends to your client.
+Availability of the source does not make the Pack open source, public domain or freely
+usable, and it grants no rights other than those expressly stated in this license.
+
+
+2. PERMITTED USE
+
+Subject to this license, SovereignMC grants you a limited, revocable, non-exclusive,
+non-sublicensable, non-transferable, royalty-free permission to:
+
+  (a) download and install the Pack;
+
+  (b) use the Pack while playing on a Minecraft server operated by SovereignMC, or on a
+      server that SovereignMC has expressly authorised in writing to use the Pack;
+
+  (c) keep private, unpublished backup copies of the Pack for the purposes of (a) and (b).
+
+No other use is permitted.
+
+
+3. PROHIBITED USE
+
+Unless SovereignMC gives you prior written permission, you must not:
+
+  (a) use the Pack, or any part of it, for any commercial purpose, including selling,
+      licensing, renting, leasing, auctioning or otherwise monetising it; including it in
+      a paid product or paid service; putting it behind a paywall, donation requirement,
+      subscription, advertisement or other monetisation; or using it to promote a
+      commercial product or service;
+
+  (b) use the Pack on or with any server, product, service, mod, modpack, client, website
+      or other project that is not operated or authorised by SovereignMC;
+
+  (c) copy, publish, redistribute, mirror, re-upload, sublicense, lend, rent, sell or
+      otherwise make the Pack or any part of it available to anyone else;
+
+  (d) modify, adapt, translate, reverse-engineer, decompile, disassemble or create
+      derivative works from the Pack or any part of it, except for the private backup
+      copies permitted by Section 2(c);
+
+  (e) extract, rip, convert or reuse any texture, model, font, sound or other asset in
+      another resource pack, mod, server, video, product or project;
+
+  (f) remove, obscure or alter any copyright, attribution, license or ownership notice;
+
+  (g) claim ownership of the Pack or any part of it, or suggest that SovereignMC endorses
+      you or your project.
+
+Viewing and forking this repository through GitHub is permitted only to the extent
+required by GitHub's Terms of Service. Any fork must retain this license, must not be
+used or distributed as a resource pack or product, and must be deleted or made private if
+you stop complying with this license.
+
+
+4. NO USE WITHOUT SOVEREIGNMC'S PERMISSION
+
+Any use that is not expressly permitted by Section 2 is prohibited. If you are unsure
+whether a use is allowed, ask SovereignMC for written permission first. SovereignMC may
+refuse permission, grant it subject to conditions, or revoke it at any time. Permission
+given to one person or project does not apply to anyone else.
+
+
+5. NO FEE
+
+The Pack is distributed free of charge. Nothing in this license obliges SovereignMC to
+provide support, updates, fixes, replacements or continued availability.
+
+
+6. THIRD-PARTY MATERIAL
+
+This license does not apply to Third-Party Material. Third-Party Material remains under
+its own license, and your rights to it come from that license, not from this one:
+
+  (a) Slimefun Resourcepack — MIT License, see LICENSE-SLIMEFUN;
+
+  (b) Tinker's Construct — MIT License, see LICENSE-TINKERSCONSTRUCT;
+
+  (c) AnimatedArchitecture — GNU General Public License v3.0, see
+      LICENSE-ANIMATEDARCHITECTURE;
+
+  (d) Horizon's End ResourcePack — Creative Commons Attribution-ShareAlike 4.0
+      International (CC BY-SA 4.0), as credited in README.md;
+
+  (e) any other material expressly credited to a third party in README.md.
+
+Where this license conflicts with a third-party license for Third-Party Material, the
+third-party license controls for that material. Nothing in this license limits rights you
+have under a third-party license or under mandatory law.
+
+
+7. NO WARRANTY
+
+THE PACK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, TITLE AND NON-INFRINGEMENT.
+
+To the maximum extent permitted by law, SovereignMC gives no guarantee, representation or
+warranty that the Pack, or any material in it that is not Third-Party Material, is
+complete, accurate, error-free, secure, virus-free, compatible with any particular
+Minecraft version, client, mod or server, available at any time, or free of claims by
+third parties. SovereignMC does not guarantee that use of the Pack is permitted by any
+third-party service, including Minecraft, Mojang, Microsoft or any server or hosting
+provider. You use the Pack entirely at your own risk.
+
+This Section does not extend any warranty to Third-Party Material and does not alter the
+terms of any third-party license.
+
+
+8. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, SOVEREIGNMC AND ITS CONTRIBUTORS ARE NOT LIABLE
+FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR
+FOR ANY LOSS OF DATA, PROFITS, REVENUE, GOODWILL, ACCOUNT ACCESS, SERVER AVAILABILITY OR
+BUSINESS OPPORTUNITY, ARISING OUT OF OR RELATING TO THE PACK OR THIS LICENSE, WHETHER
+BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR OTHERWISE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE TOTAL AGGREGATE LIABILITY OF SOVEREIGNMC AND
+ITS CONTRIBUTORS FOR ALL CLAIMS RELATING TO THE PACK OR THIS LICENSE WILL NOT EXCEED THE
+AMOUNT YOU PAID TO SOVEREIGNMC FOR THE PACK (WHICH IS ZERO).
+
+Nothing in this license excludes liability that cannot be excluded under applicable law.
+
+
+9. TERMINATION
+
+Your rights under this license terminate automatically, without notice, if you breach any
+term of this license. On termination you must immediately stop using the Pack and delete
+all copies you hold. SovereignMC may also revoke permission under Section 2 at any time.
+Sections 3 through 8, and this Section 9, survive termination.
+
+
+10. GENERAL
+
+If any provision of this license is held unenforceable, it will be limited or removed only
+to the minimum extent necessary, and the remaining provisions stay in full effect. A
+failure to enforce a provision is not a waiver. This license is the entire agreement
+between you and SovereignMC about the Pack and replaces any earlier permission or
+statement on the same subject.
+
+For permission requests and licensing questions, contact SovereignMC through
+https://sovereignmc.net or https://github.com/SovereignMC.
