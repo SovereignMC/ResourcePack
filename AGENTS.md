@@ -27,6 +27,8 @@ zip is built by CI (see below).
 | `assets/sna/` | SNA HUD icon and UI fonts. |
 | `assets/tinsel/` | Spacing and HUD background fonts. |
 | `assets/sov/` | Cannon, torpedo and turret sound files. |
+| `bbmodels/` | Blockbench model sources processed by BetterModel during release. |
+| `assets/bettermodel/` | Generated BetterModel item models and textures (gitignored). |
 | `tools/` | Generators, renderer and verification scripts (see below). |
 | `ignored/` | Local Argentum preview sheets; gitignored. |
 | `.github/workflows/` | Verification, release and Discord notification jobs. |
@@ -76,11 +78,12 @@ check. Keep both green before committing.
 ## CI and releases
 
 - `ci.yml` — on every push and pull request, runs `tools/verify-pack.sh`.
-- `squash-release.yml` — on a push to `main` that changes `assets/**` or `pack.mcmeta`:
-  verifies, runs PackSquash over the repo root, writes `pack.zip` plus its SHA-1, and
-  publishes/updates the latest release as tag `ResourcePack-v<run_number>`.
-  Branch pushes only, by design: publishing from a tag would rebuild the old tree and
-  overwrite "latest".
+- `squash-release.yml` — on a push to `main` that changes `assets/**`, `bbmodels/**`,
+  `pack.mcmeta` or the BetterModel generator: sets up Java 25, runs
+  `tools/generate-bettermodel.sh`, verifies, runs PackSquash over the repo root, writes
+  `pack.zip` plus its SHA-1, and publishes/updates the latest release as tag
+  `ResourcePack-v<run_number>`. Branch pushes only, by design: publishing from a tag would
+  rebuild the old tree and overwrite "latest".
 - `discord.yml` — posts each commit to `DISCORD_WEBHOOK`. Add `[nodiscord]` to the commit
   message to skip a commit.
 
@@ -214,6 +217,39 @@ Flat 16×16 ammo item sprites for the items the plugin hands out:
 - The nose points to model −Z. On an `ItemDisplay` with the identity `fixed`/`head`
   transform it faces the entity's local +Z. Models are centred on x = y = 8 and z ≈ 8, so
   the display sits at the projectile's middle.
+
+## BetterModel models
+
+`bbmodels/*.bbmodel` are the source models. They are **not** converted by hand and the
+BetterModel parsing/generation logic is **not** reimplemented here: the release workflow
+runs the real BetterModel jar inside a throwaway Paper server, exactly as the plugin does
+on a live server.
+
+```bash
+tools/generate-bettermodel.sh                     # writes assets/bettermodel/ (gitignored)
+JAVA_BIN=/path/to/java25 tools/generate-bettermodel.sh
+BETTERMODEL_VERSION=3.7.0 PAPER_VERSION=26.3 tools/generate-bettermodel.sh
+```
+
+What the script does:
+
+1. Copies every `bbmodels/*.bbmodel` into `plugins/BetterModel/models/` of a temporary
+   Paper server.
+2. Downloads the pinned BetterModel `paper` jar and a stable Paper build, then starts the
+   server headless. BetterModel imports the models and writes its resource pack to
+   `plugins/BetterModel/build/` during `ServerLoadEvent`.
+3. Copies the generated `assets/bettermodel/` namespace into the pack root and stops the
+   server. `pack.mcmeta`/`pack.png` from BetterModel are discarded; this pack keeps its own.
+
+Requirements: Java 25+ and network access (Paper, BetterModel and its runtime libraries
+are downloaded on every run). The server directory lives in a temp folder and is removed
+afterwards; set `BETTERMODEL_KEEP_WORK=1` to inspect it.
+
+Generated names are API for the server plugin: a model named `ak47` produces item models
+such as `bettermodel:model/ak47_body` (`assets/bettermodel/items/model/ak47_body.json`),
+textures under `assets/bettermodel/textures/item/`, and model JSON under
+`assets/bettermodel/models/model/`. Do not hand-edit `assets/bettermodel/`; edit the
+`.bbmodel` and regenerate.
 
 ## Generators
 

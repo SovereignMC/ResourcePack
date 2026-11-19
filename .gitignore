@@ -5,3 +5,5 @@
 /build.sh
 __pycache__/
 /tools/wiki-art/.cache/
+# Generated from bbmodels/ by tools/generate-bettermodel.sh
+/assets/bettermodel/

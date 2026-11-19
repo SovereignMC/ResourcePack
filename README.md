@@ -19,6 +19,7 @@ and drop it into your `resourcepacks` folder — no unzipping needed.
 ## What's inside
 
 - Weapon, ammo, torpedo and PlaneChase projectile models
+- BetterModel/Blockbench models generated from `bbmodels/`
 - Argentum item, machine and GUI art
 - Sovereign flags and structure emblems
 - Menu, dialogue, HUD and sidebar fonts and skins
