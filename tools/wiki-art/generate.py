@@ -46,6 +46,9 @@ NS = "sovereignwiki"
 
 VARIANTS = {"wide": 424, "narrow": 296}  # max GUI width per variant
 MAX_HEIGHT = 540  # GUI px (60 rows)
+# Extra variants, generated only for images that occur inside a table cell.
+TABLE_VARIANTS = {"w128": 128, "w96": 96, "w64": 64}
+TABLE_MAX_HEIGHT = 192
 ROW_GUI = 9  # one codepoint = one 9px line
 MAX_CHUNK_GUI = 128  # client font pages are 256x256 texels: a glyph cell must fit, so 2*cw <= 256
 MAX_CELL_TEXELS = 256
@@ -122,9 +125,23 @@ def image_key(ref: str, page_md: str, base: str) -> str | None:
     return u.path or None
 
 
-def collect_refs(markdown: str) -> list[str]:
-    refs = [m.group(1) for m in IMG_MD_RE.finditer(markdown)]
-    refs += [m.group(1) or m.group(2) for m in IMG_HTML_RE.finditer(markdown)]
+TABLE_HTML_RE = re.compile(r"<table\b.*?</table\s*>", re.I | re.S)
+
+
+def collect_refs(markdown: str) -> list[tuple[str, bool]]:
+    """Image refs as (ref, inside_table). Tables: raw HTML <table> spans and GFM rows (lines starting with '|')."""
+    spans = [m.span() for m in TABLE_HTML_RE.finditer(markdown)]
+    pos = 0
+    for line in markdown.splitlines(keepends=True):
+        if line.lstrip().startswith("|"):
+            spans.append((pos, pos + len(line)))
+        pos += len(line)
+
+    def in_table(i: int) -> bool:
+        return any(a <= i < b for a, b in spans)
+
+    refs = [(m.group(1), in_table(m.start())) for m in IMG_MD_RE.finditer(markdown)]
+    refs += [(m.group(1) or m.group(2), in_table(m.start())) for m in IMG_HTML_RE.finditer(markdown)]
     return refs
 
 
@@ -170,12 +187,12 @@ def force_advance_markers(p: Image.Image, marker: int, cell_w: int, cell_h: int,
                 p.putpixel((x, y0 + cell_h - 1), marker)
 
 
-def build_variant(src: Image.Image, max_w: int) -> dict:
+def build_variant(src: Image.Image, max_w: int, max_h: int = MAX_HEIGHT) -> dict:
     """Returns png, width (n*cw, padded), height (true), rows, chunks, chunk width."""
     sw, sh = src.size
-    s = min(1.0, max_w / sw, MAX_HEIGHT / sh)
+    s = min(1.0, max_w / sw, max_h / sh)
     gw = max(1, min(max_w, round(sw * s)))
-    gh = max(1, min(MAX_HEIGHT, round(sh * s)))
+    gh = max(1, min(max_h, round(sh * s)))
     rows = math.ceil(gh / ROW_GUI)
     tw, th = gw * OVERSAMPLE, gh * OVERSAMPLE
     scaled = src.resize((tw, th), Image.Resampling.LANCZOS)
@@ -349,6 +366,7 @@ def main() -> int:
     pages = json.loads(src.get("/pages.json"))["pages"]
     nav = json.loads(src.get("/embed/nav.json"))
     refs: dict[str, None] = {}
+    table_keys: set[str] = set()
     page_fail = 0
     for p in pages:
         try:
@@ -357,10 +375,12 @@ def main() -> int:
             page_fail += 1
             print(f"warn: page markdown unavailable: {p['md']}: {e}", file=sys.stderr)
             continue
-        for ref in collect_refs(md):
+        for ref, in_tbl in collect_refs(md):
             key = image_key(ref, p["md"], base)
             if key:
                 refs[key] = None
+                if in_tbl:
+                    table_keys.add(key)
     keys = sorted(refs)
 
     # ---- images
@@ -368,6 +388,8 @@ def main() -> int:
     missing: list[str] = []
     sha_variants: dict[str, dict[str, dict]] = {}  # sha1 -> variant -> info
     key_sha: dict[str, str] = {}
+    table_shas: set[str] = set()
+    decoded: dict[str, Image.Image] = {}
     total_bytes = 0
     keep_img: set[str] = set()
     for key in keys:
@@ -380,6 +402,13 @@ def main() -> int:
                 for vname, max_w in VARIANTS.items():
                     variants[vname] = build_variant(im, max_w)
                 sha_variants[sha] = variants
+                decoded[sha] = im
+            if key in table_keys and sha not in table_shas:
+                table_shas.add(sha)
+                if sha not in decoded:
+                    decoded[sha] = load_image(data)
+                for vname, max_w in TABLE_VARIANTS.items():
+                    sha_variants[sha][vname] = build_variant(decoded[sha], max_w, TABLE_MAX_HEIGHT)
             key_sha[key] = sha
         except Exception as e:
             print(f"warn: image failed: {key}: {e}", file=sys.stderr)
@@ -387,7 +416,7 @@ def main() -> int:
 
     providers = []
     for sha in sorted(sha_variants):
-        for vname in VARIANTS:  # wide, narrow
+        for vname in [*VARIANTS, *(TABLE_VARIANTS if sha in table_shas else ())]:
             v = sha_variants[sha][vname]
             fname = f"{sha[:12]}_{vname}.png"
             keep_img.add(fname)
@@ -414,6 +443,7 @@ def main() -> int:
                          "advance": v["width"] + 1, "chunks": v["chunks"],
                          "chunkGap": CHUNK_GAP, "rows": v["chars"]}
                     for vn, v in sha_variants[sha].items()
+                    if vn in VARIANTS or key in table_keys
                 },
             }
     out.write(ns_dir / "font" / "images.json", dump_json({"providers": providers}))

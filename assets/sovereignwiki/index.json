@@ -1,6 +1,6 @@
 {
   "v": 2,
-  "generatedAt": "2026-11-19T12:07:38Z",
+  "generatedAt": "2026-11-19T12:47:36Z",
   "source": "https://wiki-content.sovereignmc.net/pages.json",
   "images": {
     "/wiki/documentation/chest-shops/shop-browser.png": {
@@ -776,6 +776,54 @@
             "󲅋󲅌󲅍",
             "󲅎󲅏󲅐"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒾",
+            "󴒿",
+            "󴓀",
+            "󴓁",
+            "󴓂",
+            "󴓃",
+            "󴓄",
+            "󴓅"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓆",
+            "󴓇",
+            "󴓈",
+            "󴓉",
+            "󴓊",
+            "󴓋"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓌",
+            "󴓍",
+            "󴓎",
+            "󴓏"
+          ]
         }
       }
     },
@@ -846,6 +894,54 @@
             "󲧔󲧕󲧖",
             "󲧗󲧘󲧙",
             "󲧚󲧛󲧜"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔬",
+            "󴔭",
+            "󴔮",
+            "󴔯",
+            "󴔰",
+            "󴔱",
+            "󴔲",
+            "󴔳"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔴",
+            "󴔵",
+            "󴔶",
+            "󴔷",
+            "󴔸",
+            "󴔹"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔺",
+            "󴔻",
+            "󴔼",
+            "󴔽"
           ]
         }
       }
@@ -918,6 +1014,54 @@
             "󲶍󲶎󲶏",
             "󲶐󲶑󲶒"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕧",
+            "󴕨",
+            "󴕩",
+            "󴕪",
+            "󴕫",
+            "󴕬",
+            "󴕭",
+            "󴕮"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕯",
+            "󴕰",
+            "󴕱",
+            "󴕲",
+            "󴕳",
+            "󴕴"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕵",
+            "󴕶",
+            "󴕷",
+            "󴕸"
+          ]
         }
       }
     },
@@ -981,6 +1125,52 @@
             "󱴜󱴝󱴞",
             "󱴟󱴠󱴡"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 59,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒜",
+            "󴒝",
+            "󴒞",
+            "󴒟",
+            "󴒠",
+            "󴒡",
+            "󴒢"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 44,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒣",
+            "󴒤",
+            "󴒥",
+            "󴒦",
+            "󴒧"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 30,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒨",
+            "󴒩",
+            "󴒪",
+            "󴒫"
+          ]
         }
       }
     },
@@ -1042,6 +1232,52 @@
             "󱃝󱃞󱃟",
             "󱃠󱃡󱃢"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 55,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴐰",
+            "󴐱",
+            "󴐲",
+            "󴐳",
+            "󴐴",
+            "󴐵",
+            "󴐶"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 41,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴐷",
+            "󴐸",
+            "󴐹",
+            "󴐺",
+            "󴐻"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 28,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴐼",
+            "󴐽",
+            "󴐾",
+            "󴐿"
+          ]
         }
       }
     },
@@ -1100,6 +1336,50 @@
             "󱥙󱥚󱥛",
             "󱥜󱥝󱥞",
             "󱥟󱥠󱥡"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 52,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑢",
+            "󴑣",
+            "󴑤",
+            "󴑥",
+            "󴑦",
+            "󴑧"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 39,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑨",
+            "󴑩",
+            "󴑪",
+            "󴑫",
+            "󴑬"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 26,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑭",
+            "󴑮",
+            "󴑯"
           ]
         }
       }
@@ -1179,6 +1459,58 @@
             "󳕄󳕅󳕆",
             "󳕇󳕈󳕉"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 82,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗍",
+            "󴗎",
+            "󴗏",
+            "󴗐",
+            "󴗑",
+            "󴗒",
+            "󴗓",
+            "󴗔",
+            "󴗕",
+            "󴗖"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 62,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗗",
+            "󴗘",
+            "󴗙",
+            "󴗚",
+            "󴗛",
+            "󴗜",
+            "󴗝"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 41,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗞",
+            "󴗟",
+            "󴗠",
+            "󴗡",
+            "󴗢"
+          ]
         }
       }
     },
@@ -1255,6 +1587,57 @@
             "󲒖󲒗󲒘",
             "󲒙󲒚󲒛"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 79,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓢",
+            "󴓣",
+            "󴓤",
+            "󴓥",
+            "󴓦",
+            "󴓧",
+            "󴓨",
+            "󴓩",
+            "󴓪"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 59,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓫",
+            "󴓬",
+            "󴓭",
+            "󴓮",
+            "󴓯",
+            "󴓰",
+            "󴓱"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 40,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓲",
+            "󴓳",
+            "󴓴",
+            "󴓵",
+            "󴓶"
+          ]
         }
       }
     },
@@ -1323,6 +1706,54 @@
             "󲡳󲡴󲡵",
             "󲡶󲡷󲡸",
             "󲡹󲡺󲡻"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 70,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔚",
+            "󴔛",
+            "󴔜",
+            "󴔝",
+            "󴔞",
+            "󴔟",
+            "󴔠",
+            "󴔡"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 53,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔢",
+            "󴔣",
+            "󴔤",
+            "󴔥",
+            "󴔦",
+            "󴔧"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 35,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔨",
+            "󴔩",
+            "󴔪",
+            "󴔫"
           ]
         }
       }
@@ -1398,6 +1829,57 @@
             "󱲔󱲕󱲖",
             "󱲗󱲘󱲙"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 76,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒇",
+            "󴒈",
+            "󴒉",
+            "󴒊",
+            "󴒋",
+            "󴒌",
+            "󴒍",
+            "󴒎",
+            "󴒏"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 57,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒐",
+            "󴒑",
+            "󴒒",
+            "󴒓",
+            "󴒔",
+            "󴒕",
+            "󴒖"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 38,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒗",
+            "󴒘",
+            "󴒙",
+            "󴒚",
+            "󴒛"
+          ]
         }
       }
     },
@@ -1469,6 +1951,54 @@
             "󲺲󲺳󲺴",
             "󲺵󲺶󲺷"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕹",
+            "󴕺",
+            "󴕻",
+            "󴕼",
+            "󴕽",
+            "󴕾",
+            "󴕿",
+            "󴖀"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖁",
+            "󴖂",
+            "󴖃",
+            "󴖄",
+            "󴖅",
+            "󴖆"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖇",
+            "󴖈",
+            "󴖉",
+            "󴖊"
+          ]
         }
       }
     },
@@ -1535,6 +2065,54 @@
             "󱘭󱘮󱘯",
             "󱘰󱘱󱘲",
             "󱘳󱘴󱘵"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 66,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑐",
+            "󴑑",
+            "󴑒",
+            "󴑓",
+            "󴑔",
+            "󴑕",
+            "󴑖",
+            "󴑗"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 49,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑘",
+            "󴑙",
+            "󴑚",
+            "󴑛",
+            "󴑜",
+            "󴑝"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 33,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑞",
+            "󴑟",
+            "󴑠",
+            "󴑡"
           ]
         }
       }
@@ -1615,6 +2193,59 @@
             "󲬽󲬾󲬿",
             "󲭀󲭁󲭂",
             "󲭃󲭄󲭅"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 86,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔾",
+            "󴔿",
+            "󴕀",
+            "󴕁",
+            "󴕂",
+            "󴕃",
+            "󴕄",
+            "󴕅",
+            "󴕆",
+            "󴕇"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 65,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕈",
+            "󴕉",
+            "󴕊",
+            "󴕋",
+            "󴕌",
+            "󴕍",
+            "󴕎",
+            "󴕏"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 43,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕐",
+            "󴕑",
+            "󴕒",
+            "󴕓",
+            "󴕔"
           ]
         }
       }
@@ -1707,6 +2338,63 @@
             "󳒆󳒇󳒈",
             "󳒉󳒊󳒋"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 107,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖲",
+            "󴖳",
+            "󴖴",
+            "󴖵",
+            "󴖶",
+            "󴖷",
+            "󴖸",
+            "󴖹",
+            "󴖺",
+            "󴖻",
+            "󴖼",
+            "󴖽"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 80,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖾",
+            "󴖿",
+            "󴗀",
+            "󴗁",
+            "󴗂",
+            "󴗃",
+            "󴗄",
+            "󴗅",
+            "󴗆"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 53,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗇",
+            "󴗈",
+            "󴗉",
+            "󴗊",
+            "󴗋",
+            "󴗌"
+          ]
         }
       }
     },
@@ -1778,6 +2466,54 @@
             "󲊊󲊋󲊌",
             "󲊍󲊎󲊏"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓐",
+            "󴓑",
+            "󴓒",
+            "󴓓",
+            "󴓔",
+            "󴓕",
+            "󴓖",
+            "󴓗"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓘",
+            "󴓙",
+            "󴓚",
+            "󴓛",
+            "󴓜",
+            "󴓝"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓞",
+            "󴓟",
+            "󴓠",
+            "󴓡"
+          ]
         }
       }
     },
@@ -1848,6 +2584,54 @@
             "󱿉󱿊󱿋",
             "󱿌󱿍󱿎",
             "󱿏󱿐󱿑"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒬",
+            "󴒭",
+            "󴒮",
+            "󴒯",
+            "󴒰",
+            "󴒱",
+            "󴒲",
+            "󴒳"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒴",
+            "󴒵",
+            "󴒶",
+            "󴒷",
+            "󴒸",
+            "󴒹"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒺",
+            "󴒻",
+            "󴒼",
+            "󴒽"
           ]
         }
       }
@@ -1928,6 +2712,59 @@
             "󱯤󱯥󱯦",
             "󱯧󱯨󱯩"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 85,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑰",
+            "󴑱",
+            "󴑲",
+            "󴑳",
+            "󴑴",
+            "󴑵",
+            "󴑶",
+            "󴑷",
+            "󴑸",
+            "󴑹"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 64,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑺",
+            "󴑻",
+            "󴑼",
+            "󴑽",
+            "󴑾",
+            "󴑿",
+            "󴒀",
+            "󴒁"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 43,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴒂",
+            "󴒃",
+            "󴒄",
+            "󴒅",
+            "󴒆"
+          ]
         }
       }
     },
@@ -1985,6 +2822,50 @@
             "󳺋󳺌󳺍",
             "󳺎󳺏󳺐",
             "󳺑󳺒󳺓"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 51,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘉",
+            "󴘊",
+            "󴘋",
+            "󴘌",
+            "󴘍",
+            "󴘎"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 39,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘏",
+            "󴘐",
+            "󴘑",
+            "󴘒",
+            "󴘓"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 26,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘔",
+            "󴘕",
+            "󴘖"
           ]
         }
       }
@@ -4230,6 +5111,52 @@
             "󳮫󳮬󳮭",
             "󳮮󳮯󳮰"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 60,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗹",
+            "󴗺",
+            "󴗻",
+            "󴗼",
+            "󴗽",
+            "󴗾",
+            "󴗿"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 45,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘀",
+            "󴘁",
+            "󴘂",
+            "󴘃",
+            "󴘄"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 30,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘅",
+            "󴘆",
+            "󴘇",
+            "󴘈"
+          ]
         }
       }
     },
@@ -4308,6 +5235,58 @@
             "󳘂󳘃󳘄",
             "󳘅󳘆󳘇"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 83,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗣",
+            "󴗤",
+            "󴗥",
+            "󴗦",
+            "󴗧",
+            "󴗨",
+            "󴗩",
+            "󴗪",
+            "󴗫",
+            "󴗬"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 62,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗭",
+            "󴗮",
+            "󴗯",
+            "󴗰",
+            "󴗱",
+            "󴗲",
+            "󴗳"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 41,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴗴",
+            "󴗵",
+            "󴗶",
+            "󴗷",
+            "󴗸"
+          ]
         }
       }
     },
@@ -4366,6 +5345,50 @@
             "󲞙󲞚󲞛",
             "󲞜󲞝󲞞",
             "󲞟󲞠󲞡"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 54,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔌",
+            "󴔍",
+            "󴔎",
+            "󴔏",
+            "󴔐",
+            "󴔑"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 40,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔒",
+            "󴔓",
+            "󴔔",
+            "󴔕",
+            "󴔖"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 27,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔗",
+            "󴔘",
+            "󴔙"
           ]
         }
       }
@@ -4438,6 +5461,54 @@
             "󲳨󲳩󲳪",
             "󲳫󲳬󲳭"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 72,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕕",
+            "󴕖",
+            "󴕗",
+            "󴕘",
+            "󴕙",
+            "󴕚",
+            "󴕛",
+            "󴕜"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 54,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕝",
+            "󴕞",
+            "󴕟",
+            "󴕠",
+            "󴕡",
+            "󴕢"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 36,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴕣",
+            "󴕤",
+            "󴕥",
+            "󴕦"
+          ]
         }
       }
     },
@@ -4501,6 +5572,53 @@
             "󳁨󳁩󳁪",
             "󳁫󳁬󳁭",
             "󳁮󳁯󳁰"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 62,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖋",
+            "󴖌",
+            "󴖍",
+            "󴖎",
+            "󴖏",
+            "󴖐",
+            "󴖑"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 46,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖒",
+            "󴖓",
+            "󴖔",
+            "󴖕",
+            "󴖖",
+            "󴖗"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 31,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖘",
+            "󴖙",
+            "󴖚",
+            "󴖛"
           ]
         }
       }
@@ -4583,6 +5701,59 @@
             "󴆦󴆧󴆨",
             "󴆩󴆪󴆫"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 89,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘗",
+            "󴘘",
+            "󴘙",
+            "󴘚",
+            "󴘛",
+            "󴘜",
+            "󴘝",
+            "󴘞",
+            "󴘟",
+            "󴘠"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 67,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘡",
+            "󴘢",
+            "󴘣",
+            "󴘤",
+            "󴘥",
+            "󴘦",
+            "󴘧",
+            "󴘨"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 44,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴘩",
+            "󴘪",
+            "󴘫",
+            "󴘬",
+            "󴘭"
+          ]
         }
       }
     },
@@ -4644,6 +5815,52 @@
             "󱊌󱊍󱊎",
             "󱊏󱊐󱊑",
             "󱊒󱊓󱊔"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 58,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑀",
+            "󴑁",
+            "󴑂",
+            "󴑃",
+            "󴑄",
+            "󴑅",
+            "󴑆"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 43,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑇",
+            "󴑈",
+            "󴑉",
+            "󴑊",
+            "󴑋"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 29,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴑌",
+            "󴑍",
+            "󴑎",
+            "󴑏"
           ]
         }
       }
@@ -4721,6 +5938,57 @@
             "󲖜󲖝󲖞",
             "󲖟󲖠󲖡"
           ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 81,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴓷",
+            "󴓸",
+            "󴓹",
+            "󴓺",
+            "󴓻",
+            "󴓼",
+            "󴓽",
+            "󴓾",
+            "󴓿"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 60,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔀",
+            "󴔁",
+            "󴔂",
+            "󴔃",
+            "󴔄",
+            "󴔅",
+            "󴔆"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 40,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴔇",
+            "󴔈",
+            "󴔉",
+            "󴔊",
+            "󴔋"
+          ]
         }
       }
     },
@@ -4796,6 +6064,58 @@
             "󳋺󳋻󳋼",
             "󳋽󳋾󳋿",
             "󳌀󳌁󳌂"
+          ]
+        },
+        "w128": {
+          "font": "sovereignwiki:images",
+          "width": 128,
+          "height": 82,
+          "advance": 129,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖜",
+            "󴖝",
+            "󴖞",
+            "󴖟",
+            "󴖠",
+            "󴖡",
+            "󴖢",
+            "󴖣",
+            "󴖤",
+            "󴖥"
+          ]
+        },
+        "w96": {
+          "font": "sovereignwiki:images",
+          "width": 96,
+          "height": 61,
+          "advance": 97,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖦",
+            "󴖧",
+            "󴖨",
+            "󴖩",
+            "󴖪",
+            "󴖫",
+            "󴖬"
+          ]
+        },
+        "w64": {
+          "font": "sovereignwiki:images",
+          "width": 64,
+          "height": 41,
+          "advance": 65,
+          "chunks": 1,
+          "chunkGap": -1,
+          "rows": [
+            "󴖭",
+            "󴖮",
+            "󴖯",
+            "󴖰",
+            "󴖱"
           ]
         }
       }
