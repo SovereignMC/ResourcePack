@@ -1,0 +1,100 @@
+{
+  "textures": {
+    "xl_textures": "planechase:item/bogie/xl_textures",
+    "particle": "planechase:item/bogie/xl_textures"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        -1,
+        7
+      ],
+      "to": [
+        8,
+        17,
+        9
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            6.4286,
+            2.5714,
+            6.7143
+          ],
+          "texture": "#xl_textures",
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            2.5714,
+            6.4286,
+            0,
+            6.7143
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            2.4286,
+            6.4286,
+            2.5714,
+            6.7143
+          ],
+          "texture": "#xl_textures",
+          "rotation": 180
+        },
+        "down": {
+          "uv": [
+            0.1429,
+            6.4286,
+            0,
+            6.7143
+          ],
+          "texture": "#xl_textures"
+        },
+        "south": {
+          "uv": [
+            0,
+            6.4286,
+            2.5714,
+            6.5714
+          ],
+          "texture": "#xl_textures",
+          "rotation": 270
+        },
+        "north": {
+          "uv": [
+            0,
+            6.5714,
+            2.5714,
+            6.7143
+          ],
+          "texture": "#xl_textures",
+          "rotation": 270
+        }
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        22,
+        -5,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

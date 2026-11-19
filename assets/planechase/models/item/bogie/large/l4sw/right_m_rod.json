@@ -1,0 +1,148 @@
+{
+  "textures": {
+    "xl_textures": "planechase:item/bogie/xl_textures",
+    "particle": "planechase:item/bogie/xl_textures"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        6,
+        -5
+      ],
+      "to": [
+        9,
+        10,
+        15
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            13.1429,
+            9.4286,
+            16,
+            10
+          ],
+          "texture": "#xl_textures"
+        },
+        "east": {
+          "uv": [
+            16,
+            8.8571,
+            13.1429,
+            9.4286
+          ],
+          "texture": "#xl_textures"
+        },
+        "up": {
+          "uv": [
+            13.1429,
+            8.8571,
+            16,
+            9.1429
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            13.1429,
+            9.1429,
+            16,
+            9.4286
+          ],
+          "texture": "#xl_textures",
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        5,
+        15
+      ],
+      "to": [
+        9,
+        11,
+        21
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            13.4286,
+            15,
+            12.5714,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "east": {
+          "uv": [
+            12.5714,
+            15.8571,
+            13.4286,
+            15
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            13.7143,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "down": {
+          "uv": [
+            13.7143,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "south": {
+          "uv": [
+            13.7143,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "north": {
+          "uv": [
+            13.4286,
+            15.8571,
+            13.7143,
+            15
+          ],
+          "texture": "#xl_textures"
+        }
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        20,
+        0,
+        15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "textures": {
+    "xl_textures": "planechase:item/bogie/xl_textures",
+    "particle": "planechase:item/bogie/xl_textures"
+  },
+  "elements": [
+    {
+      "from": [
+        7.2,
+        5.6,
+        25.6
+      ],
+      "to": [
+        8.8,
+        10.4,
+        30.4
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            12.5714,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "west": {
+          "uv": [
+            12.5714,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "up": {
+          "uv": [
+            13.4286,
+            15,
+            13.7143,
+            15.8571
+          ],
+          "texture": "#xl_textures",
+          "rotation": 180
+        },
+        "down": {
+          "uv": [
+            13.4286,
+            15,
+            13.7143,
+            15.8571
+          ],
+          "texture": "#xl_textures",
+          "rotation": 180
+        },
+        "south": {
+          "uv": [
+            13.7143,
+            15,
+            13.4286,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "north": {
+          "uv": [
+            13.4286,
+            15,
+            13.7143,
+            15.8571
+          ],
+          "texture": "#xl_textures"
+        }
+      }
+    },
+    {
+      "from": [
+        7.2,
+        6.4,
+        5.6
+      ],
+      "to": [
+        8.8,
+        9.6,
+        25.6
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7,
+            3.7143,
+            7.2857,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        },
+        "north": {
+          "uv": [
+            13.8571,
+            3.7143,
+            14.1429,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        },
+        "up": {
+          "uv": [
+            10.5714,
+            3.7143,
+            7,
+            4
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7,
+            4.1429,
+            10.5714,
+            4.4286
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "west": {
+          "uv": [
+            10.5714,
+            4.2857,
+            7,
+            4.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "east": {
+          "uv": [
+            7,
+            3.7143,
+            10.5714,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        }
+      }
+    },
+    {
+      "from": [
+        7.2,
+        6.4,
+        -14.4
+      ],
+      "to": [
+        8.8,
+        9.6,
+        5.6
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            7,
+            3.7143,
+            7.2857,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        },
+        "north": {
+          "uv": [
+            13.8571,
+            3.7143,
+            14.1429,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        },
+        "up": {
+          "uv": [
+            16,
+            3.7143,
+            12.4286,
+            4
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            12.4286,
+            4.1429,
+            16,
+            4.4286
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "west": {
+          "uv": [
+            16,
+            4.2857,
+            12.4286,
+            4.8571
+          ],
+          "texture": "#xl_textures"
+        },
+        "east": {
+          "uv": [
+            12.4286,
+            3.7143,
+            16,
+            4.2857
+          ],
+          "texture": "#xl_textures"
+        }
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        20,
+        0,
+        30
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ]
+    }
+  }
+}

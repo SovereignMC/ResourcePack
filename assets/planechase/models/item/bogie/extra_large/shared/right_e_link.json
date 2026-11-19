@@ -1,0 +1,154 @@
+{
+  "textures": {
+    "extras": "planechase:item/bogie/extras",
+    "particle": "planechase:item/bogie/extras"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "to": [
+        8,
+        6,
+        9
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            3,
+            5.5,
+            4,
+            8.5
+          ],
+          "texture": "#extras"
+        },
+        "west": {
+          "uv": [
+            4,
+            5.5,
+            3,
+            8.5
+          ],
+          "texture": "#extras"
+        },
+        "down": {
+          "uv": [
+            3.5,
+            7,
+            4,
+            8
+          ],
+          "texture": "#extras"
+        },
+        "south": {
+          "uv": [
+            3.5,
+            5.5,
+            3,
+            8.5
+          ],
+          "texture": "#extras"
+        },
+        "north": {
+          "uv": [
+            4,
+            5.5,
+            3.5,
+            8.5
+          ],
+          "texture": "#extras"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        6,
+        6
+      ],
+      "to": [
+        10,
+        17,
+        10
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            5.5,
+            2,
+            7.5,
+            7.5
+          ],
+          "texture": "#extras"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            5.5
+          ],
+          "texture": "#extras"
+        },
+        "up": {
+          "uv": [
+            5.5,
+            2,
+            7,
+            0
+          ],
+          "texture": "#extras"
+        },
+        "down": {
+          "uv": [
+            1.5,
+            5.5,
+            3,
+            7.5
+          ],
+          "texture": "#extras"
+        },
+        "south": {
+          "uv": [
+            16,
+            9.5,
+            14.5,
+            15
+          ],
+          "texture": "#extras"
+        },
+        "north": {
+          "uv": [
+            16,
+            9.5,
+            14.5,
+            15
+          ],
+          "texture": "#extras"
+        }
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        22,
+        -4,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

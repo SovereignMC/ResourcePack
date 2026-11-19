@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=bottom,waterlogged=true": {
+      "model": "planechase:block/empty"
+    },
+    "type=bottom,waterlogged=false": {
+      "model": "planechase:block/empty"
+    },
+    "type=top,waterlogged=true": {
+      "model": "planechase:block/empty"
+    },
+    "type=top,waterlogged=false": {
+      "model": "planechase:block/empty"
+    },
+    "type=double,waterlogged=true": {
+      "model": "planechase:block/empty"
+    },
+    "type=double,waterlogged=false": {
+      "model": "planechase:block/empty"
+    }
+  }
+}
