@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Runs independently of tools/verify-pack.sh (which needs bash + jq) and adds
-the argentum asset checks verify-pack.sh does not do.
+"""Runs independently of tools/verify/pack.sh (which needs bash + jq) and adds
+the argentum asset checks pack.sh does not do.
 
-Rules mirrored from verify-pack.sh:
+Rules mirrored from tools/verify/pack.sh:
   * every "parent": "argentum:..." resolves to models/<path>.json
   * every texture ref (textures.* values) resolves to textures/<path>.png
   * every items/*.json "model" ref resolves to models/<path>.json OR is allowlisted
@@ -18,7 +18,7 @@ Extra checks:
     every new block tile is 16x16 RGBA and fully opaque
   * every new PNG is referenced by some JSON
 
-Usage: python3 tools/verify_argentum_refs.py
+Usage: python3 tools/verify/argentum_refs.py
 Exit 0 = clean (warnings allowed), 1 = hard failure. Writes nothing.
 """
 
@@ -31,12 +31,12 @@ from pathlib import Path
 
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "assets"
 ARGENTUM = ASSETS / "argentum"
 
 # items defs whose model ref has no models/*.json today. Keep in sync with the pack
-# (mirrors MODEL_REF_WARNLIST in verify-pack.sh).
+# (mirrors MODEL_REF_WARNLIST in tools/verify/pack.sh).
 MODEL_REF_WARNLIST = {
     "item/alternator",
     "item/big_capacitor",

@@ -19,7 +19,7 @@ textures/item/metallurgy/chromium_ingot.png, re-toned per material.
 Deterministic: no RNG, no time, no network, so reruns are byte-identical.
 
 Example:
-    python3 tools/generate_argentum_metallurgy_art.py --pack-dir .
+    python3 tools/generate/argentum/metallurgy_art.py --pack-dir .
 """
 from __future__ import annotations
 

@@ -23,7 +23,7 @@ from the top-left, 3-4 flat tones per material. Deterministic: no RNG, no
 time, no network. Rerunning writes byte-identical files.
 
 Example:
-    python3 tools/generate_argentum_component_art.py --pack-dir .
+    python3 tools/generate/argentum/component_art.py --pack-dir .
 """
 from __future__ import annotations
 

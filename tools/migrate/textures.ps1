@@ -6,12 +6,12 @@
 # cp1252 curly-quote bytes that break string parsing.
 #
 # Idempotent: files already moved are skipped. Operates on the repo root.
-# Usage: powershell -ExecutionPolicy Bypass -File tools/migrate-textures.ps1 [-DryRun]
+# Usage: powershell -ExecutionPolicy Bypass -File tools/migrate/textures.ps1 [-DryRun]
 
 param([switch]$DryRun, [switch]$Resume)
 
 $ErrorActionPreference = 'Stop'
-Set-Location (Split-Path $PSScriptRoot -Parent)  # repo root
+Set-Location (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent)  # repo root
 
 if (-not (Test-Path ".git")) { Write-Error "Not a git repo; refusing to run."; exit 1 }
 if (-not $Resume) {
@@ -254,4 +254,4 @@ foreach ($json in Get-ChildItem 'assets/argentum' -Recurse -Filter *.json -File)
 Write-Host ("Rewrote {0} texture ref(s) across {1} JSON file(s)." -f $script:refsRewritten, $filesChanged)
 
 Write-Host ''
-Write-Host 'DONE. Review with git status / git diff, then run tools/verify-pack.sh'
+Write-Host 'DONE. Review with git status / git diff, then run tools/verify/pack.sh'

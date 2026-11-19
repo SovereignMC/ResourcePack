@@ -17,7 +17,7 @@ Outputs (relative to --pack-dir):
     assets/sovereignmc/textures/item/effect/aim_beam_e.png    emissive (glow) tile
 
 Example:
-    python3 tools/generate_aim_beam.py --pack-dir . --size 64 --preview 128
+    python3 tools/generate/effects/aim_beam.py --pack-dir . --size 64 --preview 128
 """
 
 from __future__ import annotations

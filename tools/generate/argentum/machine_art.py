@@ -22,7 +22,7 @@ held at the mid tone, then the rightmost and bottommost housing cells are
 shifted one tone darker. No RNG, no timestamps.
 
 Example:
-    python3 tools/generate_argentum_machine_art.py --pack-dir .
+    python3 tools/generate/argentum/machine_art.py --pack-dir .
 """
 from __future__ import annotations
 
@@ -82,7 +82,7 @@ TANK_ID = "reinforced_water_tank"
 
 
 def _hash(x: int, y: int, salt: int) -> float:
-    """Deterministic 0..1 value, same integer mix as generate_flag_holder_textures.py."""
+    """Deterministic 0..1 value, same integer mix as flag_holder_textures.py."""
     n = (x * 374761393 + y * 668265263 + salt * 2246822519) & 0xFFFFFFFF
     n = ((n ^ (n >> 13)) * 1274126177) & 0xFFFFFFFF
     return ((n ^ (n >> 16)) & 0xFFFF) / 65535.0

@@ -43,7 +43,7 @@ jobs:
         run: python3 tools/wiki-art/generate.py
 
       - name: Verify pack
-        run: tools/verify-pack.sh
+        run: tools/verify/pack.sh
 
       - name: Commit and release
         env:

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Generates the GUI skin background textures, overlay glyphs and the gui_skins bitmap font
-// from tools/gui-skins/skins.json (source of truth). Built-ins only. Deterministic/idempotent.
-// Usage: node tools/gui-skins/generate.mjs
+// from tools/generate/gui/skins/skins.json (source of truth). Built-ins only. Deterministic/idempotent.
+// Usage: node tools/generate/gui/skins/generate.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { CONTROLS, CHAPTER_ART, artOf } from './icons.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, '..', '..');
+const root = path.resolve(here, '..', '..', '..', '..');
 const spec = JSON.parse(fs.readFileSync(path.join(here, 'skins.json'), 'utf8'));
 const texDir = path.join(root, spec.texture_dir);
 const fontFile = path.join(root, 'assets/sovereignmc/font/gui_skins.json');

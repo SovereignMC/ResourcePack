@@ -15,11 +15,11 @@ The metrics are transcribed from the decompiled client jar:
                  outside is clipped, never scrolled
 
 Usage:
-    python3 tools/render_text.py --snbt '{text:"hi",font:"sovereignmc:menu"}'
-    python3 tools/render_text.py --component '{"text":"hi","color":"#FFC24D"}'
-    python3 tools/render_text.py --json dialog.json --width 310 --zoom 4
-    python3 tools/render_text.py                       # a placeholder line
-    python3 tools/render_text.py --self-test
+    python3 tools/render/render_text.py --snbt '{text:"hi",font:"sovereignmc:menu"}'
+    python3 tools/render/render_text.py --component '{"text":"hi","color":"#FFC24D"}'
+    python3 tools/render/render_text.py --json dialog.json --width 310 --zoom 4
+    python3 tools/render/render_text.py                       # a placeholder line
+    python3 tools/render/render_text.py --self-test
 """
 from __future__ import annotations
 

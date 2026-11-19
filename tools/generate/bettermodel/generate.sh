@@ -6,14 +6,14 @@
 # server with the real BetterModel jar, lets it import every model and write its
 # resource pack, then copies the generated namespace into assets/.
 #
-#   tools/generate-bettermodel.sh
-#   BETTERMODEL_VERSION=3.7.0 PAPER_VERSION=26.3 tools/generate-bettermodel.sh
+#   tools/generate/bettermodel/generate.sh
+#   BETTERMODEL_VERSION=3.7.0 PAPER_VERSION=26.3 tools/generate/bettermodel/generate.sh
 #
 # Output: assets/<BETTERMODEL_NAMESPACE>/ (default assets/bettermodel/).
 # The output is generated, not committed; the release workflow regenerates it.
 set -euo pipefail
 
-root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../../.." && pwd)"
 models_dir="$root/bbmodels"
 namespace="${BETTERMODEL_NAMESPACE:-bettermodel}"
 bm_version="${BETTERMODEL_VERSION:-3.7.0}"

@@ -18,7 +18,7 @@ Writes (relative to --pack-dir):
     assets/sovereignmc/textures/font/menu_<panel>[_s].png   paletted
     assets/sovereignmc/font/menu.json
 
-    python3 tools/generate_menu_background.py --pack-dir . [--client-jar JAR]
+    python3 tools/generate/gui/menu_background.py --pack-dir . [--client-jar JAR]
 """
 from __future__ import annotations
 
@@ -26,10 +26,14 @@ import argparse
 import glob
 import json
 import os
+import sys
 from typing import NamedTuple
 
 from PIL import Image, ImageDraw
 
+# render_text lives in tools/render; keep the generator runnable directly.
+_TOOLS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(_TOOLS, "render"))
 import render_text
 
 
@@ -169,8 +173,7 @@ def panel(layout: Layout, name: str, accent, lines: list[Image.Image], caption_r
     art_width, art_right, art_bottom = layout.art_width, layout.art_right, layout.art_bottom
     caption_top = art_bottom + 1 - (caption_rows * LINE + 4)
     shot_height = caption_top - 1 - ART_TOP
-    source = Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                     "art", f"{name}.png")).convert("RGB")
+    source = Image.open(os.path.join(_TOOLS, "art", "menu", f"{name}.png")).convert("RGB")
     crop = min(source.width, round(source.height * art_width / shot_height))
     left = (source.width - crop) // 2
     shot = source.crop((left, 0, left + crop, source.height))

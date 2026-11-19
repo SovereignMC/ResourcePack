@@ -17,7 +17,7 @@ Outputs (relative to --pack-dir):
     assets/minecraft/textures/particle/explosion_<n>.png   n = 0..15
 
 Example:
-    python3 tools/generate_explosion_textures.py --src "<pack>/assets/minecraft/textures/particle" --pack-dir . --preview sheet.png
+    python3 tools/generate/effects/explosion_textures.py --src "<pack>/assets/minecraft/textures/particle" --pack-dir . --preview sheet.png
 """
 
 from __future__ import annotations

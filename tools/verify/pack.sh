@@ -9,12 +9,12 @@
 #
 # Exit 0 = clean (warnings allowed); exit 1 = hard failure.
 # Requires bash and jq.
-# Usage: tools/verify-pack.sh
+# Usage: tools/verify/pack.sh
 
 set -uo pipefail
 export LC_ALL=C # ASCII ranges and byte order, like the PowerShell -cnotmatch check
 
-cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." || { echo "verify-pack: cannot cd to repo root" >&2; exit 1; }
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." || { echo "verify-pack: cannot cd to repo root" >&2; exit 1; }
 
 if ! command -v jq >/dev/null 2>&1; then
     echo "verify-pack: jq is required (apt install jq / brew install jq)" >&2

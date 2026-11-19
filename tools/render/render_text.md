@@ -1,6 +1,6 @@
 # Rendering text components offline
 
-`tools/render_text.py` draws a Minecraft text component the way the 1.21.11 client
+`tools/render/render_text.py` draws a Minecraft text component the way the 1.21.11 client
 will, so layout mistakes (wrapped lines, clipped glyphs, wrong advances) show up on
 disk instead of in game. Fonts resolve pack-first, exactly like the resource stack:
 anything under `assets/<namespace>/font/` in this pack wins, the rest falls back to
@@ -16,7 +16,7 @@ the client jar.
   Prism instances). An unpacked `assets/` tree also works via `--assets-dir`.
 
 ```bash
-python3 tools/render_text.py --client-jar ~/client-1.21.11.jar --self-test
+python3 tools/render/render_text.py --client-jar ~/client-1.21.11.jar --self-test
 ```
 
 `--self-test` asserts the ported metrics (line pitch 9, ascent 7, `A`=6, `I`=4,
@@ -40,13 +40,13 @@ width unless `--width` overrides it.
 
 ```bash
 # the lobby selector dialogue (SMC_DUMP_DIALOG=1 cargo test dump_selector writes it)
-python3 tools/render_text.py --client-jar ~/client.jar --json /tmp/smc_selector_dialog.json --width 0
+python3 tools/render/render_text.py --client-jar ~/client.jar --json /tmp/smc_selector_dialog.json --width 0
 
 # how the translucent plate reads over the world (bright backdrop)
-python3 tools/render_text.py --client-jar ~/client.jar --bg 6b8299 --zoom 3
+python3 tools/render/render_text.py --client-jar ~/client.jar --bg 6b8299 --zoom 3
 
 # a styled line, no wrapping
-python3 tools/render_text.py --client-jar ~/client.jar --width 0 \
+python3 tools/render/render_text.py --client-jar ~/client.jar --width 0 \
   --snbt '{text:"Styled: ",color:"#8FE3FF",extra:[{text:"bold ",bold:1b},{text:"italic ",italic:1b},{text:"under ",underlined:1b},{text:"strike",strikethrough:1b}]}'
 ```
 

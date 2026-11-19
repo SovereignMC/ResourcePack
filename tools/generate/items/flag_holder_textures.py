@@ -9,7 +9,7 @@ Both tiles are opaque, mottled metal used with full-face UVs ([0,0,16,16])
 by models/item/flag_holder.json. Deterministic: no RNG, no seed arguments.
 
 Example:
-    python3 tools/generate_flag_holder_textures.py --pack-dir .
+    python3 tools/generate/items/flag_holder_textures.py --pack-dir .
 """
 from __future__ import annotations
 

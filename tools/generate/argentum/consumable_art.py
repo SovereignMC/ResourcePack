@@ -35,7 +35,7 @@ Deterministic: every silhouette and shade is a literal table below; no RNG, no
 time, no network. A rerun rewrites byte-identical files.
 
 Example:
-    python3 tools/generate_argentum_consumable_art.py --pack-dir .
+    python3 tools/generate/argentum/consumable_art.py --pack-dir .
 """
 from __future__ import annotations
 

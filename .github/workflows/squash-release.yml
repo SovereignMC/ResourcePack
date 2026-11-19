@@ -9,7 +9,7 @@ on:
       - 'assets/**'
       - 'bbmodels/**'
       - 'pack.mcmeta'
-      - 'tools/generate-bettermodel.sh'
+      - 'tools/generate/bettermodel/generate.sh'
   # wiki-art.yml pushes with GITHUB_TOKEN, which does not fire the push trigger above.
   workflow_dispatch:
 # One release at a time, in push order, so "latest" is always the newest commit.
@@ -40,11 +40,11 @@ jobs:
         env:
           BETTERMODEL_VERSION: '3.7.0'
           PAPER_VERSION: '26.3'
-        run: tools/generate-bettermodel.sh
+        run: tools/generate/bettermodel/generate.sh
 
       - name: Verify texture references
         shell: bash
-        run: tools/verify-pack.sh
+        run: tools/verify/pack.sh
 
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v4
