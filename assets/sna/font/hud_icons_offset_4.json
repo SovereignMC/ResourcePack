@@ -206,6 +206,33 @@
       "chars": [
         "\uE216"
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/war_chest.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE217"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/banner.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE218"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sna:font/hud_icons/sessions.png",
+      "ascent": 4,
+      "height": 10,
+      "chars": [
+        "\uE219"
+      ]
     }
   ]
 }
