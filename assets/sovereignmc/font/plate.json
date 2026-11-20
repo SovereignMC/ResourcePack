@@ -503,6 +503,24 @@
       "chars": [
         "\uE437"
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_fighter.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE438"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/plate/craft_cargoplane.png",
+      "ascent": 48,
+      "height": 48,
+      "chars": [
+        "\uE439"
+      ]
     }
   ]
 }
