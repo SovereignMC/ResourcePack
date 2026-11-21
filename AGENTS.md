@@ -10,6 +10,14 @@ compile step. `pack.mcmeta` declares `pack_format` 64, `supported_formats` `[64,
 `min_format` `[64, 0]` and `max_format` `[75, 0]`; keep it valid JSON and bump the formats
 deliberately when the target client changes.
 
+`pack.mcmeta` also declares one overlay, `format_64/` (1.21.7–1.21.8 only), for files whose
+vanilla format changed in 1.21.9. Today that is `minecraft:post_effect/blur.json`, the menu
+and dialog background blur: 1.21.9+ uses the `core/screenquad` vertex shader, 1.21.7–1.21.8
+use `post/blur`. Both copies pin every pass's `Radius` to 4.0, which overrides the player's
+Menu Background Blur slider (vanilla only uses the slider when `Radius` is 0). At 0 the
+slider still turns the blur off, because the client never runs the pass. Change both
+copies together.
+
 `pack.zip` is a build artifact. It is gitignored and must not be committed; the published
 zip is built by CI (see below).
 
