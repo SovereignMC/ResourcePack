@@ -16,6 +16,6 @@ the **Blocks and Bogies** mod by **t__cup** and **weido's oddities**.
 - Models were moved so the wheel bottoms sit on the model origin plane (the rail contact point).
 - Only static parts were converted: frames and wheels. Animated valve gear (rods, cranks, links, sliders) and parts that
   need Create's own textures (belts, shafts) were not converted or copied.
-- Textures are unchanged copies except `wheel_face.png`, a masked crop of the wheel side image in
-  `wheel.png` used on the wheel face plates: 32x32.png, extras.png, frame.png, frame2.png, piston.png, small_frame.png, small_trailing_bogey_outer.png, trailing_bogey_base.png, wheel.png, xl_textures.png.
+- Textures are unchanged copies except the `wheel_face_*.png` plates, wheel end faces baked from the wheel side image
+  in `wheel.png` through the original UVs, unchanged copies: 32x32.png, extras.png, frame.png, frame2.png, piston.png, small_frame.png, small_trailing_bogey_outer.png, trailing_bogey_base.png, wheel.png, xl_textures.png.
 - Create assets (create:block/axis, create:block/bogey/belt, shaft models) are All Rights Reserved and are not included.

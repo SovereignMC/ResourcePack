@@ -7,7 +7,11 @@
     "small_frame": "planechase:item/bogie/small_frame",
     "trailing_bogey_base": "planechase:item/bogie/trailing_bogey_base",
     "wheel": "planechase:item/bogie/wheel",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_1957450e": "planechase:item/bogie/wheel_face_1957450e",
+    "wheel_face_2023c6ee": "planechase:item/bogie/wheel_face_2023c6ee",
+    "wheel_face_6ede137b": "planechase:item/bogie/wheel_face_6ede137b",
+    "wheel_face_75c83a13": "planechase:item/bogie/wheel_face_75c83a13",
+    "wheel_face_ca8d1616": "planechase:item/bogie/wheel_face_ca8d1616",
     "xl_textures": "planechase:item/bogie/xl_textures",
     "particle": "planechase:item/bogie/32x32"
   },
@@ -3717,6 +3721,29 @@
     },
     {
       "from": [
+        3.75,
+        4.5,
+        5.25
+      ],
+      "to": [
+        3.785,
+        11.5,
+        12.25
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_75c83a13"
+        }
+      }
+    },
+    {
+      "from": [
         4.96,
         4,
         4.75
@@ -3734,18 +3761,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_2023c6ee"
         }
       }
     },
     {
       "from": [
-        3.75,
+        4.5,
         4,
         4.75
       ],
       "to": [
-        3.79,
+        4.54,
         12,
         12.75
       ],
@@ -3757,7 +3784,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -4071,12 +4098,12 @@
     },
     {
       "from": [
-        12.21,
+        11.46,
         4,
         4.75
       ],
       "to": [
-        12.25,
+        11.5,
         12,
         12.75
       ],
@@ -4088,7 +4115,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -4111,7 +4138,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1957450e"
+        }
+      }
+    },
+    {
+      "from": [
+        12.215,
+        4.5,
+        5.25
+      ],
+      "to": [
+        12.25,
+        11.5,
+        12.25
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_6ede137b"
         }
       }
     },
@@ -4420,6 +4470,29 @@
           ],
           "texture": "#32x32",
           "rotation": 90
+        }
+      }
+    },
+    {
+      "from": [
+        3.75,
+        4.5,
+        14.25
+      ],
+      "to": [
+        3.785,
+        11.5,
+        21.25
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_75c83a13"
         }
       }
     },
@@ -4442,18 +4515,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_2023c6ee"
         }
       }
     },
     {
       "from": [
-        3.75,
+        4.5,
         4,
         13.75
       ],
       "to": [
-        3.79,
+        4.54,
         12,
         21.75
       ],
@@ -4465,7 +4538,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -4779,12 +4852,12 @@
     },
     {
       "from": [
-        12.21,
+        11.46,
         4,
         13.75
       ],
       "to": [
-        12.25,
+        11.5,
         12,
         21.75
       ],
@@ -4796,7 +4869,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -4819,7 +4892,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1957450e"
+        }
+      }
+    },
+    {
+      "from": [
+        12.215,
+        4.5,
+        14.25
+      ],
+      "to": [
+        12.25,
+        11.5,
+        21.25
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_6ede137b"
         }
       }
     }

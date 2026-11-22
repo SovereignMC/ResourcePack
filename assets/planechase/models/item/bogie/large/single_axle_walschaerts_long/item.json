@@ -5,7 +5,11 @@
     "piston": "planechase:item/bogie/piston",
     "trailing_bogey_base": "planechase:item/bogie/trailing_bogey_base",
     "wheel": "planechase:item/bogie/wheel",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_081dbd96": "planechase:item/bogie/wheel_face_081dbd96",
+    "wheel_face_1dc7e647": "planechase:item/bogie/wheel_face_1dc7e647",
+    "wheel_face_33aa5a3e": "planechase:item/bogie/wheel_face_33aa5a3e",
+    "wheel_face_608e27c3": "planechase:item/bogie/wheel_face_608e27c3",
+    "wheel_face_76edb2d2": "planechase:item/bogie/wheel_face_76edb2d2",
     "xl_textures": "planechase:item/bogie/xl_textures",
     "particle": "planechase:item/bogie/extras"
   },
@@ -2980,12 +2984,12 @@
     },
     {
       "from": [
-        13.8923,
+        12.8457,
         3.8139,
         11.4884
       ],
       "to": [
-        13.9341,
+        12.8876,
         12.1861,
         19.8605
       ],
@@ -2997,7 +3001,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     },
@@ -3020,7 +3024,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1dc7e647"
+        }
+      }
+    },
+    {
+      "from": [
+        13.8993,
+        4.5116,
+        12.1861
+      ],
+      "to": [
+        13.9341,
+        11.4884,
+        19.1628
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_76edb2d2"
         }
       }
     },
@@ -3334,6 +3361,29 @@
     },
     {
       "from": [
+        2.0659,
+        4.5116,
+        12.1861
+      ],
+      "to": [
+        2.1007,
+        11.4884,
+        19.1628
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_608e27c3"
+        }
+      }
+    },
+    {
+      "from": [
         3.7682,
         3.8139,
         11.4884
@@ -3351,18 +3401,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_081dbd96"
         }
       }
     },
     {
       "from": [
-        2.0659,
+        3.1124,
         3.8139,
         11.4884
       ],
       "to": [
-        2.1077,
+        3.1543,
         12.1861,
         19.8605
       ],
@@ -3374,7 +3424,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     }

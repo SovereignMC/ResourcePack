@@ -4,7 +4,20 @@
     "frame": "planechase:item/bogie/frame",
     "piston": "planechase:item/bogie/piston",
     "wheel": "planechase:item/bogie/wheel",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_081dbd96": "planechase:item/bogie/wheel_face_081dbd96",
+    "wheel_face_1dc7e647": "planechase:item/bogie/wheel_face_1dc7e647",
+    "wheel_face_33aa5a3e": "planechase:item/bogie/wheel_face_33aa5a3e",
+    "wheel_face_400dc550": "planechase:item/bogie/wheel_face_400dc550",
+    "wheel_face_608e27c3": "planechase:item/bogie/wheel_face_608e27c3",
+    "wheel_face_6487a82c": "planechase:item/bogie/wheel_face_6487a82c",
+    "wheel_face_76edb2d2": "planechase:item/bogie/wheel_face_76edb2d2",
+    "wheel_face_7e7dddc7": "planechase:item/bogie/wheel_face_7e7dddc7",
+    "wheel_face_7f8f84f7": "planechase:item/bogie/wheel_face_7f8f84f7",
+    "wheel_face_a7939c56": "planechase:item/bogie/wheel_face_a7939c56",
+    "wheel_face_a9849467": "planechase:item/bogie/wheel_face_a9849467",
+    "wheel_face_c6dbeb18": "planechase:item/bogie/wheel_face_c6dbeb18",
+    "wheel_face_cbc60b67": "planechase:item/bogie/wheel_face_cbc60b67",
+    "wheel_face_ef61cd55": "planechase:item/bogie/wheel_face_ef61cd55",
     "xl_textures": "planechase:item/bogie/xl_textures",
     "particle": "planechase:item/bogie/extras"
   },
@@ -3038,12 +3051,12 @@
     },
     {
       "from": [
-        10.4016,
+        9.9751,
         6.2938,
         -0.3175
       ],
       "to": [
-        10.4186,
+        9.9921,
         9.7062,
         3.0948
       ],
@@ -3055,7 +3068,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     },
@@ -3078,7 +3091,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1dc7e647"
+        }
+      }
+    },
+    {
+      "from": [
+        10.4044,
+        6.5782,
+        -0.0332
+      ],
+      "to": [
+        10.4186,
+        9.4218,
+        2.8104
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_76edb2d2"
         }
       }
     },
@@ -3392,6 +3428,29 @@
     },
     {
       "from": [
+        5.5814,
+        6.5782,
+        -0.0332
+      ],
+      "to": [
+        5.5956,
+        9.4218,
+        2.8104
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_608e27c3"
+        }
+      }
+    },
+    {
+      "from": [
         6.2752,
         6.2938,
         -0.3175
@@ -3409,18 +3468,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_081dbd96"
         }
       }
     },
     {
       "from": [
-        5.5814,
+        6.0079,
         6.2938,
         -0.3175
       ],
       "to": [
-        5.5984,
+        6.0249,
         9.7062,
         3.0948
       ],
@@ -3432,7 +3491,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     },
@@ -3746,6 +3805,29 @@
     },
     {
       "from": [
+        5.5829,
+        6.5782,
+        3.9479
+      ],
+      "to": [
+        5.5972,
+        9.4218,
+        6.7915
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_7e7dddc7"
+        }
+      }
+    },
+    {
+      "from": [
         6.2782,
         6.436,
         3.8057
@@ -3763,18 +3845,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_7f8f84f7"
         }
       }
     },
     {
       "from": [
-        5.5829,
+        6.1517,
         6.436,
         3.8057
       ],
       "to": [
-        5.5986,
+        6.1673,
         9.564,
         6.9337
       ],
@@ -3786,7 +3868,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_400dc550"
         }
       }
     },
@@ -4100,12 +4182,12 @@
     },
     {
       "from": [
-        10.4014,
+        9.8327,
         6.436,
         3.8057
       ],
       "to": [
-        10.4171,
+        9.8483,
         9.564,
         6.9337
       ],
@@ -4117,7 +4199,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_400dc550"
         }
       }
     },
@@ -4140,7 +4222,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_c6dbeb18"
+        }
+      }
+    },
+    {
+      "from": [
+        10.4028,
+        6.5782,
+        3.9479
+      ],
+      "to": [
+        10.4171,
+        9.4218,
+        6.7915
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_6487a82c"
         }
       }
     },
@@ -4317,7 +4422,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cbc60b67"
         }
       }
     },
@@ -4340,7 +4445,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_a9849467"
         }
       }
     },
@@ -4517,7 +4622,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_a7939c56"
         }
       }
     },
@@ -4540,7 +4645,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ef61cd55"
         }
       }
     },
@@ -4717,7 +4822,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cbc60b67"
         }
       }
     },
@@ -4740,7 +4845,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_a9849467"
         }
       }
     },
@@ -4917,7 +5022,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_a7939c56"
         }
       }
     },
@@ -4940,7 +5045,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ef61cd55"
         }
       }
     },
@@ -5249,6 +5354,29 @@
           ],
           "texture": "#wheel",
           "rotation": 90
+        }
+      }
+    },
+    {
+      "from": [
+        5.5829,
+        6.5782,
+        15.891
+      ],
+      "to": [
+        5.5972,
+        9.4218,
+        18.7346
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_7e7dddc7"
         }
       }
     },
@@ -5271,18 +5399,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_7f8f84f7"
         }
       }
     },
     {
       "from": [
-        5.5829,
+        6.1517,
         6.436,
         15.7488
       ],
       "to": [
-        5.5986,
+        6.1673,
         9.564,
         18.8768
       ],
@@ -5294,7 +5422,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_400dc550"
         }
       }
     },
@@ -5608,12 +5736,12 @@
     },
     {
       "from": [
-        10.4014,
+        9.8327,
         6.436,
         15.7488
       ],
       "to": [
-        10.4171,
+        9.8483,
         9.564,
         18.8768
       ],
@@ -5625,7 +5753,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_400dc550"
         }
       }
     },
@@ -5648,7 +5776,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_c6dbeb18"
+        }
+      }
+    },
+    {
+      "from": [
+        10.4028,
+        6.5782,
+        15.891
+      ],
+      "to": [
+        10.4171,
+        9.4218,
+        18.7346
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_6487a82c"
         }
       }
     },
@@ -5962,12 +6113,12 @@
     },
     {
       "from": [
-        10.4016,
+        9.9751,
         6.2938,
         19.5877
       ],
       "to": [
-        10.4186,
+        9.9921,
         9.7062,
         23
       ],
@@ -5979,7 +6130,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     },
@@ -6002,7 +6153,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1dc7e647"
+        }
+      }
+    },
+    {
+      "from": [
+        10.4044,
+        6.5782,
+        19.872
+      ],
+      "to": [
+        10.4186,
+        9.4218,
+        22.7156
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_76edb2d2"
         }
       }
     },
@@ -6316,6 +6490,29 @@
     },
     {
       "from": [
+        5.5814,
+        6.5782,
+        19.872
+      ],
+      "to": [
+        5.5956,
+        9.4218,
+        22.7156
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_608e27c3"
+        }
+      }
+    },
+    {
+      "from": [
         6.2752,
         6.2938,
         19.5877
@@ -6333,18 +6530,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_081dbd96"
         }
       }
     },
     {
       "from": [
-        5.5814,
+        6.0079,
         6.2938,
         19.5877
       ],
       "to": [
-        5.5984,
+        6.0249,
         9.7062,
         23
       ],
@@ -6356,7 +6553,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_33aa5a3e"
         }
       }
     }

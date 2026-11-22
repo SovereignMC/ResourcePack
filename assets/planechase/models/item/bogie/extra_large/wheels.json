@@ -1,7 +1,11 @@
 {
   "textures": {
     "32x32": "planechase:item/bogie/32x32",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_1957450e": "planechase:item/bogie/wheel_face_1957450e",
+    "wheel_face_2023c6ee": "planechase:item/bogie/wheel_face_2023c6ee",
+    "wheel_face_6ede137b": "planechase:item/bogie/wheel_face_6ede137b",
+    "wheel_face_75c83a13": "planechase:item/bogie/wheel_face_75c83a13",
+    "wheel_face_ca8d1616": "planechase:item/bogie/wheel_face_ca8d1616",
     "particle": "planechase:item/bogie/32x32"
   },
   "elements": [
@@ -315,6 +319,29 @@
     },
     {
       "from": [
+        -9,
+        -6,
+        -6
+      ],
+      "to": [
+        -8.86,
+        22,
+        22
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_75c83a13"
+        }
+      }
+    },
+    {
+      "from": [
         -4.16,
         -8,
         -8
@@ -332,18 +359,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_2023c6ee"
         }
       }
     },
     {
       "from": [
-        -9,
+        -6,
         -8,
         -8
       ],
       "to": [
-        -8.84,
+        -5.84,
         24,
         24
       ],
@@ -355,7 +382,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -669,12 +696,12 @@
     },
     {
       "from": [
-        24.84,
+        21.84,
         -8,
         -8
       ],
       "to": [
-        25,
+        22,
         24,
         24
       ],
@@ -686,7 +713,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_ca8d1616"
         }
       }
     },
@@ -709,7 +736,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_1957450e"
+        }
+      }
+    },
+    {
+      "from": [
+        24.86,
+        -6,
+        -6
+      ],
+      "to": [
+        25,
+        22,
+        22
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_6ede137b"
         }
       }
     }

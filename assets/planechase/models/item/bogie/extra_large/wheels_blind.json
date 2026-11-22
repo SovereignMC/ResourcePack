@@ -1,7 +1,9 @@
 {
   "textures": {
     "32x32": "planechase:item/bogie/32x32",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_75c83a13": "planechase:item/bogie/wheel_face_75c83a13",
+    "wheel_face_b2d46892": "planechase:item/bogie/wheel_face_b2d46892",
+    "wheel_face_e17d8a35": "planechase:item/bogie/wheel_face_e17d8a35",
     "particle": "planechase:item/bogie/32x32"
   },
   "elements": [
@@ -178,7 +180,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_e17d8a35"
         }
       }
     },
@@ -201,7 +203,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_75c83a13"
         }
       }
     },
@@ -378,7 +380,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_b2d46892"
         }
       }
     },
@@ -401,7 +403,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_e17d8a35"
         }
       }
     }

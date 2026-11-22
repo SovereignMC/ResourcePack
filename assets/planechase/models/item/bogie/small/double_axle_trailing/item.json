@@ -5,7 +5,11 @@
     "small_trailing_bogey_outer": "planechase:item/bogie/small_trailing_bogey_outer",
     "trailing_bogey_base": "planechase:item/bogie/trailing_bogey_base",
     "wheel": "planechase:item/bogie/wheel",
-    "wheel_face": "planechase:item/bogie/wheel_face",
+    "wheel_face_1a794e5f": "planechase:item/bogie/wheel_face_1a794e5f",
+    "wheel_face_51be5655": "planechase:item/bogie/wheel_face_51be5655",
+    "wheel_face_79d2828c": "planechase:item/bogie/wheel_face_79d2828c",
+    "wheel_face_cfeba6d7": "planechase:item/bogie/wheel_face_cfeba6d7",
+    "wheel_face_d8262ee9": "planechase:item/bogie/wheel_face_d8262ee9",
     "particle": "planechase:item/bogie/frame"
   },
   "elements": [
@@ -3531,12 +3535,12 @@
     },
     {
       "from": [
-        17.4056,
+        15.7389,
         2.7222,
         -4.7778
       ],
       "to": [
-        17.4444,
+        15.7778,
         10.5,
         3
       ],
@@ -3548,7 +3552,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cfeba6d7"
         }
       }
     },
@@ -3571,7 +3575,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_51be5655"
+        }
+      }
+    },
+    {
+      "from": [
+        17.4089,
+        3.2626,
+        -4.2374
+      ],
+      "to": [
+        17.4444,
+        9.9596,
+        2.4596
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_1a794e5f"
         }
       }
     },
@@ -3885,6 +3912,29 @@
     },
     {
       "from": [
+        -1.4444,
+        3.2626,
+        -4.2374
+      ],
+      "to": [
+        -1.4089,
+        9.9596,
+        2.4596
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_d8262ee9"
+        }
+      }
+    },
+    {
+      "from": [
         1.2944,
         2.7222,
         -4.7778
@@ -3902,18 +3952,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_79d2828c"
         }
       }
     },
     {
       "from": [
-        -1.4444,
+        0.2222,
         2.7222,
         -4.7778
       ],
       "to": [
-        -1.4056,
+        0.2611,
         10.5,
         3
       ],
@@ -3925,7 +3975,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cfeba6d7"
         }
       }
     },
@@ -4239,12 +4289,12 @@
     },
     {
       "from": [
-        17.4056,
+        15.7389,
         2.7222,
         13
       ],
       "to": [
-        17.4444,
+        15.7778,
         10.5,
         20.7778
       ],
@@ -4256,7 +4306,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cfeba6d7"
         }
       }
     },
@@ -4279,7 +4329,30 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_51be5655"
+        }
+      }
+    },
+    {
+      "from": [
+        17.4089,
+        3.2626,
+        13.5404
+      ],
+      "to": [
+        17.4444,
+        9.9596,
+        20.2374
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_1a794e5f"
         }
       }
     },
@@ -4593,6 +4666,29 @@
     },
     {
       "from": [
+        -1.4444,
+        3.2626,
+        13.5404
+      ],
+      "to": [
+        -1.4089,
+        9.9596,
+        20.2374
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#wheel_face_d8262ee9"
+        }
+      }
+    },
+    {
+      "from": [
         1.2944,
         2.7222,
         13
@@ -4610,18 +4706,18 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_79d2828c"
         }
       }
     },
     {
       "from": [
-        -1.4444,
+        0.2222,
         2.7222,
         13
       ],
       "to": [
-        -1.4056,
+        0.2611,
         10.5,
         20.7778
       ],
@@ -4633,7 +4729,7 @@
             16,
             16
           ],
-          "texture": "#wheel_face"
+          "texture": "#wheel_face_cfeba6d7"
         }
       }
     }

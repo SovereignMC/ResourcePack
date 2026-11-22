@@ -54,15 +54,6 @@
           ],
           "texture": "#wood"
         },
-        "up": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#wood"
-        },
         "down": {
           "uv": [
             0,
@@ -114,15 +105,6 @@
           "texture": "#wood"
         },
         "west": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#wood"
-        },
-        "up": {
           "uv": [
             0,
             0,
@@ -222,15 +204,6 @@
         15
       ],
       "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#steel"
-        },
         "south": {
           "uv": [
             0,
@@ -290,15 +263,6 @@
         15
       ],
       "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#steel"
-        },
         "south": {
           "uv": [
             0,
