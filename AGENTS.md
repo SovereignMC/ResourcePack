@@ -255,16 +255,26 @@ What the script does:
    Paper server.
 2. Downloads the pinned BetterModel `paper` jar and a stable Paper build, then starts the
    server headless. BetterModel imports the models and writes its resource pack to
-   `plugins/BetterModel/build/` during `ServerLoadEvent`.
+   `plugins/BetterModel/build/` during `ServerLoadEvent`. `bbmodels/players/*.bbmodel`
+   (first-person gun viewmodels, BetterModel player limb models) go to
+   `plugins/BetterModel/players/` and the script's config enables `module.player-animation`.
 3. Copies the generated `assets/bettermodel/` namespace into the pack root and stops the
    server. `pack.mcmeta`/`pack.png` from BetterModel are discarded; this pack keeps its own.
+4. Runs `tools/generate/bettermodel/fix_names.py`. With `use-obfuscation: false`, the player
+   limb models (`assets/bettermodel/models/player_limb/<hash>.json`) get mixed-case base64
+   names, which are invalid resource locations. The step renames them to `sha1(path)[:16]`
+   and rewrites every reference in the namespace's JSON (the server only uses the lowercase
+   `items/player_limb/<limb>.json` ids). It fails on collisions and can run standalone.
 
 Requirements: Java 25+ and network access (Paper, BetterModel and its runtime libraries
 are downloaded on every run). The server directory lives in a temp folder and is removed
 afterwards; set `BETTERMODEL_KEEP_WORK=1` to inspect it.
 
-Generated names are API for the server plugin: a model named `ak47` produces item models
-such as `bettermodel:model/ak47_body` (`assets/bettermodel/items/model/ak47_body.json`),
+Generated names are API for the server plugin: a model named `structure_smelter` produces
+item models such as `bettermodel:model/structure_smelter_<bone>`
+(`assets/bettermodel/items/model/structure_smelter_<bone>.json`); a player model `gun_ak47`
+produces `bettermodel:model/gun_ak47_<bone>` item definitions plus the shared
+`items/player_limb/<limb>.json`,
 textures under `assets/bettermodel/textures/item/`, and model JSON under
 `assets/bettermodel/models/model/`. Do not hand-edit `assets/bettermodel/`; edit the
 `.bbmodel` and regenerate.

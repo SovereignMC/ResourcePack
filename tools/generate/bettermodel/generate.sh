@@ -59,6 +59,17 @@ mkdir -p "$server/plugins/BetterModel/models"
 
 cp "${models[@]}" "$server/plugins/BetterModel/models/"
 
+# Player-limb models (first-person viewmodels) live in bbmodels/players/ and are
+# loaded by BetterModel's player animation module from plugins/BetterModel/players/.
+mkdir -p "$server/plugins/BetterModel/players"
+shopt -s nullglob
+player_models=("$models_dir"/players/*.bbmodel)
+shopt -u nullglob
+if (( ${#player_models[@]} > 0 )); then
+    cp "${player_models[@]}" "$server/plugins/BetterModel/players/"
+    log "found ${#player_models[@]} player model(s) in bbmodels/players"
+fi
+
 log "downloading Paper ${paper_version}"
 paper_url="$(python3 - "$paper_version" <<'PY'
 import json, sys, urllib.request
@@ -109,7 +120,7 @@ debug:
   pack: true
 module:
   model: true
-  player-animation: false
+  player-animation: true
   player-armor: false
 pack:
   use-obfuscation: false
@@ -175,6 +186,9 @@ fi
 dest="$root/assets/$namespace"
 rm -rf "$dest"
 cp -a "$build_dir/assets/$namespace" "$dest"
+
+# Player limb models are named by mixed-case hashes, which are not valid resource locations.
+python3 "$(dirname -- "${BASH_SOURCE[0]}")/fix_names.py" "$namespace" --pack-dir "$root"
 
 count="$(find "$dest" -type f | wc -l | tr -d ' ')"
 log "wrote $count file(s) to assets/$namespace/"
