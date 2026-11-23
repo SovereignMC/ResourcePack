@@ -9,7 +9,7 @@ produces what needs a resource pack: images, nav icons and the heading font.
 Everything under `assets/sovereignwiki/` plus `tools/wiki-art/allocations.json`:
 
 - `font/images.json` - one bitmap provider per image variant (`wide` <= 424 px, `narrow` <= 296 px,
-  max height 540, never upscaled). Textures are 2x oversampled. Each 9 px row is split into n = ceil(W/128) column chunks (the client packs glyphs into 256x256 texel pages, so a cell must be <= 256 texels), one codepoint per chunk; the plugin joins chunks with a -1 px `tinsel:spacing` gap.
+  max height 540, never upscaled). Textures are 1x (one texel per GUI px; `OVERSAMPLE` in generate.py). Each 9 px row is split into n = ceil(W/128) column chunks (the client packs glyphs into 256x256 texel pages, so a cell must be <= 256 texels), one codepoint per chunk; the plugin joins chunks with a -1 px `tinsel:spacing` gap.
 - `font/icons.json` - the nav icons (SVG path strings from `/embed/nav.json`) as white 16x16 cells.
 - `font/heading.json` - 1.5x vanilla font for headings (bitmap over `minecraft:font/ascii.png`, height 12, ascent 4, so the glyph is vertically centred in a 2-line 18 px row; space = 6). A char whose vanilla advance is `a` advances `(int)(0.5 + 1.5*(a-1)) + 1`.
 - `textures/font/wiki/img/<sha1-12>_<variant>.png`, `textures/font/wiki/icon/<sha1-12>.png`

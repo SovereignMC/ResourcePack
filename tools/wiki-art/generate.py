@@ -50,11 +50,11 @@ MAX_HEIGHT = 540  # GUI px (60 rows)
 TABLE_VARIANTS = {"w128": 128, "w96": 96, "w64": 64}
 TABLE_MAX_HEIGHT = 192
 ROW_GUI = 9  # one codepoint = one 9px line
-MAX_CHUNK_GUI = 128  # client font pages are 256x256 texels: a glyph cell must fit, so 2*cw <= 256
+MAX_CHUNK_GUI = 128  # client font pages are 256x256 texels: a glyph cell must fit, so OVERSAMPLE*cw <= 256 (always true at 1x or 2x)
 MAX_CELL_TEXELS = 256
 CHUNK_GAP = -1  # the plugin joins chunks with a -1 px tinsel:spacing gap
-OVERSAMPLE = 2
-ROW_TEXELS = ROW_GUI * OVERSAMPLE  # 18
+OVERSAMPLE = 1  # texels per GUI px; all GUI-space values are independent of it
+ROW_TEXELS = ROW_GUI * OVERSAMPLE
 
 IMAGE_CP_START = 0xF0000
 IMAGE_CP_END = 0xFFFFD
@@ -322,7 +322,7 @@ def self_check(root: Path, index: dict) -> None:
                     cell = alpha.crop((c * cw, r * ch, (c + 1) * cw, (r + 1) * ch))
                     bb = cell.point(lambda a: 255 if a else 0).getbbox()
                     adv = int(0.5 + (bb[2] if bb else 0) * (p["height"] / ch)) + 1
-                    exp = cw // 2 + 1 if "/img/" in p["file"] else 9
+                    exp = cw // OVERSAMPLE + 1 if "/img/" in p["file"] else 9
                     if adv != exp:
                         errors.append(f"{p['file']}: cell r{r}c{c} advance {adv} != {exp}")
     for key, img in index["images"].items():
