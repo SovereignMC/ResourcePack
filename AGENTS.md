@@ -102,6 +102,9 @@ unreferenced-PNG check. Keep both green before committing.
   writes `pack.zip` plus its SHA-1, and publishes/updates the latest release as tag
   `ResourcePack-v<run_number>`. Branch pushes only, by design: publishing from a tag would
   rebuild the old tree and overwrite "latest".
+  The gun data textures (`assets/weapons/textures/item/objmc/*.png`) are exempt from
+  PackSquash colour quantization and alpha optimizations; any other texture the shaders
+  decode with texelFetch needs the same per-file override.
 - `discord.yml` — posts each commit to `DISCORD_WEBHOOK`. Add `[nodiscord]` to the commit
   message to skip a commit.
 

@@ -54,7 +54,14 @@ jobs:
           options: |
             pack_directory = '.'
             output_file_path = '/tmp/pack.zip'
-            
+
+            # Gun viewmodel data textures: every pixel is shader data (header, vertices,
+            # bone matrices), read with texelFetch. Palette quantization or alpha
+            # "optimizations" scramble it and the gun disappears in first person.
+            ['assets/weapons/textures/item/objmc/*.png']
+            color_quantization_target = 'none'
+            skip_alpha_optimizations = true
+
       - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' | tr -d \"\n\" > /tmp/hash.txt" # Generate Pack Hash
       
       - name: Stage wiki index
