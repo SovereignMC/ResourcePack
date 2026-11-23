@@ -235,10 +235,12 @@ Derived from objmc (MIT, `LICENSE-OBJMC`). Every other item renders exactly like
   so it is drawn for 16:9: opaque black outside a round view (92 % of the height) with a soft vignette and a
   thin mil-dot reticle (opaque lines, transparent elsewhere).
 - Bullet projectile models (`tools/generate/guns/projectile_models.py`): WeaponMechanics shows a projectile as a
-  packet-only invisible armor stand with the item on its head, yaw/pitch following the flight, so the model's
-  NORTH (-Z) side is the direction of flight. Item models `weapons:projectile/rifle`, `weapons:projectile/smg`,
+  packet-only invisible armor stand with the item on its head, yaw/pitch following the flight; in game the
+  model's SOUTH (+Z) side is the direction of flight (verified: a -Z nose flew backwards). Item models `weapons:projectile/rifle`, `weapons:projectile/smg`,
   `weapons:projectile/pistol` (`assets/weapons/items/projectile/*.json` -> `models/projectile/*.json`, texture
-  `weapons/textures/projectile/bullet.png`; `head` display scale 1.2). WM config:
+  `weapons/textures/item/projectile/bullet.png` — item model textures must be under `textures/item/` or
+  `textures/block/`, the only folders the block atlas loads, else they render as the missing texture;
+  `head` display scale 1.2). WM config:
   `Projectile_Item_Or_Block: {Type: FEATHER, Item_Model: "weapons:projectile/rifle"}`.
 - `feather.json` tints: index 0 default `(2*160) << 13` (standing, start 0); index k default the same
   | `P_default` = quantized `#B4846C` for base slots, `0x0010` (transparent) for sleeve slots.

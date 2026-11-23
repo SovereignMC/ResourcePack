@@ -1,12 +1,13 @@
 """Bullet projectile item models. Run: python3 tools/generate/guns/projectile_models.py
 
 WeaponMechanics shows a projectile as a packet-only invisible ARMOR_STAND wearing the item on its
-HEAD; the stand's yaw/pitch follow the flight, so the model's NORTH (-Z) side is the direction of
-flight (like a carved pumpkin's face). Bullets are built around the model centre (8, 8, 8) with the
-nose toward -Z, tracer tail toward +Z.
+HEAD; the stand's yaw/pitch follow the flight. In game the flight direction is the model's SOUTH
+(+Z) side (the first version pointed the nose to -Z and flew backwards). Bullets are built around the
+model centre (8, 8, 8) with the nose toward +Z, tracer tail toward -Z.
 
 Writes (weapons namespace): items/projectile/{rifle,smg,pistol}.json,
-models/projectile/{rifle,smg,pistol}.json, textures/projectile/bullet.png.
+models/projectile/{rifle,smg,pistol}.json, textures/item/projectile/bullet.png (item model textures
+must live under textures/item/ or textures/block/, the only folders the block atlas loads).
 WM config: Projectile_Item_Or_Block: {Type: FEATHER, Item_Model: "weapons:projectile/rifle"}.
 """
 
@@ -50,7 +51,8 @@ def model(name):
     parts = BULLETS[name]
     shift = 8.0 - (parts[0][2] + parts[-1][3]) / 2   # centre the whole bullet on the model centre
     for i, (sw, hw, z0, z1) in enumerate(parts):
-        z0, z1 = round(z0 + shift, 3), round(z1 + shift, 3)
+        # parts are listed nose first along +z; mirror so the nose points to +Z (flight direction)
+        z0, z1 = round(16 - (z1 + shift), 3), round(16 - (z0 + shift), 3)
         u = ORDER.index(sw)
         uv = [u, 0, u + 1, 1]
         elements.append({
@@ -61,7 +63,7 @@ def model(name):
     return {
         "credit": "SovereignMC tools/generate/guns/projectile_models.py",
         "texture_size": [16, 16],
-        "textures": {"0": "weapons:projectile/bullet", "particle": "weapons:projectile/bullet"},
+        "textures": {"0": "weapons:item/projectile/bullet", "particle": "weapons:item/projectile/bullet"},
         "elements": elements,
         "display": {"head": {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [s, s, s]}},
     }
@@ -71,7 +73,7 @@ def main():
     tex = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
     for i, k in enumerate(ORDER):
         tex.putpixel((i, 0), SWATCH[k] + (255,))
-    tp = ASSETS / "textures" / "projectile" / "bullet.png"
+    tp = ASSETS / "textures" / "item" / "projectile" / "bullet.png"
     tp.parent.mkdir(parents=True, exist_ok=True)
     tex.save(tp, optimize=True)
     for name in BULLETS:
