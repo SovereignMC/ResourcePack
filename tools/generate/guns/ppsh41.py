@@ -269,5 +269,8 @@ a.ease("gun", 0.0, 0.12, rot0=(0, 0, 0), rot1=(1, 4, -3), pos0=(0, 0, 0), pos1=P
 a.key("gun", 0.9, rot=(1, 4, -3), pos=PULL)
 a.ease("gun", 0.9, 1.0, rot0=(1, 4, -3), rot1=(0, 0, 0), pos0=PULL, pos1=(0, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="ppsh_41")
 print("OFS", OFS, "ads", m.flags["ads"])

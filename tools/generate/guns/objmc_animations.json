@@ -30,10 +30,15 @@
       "length": 2.85,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 74,
-      "length": 3.65,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 5,
@@ -87,10 +92,15 @@
       "length": 3.5,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 91,
-      "length": 4.5,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 23,
@@ -144,10 +154,15 @@
       "length": 2.5,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 69,
-      "length": 3.4,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 3,
@@ -201,10 +216,15 @@
       "length": 3.25,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 86,
-      "length": 4.25,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 10,
@@ -258,10 +278,15 @@
       "length": 1.55,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 43,
-      "length": 2.1,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 5,
@@ -315,10 +340,15 @@
       "length": 5.2,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 123,
-      "length": 6.1,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 3,
@@ -372,6 +402,16 @@
       "length": 2.0,
       "loop": false
     },
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
+      "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
+    },
     "shoot": {
       "frames": 21,
       "length": 1.0,
@@ -423,6 +463,16 @@
       "frames": 51,
       "length": 2.5,
       "loop": false
+    },
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
+      "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 35,
@@ -476,10 +526,15 @@
       "length": 1.25,
       "loop": false
     },
-    "reload_empty": {
-      "frames": 41,
-      "length": 2.0,
+    "reload_fail": {
+      "frames": 25,
+      "length": 1.2,
       "loop": false
+    },
+    "scoped": {
+      "frames": 1,
+      "length": 0.05,
+      "loop": true
     },
     "shoot": {
       "frames": 3,

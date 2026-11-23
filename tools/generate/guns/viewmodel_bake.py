@@ -49,7 +49,17 @@ from PIL import Image
 
 # Order is a contract with SovereignGuns core/ObjmcTime.ANIMATIONS.
 ANIMATIONS = ("equip", "unequip", "standing", "sprint", "aiming", "shoot", "aiming_shoot",
-              "reload", "reload_empty", "inspect", "firearm")
+              "reload", "reload_fail", "inspect", "firearm", "scoped")
+# control C = anim * 160 + start must stay < 2048 (11 bits), so 12 slots is the maximum
+assert len(ANIMATIONS) <= 12, "too many animation slots for the 11-bit tint control"
+
+# The server plays ONE reload animation for every reload, retimed to the weapon's reload time.
+# Reload duration in ticks per gun model id. MUST match plugins/WeaponMechanics/weapons/*.yml
+# Reload_Duration; the "reload" slot is resampled to exactly ticks + 1 frames.
+RELOAD_TICKS = {
+    "ak47": 57, "g3": 50, "m14": 65, "ppsh41": 104, "uzi": 25, "m3": 31,
+    "dragunov": 70, "ssg69": 50, "remington700": 40,
+}
 STANDING = ANIMATIONS.index("standing")
 MARKER = (83, 71, 86, 77)
 WIDTH = 256
@@ -105,6 +115,34 @@ def _frames(anim):
         return [i * anim.length / n for i in range(n)], True
     n = int(math.ceil(anim.length * TPS - 1e-6)) + 1
     return [min(anim.length, i / TPS) for i in range(n)], False
+
+
+def slot_plan(model):
+    """Per animation slot: (source Animation or None, sample times, loop, hidden).
+
+    "reload" is the gun's full sequence (script "reload_empty" if present, else "reload")
+    resampled to RELOAD_TICKS frames (ticks + 1, t_i = min(L, i * L / ticks), one-shot);
+    "scoped" is synthetic: one looping frame with every bone hidden (sniper scope overlay)."""
+    plan = {}
+    for name in ANIMATIONS:
+        if name == "reload":
+            src = model.anims.get("reload_empty") or model.anims.get("reload")
+            if src is None:
+                plan[name] = (None, [], False, False)
+                continue
+            ticks = RELOAD_TICKS[model.id]
+            plan[name] = (src, [min(src.length, i * src.length / ticks) for i in range(ticks + 1)],
+                          False, False)
+        elif name == "scoped":
+            plan[name] = (None, [0.0], True, True)
+        else:
+            a = model.anims.get(name)
+            if a is None:
+                plan[name] = (None, [], False, False)
+            else:
+                times, loop = _frames(a)
+                plan[name] = (a, times, loop, False)
+    return plan
 
 
 def bake(model, pack_dir: Path, item_name: str):
@@ -168,19 +206,17 @@ def bake(model, pack_dir: Path, item_name: str):
     rest_inv = [_inv(model.bone_xf(g, None, 0.0)) for g in bones]
     table = []
     frames = []   # per global frame: list of 12-tuples per bone
-    for name in ANIMATIONS:
-        a = model.anims.get(name)
-        if a is None:
+    for name, (a, times, loop, hidden) in slot_plan(model).items():
+        if not times:
             table.append((0, 0, 0))
             continue
-        times, loop = _frames(a)
         if len(times) > 140:   # dt in [150, 160) is read as "not started yet" by the shader
             raise ValueError(f"{model.id}/{name}: {len(times)} frames > 140 (shader time window)")
         table.append((len(frames), len(times), 1 if loop else 0))
         for t in times:
             mats = []
             for g, inv in zip(bones, rest_inv):
-                if model.bone_scale(g, a, t) < 0.01:
+                if hidden or model.bone_scale(g, a, t) < 0.01:
                     mats.append((0.0,) * 12)
                     continue
                 m = model.bone_xf(g, a, t).then(inv)
@@ -226,7 +262,10 @@ def bake(model, pack_dir: Path, item_name: str):
         hx, hy = fi % WIDTH, 1 + fi // WIDTH
         px[hx, hy] = (hx >> 8, hx & 255, hy >> 8, hy & 255)
         elements.append({
-            "from": [8, 0, 8], "to": [24, 16, 8],
+            # Tiny dummy: the shader adds the real offset to each corner's own anchor, so the
+            # corner spread (x the 0.001 display scale) must be negligible or neighbouring quads
+            # crack apart (a 16 px element left ~1 mm seams between arm texels).
+            "from": [15.99, 7.99, 8], "to": [16.01, 8.01, 8],
             "faces": {"north": {
                 "uv": [round((hx + 0.1) * 16 / WIDTH, 6), round((hy + 0.1) * 16 / height, 6),
                        round((hx + 0.9) * 16 / WIDTH, 6), round((hy + 0.9) * 16 / height, 6)],
@@ -450,12 +489,14 @@ def _write_anim_table(model, pack_dir: Path):
     {"<model id>": {"<anim>": {"frames": n, "loop": bool, "length": seconds}}}; written next to
     the generators and, when the sibling plugin checkout exists, into its resources."""
     entry = {}
-    for name in ANIMATIONS:
-        a = model.anims.get(name)
-        if a is None:
+    for name, (a, times, loop, hidden) in slot_plan(model).items():
+        if not times:
             continue
-        times, loop = _frames(a)
-        entry[name] = {"frames": len(times), "loop": loop, "length": float(a.length)}
+        if name == "reload":
+            length = RELOAD_TICKS[model.id] / TPS
+        else:
+            length = float(a.length) if a is not None else 1.0 / TPS
+        entry[name] = {"frames": len(times), "loop": loop, "length": length}
     targets = [Path(__file__).resolve().parent / "objmc_animations.json"]
     plugin_res = pack_dir.parent / "SovereignGuns" / "src" / "main" / "resources"
     if plugin_res.is_dir():

@@ -251,4 +251,7 @@ a.hand("right", 1.58, ("bone", "bolt", KNOB))
 a.hand("right", 1.85, "grip")
 a.key("trigger", 0.0, pos=(0, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail(cant_rot=(8.0, 0.0, -20.0), cant_pos=(-0.7, 1.4, 0.0))
+
 m.write(item_name="ssg_69")

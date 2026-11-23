@@ -45,6 +45,7 @@ import io
 import json
 import math
 import random
+import zlib
 import uuid as uuidlib
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -754,6 +755,38 @@ class GunModel:
         self.anims[name] = a
         return a
 
+    def reload_fail(self, cant_rot=(8.0, -6.0, -14.0), cant_pos=(0.2, 1.0, 1.4), length=1.2):
+        """The "reload_fail" animation (reload pressed with no magazine item): the left hand drops
+        off screen to a pouch point below the view, pats twice, returns EMPTY to the support point
+        while the gun cants toward the camera ("check the mag") and comes back; a small magazine
+        nudge if the gun has a `magazine` bone. Starts and ends on the exact rest pose.
+        cant_rot / cant_pos: gun bone offsets at the cant (per-gun, same feel)."""
+        Z3 = (0.0, 0.0, 0.0)
+        sh = self.flags["shoulders"]["left"]
+        reach = ARM_UPPER + ARM_LOWER - 1.2
+        d = v_norm((-0.25, -1.0, 0.12))
+        pouch = self._offscreen(v_add(sh, v_mul(d, reach)))
+        up = (0.0, 1.6, -0.5)
+        a = self.anim("reload_fail", length, "once")
+        a.key("gun", 0.0, rot=Z3, pos=Z3)
+        a.ease("gun", 0.0, 0.4, rot0=Z3, rot1=cant_rot, pos0=Z3, pos1=cant_pos)
+        a.key("gun", 0.85, rot=cant_rot, pos=cant_pos)
+        a.ease("gun", 0.85, length - 0.05, rot0=cant_rot, rot1=Z3, pos0=cant_pos, pos1=Z3)
+        a.key("gun", length, rot=Z3, pos=Z3)
+        a.hand("left", 0.0, "support")
+        a.hand("left", 0.1, "support")
+        a.hand("left", 0.38, pouch)
+        for k, t in enumerate((0.5, 0.66)):          # two pats
+            a.hand("left", t, v_add(pouch, up))
+            a.hand("left", t + 0.08, pouch)
+        a.hand("left", 0.84, pouch)
+        a.hand("left", length - 0.05, "support")
+        a.hand("left", length, "support")
+        if "magazine" in self.groups:                # release nudge
+            for t, y in ((0.0, 0.0), (0.2, 0.0), (0.26, -0.45), (0.38, 0.0), (length, 0.0)):
+                a.key("magazine", t, pos=(0.0, y, 0.0))
+        return a
+
     def solve_arms(self, step=0.05):
         """Bake hand targets of every animation into arm rotation keyframes (IK)."""
         rest = {}
@@ -915,7 +948,7 @@ class GunModel:
 
     def _paint(self, size):
         img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-        rng = random.Random(hash(self.id) & 0xFFFF)
+        rng = random.Random(zlib.crc32(self.id.encode()) & 0xFFFF)  # hash() is salted per process
         for c in self.cubes:
             if c.material == "skin":
                 x1, y1, x2, y2 = c.uv["north"]

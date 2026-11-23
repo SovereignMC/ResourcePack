@@ -252,4 +252,7 @@ a = m.anim("firearm", 0.9, "once")
 firearm_motion(a)
 
 m.repivot_gun_keys()   # gun keys were tuned about the old pivot (local origin)
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="g3")

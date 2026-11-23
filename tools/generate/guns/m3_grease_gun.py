@@ -243,4 +243,7 @@ a.ease("magazine", 1.9, 2.05, pos0=(0, 0, 0), pos1=(0, -1.0, 0), curve="out")
 a.ease("magazine", 2.25, 2.4, pos0=(0, -1.0, 0), pos1=(0, 0, 0), curve="in")
 a.key("magazine", 3.2, pos=(0, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="m3_grease_gun")

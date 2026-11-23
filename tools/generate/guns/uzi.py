@@ -258,4 +258,7 @@ a.key("bolt", 0.27, pos=(0, 0, 2.4))
 a.ease("bolt", 0.27, 0.33, pos0=(0, 0, 2.4), pos1=(0, 0, 0), curve="in")
 a.key("bolt", 0.5, pos=(0, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="uzi")

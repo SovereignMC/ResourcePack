@@ -249,4 +249,7 @@ a.hand("right", 1.8, "grip")
 cycle(a, 0.7, 1.1)
 
 m.repivot_gun_keys()   # gun keys were tuned about the old pivot (local origin)
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="remington")

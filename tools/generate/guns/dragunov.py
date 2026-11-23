@@ -274,4 +274,7 @@ a.hand("left", 0.9, "support")
 path(a, "gun", [(0.0, ZERO, ZERO), (0.3, (-2, 0, 5), (0.1, 0.1, 0.2)), (0.6, (-2, 0, 5), (0.1, 0.1, 0.2)), (0.9, ZERO, ZERO)])
 
 m.repivot_gun_keys()   # gun keys were tuned about the old pivot (local origin)
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="dragunov")

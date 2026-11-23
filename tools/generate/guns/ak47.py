@@ -236,4 +236,7 @@ for nm in ("shoot", "aiming_shoot"):
     s.key("trigger", 0.0, rot=(-15, 0, 0))
     s.key("trigger", s.length, rot=(-15, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail(cant_rot=(10.0, 36.0, -6.0), cant_pos=(1.2, 3.0, -1.2))
+
 m.write(item_name="ak47")

@@ -95,11 +95,18 @@ Use these names (KBAnimation channels, read by the SovereignGuns plugin):
 | Name | Loop | Notes |
 |---|---|---|
 | `equip`, `unequip`, `standing`, `sprint`, `aiming`, `shoot`, `aiming_shoot` | from `standard_animations(...)` | pass `fire_interval`, `kick`, `climb`, `bolt`, `bolt_travel`, `eye_relief` |
-| `reload` | once | length = WeaponMechanics `Reload_Duration` / 20 s |
-| `reload_empty` | once | optional: reload + charging handle / bolt release |
+| `reload` | once | the full sequence; baked into the `reload` slot retimed to WM `Reload_Duration` (`RELOAD_TICKS` in `viewmodel_bake.py`) |
+| `reload_empty` | once | optional: reload + charging handle / bolt release. If present it is the *source* of the baked `reload` slot (no slot of its own) |
+| `reload_fail` | once | `m.reload_fail(cant_rot=, cant_pos=)` before `m.write`: left hand to an off-screen pouch, two pats, back empty; gun cants and returns (1.2 s) |
 | `inspect` | once | ~2.5–3.5 s, show the gun off |
 | `firearm` | once | bolt / charging handle cycle; length = (Open.Time + Close.Time) / 20 s |
 
+- Baked slots (order is the contract with SovereignGuns `ObjmcTime.ANIMATIONS`, max 12): `equip, unequip,
+  standing, sprint, aiming, shoot, aiming_shoot, reload, reload_fail, inspect, firearm, scoped`.
+  `scoped` is synthetic (1 looping frame, every bone scaled to 0, no authoring). `reload` is resampled to
+  `ticks + 1` frames, `t_i = min(L, i * L / ticks)`; keep `RELOAD_TICKS` equal to the WM configs.
+- Sniper scope overlay: `python3 tools/generate/guns/scope_overlay.py` (1280x720 `sovereignmc:misc/sniper_scope`).
+  Bullet item models: `python3 tools/generate/guns/projectile_models.py` (`weapons:projectile/{rifle,smg,pistol}`).
 - Every channel value is relative to the rest pose (hip). `a.key(bone, t, rot=, pos=, scale=)`
   sets a key; `a.ease(bone, t0, t1, rot0=, rot1=, pos0=, pos1=, curve=)` expands eased motion
   into dense linear keys (`smooth`, `in`, `out`, `back`, `linear`). Hold a pose by keying the

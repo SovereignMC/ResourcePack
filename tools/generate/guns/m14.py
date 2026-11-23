@@ -272,4 +272,7 @@ a.hand("left", 2.9, "support")
 a.key("magazine", 0.0, pos=(0, 0, 0))
 a.key("magazine", 3.2, pos=(0, 0, 0))
 
+# reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
+m.reload_fail()
+
 m.write(item_name="m14")
