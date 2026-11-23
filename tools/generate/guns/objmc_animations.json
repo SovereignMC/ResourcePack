@@ -1,0 +1,505 @@
+{
+  "ak47": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 5,
+      "length": 0.2,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 17,
+      "length": 0.8,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 61,
+      "length": 3.0,
+      "loop": false
+    },
+    "reload": {
+      "frames": 58,
+      "length": 2.85,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 74,
+      "length": 3.65,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 5,
+      "length": 0.2,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "dragunov": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 23,
+      "length": 1.1,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 19,
+      "length": 0.9,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 65,
+      "length": 3.2,
+      "loop": false
+    },
+    "reload": {
+      "frames": 71,
+      "length": 3.5,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 91,
+      "length": 4.5,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 23,
+      "length": 1.1,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "g3": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 19,
+      "length": 0.9,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 61,
+      "length": 3.0,
+      "loop": false
+    },
+    "reload": {
+      "frames": 51,
+      "length": 2.5,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 69,
+      "length": 3.4,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "m14": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 10,
+      "length": 0.45,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 21,
+      "length": 1.0,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 65,
+      "length": 3.2,
+      "loop": false
+    },
+    "reload": {
+      "frames": 66,
+      "length": 3.25,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 86,
+      "length": 4.25,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 10,
+      "length": 0.45,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "m3": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 5,
+      "length": 0.2,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 65,
+      "length": 3.2,
+      "loop": false
+    },
+    "reload": {
+      "frames": 32,
+      "length": 1.55,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 43,
+      "length": 2.1,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 5,
+      "length": 0.2,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "ppsh41": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 21,
+      "length": 1.0,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 65,
+      "length": 3.2,
+      "loop": false
+    },
+    "reload": {
+      "frames": 105,
+      "length": 5.2,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 123,
+      "length": 6.1,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "remington700": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 21,
+      "length": 1.0,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 16,
+      "length": 0.75,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 61,
+      "length": 3.0,
+      "loop": false
+    },
+    "reload": {
+      "frames": 41,
+      "length": 2.0,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 21,
+      "length": 1.0,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "ssg69": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 35,
+      "length": 1.7,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 21,
+      "length": 1.0,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 71,
+      "length": 3.5,
+      "loop": false
+    },
+    "reload": {
+      "frames": 51,
+      "length": 2.5,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 35,
+      "length": 1.7,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  },
+  "uzi": {
+    "aiming": {
+      "frames": 40,
+      "length": 2.0,
+      "loop": true
+    },
+    "aiming_shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "equip": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "firearm": {
+      "frames": 11,
+      "length": 0.5,
+      "loop": false
+    },
+    "inspect": {
+      "frames": 65,
+      "length": 3.2,
+      "loop": false
+    },
+    "reload": {
+      "frames": 26,
+      "length": 1.25,
+      "loop": false
+    },
+    "reload_empty": {
+      "frames": 41,
+      "length": 2.0,
+      "loop": false
+    },
+    "shoot": {
+      "frames": 3,
+      "length": 0.1,
+      "loop": false
+    },
+    "sprint": {
+      "frames": 14,
+      "length": 0.7,
+      "loop": true
+    },
+    "standing": {
+      "frames": 60,
+      "length": 3.0,
+      "loop": true
+    },
+    "unequip": {
+      "frames": 9,
+      "length": 0.4,
+      "loop": false
+    }
+  }
+}

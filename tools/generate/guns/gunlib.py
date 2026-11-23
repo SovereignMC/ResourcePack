@@ -1,12 +1,13 @@
 """Shared builder for SovereignMC gun models.
 
 Every gun is authored as a small Python script (``tools/generate/guns/<gun>.py``) that uses
-this module to build ONE source of truth and write three outputs:
+this module to build ONE source of truth (a rig with player-skin arms ``pra_*``/``prfa_*``/
+``pla_*``/``plfa_*`` and all animations) and write these outputs:
 
-* ``bbmodels/players/gun_<id>.bbmodel`` - BetterModel limb rig: first-person viewmodel with
-  player-skin arms (``pra_*``/``prfa_*``/``pla_*``/``plfa_*``) and all animations.
 * ``assets/weapons/models/item/<id>.json`` + ``assets/weapons/textures/item/gun/<id>.png`` -
   vanilla item model built from the ``gun`` bone (GUI, ground, third person, frames).
+* ``assets/weapons/{models,textures}/item/objmc/<id>`` + the gun's ``feather.json`` entry - first-person
+  viewmodel baked for the sgvm core shader (see ``viewmodel_bake.py``).
 * ``tools/generate/guns/preview/<id>_*.png`` - offline renders (side/top/front orthographic,
   first-person hip + ADS, animation contact sheet) so a script can be checked without
   Blockbench.
@@ -1110,14 +1111,11 @@ class GunModel:
             "display": disp,
         }
 
-    def write(self, pack_dir: Path = ROOT, item_display=None, item_name=None, previews=True):
+    def write(self, pack_dir: Path = ROOT, item_display=None, item_name=None, previews=True, viewmodel=True):
         left = deconflict(self)
         if left:
             print(f"[{self.id}] WARNING {left} coplanar face pairs left after deconflict")
         self.finish()
-        bb = pack_dir / "bbmodels" / "players" / f"gun_{self.id}.bbmodel"
-        bb.parent.mkdir(parents=True, exist_ok=True)
-        bb.write_text(json.dumps(self.to_bbmodel(), indent=1))
         tex = pack_dir / "assets" / "weapons" / "textures" / "item" / "gun" / f"{self.id}.png"
         tex.parent.mkdir(parents=True, exist_ok=True)
         self.texture.save(tex)
@@ -1130,7 +1128,10 @@ class GunModel:
         for (an, side), d in self.reach_report().items():
             if d > 11.0:
                 print(f"[{self.id}] WARNING arm reach {an}/{side} max hand distance {d:.2f} > 11.0")
-        print(f"[{self.id}] wrote {bb.relative_to(pack_dir)}, {item.relative_to(pack_dir)}, {tex.relative_to(pack_dir)}")
+        print(f"[{self.id}] wrote {item.relative_to(pack_dir)}, {tex.relative_to(pack_dir)}")
+        if viewmodel:
+            import viewmodel_bake
+            viewmodel_bake.bake(self, pack_dir, item_name or self.id)
         if previews:
             paths = render_previews(self)
             print(f"[{self.id}] previews: " + ", ".join(str(p) for p in paths))

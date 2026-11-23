@@ -10,7 +10,8 @@ Each script writes:
 
 | Output | Used by |
 |---|---|
-| `bbmodels/players/gun_<id>.bbmodel` | BetterModel limb rig: first-person viewmodel + skin arms + animations |
+| `assets/weapons/{models,textures}/item/objmc/<id>`, `models/a/<g>/*` | first-person sgvm viewmodel + skinned-arm base models (see `viewmodel_bake.py`) |
+| `tools/generate/guns/objmc_animations.json` | animation table (frames/loop/length) also copied to `../SovereignGuns` resources |
 | `assets/weapons/models/item/<item>.json` | vanilla item model (GUI, ground, third person, frames) |
 | `assets/weapons/textures/item/gun/<id>.png` | shared texture of both |
 | `tools/generate/guns/preview/<id>_*.png` | offline renders (gitignored) |
