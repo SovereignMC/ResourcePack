@@ -10,7 +10,8 @@ Each script writes:
 
 | Output | Used by |
 |---|---|
-| `assets/weapons/{models,textures}/item/objmc/<id>`, `models/a/<g>/*` | first-person sgvm viewmodel + skinned-arm base models (see `viewmodel_bake.py`) |
+| `assets/weapons/{models,textures}/item/objmc/<id>` | first-person sgvm viewmodel incl. skin-texel arm quads (see `viewmodel_bake.py`) |
+| `tools/generate/guns/objmc_arm_slots.json` | arm tint slot -> skin pixel table, also copied to `../SovereignGuns` resources |
 | `tools/generate/guns/objmc_animations.json` | animation table (frames/loop/length) also copied to `../SovereignGuns` resources |
 | `assets/weapons/models/item/<item>.json` | vanilla item model (GUI, ground, third person, frames) |
 | `assets/weapons/textures/item/gun/<id>.png` | shared texture of both |
