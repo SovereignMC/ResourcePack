@@ -143,10 +143,11 @@ m.point("sight_rear", (0, 1.45, -4.03))
 m.point("sight_front", (0, 1.45, -8.75))
 m.point("muzzle", (0, 0, -9.95))
 
+m.casing((0.45, 1.0, -2.15))   # ejection port, right side of the receiver (local build space)
 OFS = m.place_gun_at_hip()
 m.muzzle_flash(size=2.2)
 m.build_arms()
-m.standard_animations(fire_interval=0.1, kick=0.25, climb=1.2, bolt="bolt", bolt_travel=1.0, eye_relief=5.0,
+m.standard_animations(fire_interval=0.1, kick=0.4, climb=1.8, roll=0.6, casing=True, bolt="bolt", bolt_travel=1.0, eye_relief=5.0,
                       ads_kick_scale=0.5)
 
 

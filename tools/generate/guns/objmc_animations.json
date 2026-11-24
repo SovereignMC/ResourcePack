@@ -378,8 +378,8 @@
       "loop": true
     },
     "aiming_shoot": {
-      "frames": 21,
-      "length": 1.0,
+      "frames": 5,
+      "length": 0.2,
       "loop": false
     },
     "equip": {
@@ -388,8 +388,8 @@
       "loop": false
     },
     "firearm": {
-      "frames": 16,
-      "length": 0.75,
+      "frames": 17,
+      "length": 0.8,
       "loop": false
     },
     "inspect": {
@@ -413,8 +413,8 @@
       "loop": true
     },
     "shoot": {
-      "frames": 21,
-      "length": 1.0,
+      "frames": 5,
+      "length": 0.2,
       "loop": false
     },
     "sprint": {

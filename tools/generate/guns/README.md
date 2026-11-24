@@ -94,12 +94,12 @@ Use these names (KBAnimation channels, read by the SovereignGuns plugin):
 
 | Name | Loop | Notes |
 |---|---|---|
-| `equip`, `unequip`, `standing`, `sprint`, `aiming`, `shoot`, `aiming_shoot` | from `standard_animations(...)` | pass `fire_interval`, `kick`, `climb`, `bolt`, `bolt_travel`, `eye_relief` |
+| `equip`, `unequip`, `standing`, `sprint`, `aiming`, `shoot`, `aiming_shoot` | from `standard_animations(...)` | pass `fire_interval`, `kick`, `climb`, `roll`, `casing`, `bolt`, `bolt_travel`, `eye_relief` (see Shooting animation) |
 | `reload` | once | the full sequence; baked into the `reload` slot retimed to WM `Reload_Duration` (`RELOAD_TICKS` in `viewmodel_bake.py`) |
 | `reload_empty` | once | optional: reload + charging handle / bolt release. If present it is the *source* of the baked `reload` slot (no slot of its own) |
 | `reload_fail` | once | `m.reload_fail(cant_rot=, cant_pos=)` before `m.write`: left hand to an off-screen pouch, two pats, back empty; gun cants and returns (1.2 s) |
 | `inspect` | once | ~2.5–3.5 s, show the gun off |
-| `firearm` | once | bolt / charging handle cycle; length = (Open.Time + Close.Time) / 20 s |
+| `firearm` | once | bolt / charging handle cycle; length = (Open.Time + Close.Time) / 20 s. Remington 700: 0.8 s hip bolt cycle, timing contract below |
 
 - Baked slots (order is the contract with SovereignGuns `ObjmcTime.ANIMATIONS`, max 12): `equip, unequip,
   standing, sprint, aiming, shoot, aiming_shoot, reload, reload_fail, inspect, firearm, scoped`.
@@ -121,3 +121,42 @@ Use these names (KBAnimation channels, read by the SovereignGuns plugin):
 - If gun keys were tuned about another pivot, `m.repivot_gun_keys()` (call before `write`)
   re-expresses them about the grip so the motion stays the same.
 - Check `<id>_anim_<name>.png` (6 frames per animation) for every animation.
+
+### Shooting animation
+
+`standard_animations(kick=, climb=, roll=0.8, casing=None, fire_interval=, ads_kick_scale=0.5)` builds
+`shoot` (hip) and `aiming_shoot` (ADS: motion scaled by `ads_kick_scale`, hip yaw kept cancelled).
+Baked at 20 fps, so design on the 0.05 s grid (anything shorter is invisible):
+
+- Length L = max(0.1, `fire_interval`); recoil time R = min(L, 0.35), rest from R to L.
+- **Frame 0 shows on the shot tick, so it is already 60 % of the peak**; the peak is at t = 0.05:
+  pos z +`kick` (toward the camera), y +0.15 `kick`, x +0.1 `kick`; rot x +`climb` (muzzle up), rot y
+  +0.3 `climb`, rot z -`roll` degrees.
+- R >= 0.2: the muzzle keeps rising to 1.15 `climb` at 0.1 while the translation is half recovered, a
+  slight overshoot near 0.8 R, rest at R. R < 0.2 (automatic fire): eased return to rest at L.
+- Bolt blowback (`bolt`, `bolt_travel`) and the muzzle flash (frames 0 and 1) are kept.
+- **Ejected casing:** `m.casing(port_point, direction=(1.0, 0.55, 0.25), length=0.55, radius=0.12)` makes the
+  hidden bone `casing` (brass case + darker rim, `item_model=False`) at the ejection port (local build
+  space before `place_gun_at_hip()`, or viewmodel space after it: `local + offset`). Call it BEFORE
+  `standard_animations(casing=True)`; both shoot animations then show the case at t = 0, fly it 3-4 px along
+  `direction` with an upward arc and spin, and scale it to 0 by min(L, 0.25) (smaller in ADS).
+  `m.casing_keys(anim, t0, t1, dist=, arc=, direction=)` does the same in any other animation.
+  Bolt-action guns (Remington 700, SSG 69) do not eject in `shoot`.
+
+### Remington 700 `firearm` timing contract
+
+The plugin unscopes the player 4 ticks after each shot, plays `firearm` and then rescopes. WeaponMechanics
+Open 13 / Close 7 ticks (20 total); its sounds play at ticks 7 / 10 / 13 / 15 after the shot, i.e. at
+0.15 / 0.30 / 0.45 / 0.55 s of the animation (0.8 s, 16 ticks, hip pose, one-shot):
+
+| t (s) | Motion |
+|---|---|
+| 0.00-0.15 | right hand grip -> bolt knob; gun cants (z roll 8 deg, slightly toward the camera) until 0.7 |
+| 0.15-0.30 | bolt lifts (rot z 0 -> 70) |
+| 0.30-0.45 | bolt pulls back; the casing flies out of the port during 0.35-0.6 |
+| 0.45-0.55 | bolt pushes forward |
+| 0.55-0.70 | bolt turns down (70 -> 0) |
+| 0.70-0.80 | hand back to grip, gun back to rest; everything exactly at rest at 0.8 |
+
+The Remington `shoot` is 0.2 s long (`fire_interval=0.2`) so it is over before the unscope. If the WM
+timings change, change them here and in the plugin together.

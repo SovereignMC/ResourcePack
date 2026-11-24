@@ -159,7 +159,7 @@ KNOB = P(KNOB)
 MAGPT = P(MAGPT)
 MAG_PIVOT = m.groups["magazine"].origin
 ER = 3.0
-m.standard_animations(fire_interval=1.7, kick=0.8, climb=4.5, bolt=None, eye_relief=ER)
+m.standard_animations(fire_interval=1.7, kick=1.3, climb=7.0, roll=1.8, bolt=None, eye_relief=ER)
 
 # trigger pull in both shots
 for nm in ("shoot", "aiming_shoot"):

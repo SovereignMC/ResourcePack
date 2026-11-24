@@ -146,13 +146,14 @@ MAG_PT = (0.0, -3.3, -9.2)
 HANDLE_PT = (1.75, 0.0, -9.3)
 
 # ---------------------------------------------------------------- place
+m.casing((0.75, 0.3, -7.9))   # ejection port, right side of the receiver (local build space)
 OFFSET = m.place_gun_at_hip()
 m.muzzle_flash(size=2.0)
 m.build_arms()
 P = lambda p: tuple(p[i] + OFFSET[i] for i in range(3))  # noqa: E731
 MAG_PT, HANDLE_PT = P(MAG_PT), P(HANDLE_PT)
 
-m.standard_animations(fire_interval=0.45, kick=0.5, climb=2.0, bolt="bolt", bolt_travel=1.2,
+m.standard_animations(fire_interval=0.45, kick=0.9, climb=4.5, roll=1.0, casing=True, bolt="bolt", bolt_travel=1.2,
                       eye_relief=5.0)
 
 LREST = (-4.0, -5.5, -8.0)    # relaxed left hand

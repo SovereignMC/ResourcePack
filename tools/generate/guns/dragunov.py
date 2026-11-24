@@ -165,11 +165,12 @@ m.point("sight_rear", (SX, SY, 1.46))
 m.point("sight_front", (SX, SY, -5.64))
 m.point("muzzle", (0.0, BY, -15.3))
 
+m.casing((0.6, -0.55, -2.45))   # ejection port, right side of the receiver (local build space)
 OFFSET = m.place_gun_at_hip()
 m.muzzle_flash(size=2.4)
 m.build_arms()
 
-m.standard_animations(fire_interval=1.1, kick=0.7, climb=4.0, bolt="bolt", bolt_travel=1.3, eye_relief=3.0)
+m.standard_animations(fire_interval=1.1, kick=1.1, climb=6.0, roll=1.5, casing=True, bolt="bolt", bolt_travel=1.3, eye_relief=3.0)
 
 # trigger pull on shots
 for nm in ("shoot", "aiming_shoot"):

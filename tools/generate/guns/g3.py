@@ -136,6 +136,7 @@ m.point("sight_rear", (0, 1.9, 0.0))
 m.point("sight_front", (0, 1.9, -10.75))
 m.point("muzzle", (0, 0, -12.2))
 
+m.casing((0.85, 0.4, -2.5))   # ejection port, right side of the receiver (local build space)
 OFF = m.place_gun_at_hip()
 m.muzzle_flash()
 m.build_arms()
@@ -150,7 +151,7 @@ MAG_PT = V((-0.2, -3.2, -2.95))
 HANDLE_PT = V((-1.1, 1.25, -4.9))
 FETCH = (-5.0, -8.0, -7.5)
 
-m.standard_animations(fire_interval=0.1, kick=0.4, climb=1.8, bolt="bolt", bolt_travel=0.9, eye_relief=5.0)
+m.standard_animations(fire_interval=0.1, kick=0.7, climb=3.0, roll=1.0, casing=True, bolt="bolt", bolt_travel=0.9, eye_relief=5.0)
 for nm in ("shoot", "aiming_shoot"):
     a = m.anims[nm]
     a.key("trigger", 0.0, pos=(0, 0, 0))

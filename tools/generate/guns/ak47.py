@@ -127,6 +127,7 @@ m.point("sight_rear", (0.0, 0.4, -8.7))
 m.point("sight_front", (0.0, 0.4, -14.2))
 m.point("muzzle", (0.0, -0.95, -16.0))
 
+m.casing((0.58, -0.6, -7.4))   # ejection port, right side of the receiver (local build space)
 OFF = m.place_gun_at_hip()
 m.muzzle_flash()
 m.build_arms()
@@ -136,7 +137,7 @@ def P(p):
     return v_add(p, OFF)
 
 
-m.standard_animations(fire_interval=0.2, kick=0.4, climb=2.0, bolt="bolt", bolt_travel=1.8, eye_relief=5.0)
+m.standard_animations(fire_interval=0.2, kick=0.8, climb=3.5, roll=1.2, casing=True, bolt="bolt", bolt_travel=1.8, eye_relief=5.0)
 
 MAG_PT = P((0.0, -4.6, -10.3))
 HANDLE_PT = P((1.15, -0.7, -7.45))

@@ -816,9 +816,44 @@ class GunModel:
         relief = eye_relief if eye_relief is not None else self.flags.get("eye_relief", 4.5)
         return (-rear[0], -rear[1], -relief - rear[2])
 
+    def casing(self, port_point, direction=(1.0, 0.55, 0.25), length=0.55, radius=0.12):
+        """Hidden `casing` bone holding one small brass case (case + darker rim, two cubes, not in
+        the item model) at the ejection port. Call it BEFORE standard_animations(casing=True), in
+        local build space before place_gun_at_hip() or in viewmodel space after it. `direction` is
+        the fly-out direction in gun space (+X right, +Y up, +Z toward the camera)."""
+        p = tuple(float(c) for c in port_point)
+        self.part("casing", p, hidden=True)
+        r, h = radius, length / 2
+        self.box("casing_case", (p[0] - r, p[1] - r, p[2] - h), (p[0] + r, p[1] + r, p[2] + h * 0.8),
+                 "brass", group="casing", item_model=False)
+        self.box("casing_rim", (p[0] - r * 1.15, p[1] - r * 1.15, p[2] + h * 0.8),
+                 (p[0] + r * 1.15, p[1] + r * 1.15, p[2] + h), "copper", group="casing", item_model=False)
+        self.flags["casing"] = {"direction": tuple(direction)}
+
+    def casing_keys(self, a, t0, t1, dist=3.5, arc=1.2, direction=None, scale=1.0, size=1.0):
+        """Fly the `casing` bone out of the port during t0..t1 (visible from t0, scale 0 from t1):
+        straight line along direction * dist * scale with an upward arc, spinning in 90 degree steps
+        per 0.05 s frame (`size` scales the case itself, e.g. smaller in ADS). Keys sit on the 0.05 s grid."""
+        d = v_norm(direction or self.flags["casing"]["direction"])
+        steps = max(2, int(round((t1 - t0) / 0.05)))
+        Z3 = (0.0, 0.0, 0.0)
+        if t0 > 0:
+            a.key("casing", 0.0, scale=0.0, pos=Z3, rot=Z3)
+            a.key("casing", t0 - 0.001, scale=0.0, pos=Z3, rot=Z3)
+        for i in range(steps + 1):
+            u = i / steps
+            t = t0 + (t1 - t0) * u
+            e = 1 - (1 - u) ** 2
+            pos = (d[0] * dist * scale * e, d[1] * dist * scale * e + arc * scale * 4 * u * (1 - u),
+                   d[2] * dist * scale * e)
+            a.key("casing", t, pos=pos, rot=(90.0 * i, 0.0, 180.0 * i))
+            a.key("casing", t, scale=size if u <= 0.6 else max(0.0, size * (1.0 - (u - 0.6) / 0.4)))
+        a.key("casing", t1, scale=0.0)
+        a.key("casing", max(a.length, t1), scale=0.0)
+
     def standard_animations(self, *, fire_interval=0.2, kick=0.45, climb=2.5, bolt=None,
                             bolt_travel=1.2, eye_relief=4.5, ads_kick_scale=0.5,
-                            sprint_style="rifle"):
+                            sprint_style="rifle", roll=0.8, casing=None):
         """Create the channels every gun shares: equip, unequip, standing, sprint, aiming,
         shoot, aiming_shoot. Gun-specific ones (reload, reload_empty, inspect, firearm) are
         authored by the gun script. `bolt` = name of the bone that cycles when firing."""
@@ -860,13 +895,37 @@ class GunModel:
 
         def shoot(name, base_pos, scale, aim=False):
             L = max(0.1, fire_interval)
+            R = min(L, 0.35)                 # the recoil finishes by R, then rest until L
             s = self.anim(name, L, "once")
-            pk = 0.03
-            s.key(vm, 0.0, pos=base_pos, rot=(0, 0, 0))
-            s.key(vm, pk, pos=(base_pos[0], base_pos[1] + 0.05 * scale, base_pos[2] + kick * scale),
-                  rot=(climb * scale, 0.4 * scale, -0.6 * scale))
-            s.ease(vm, pk, L, pos0=(base_pos[0], base_pos[1] + 0.05 * scale, base_pos[2] + kick * scale),
-                   pos1=base_pos, rot0=(climb * scale, 0.4 * scale, -0.6 * scale), rot1=(0, 0, 0), curve="out")
+            bx, by, bz = base_pos
+            sc = scale
+
+            def pose(rx, ry, rz, px, py, pz):
+                """Pose as fractions of the peak (pos peak = (0.1, 0.15, 1) * kick, rot = climb, 0.3 climb, -roll)."""
+                # ADS: the rear sight is only a few px from the eye, so the rearward kick is halved again
+                kz = 0.5 if aim else 1.0
+                return ((bx + px * 0.1 * kick * sc, by + py * 0.15 * kick * sc, bz + pz * kick * sc * kz),
+                        (rx * climb * sc, ry * 0.3 * climb * sc, rz * -roll * sc))
+
+            pk = pose(1, 1, 1, 1, 1, 1)
+            rest = (base_pos, (0.0, 0.0, 0.0))
+            frame0 = pose(0.6, 0.6, 0.6, 0.6, 0.6, 0.6)
+            s.key(vm, 0.0, pos=frame0[0], rot=frame0[1])   # frame 0 shows on the shot tick
+            s.key(vm, 0.05, pos=pk[0], rot=pk[1])
+
+            def seg(t0, t1, p0, p1, curve):
+                s.ease(vm, t0, t1, rot0=p0[1], rot1=p1[1], pos0=p0[0], pos1=p1[0], curve=curve)
+
+            if R >= 0.2:
+                mid = pose(1.15, 1.15, 0.8, 0.5, 0.5, 0.5)   # muzzle still rising, translation half back
+                ov = pose(-0.1, -0.1, 0.0, 0.0, 0.0, -0.08)  # slight overshoot
+                seg(0.05, 0.1, pk, mid, "out")
+                seg(0.1, 0.8 * R, mid, ov, "smooth")
+                seg(0.8 * R, R, ov, rest, "smooth")
+            else:
+                seg(0.05, L, pk, rest, "out")
+            if R < L:
+                s.key(vm, L, pos=base_pos, rot=(0, 0, 0))
             if bolt:
                 s.key(bolt, 0.0, pos=(0, 0, 0))
                 s.key(bolt, min(0.04, L * 0.3), pos=(0, 0, bolt_travel))
@@ -874,6 +933,10 @@ class GunModel:
             if aim:   # aiming_shoot: keep the hip yaw cancelled
                 s.key("gun", 0.0, rot=unyaw)
                 s.key("gun", L, rot=unyaw)
+            if casing:
+                if "casing" not in self.groups:
+                    raise ValueError(f"{self.id}: call m.casing(...) before standard_animations(casing=True)")
+                self.casing_keys(s, 0.0, min(L, 0.25), scale=0.7 if aim else 1.0, size=0.6 if aim else 1.0)
             s.key("glow_flash", 0.0, scale=1.0)
             s.key("glow_flash", 0.05, scale=1.0)
             s.key("glow_flash", 0.051, scale=0.0)

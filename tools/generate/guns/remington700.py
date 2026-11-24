@@ -144,19 +144,20 @@ m.point("muzzle", (0.0, 0.0, -11.15))
 m.point("knob", (2.0, -0.15, 4.45))
 m.point("cart_center", (0.6, 0.6, 2.0))
 
+m.casing((0.5, 0.05, 1.95))   # ejection port, right side of the receiver (local build space)
 OFFSET = m.place_gun_at_hip()
 m.muzzle_flash()
 m.build_arms()
 
 EYE_RELIEF = 3.0
-m.standard_animations(fire_interval=1.0, kick=0.7, climb=4.0, bolt=None, eye_relief=EYE_RELIEF)
+m.standard_animations(fire_interval=0.2, kick=1.3, climb=7.0, roll=1.8, bolt=None, eye_relief=EYE_RELIEF)
 
 # trigger squeeze in both shoot animations
 for nm in ("shoot", "aiming_shoot"):
     a = m.anims[nm]
     a.key("trigger", 0.0, rot=(-20, 0, 0))
-    a.key("trigger", 0.12, rot=(-20, 0, 0))
-    a.ease("trigger", 0.12, 0.3, rot0=(-20, 0, 0), rot1=(0, 0, 0))
+    a.key("trigger", 0.05, rot=(-20, 0, 0))
+    a.ease("trigger", 0.05, 0.2, rot0=(-20, 0, 0), rot1=(0, 0, 0))   # shoot is 0.2 s long
     a.key("trigger", a.length, rot=(0, 0, 0))
 
 KNOB = m.points["knob"]
@@ -181,15 +182,6 @@ def cycle(a, t_open, t_close):
     a.ease("bolt", t_close, t_close + 0.12, pos0=(0, 0, PULL), pos1=(0, 0, 0), curve="in")
     a.ease("bolt", t_close + 0.12, t_close + 0.27, rot0=(0, 0, LIFT), rot1=(0, 0, 0))
 
-
-# ------------------------------------------------------------------ firearm (bolt cycle, 0.75 s)
-a = m.anim("firearm", 0.75, "once")
-zero(a, "bolt")
-a.hand("right", 0.0, "grip")
-a.hand("right", 0.12, ("bone", "bolt", KNOB))
-a.hand("right", 0.62, ("bone", "bolt", KNOB))
-a.hand("right", 0.75, "grip")
-cycle(a, 0.12, 0.40)  # lift 0.12-0.27, pull -0.40, push 0.40-0.52, down -0.67
 
 # ------------------------------------------------------------------ reload (2.0 s)
 a = m.anim("reload", 2.0, "once")
@@ -248,7 +240,29 @@ a.hand("right", 1.55, ("bone", "bolt", KNOB))
 a.hand("right", 1.8, "grip")
 cycle(a, 0.7, 1.1)
 
+
 m.repivot_gun_keys()   # gun keys were tuned about the old pivot (local origin)
+
+# ------------------------------------------------------------------ firearm (bolt cycle, 0.8 s, hip pose)
+# Contract: the plugin unscopes 4 ticks after the shot and starts this; WeaponMechanics plays the bolt
+# sounds at 7 / 10 / 13 / 15 ticks after the shot (animation 0.15 / 0.30 / 0.45 / 0.55 s) and the cycle
+# ends at tick 20 (animation 0.8 s). Written after repivot_gun_keys(): `gun` keys are about the grip.
+a = m.anim("firearm", 0.8, "once")
+zero(a, "bolt", "gun", "casing")
+CANT = ((0.0, 0.0, 8.0), (-0.3, 0.0, 0.4))     # gun cants toward the player while the bolt is worked
+Z3 = (0.0, 0.0, 0.0)
+a.ease("gun", 0.0, 0.15, rot0=Z3, rot1=CANT[0], pos0=Z3, pos1=CANT[1])
+a.key("gun", 0.7, rot=CANT[0], pos=CANT[1])
+a.ease("gun", 0.7, 0.8, rot0=CANT[0], rot1=Z3, pos0=CANT[1], pos1=Z3)
+a.hand("right", 0.0, "grip")
+a.hand("right", 0.15, ("bone", "bolt", KNOB))
+a.hand("right", 0.7, ("bone", "bolt", KNOB))
+a.hand("right", 0.8, "grip")
+a.ease("bolt", 0.15, 0.30, rot0=Z3, rot1=(0, 0, LIFT))                     # lift  (click at 0.15)
+a.ease("bolt", 0.30, 0.45, pos0=Z3, pos1=(0, 0, PULL), rot0=(0, 0, LIFT), rot1=(0, 0, LIFT))   # pull (0.30)
+a.ease("bolt", 0.45, 0.55, pos0=(0, 0, PULL), pos1=Z3, rot0=(0, 0, LIFT), rot1=(0, 0, LIFT), curve="in")  # push (0.45)
+a.ease("bolt", 0.55, 0.70, rot0=(0, 0, LIFT), rot1=Z3, pos0=Z3, pos1=Z3)  # turn down, lock (0.55)
+m.casing_keys(a, 0.35, 0.6, dist=4.5, arc=1.8, direction=(0.7, 1.0, 0.1))
 # reload with no magazine in the inventory (shared "pat the pouch" beat, see GunModel.reload_fail)
 m.reload_fail()
 
