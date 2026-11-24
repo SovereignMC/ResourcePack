@@ -1,0 +1,1064 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "": -1
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_small_double_axle_trailing.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸀀",
+        "󸀁",
+        "󸀂",
+        "󸀃",
+        "󸀄",
+        "󸀅"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_small_double_axle_trailing.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸀆󸀇",
+        "󸀈󸀉",
+        "󸀊󸀋",
+        "󸀌󸀍",
+        "󸀎󸀏",
+        "󸀐󸀑",
+        "󸀒󸀓",
+        "󸀔󸀕",
+        "󸀖󸀗",
+        "󸀘󸀙",
+        "󸀚󸀛",
+        "󸀜󸀝"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_single_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸀞",
+        "󸀟",
+        "󸀠",
+        "󸀡",
+        "󸀢",
+        "󸀣"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_single_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸀤󸀥",
+        "󸀦󸀧",
+        "󸀨󸀩",
+        "󸀪󸀫",
+        "󸀬󸀭",
+        "󸀮󸀯",
+        "󸀰󸀱",
+        "󸀲󸀳",
+        "󸀴󸀵",
+        "󸀶󸀷",
+        "󸀸󸀹",
+        "󸀺󸀻"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_single_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸀼",
+        "󸀽",
+        "󸀾",
+        "󸀿",
+        "󸁀",
+        "󸁁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_single_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸁂󸁃",
+        "󸁄󸁅",
+        "󸁆󸁇",
+        "󸁈󸁉",
+        "󸁊󸁋",
+        "󸁌󸁍",
+        "󸁎󸁏",
+        "󸁐󸁑",
+        "󸁒󸁓",
+        "󸁔󸁕",
+        "󸁖󸁗",
+        "󸁘󸁙"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_double_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸁚",
+        "󸁛",
+        "󸁜",
+        "󸁝",
+        "󸁞",
+        "󸁟"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_double_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸁠󸁡",
+        "󸁢󸁣",
+        "󸁤󸁥",
+        "󸁦󸁧",
+        "󸁨󸁩",
+        "󸁪󸁫",
+        "󸁬󸁭",
+        "󸁮󸁯",
+        "󸁰󸁱",
+        "󸁲󸁳",
+        "󸁴󸁵",
+        "󸁶󸁷"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_double_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸁸",
+        "󸁹",
+        "󸁺",
+        "󸁻",
+        "󸁼",
+        "󸁽"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_double_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸁾󸁿",
+        "󸂀󸂁",
+        "󸂂󸂃",
+        "󸂄󸂅",
+        "󸂆󸂇",
+        "󸂈󸂉",
+        "󸂊󸂋",
+        "󸂌󸂍",
+        "󸂎󸂏",
+        "󸂐󸂑",
+        "󸂒󸂓",
+        "󸂔󸂕"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_double_axle_walschaerts_extra_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸂖",
+        "󸂗",
+        "󸂘",
+        "󸂙",
+        "󸂚",
+        "󸂛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_double_axle_walschaerts_extra_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸂜󸂝",
+        "󸂞󸂟",
+        "󸂠󸂡",
+        "󸂢󸂣",
+        "󸂤󸂥",
+        "󸂦󸂧",
+        "󸂨󸂩",
+        "󸂪󸂫",
+        "󸂬󸂭",
+        "󸂮󸂯",
+        "󸂰󸂱",
+        "󸂲󸂳"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_double_axle_walschaerts_extra_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸂴",
+        "󸂵",
+        "󸂶",
+        "󸂷",
+        "󸂸",
+        "󸂹"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_double_axle_walschaerts_extra_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸂺󸂻",
+        "󸂼󸂽",
+        "󸂾󸂿",
+        "󸃀󸃁",
+        "󸃂󸃃",
+        "󸃄󸃅",
+        "󸃆󸃇",
+        "󸃈󸃉",
+        "󸃊󸃋",
+        "󸃌󸃍",
+        "󸃎󸃏",
+        "󸃐󸃑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_triple_axle_walschaerts_extended_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸃒",
+        "󸃓",
+        "󸃔",
+        "󸃕",
+        "󸃖",
+        "󸃗"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_triple_axle_walschaerts_extended_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸃘󸃙",
+        "󸃚󸃛",
+        "󸃜󸃝",
+        "󸃞󸃟",
+        "󸃠󸃡",
+        "󸃢󸃣",
+        "󸃤󸃥",
+        "󸃦󸃧",
+        "󸃨󸃩",
+        "󸃪󸃫",
+        "󸃬󸃭",
+        "󸃮󸃯"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_triple_axle_walschaerts_extended_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸃰",
+        "󸃱",
+        "󸃲",
+        "󸃳",
+        "󸃴",
+        "󸃵"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_triple_axle_walschaerts_extended_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸃶󸃷",
+        "󸃸󸃹",
+        "󸃺󸃻",
+        "󸃼󸃽",
+        "󸃾󸃿",
+        "󸄀󸄁",
+        "󸄂󸄃",
+        "󸄄󸄅",
+        "󸄆󸄇",
+        "󸄈󸄉",
+        "󸄊󸄋",
+        "󸄌󸄍"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_triple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸄎",
+        "󸄏",
+        "󸄐",
+        "󸄑",
+        "󸄒",
+        "󸄓"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_triple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸄔󸄕",
+        "󸄖󸄗",
+        "󸄘󸄙",
+        "󸄚󸄛",
+        "󸄜󸄝",
+        "󸄞󸄟",
+        "󸄠󸄡",
+        "󸄢󸄣",
+        "󸄤󸄥",
+        "󸄦󸄧",
+        "󸄨󸄩",
+        "󸄪󸄫"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_triple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸄬",
+        "󸄭",
+        "󸄮",
+        "󸄯",
+        "󸄰",
+        "󸄱"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_triple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸄲󸄳",
+        "󸄴󸄵",
+        "󸄶󸄷",
+        "󸄸󸄹",
+        "󸄺󸄻",
+        "󸄼󸄽",
+        "󸄾󸄿",
+        "󸅀󸅁",
+        "󸅂󸅃",
+        "󸅄󸅅",
+        "󸅆󸅇",
+        "󸅈󸅉"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_quadruple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸅊",
+        "󸅋",
+        "󸅌",
+        "󸅍",
+        "󸅎",
+        "󸅏"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_quadruple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸅐󸅑",
+        "󸅒󸅓",
+        "󸅔󸅕",
+        "󸅖󸅗",
+        "󸅘󸅙",
+        "󸅚󸅛",
+        "󸅜󸅝",
+        "󸅞󸅟",
+        "󸅠󸅡",
+        "󸅢󸅣",
+        "󸅤󸅥",
+        "󸅦󸅧"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_quadruple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸅨",
+        "󸅩",
+        "󸅪",
+        "󸅫",
+        "󸅬",
+        "󸅭"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_quadruple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸅮󸅯",
+        "󸅰󸅱",
+        "󸅲󸅳",
+        "󸅴󸅵",
+        "󸅶󸅷",
+        "󸅸󸅹",
+        "󸅺󸅻",
+        "󸅼󸅽",
+        "󸅾󸅿",
+        "󸆀󸆁",
+        "󸆂󸆃",
+        "󸆄󸆅"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_quintuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸆆",
+        "󸆇",
+        "󸆈",
+        "󸆉",
+        "󸆊",
+        "󸆋"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_quintuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸆌󸆍",
+        "󸆎󸆏",
+        "󸆐󸆑",
+        "󸆒󸆓",
+        "󸆔󸆕",
+        "󸆖󸆗",
+        "󸆘󸆙",
+        "󸆚󸆛",
+        "󸆜󸆝",
+        "󸆞󸆟",
+        "󸆠󸆡",
+        "󸆢󸆣"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_quintuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸆤",
+        "󸆥",
+        "󸆦",
+        "󸆧",
+        "󸆨",
+        "󸆩"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_quintuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸆪󸆫",
+        "󸆬󸆭",
+        "󸆮󸆯",
+        "󸆰󸆱",
+        "󸆲󸆳",
+        "󸆴󸆵",
+        "󸆶󸆷",
+        "󸆸󸆹",
+        "󸆺󸆻",
+        "󸆼󸆽",
+        "󸆾󸆿",
+        "󸇀󸇁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_sextuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸇂",
+        "󸇃",
+        "󸇄",
+        "󸇅",
+        "󸇆",
+        "󸇇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_sextuple_axle_walschaerts_long.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸇈󸇉",
+        "󸇊󸇋",
+        "󸇌󸇍",
+        "󸇎󸇏",
+        "󸇐󸇑",
+        "󸇒󸇓",
+        "󸇔󸇕",
+        "󸇖󸇗",
+        "󸇘󸇙",
+        "󸇚󸇛",
+        "󸇜󸇝",
+        "󸇞󸇟"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_double_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸇠",
+        "󸇡",
+        "󸇢",
+        "󸇣",
+        "󸇤",
+        "󸇥"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_double_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸇦󸇧",
+        "󸇨󸇩",
+        "󸇪󸇫",
+        "󸇬󸇭",
+        "󸇮󸇯",
+        "󸇰󸇱",
+        "󸇲󸇳",
+        "󸇴󸇵",
+        "󸇶󸇷",
+        "󸇸󸇹",
+        "󸇺󸇻",
+        "󸇼󸇽"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_double_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸇾",
+        "󸇿",
+        "󸈀",
+        "󸈁",
+        "󸈂",
+        "󸈃"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_double_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸈄󸈅",
+        "󸈆󸈇",
+        "󸈈󸈉",
+        "󸈊󸈋",
+        "󸈌󸈍",
+        "󸈎󸈏",
+        "󸈐󸈑",
+        "󸈒󸈓",
+        "󸈔󸈕",
+        "󸈖󸈗",
+        "󸈘󸈙",
+        "󸈚󸈛"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_triple_axle_walschaerts_extended_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸈜",
+        "󸈝",
+        "󸈞",
+        "󸈟",
+        "󸈠",
+        "󸈡"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_triple_axle_walschaerts_extended_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸈢󸈣",
+        "󸈤󸈥",
+        "󸈦󸈧",
+        "󸈨󸈩",
+        "󸈪󸈫",
+        "󸈬󸈭",
+        "󸈮󸈯",
+        "󸈰󸈱",
+        "󸈲󸈳",
+        "󸈴󸈵",
+        "󸈶󸈷",
+        "󸈸󸈹"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_triple_axle_walschaerts_extended_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸈺",
+        "󸈻",
+        "󸈼",
+        "󸈽",
+        "󸈾",
+        "󸈿"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_triple_axle_walschaerts_extended_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸉀󸉁",
+        "󸉂󸉃",
+        "󸉄󸉅",
+        "󸉆󸉇",
+        "󸉈󸉉",
+        "󸉊󸉋",
+        "󸉌󸉍",
+        "󸉎󸉏",
+        "󸉐󸉑",
+        "󸉒󸉓",
+        "󸉔󸉕",
+        "󸉖󸉗"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_triple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸉘",
+        "󸉙",
+        "󸉚",
+        "󸉛",
+        "󸉜",
+        "󸉝"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_triple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸉞󸉟",
+        "󸉠󸉡",
+        "󸉢󸉣",
+        "󸉤󸉥",
+        "󸉦󸉧",
+        "󸉨󸉩",
+        "󸉪󸉫",
+        "󸉬󸉭",
+        "󸉮󸉯",
+        "󸉰󸉱",
+        "󸉲󸉳",
+        "󸉴󸉵"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_triple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸉶",
+        "󸉷",
+        "󸉸",
+        "󸉹",
+        "󸉺",
+        "󸉻"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_triple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸉼󸉽",
+        "󸉾󸉿",
+        "󸊀󸊁",
+        "󸊂󸊃",
+        "󸊄󸊅",
+        "󸊆󸊇",
+        "󸊈󸊉",
+        "󸊊󸊋",
+        "󸊌󸊍",
+        "󸊎󸊏",
+        "󸊐󸊑",
+        "󸊒󸊓"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_quadruple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸊔",
+        "󸊕",
+        "󸊖",
+        "󸊗",
+        "󸊘",
+        "󸊙"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_quadruple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸊚󸊛",
+        "󸊜󸊝",
+        "󸊞󸊟",
+        "󸊠󸊡",
+        "󸊢󸊣",
+        "󸊤󸊥",
+        "󸊦󸊧",
+        "󸊨󸊩",
+        "󸊪󸊫",
+        "󸊬󸊭",
+        "󸊮󸊯",
+        "󸊰󸊱"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_quadruple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸊲",
+        "󸊳",
+        "󸊴",
+        "󸊵",
+        "󸊶",
+        "󸊷"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_quadruple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸊸󸊹",
+        "󸊺󸊻",
+        "󸊼󸊽",
+        "󸊾󸊿",
+        "󸋀󸋁",
+        "󸋂󸋃",
+        "󸋄󸋅",
+        "󸋆󸋇",
+        "󸋈󸋉",
+        "󸋊󸋋",
+        "󸋌󸋍",
+        "󸋎󸋏"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_quintuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸋐",
+        "󸋑",
+        "󸋒",
+        "󸋓",
+        "󸋔",
+        "󸋕"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_quintuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸋖󸋗",
+        "󸋘󸋙",
+        "󸋚󸋛",
+        "󸋜󸋝",
+        "󸋞󸋟",
+        "󸋠󸋡",
+        "󸋢󸋣",
+        "󸋤󸋥",
+        "󸋦󸋧",
+        "󸋨󸋩",
+        "󸋪󸋫",
+        "󸋬󸋭"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_extra_large_quintuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸋮",
+        "󸋯",
+        "󸋰",
+        "󸋱",
+        "󸋲",
+        "󸋳"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_extra_large_quintuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸋴󸋵",
+        "󸋶󸋷",
+        "󸋸󸋹",
+        "󸋺󸋻",
+        "󸋼󸋽",
+        "󸋾󸋿",
+        "󸌀󸌁",
+        "󸌂󸌃",
+        "󸌄󸌅",
+        "󸌆󸌇",
+        "󸌈󸌉",
+        "󸌊󸌋"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/bogie_large_sextuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸌌",
+        "󸌍",
+        "󸌎",
+        "󸌏",
+        "󸌐",
+        "󸌑"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/bogie_large_sextuple_axle_walschaerts_short.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸌒󸌓",
+        "󸌔󸌕",
+        "󸌖󸌗",
+        "󸌘󸌙",
+        "󸌚󸌛",
+        "󸌜󸌝",
+        "󸌞󸌟",
+        "󸌠󸌡",
+        "󸌢󸌣",
+        "󸌤󸌥",
+        "󸌦󸌧",
+        "󸌨󸌩"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/rail_straight.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸌪",
+        "󸌫",
+        "󸌬",
+        "󸌭",
+        "󸌮",
+        "󸌯"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/rail_straight.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸌰󸌱",
+        "󸌲󸌳",
+        "󸌴󸌵",
+        "󸌶󸌷",
+        "󸌸󸌹",
+        "󸌺󸌻",
+        "󸌼󸌽",
+        "󸌾󸌿",
+        "󸍀󸍁",
+        "󸍂󸍃",
+        "󸍄󸍅",
+        "󸍆󸍇"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/rail_curve.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸍈",
+        "󸍉",
+        "󸍊",
+        "󸍋",
+        "󸍌",
+        "󸍍"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/rail_curve.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸍎󸍏",
+        "󸍐󸍑",
+        "󸍒󸍓",
+        "󸍔󸍕",
+        "󸍖󸍗",
+        "󸍘󸍙",
+        "󸍚󸍛",
+        "󸍜󸍝",
+        "󸍞󸍟",
+        "󸍠󸍡",
+        "󸍢󸍣",
+        "󸍤󸍥"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/rail_switch.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸍦",
+        "󸍧",
+        "󸍨",
+        "󸍩",
+        "󸍪",
+        "󸍫"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/rail_switch.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸍬󸍭",
+        "󸍮󸍯",
+        "󸍰󸍱",
+        "󸍲󸍳",
+        "󸍴󸍵",
+        "󸍶󸍷",
+        "󸍸󸍹",
+        "󸍺󸍻",
+        "󸍼󸍽",
+        "󸍾󸍿",
+        "󸎀󸎁",
+        "󸎂󸎃"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/thumb/rail_buffer.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸎄",
+        "󸎅",
+        "󸎆",
+        "󸎇",
+        "󸎈",
+        "󸎉"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "planechase:font/dialog/large/rail_buffer.png",
+      "height": 9,
+      "ascent": 7,
+      "chars": [
+        "󸎊󸎋",
+        "󸎌󸎍",
+        "󸎎󸎏",
+        "󸎐󸎑",
+        "󸎒󸎓",
+        "󸎔󸎕",
+        "󸎖󸎗",
+        "󸎘󸎙",
+        "󸎚󸎛",
+        "󸎜󸎝",
+        "󸎞󸎟",
+        "󸎠󸎡"
+      ]
+    }
+  ]
+}
