@@ -62,6 +62,13 @@ jobs:
             color_quantization_target = 'none'
             skip_alpha_optimizations = true
 
+            # /ts style preview tiles: each tile's last column holds a near-transparent
+            # texel that pins the glyph advance. Quantization drops it, the line gets
+            # narrower and the client re-centres it (rows of the montage slide sideways).
+            ['assets/sovereignmc/textures/font/structure_preview/*.png']
+            color_quantization_target = 'none'
+            skip_alpha_optimizations = true
+
       - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' | tr -d \"\n\" > /tmp/hash.txt" # Generate Pack Hash
       
       - name: Stage wiki index

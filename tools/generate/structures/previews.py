@@ -30,6 +30,7 @@ import render  # noqa: E402
 FONT_ID = "sovereignmc:structure_preview"
 STRIP_MAX = 9  # manifest "strip_height": tiles are one text line tall
 TILE_H = 9
+PIN_ALPHA = 12  # < 25: discarded by the text shader, but survives as non-transparent for the advance
 MONTAGE_TILE_W = 180
 HERO_TILE_W = 144
 CELL = 60
@@ -59,8 +60,8 @@ def cut(img, tile_w):
     dialog body is painted line by line, so a glyph taller than a line gets overpainted by panels on later lines.
     Returns (sheet, rows, tiles): the image with pinned texels, the grid of codepoint slots (None = empty tile,
     written as U+0000 which the client skips), and the kept tiles as (col, row, x, y, w, h). The last column of every
-    kept tile gets one alpha-1 texel: a bitmap glyph advances by its rightmost non-transparent column + 1, so this
-    pins the advance to width + 1 (the text shader discards alpha < 0.1, so the texel never shows).
+    kept tile gets one PIN_ALPHA texel: a bitmap glyph advances by its rightmost non-transparent column + 1, so this
+    pins the advance to width + 1 (the text shader discards alpha < 0.1 = 25/255, so the texel never shows; the release PackSquash run must not quantize these PNGs or the texel is lost).
     """
     if img.width % tile_w or img.height % TILE_H:
         raise SystemExit("image %dx%d does not split into %dx%d tiles" % (img.width, img.height, tile_w, TILE_H))
@@ -74,7 +75,7 @@ def cut(img, tile_w):
                 row.append(False)
                 continue
             if sheet.getpixel((x + tile_w - 1, y))[3] == 0:
-                sheet.putpixel((x + tile_w - 1, y), (0, 0, 0, 1))
+                sheet.putpixel((x + tile_w - 1, y), (0, 0, 0, PIN_ALPHA))
             row.append(True)
             tiles.append((c, r, x, y, tile_w, TILE_H))
         rows.append(row)
