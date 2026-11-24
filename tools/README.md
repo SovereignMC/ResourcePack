@@ -27,6 +27,7 @@ python3 tools/generate/argentum/consumable_art.py --pack-dir .
 python3 tools/generate/argentum/machine_art.py --pack-dir .
 python3 tools/generate/argentum/metallurgy_art.py --pack-dir .
 python3 tools/generate/effects/aim_beam.py --pack-dir .
+python3 tools/generate/effects/aim_markers.py --pack-dir .
 python3 tools/generate/effects/explosion_textures.py --src <frames> --pack-dir .
 python3 tools/generate/gui/menu_background.py --pack-dir . [--client-jar JAR]
 node tools/generate/gui/skins/generate.mjs

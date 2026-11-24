@@ -40,7 +40,7 @@ zip is built by CI (see below).
 | `tools/` | Generator, renderer, verifier and migration scripts, grouped by function (see below). |
 | `tools/generate/argentum/` | Argentum item, block, machine and consumable art generators. |
 | `tools/generate/bettermodel/` | BetterModel release pipeline (`generate.sh`). |
-| `tools/generate/effects/` | Aim beam and explosion particle generators. |
+| `tools/generate/effects/` | Aim beam, aim marker (muzzle pointer, landing markers) and explosion particle generators. |
 | `tools/generate/gui/` | GUI skin generator and dialogue-panel generator. |
 | `tools/generate/items/` | Flag holder texture generator. |
 | `tools/verify/` | Pack and Argentum integrity checks. |
@@ -364,6 +364,7 @@ the full command list.
 | `node tools/generate/gui/skins/generate.mjs` | GUI skins, UI/guide icons and `sovereignmc:gui_skins` |
 | `python3 tools/generate/gui/menu_background.py [--client-jar JAR]` | `menu_*.png` panels and `sovereignmc:menu` |
 | `python3 tools/generate/effects/aim_beam.py` | `sovereignmc:effect/aim_beam` beam and emissive tiles |
+| `python3 tools/generate/effects/aim_markers.py [--preview N --preview-dir DIR]` | `muzzle_pointer.png` and `landing_marker_1..3.png` textures (JSON items/models are committed by hand) |
 | `python3 tools/generate/items/flag_holder_textures.py` | `argentum` `holder_iron.png` / `holder_brass.png` |
 | `python3 tools/generate/effects/explosion_textures.py --src <frames>` | `minecraft:textures/particle/explosion_0..15.png` |
 | `python3 tools/generate/argentum/metallurgy_art.py` | Titanium/quantum alloy/carbon fibre icons, items and models |
@@ -402,3 +403,8 @@ and are not committed.
   variant without adding it to the consuming code does nothing.
 - Every asset path is case-sensitive in a zip and must remain a valid lowercase resource
   location.
+
+## Cannons aim markers
+
+- `sovereignmc:effect/muzzle_pointer`: aim_beam's 4-plane cross, local +Z = shot direction. One 32x32 tile (2 forward chevrons) per ~2 blocks of segment. Chevrons point toward texture +u, which maps to +Z on every face; the `down` face uses `rotation: 270` (not 90) so it is not backwards.
+- `sovereignmc:effect/landing_marker_1`, `_2`, `_3`: one vertical plane `[0,0,8]`-`[16,32,8]` with north and south faces (32x64 texture), for ItemDisplay with billboard VERTICAL. With transform NONE the model centre `[8,8,8]` sits at the entity, so the pole base is 0.5 block below it: the plugin must translate the display by `(0, +0.5, 0)` blocks at scale 1 (`0.5 * scale` otherwise). The pole (texture x=15..16) and ground ring are centred on the plane's centre line by construction, so billboarding does not swing the base.
