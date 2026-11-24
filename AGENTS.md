@@ -5,18 +5,54 @@ download and credits live in `README.md`; licensing terms live in `LICENSE`.
 
 ## What this is
 
-A static Minecraft resource pack: `pack.mcmeta` + `pack.png` + `assets/**`. There is no
-compile step. `pack.mcmeta` declares `pack_format` 64, `supported_formats` `[64, 64]`,
-`min_format` `[64, 0]` and `max_format` `[75, 0]`; keep it valid JSON and bump the formats
-deliberately when the target client changes.
+A static Minecraft resource pack: `pack.mcmeta` + `pack.png` + `assets/**` + version
+overlay directories (`format_*/`). There is no compile step. One pack targets every Java
+release from **1.21.8 to 26.3**. Resource pack formats, read from each client jar's
+`version.json`:
 
-`pack.mcmeta` also declares one overlay, `format_64/` (1.21.7–1.21.8 only), for files whose
-vanilla format changed in 1.21.9. Today that is `minecraft:post_effect/blur.json`, the menu
-and dialog background blur: 1.21.9+ uses the `core/screenquad` vertex shader, 1.21.7–1.21.8
-use `post/blur`. Both copies pin every pass's `Radius` to 4.0, which overrides the player's
-Menu Background Blur slider (vanilla only uses the slider when `Radius` is 0). At 0 the
-slider still turns the blur off, because the client never runs the pass. Change both
-copies together.
+| Release | Format |
+|---|---|
+| 1.21.7–1.21.8 | 64 (the last format without a minor version) |
+| 1.21.9–1.21.10 | 69.0 |
+| 1.21.11 | 75.0 |
+| 26.1–26.1.2 | 84.0 |
+| 26.2 | 88.0 |
+| 26.3 | 97.1 |
+
+`pack.mcmeta` declares `min_format` `[64, 0]` and `max_format` `97` (a bare integer means
+every minor version of 97). Because the range still reaches format 64, the 1.21.9+ loader
+also requires the old fields, and 1.21.8 reads only those: `pack_format` 64 (inside the
+range) and `supported_formats` `[64, 64]` (it must start at the `min_format` major and end
+at either the `max_format` major or 64). When a new release ships, read its format from the
+client jar, check its pack format changes (minecraft.wiki "Pack format") against the vanilla
+files this pack overrides, then raise `max_format`. A client outside the range lists the
+pack as made for another version.
+
+Overlay entries follow the same rules: while any entry reaches format 64, every entry needs
+`formats` (old clients) as well as `min_format` / `max_format` (new clients); directory
+names are `[a-z0-9_.-]`. `tools/verify/pack.sh` checks all of this. PackSquash drops overlay
+directories unless they are force-included, so `squash-release.yml` copies `format_*/**`
+as-is (releases up to ResourcePack-v171 shipped without `format_64/`); a new overlay
+directory must match that glob.
+
+Overlays:
+
+- `format_64/` (1.21.7–1.21.8 only): `minecraft:post_effect/blur.json`, the menu and dialog
+  background blur. The base copy (identical to vanilla from 1.21.9 to 26.3 apart from the
+  radius) uses the `core/screenquad` vertex shader, 1.21.7–1.21.8 use `post/blur`. Both
+  copies pin every pass's `Radius` to 4.0, which overrides the player's Menu Background Blur
+  slider (vanilla only uses the slider when `Radius` is 0). At 0 the slider still turns the
+  blur off, because the client never runs the pass. Change both copies together.
+
+Version notes for the base:
+
+- The gun viewmodel core shader (see below) only applies on 1.21.8–1.21.11; on 26.x it is
+  inert.
+- From 1.21.11 (format 73) item textures live in their own `items` atlas (`item/` folders of
+  every namespace) and block textures in `blocks` (`block/` folders). An item model whose
+  quads use both atlases fails to bake (the whole item shows as missing), and a blockstate
+  model may not use an `item/` texture. Textures outside `item/` and `block/` are in no model
+  atlas on any version.
 
 `pack.zip` is a build artifact. It is gitignored and must not be committed; the published
 zip is built by CI (see below).
@@ -58,7 +94,8 @@ rename a namespace or move assets without updating the consuming plugin.
 ## Build and install
 
 `build.sh` is a local, gitignored helper — it is not part of the published repository. It
-zips `pack.mcmeta`, `pack.png` and `assets/**` with fixed 1980-01-01 timestamps so
+zips `pack.mcmeta`, `pack.png` and `assets/**` (it must also include the `format_*/` overlay
+directories, or 1.21.8 gets the 1.21.9+ blur) with fixed 1980-01-01 timestamps so
 repeated builds are byte-identical, then installs the result as `SovereignMC.zip`:
 
 ```bash
@@ -83,7 +120,10 @@ python3 tools/verify/argentum_refs.py    # python3 + Pillow; extra Argentum chec
 - invalid resource locations (anything outside `a-z 0-9 _ . - /`);
 - unresolved `argentum:` parent, model or texture references;
 - Argentum texture references outside a folder listed in `TEXTURE_CATEGORIES`;
-- unparseable JSON, or a missing/invalid `pack.mcmeta`.
+- unparseable JSON, or a missing/invalid `pack.mcmeta`;
+- `pack.mcmeta` format fields that break the 1.21.9+ loader or 1.21.8 (missing
+  `min_format`/`max_format`, `supported_formats`/`pack_format`/overlay `formats` out of step
+  with them while format 64 is supported), or an overlay whose directory has no `assets/`.
 
 It warns on flat `item/x` / `block/x` references, allowlisted machine model refs and PNGs
 that no JSON references. It only walks `assets/argentum/**/*.json`, so a green run does
@@ -175,7 +215,11 @@ a broken translation — do not restore the real names.
 
 `assets/minecraft/shaders/core/rendertype_item_entity_translucent_cull.{vsh,fsh}` override the
 vanilla item shader (same body in 1.21.8–1.21.11 apart from `#version`; the files use 330 and
-import only vanilla includes). They draw the first-person gun viewmodels: an "sgvm" model
+import only vanilla includes). 26.1 removed this pipeline (items render through `core/item`,
+and 26.3 switched shader includes from `#moj_import` to `#include`), so on 26.x the files are
+inert and guns draw their plain item model in first person. A 26.x port needs a new hand
+test too: `sgvmIsHand` matches the hand projection's fixed 0.05–100 depth range, while 26.x
+draws the hand with the world far plane. They draw the first-person gun viewmodels: an "sgvm" model
 (`weapons:item/objmc/<gun>`, texture `weapons:item/objmc/<gun>`) is a list of dummy quads whose
 real camera-space positions, per-bone matrices per tick and texture live in its data texture.
 Derived from objmc (MIT, `LICENSE-OBJMC`). Every other item renders exactly like vanilla.
@@ -395,8 +439,9 @@ and are not committed.
 
 - `pack.sh` only resolves Argentum JSON; other namespaces can regress without CI noticing.
   Check their model/texture paths manually.
-- `pack.mcmeta` mixes `supported_formats` with `min_format`/`max_format`; test any format
-  change in a real client before releasing.
+- `pack.mcmeta` mixes `supported_formats` with `min_format`/`max_format` (required while
+  format 64 is supported, see "What this is"); test any format change in a real client
+  before releasing.
 - `pack.zip`, `ignored/`, `__pycache__/` and `build.sh` are gitignored. `pack.zip` must
   stay out of history.
 - `*_offset_*` and `*_row_*` font variants are selected by name in plugin code. Adding a

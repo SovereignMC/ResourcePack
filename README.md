@@ -9,7 +9,7 @@ sounds.
 
 - Server: `play.sovereignmc.net`
 - Website: https://sovereignmc.net
-- Minecraft: **1.21+**
+- Minecraft: **1.21.8 to 26.3** (one pack for every release in that range)
 
 ## Download
 

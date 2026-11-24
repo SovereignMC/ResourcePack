@@ -6,6 +6,9 @@
 #   * argentum texture refs must be category-subfoldered (no flat refs)
 #   * assets/** paths must be valid resource locations
 #   * warns on unreferenced PNGs
+#   * pack.mcmeta follows the 1.21.9+ format rules while still loading on 1.21.8:
+#     min_format/max_format present, pack_format + supported_formats kept in step with
+#     them while format 64 is supported, every overlay entry valid and its directory present
 #
 # Exit 0 = clean (warnings allowed); exit 1 = hard failure.
 # Requires bash and jq.
@@ -144,9 +147,51 @@ if [[ ${#all_textures[@]} -gt 0 ]]; then
     done < <(comm -23 "$tmpdir/all" "$tmpdir/referenced")
 fi
 
-# pack.mcmeta sanity
+# pack.mcmeta: the rules of the 1.21.9+ loader (PackFormat.IntermediaryFormat.validate).
+# 64 is the last resource format without minor versions (1.21.7-1.21.8): while the pack or
+# any overlay reaches it, the old fields must be present and agree with the new ones.
+read -r -d '' JQ_MCMETA <<'JQ'
+  def major: if type == "array" then .[0] else . end;
+  def lo: if type == "array" and length > 1 then [.[0], .[1]] else [major, 0] end;
+  def hi: if type == "array" and length > 1 then [.[0], .[1]] else [major, 1000000000] end;
+  def oldrange: if type == "array" and length == 2 then . else null end;
+  def check($ctx; $min; $max; $old; $oldname; $needold):
+    if ($min == null) or ($max == null) then "\($ctx): needs both min_format and max_format"
+    elif ($min | lo) > ($max | hi) then "\($ctx): min_format is greater than max_format"
+    elif (($min | major) <= 64) or $needold then
+      if ($old | oldrange) == null then "\($ctx): \($oldname) [min, max] is required while format 64 (1.21.7-1.21.8) is supported"
+      elif $old[0] != ($min | major) then "\($ctx): \($oldname) starts at \($old[0]) but min_format at \($min | major)"
+      elif ($old[1] != ($max | major)) and ($old[1] != 64) then "\($ctx): \($oldname) must end at \($max | major) or 64, not \($old[1])"
+      else empty end
+    elif $old != null then "\($ctx): \($oldname) must be removed when only formats above 64 are supported"
+    else empty end;
+  (.pack // {}) as $p
+  | ((.overlays.entries // []) | map(
+        [(.min_format // null | if . == null then 1000000000 else major end),
+         (.formats | oldrange | if . == null then 1000000000 else .[0] end)] | min
+      ) | (min // 1000000000) <= 64) as $overlayneedold
+  | check("pack"; $p.min_format; $p.max_format; $p.supported_formats; "supported_formats"; false),
+    (if (($p.min_format // 65) | major) <= 64 then
+       if ($p.pack_format | type) != "number" then "pack: pack_format is required while format 64 is supported"
+       elif $p.pack_format < ($p.min_format | major) or $p.pack_format > ($p.max_format | major) then "pack: pack_format \($p.pack_format) is outside min_format..max_format"
+       else empty end
+     else empty end),
+    ((.overlays.entries // [])[] |
+       if (.directory | type) != "string" or (.directory | test("^[a-z0-9_.-]+$") | not) then "overlay \(.directory): directory must match [a-z0-9_.-]+"
+       else check("overlay \(.directory)"; .min_format; .max_format; .formats; "formats"; $overlayneedold) end)
+JQ
+
 if [[ -f pack.mcmeta ]]; then
-    jq empty -- pack.mcmeta 2>/dev/null || fails+=('pack.mcmeta is not valid JSON')
+    if jq empty -- pack.mcmeta 2>/dev/null; then
+        while IFS= read -r msg; do
+            [[ -n $msg ]] && fails+=("pack.mcmeta $msg")
+        done < <(jq -r "$JQ_MCMETA" -- pack.mcmeta 2>&1)
+        while IFS= read -r dir; do
+            [[ -n $dir && -d $dir/assets ]] || fails+=("pack.mcmeta overlay directory missing: $dir/assets")
+        done < <(jq -r '.overlays.entries[]?.directory | strings' -- pack.mcmeta)
+    else
+        fails+=('pack.mcmeta is not valid JSON')
+    fi
 else
     fails+=('pack.mcmeta missing')
 fi

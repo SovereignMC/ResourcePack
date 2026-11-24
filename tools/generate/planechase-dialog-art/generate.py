@@ -228,9 +228,33 @@ def euler_zyx(rot: list[float]) -> np.ndarray:
     return rot_matrix("z", z) @ rot_matrix("y", y) @ rot_matrix("x", x)
 
 
-def bb_parent_chains(model: dict) -> dict[str, list[tuple[np.ndarray, np.ndarray]]]:
-    """Element uuid -> (origin, matrix) of its ancestor groups, innermost first; hidden groups drop their elements."""
+ROT_SIGN = 1.0
+
+
+def rest_keyframes(model: dict) -> dict[str, tuple[list[float], list[float]]]:
+    """Group uuid -> (rotation deg, position px) of the `drive` animation at time 0 (linear interpolation, first key if later)."""
+    anims = model.get("animations", [])
+    anim = next((a for a in anims if a.get("name") == "drive"), None)
+    out: dict[str, tuple[list[float], list[float]]] = {}
+    if anim is None:
+        return out
+    for guid, animator in anim.get("animators", {}).items():
+        vals = {"rotation": [0.0, 0.0, 0.0], "position": [0.0, 0.0, 0.0], "scale": [1.0, 1.0, 1.0]}
+        for channel in vals:
+            keys = sorted((k for k in animator.get("keyframes", []) if k.get("channel") == channel),
+                          key=lambda k: float(k.get("time", 0)))
+            if not keys:
+                continue
+            first = keys[0]
+            vals[channel] = [float(first["data_points"][0].get(a, 0) or 0) for a in "xyz"]
+        out[guid] = (vals["rotation"], vals["position"])
+    return out
+
+
+def bb_parent_chains(model: dict) -> dict[str, list[tuple[np.ndarray, np.ndarray, np.ndarray]]]:
+    """Element uuid -> (origin, matrix, translation) of its ancestor groups, innermost first, with the `drive` rest pose applied."""
     groups = {g["uuid"]: g for g in model.get("groups", [])}
+    rest = rest_keyframes(model)
     chains: dict[str, list[tuple[np.ndarray, np.ndarray]]] = {}
 
     def walk(node, chain: list, hidden: bool) -> None:
@@ -239,7 +263,10 @@ def bb_parent_chains(model: dict) -> dict[str, list[tuple[np.ndarray, np.ndarray
             return
         g = {**groups.get(node.get("uuid"), {}), **node}
         hid = hidden or g.get("visibility") is False or g.get("export") is False
-        entry = (np.array(g.get("origin", [0, 0, 0]), dtype=float), euler_zyx(g.get("rotation", [0, 0, 0])))
+        rot, pos = rest.get(g.get("uuid"), ([0.0] * 3, [0.0] * 3))
+        static = np.array(g.get("rotation", [0, 0, 0]), dtype=float)
+        entry = (np.array(g.get("origin", [0, 0, 0]), dtype=float),
+                 euler_zyx(list(static + ROT_SIGN * np.array(rot))), np.array(pos, dtype=float))
         for child in node.get("children", []):
             walk(child, [entry] + chain, hid)
 
@@ -249,7 +276,7 @@ def bb_parent_chains(model: dict) -> dict[str, list[tuple[np.ndarray, np.ndarray
 
 
 def build_quads_bb(assets: Assets, name: str) -> list[Quad]:
-    """Rest pose of a Blockbench bbmodel: cube elements in their group hierarchy, textures embedded."""
+    """Rest pose of a Blockbench bbmodel (the `drive` animation at time 0): cube elements in their group hierarchy, textures embedded."""
     model = assets.bbmodel(name)
     res = model.get("resolution", {"width": 16, "height": 16})
     tex_refs: list[tuple[str, float, float]] = []
@@ -291,8 +318,8 @@ def build_quads_bb(assets: Assets, name: str) -> list[Quad]:
             dv = v_dir * float(np.abs(v_dir) @ size)
             corner = center + n * size / 2 - du / 2 - dv / 2
             normal = n
-            for o, m in mats:
-                corner = o + m @ (corner - o)
+            for o, m, *tr in mats:
+                corner = o + m @ (corner - o) + (tr[0] if tr else 0.0)
                 du, dv, normal = m @ du, m @ dv, m @ normal
             uv = face.get("uv") or [0, 0, uw, vh]
             uv16 = (uv[0] * 16 / uw, uv[1] * 16 / vh, uv[2] * 16 / uw, uv[3] * 16 / vh)

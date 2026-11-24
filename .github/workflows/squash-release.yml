@@ -69,6 +69,12 @@ jobs:
             color_quantization_target = 'none'
             skip_alpha_optimizations = true
 
+            # Version overlays (pack.mcmeta "overlays"): PackSquash only knows the root
+            # assets/ tree and silently drops overlay directories, which shipped the
+            # 1.21.9+ menu blur to 1.21.7-1.21.8. Copy every overlay file as-is.
+            ['format_*/**']
+            force_include = true
+
       - run: "sha1sum /tmp/pack.zip | awk '{ print $1 }' | tr -d \"\n\" > /tmp/hash.txt" # Generate Pack Hash
       
       - name: Stage wiki index

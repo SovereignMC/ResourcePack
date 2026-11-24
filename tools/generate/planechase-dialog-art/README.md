@@ -19,7 +19,8 @@ the same directory (`--bogies-yml` overrides).
 
 - Every bogie's BetterModel source `bbmodels/<name>.bbmodel` (`name` = the `bettermodel:` value of each size in
   `rails/bogies.yml`), id `planechase:bogie_<size>_<style>`. Unlike the item models (frame and wheels only) these
-  carry the full bogie: cylinders, pistons, rods and axles. Rest pose as stored, no animation applied. Only `cube`
+  carry the full bogie: cylinders, pistons, rods and axles. Rest pose is the `drive` animation at time 0 (the stored cubes sit at each part's base origin; the bone rotations of that
+  frame tilt the rods, positions are zero there, wheels are at 0 degrees). Only `cube`
   elements are read (all 27 bogies are cubes only); element `rotation` is Blockbench Euler ZYX about the element
   `origin`, then the `outliner` group origins and rotations, groups or elements with `visibility` / `export` false are
   skipped, faces without a `texture` are hidden, `inflate` is honoured, face `uv` is in pixels of the texture's

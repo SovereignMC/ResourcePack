@@ -1,6 +1,151 @@
 {
-  "textures": {},
-  "elements": [],
+  "textures": {
+    "extras": "planechase:item/bogie/extras",
+    "xl_textures": "planechase:item/bogie/xl_textures",
+    "particle": "planechase:item/bogie/extras"
+  },
+  "elements": [
+    {
+      "from": [
+        9,
+        0,
+        7
+      ],
+      "to": [
+        10,
+        15,
+        9
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            6,
+            2.1429,
+            6.2857
+          ],
+          "texture": "#xl_textures",
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            2.1429,
+            6,
+            0,
+            6.2857
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            2,
+            6.2857,
+            2.1429,
+            6
+          ],
+          "texture": "#xl_textures"
+        },
+        "down": {
+          "uv": [
+            0,
+            6,
+            0.1429,
+            6.2857
+          ],
+          "texture": "#xl_textures"
+        },
+        "south": {
+          "uv": [
+            2.1429,
+            6,
+            0,
+            6.1429
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        },
+        "north": {
+          "uv": [
+            2.1429,
+            6.1429,
+            0,
+            6.2857
+          ],
+          "texture": "#xl_textures",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        4,
+        7
+      ],
+      "to": [
+        9,
+        15,
+        9
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            5.5
+          ],
+          "texture": "#extras"
+        },
+        "west": {
+          "uv": [
+            8.5,
+            0,
+            7.5,
+            5.5
+          ],
+          "texture": "#extras"
+        },
+        "up": {
+          "uv": [
+            15,
+            16,
+            16,
+            15
+          ],
+          "texture": "#extras"
+        },
+        "down": {
+          "uv": [
+            14.5,
+            15,
+            15.5,
+            16
+          ],
+          "texture": "#extras"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            5,
+            5.5
+          ],
+          "texture": "#extras"
+        },
+        "north": {
+          "uv": [
+            4.5,
+            5.5,
+            5.5,
+            11
+          ],
+          "texture": "#extras"
+        }
+      }
+    }
+  ],
   "display": {
     "fixed": {
       "rotation": [
@@ -9,8 +154,8 @@
         0
       ],
       "translation": [
-        0,
-        0,
+        -23,
+        -2,
         0
       ],
       "scale": [
@@ -31,9 +176,9 @@
         0
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "ground": {
@@ -48,9 +193,9 @@
         0
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "head": {
@@ -65,9 +210,9 @@
         0
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "thirdperson_righthand": {
@@ -82,9 +227,9 @@
         0.5
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "thirdperson_lefthand": {
@@ -99,9 +244,9 @@
         0.5
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "firstperson_righthand": {
@@ -116,9 +261,9 @@
         1.13
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     },
     "firstperson_lefthand": {
@@ -133,9 +278,9 @@
         1.13
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.8,
+        0.8,
+        0.8
       ]
     }
   }
