@@ -5,8 +5,9 @@ Generate the Cannons aim markers (item models under `sovereignmc:effect/`).
 Writes textures, item definitions and models for:
 
   muzzle_pointer      Chevron strip drawn along the aim line (same 4-plane cross
-                      as aim_beam).  One 32x32 tile covers ~2 blocks of beam and
-                      shows 2 amber chevrons pointing away from the muzzle.
+                      as aim_beam).  One 32x32 tile covers one segment (about as
+                      long as the pointer is wide) and shows 1 amber chevron
+                      pointing away from the muzzle.
   landing_marker_1..3 A flagpole with a numbered pennant, placed at predicted
                       impact points as a vertical-billboard ItemDisplay.
 
@@ -19,10 +20,12 @@ mapping (FaceBakery), texture +u (to the right) maps to world/model +Z on:
   up    face, rotation 90                : u -> +Z
   down  face, rotation 90                : u -> -Z  (BACKWARDS, so the model uses
                                             rotation 270 for "down": u -> +Z)
-So the chevrons point toward +u (the tile's right) and every face, both sides of
-every plane, shows them pointing forward.  A single texture is used.  The tile
-is vertically symmetric, so v direction does not matter.  Each chevron sits
-inside its own 16 px cell with a 2 px margin, so tiles chain without seams.
+That derivation was wrong in sign: in game (2026-11-24) +u chevrons pointed back
+at the muzzle on every visible plane.  The chevron is therefore drawn toward -u
+(the tile's left), which reads forward in game.  The face table above is kept
+for the relative orientation of the faces (all faces agree with each other).
+A single texture is used.  The tile is vertically symmetric, so v direction
+does not matter, and the chevron keeps a margin so tiles chain without seams.
 
 --- Landing marker: geometry and translation ------------------------------------
 Model: one plane [0,0,8] -> [16,32,8] (16 wide, 32 tall), faces north and south
@@ -94,13 +97,13 @@ def _shade(img: Image.Image, mask: Image.Image, core, edge, outline) -> None:
 
 
 def build_pointer() -> Image.Image:
-    """32x32 tile: two forward (+u) chevrons, one per 16 px cell."""
-    mask = Image.new("L", (32, 32), 0)
-    for cell in (0, 16):
-        x0 = cell + 3
-        pts = [(x0, 4), (x0 + 5, 4), (x0 + 10, 15), (x0 + 10, 16),
-               (x0 + 5, 27), (x0, 27), (x0 + 5, 16), (x0 + 5, 15)]
-        mask.paste(_mask_from_polygon((32, 32), pts), mask=_mask_from_polygon((32, 32), pts))
+    """32x32 tile: one square-proportioned chevron with its tip toward -u.
+
+    The plugin sizes each segment so it is about as long as the pointer is wide,
+    so one tile = one undistorted chevron.  In game the +u chevrons of the first
+    version pointed back at the gun, so the tip is drawn toward -u (tile left)."""
+    pts = [(27, 3), (17, 3), (5, 15), (5, 16), (17, 28), (27, 28), (17, 16), (17, 15)]
+    mask = _mask_from_polygon((32, 32), pts)
     img = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
     _shade(img, mask, AMBER_CORE, AMBER_EDGE, OUTLINE)
     return img
