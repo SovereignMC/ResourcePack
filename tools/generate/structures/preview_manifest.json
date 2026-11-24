@@ -1,6 +1,6 @@
 {
   "font": "sovereignmc:structure_preview",
-  "strip_height": 72,
+  "strip_height": 9,
   "styles": [
     "blocky",
     "industrial"
@@ -152,35 +152,544 @@
       "blocky": [
         {
           "char": "\ue000",
+          "x": 0,
           "y": 0,
-          "height": 72
+          "width": 180,
+          "height": 9
         },
         {
           "char": "\ue001",
-          "y": 72,
-          "height": 72
+          "x": 180,
+          "y": 0,
+          "width": 180,
+          "height": 9
         },
         {
           "char": "\ue002",
+          "x": 0,
+          "y": 9,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue003",
+          "x": 180,
+          "y": 9,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue004",
+          "x": 0,
+          "y": 18,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue005",
+          "x": 180,
+          "y": 18,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue006",
+          "x": 0,
+          "y": 27,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue007",
+          "x": 180,
+          "y": 27,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue008",
+          "x": 0,
+          "y": 36,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue009",
+          "x": 180,
+          "y": 36,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00a",
+          "x": 0,
+          "y": 45,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00b",
+          "x": 180,
+          "y": 45,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00c",
+          "x": 180,
+          "y": 54,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00d",
+          "x": 0,
+          "y": 63,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00e",
+          "x": 180,
+          "y": 63,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue00f",
+          "x": 0,
+          "y": 72,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue010",
+          "x": 180,
+          "y": 72,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue011",
+          "x": 0,
+          "y": 81,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue012",
+          "x": 180,
+          "y": 81,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue013",
+          "x": 0,
+          "y": 90,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue014",
+          "x": 180,
+          "y": 90,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue015",
+          "x": 0,
+          "y": 99,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue016",
+          "x": 180,
+          "y": 99,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue017",
+          "x": 0,
+          "y": 108,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue018",
+          "x": 180,
+          "y": 108,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue019",
+          "x": 0,
+          "y": 117,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01a",
+          "x": 0,
+          "y": 126,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01b",
+          "x": 180,
+          "y": 126,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01c",
+          "x": 0,
+          "y": 135,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01d",
+          "x": 180,
+          "y": 135,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01e",
+          "x": 0,
           "y": 144,
-          "height": 36
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue01f",
+          "x": 180,
+          "y": 144,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue020",
+          "x": 0,
+          "y": 153,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue021",
+          "x": 180,
+          "y": 153,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue022",
+          "x": 0,
+          "y": 162,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue023",
+          "x": 180,
+          "y": 162,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue024",
+          "x": 0,
+          "y": 171,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue025",
+          "x": 180,
+          "y": 171,
+          "width": 180,
+          "height": 9
         }
       ],
       "industrial": [
         {
-          "char": "\ue008",
+          "char": "\ue080",
+          "x": 0,
           "y": 0,
-          "height": 72
+          "width": 180,
+          "height": 9
         },
         {
-          "char": "\ue009",
+          "char": "\ue081",
+          "x": 180,
+          "y": 0,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue082",
+          "x": 0,
+          "y": 9,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue083",
+          "x": 180,
+          "y": 9,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue084",
+          "x": 0,
+          "y": 18,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue085",
+          "x": 180,
+          "y": 18,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue086",
+          "x": 0,
+          "y": 27,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue087",
+          "x": 180,
+          "y": 27,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue088",
+          "x": 0,
+          "y": 36,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue089",
+          "x": 180,
+          "y": 36,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08a",
+          "x": 0,
+          "y": 45,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08b",
+          "x": 180,
+          "y": 45,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08c",
+          "x": 180,
+          "y": 54,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08d",
+          "x": 0,
+          "y": 63,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08e",
+          "x": 180,
+          "y": 63,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue08f",
+          "x": 0,
           "y": 72,
-          "height": 72
+          "width": 180,
+          "height": 9
         },
         {
-          "char": "\ue00a",
+          "char": "\ue090",
+          "x": 180,
+          "y": 72,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue091",
+          "x": 0,
+          "y": 81,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue092",
+          "x": 180,
+          "y": 81,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue093",
+          "x": 0,
+          "y": 90,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue094",
+          "x": 180,
+          "y": 90,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue095",
+          "x": 0,
+          "y": 99,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue096",
+          "x": 180,
+          "y": 99,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue097",
+          "x": 0,
+          "y": 108,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue098",
+          "x": 180,
+          "y": 108,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue099",
+          "x": 0,
+          "y": 117,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09a",
+          "x": 180,
+          "y": 117,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09b",
+          "x": 0,
+          "y": 126,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09c",
+          "x": 180,
+          "y": 126,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09d",
+          "x": 0,
+          "y": 135,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09e",
+          "x": 180,
+          "y": 135,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue09f",
+          "x": 0,
           "y": 144,
-          "height": 36
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a0",
+          "x": 180,
+          "y": 144,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a1",
+          "x": 0,
+          "y": 153,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a2",
+          "x": 180,
+          "y": 153,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a3",
+          "x": 0,
+          "y": 162,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a4",
+          "x": 180,
+          "y": 162,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a5",
+          "x": 0,
+          "y": 171,
+          "width": 180,
+          "height": 9
+        },
+        {
+          "char": "\ue0a6",
+          "x": 180,
+          "y": 171,
+          "width": 180,
+          "height": 9
         }
       ]
     }
@@ -192,412 +701,3852 @@
       "blocky": {
         "armoury": [
           {
-            "char": "\ue100",
+            "char": "\ue800",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue101",
+            "char": "\ue801",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue802",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue803",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue804",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue805",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue806",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue807",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue808",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue809",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue80f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "concrete_mixer": [
           {
-            "char": "\ue102",
+            "char": "\ue820",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue103",
+            "char": "\ue821",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue822",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue823",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue824",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue825",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue826",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue827",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue828",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue829",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue82f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "crop_farm": [
           {
-            "char": "\ue104",
+            "char": "\ue840",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue105",
+            "char": "\ue841",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue842",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue843",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue844",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue845",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue846",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue847",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue848",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue849",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue84f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "crusher": [
           {
-            "char": "\ue106",
+            "char": "\ue860",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue107",
+            "char": "\ue861",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue862",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue863",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue864",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue865",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue866",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue867",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue868",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue869",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue86f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "deep_mine": [
           {
-            "char": "\ue108",
+            "char": "\ue880",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue109",
+            "char": "\ue881",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue882",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue883",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue884",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue885",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue886",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue887",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue888",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue889",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue88f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "electrolysis": [
           {
-            "char": "\ue10a",
+            "char": "\ue8a0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue10b",
+            "char": "\ue8a1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8a9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8aa",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ab",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ac",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ad",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ae",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8af",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "enchantment_centrifuge": [
           {
-            "char": "\ue10c",
+            "char": "\ue8c0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue10d",
+            "char": "\ue8c1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8c9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ca",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8cb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8cc",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8cd",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ce",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8cf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "mud_pit": [
           {
-            "char": "\ue10e",
+            "char": "\ue8e0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue10f",
+            "char": "\ue8e1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8e9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ea",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8eb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ec",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ed",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ee",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue8ef",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "munitions_factory": [
           {
-            "char": "\ue110",
+            "char": "\ue900",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue111",
+            "char": "\ue901",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue902",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue903",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue904",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue905",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue906",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue907",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue908",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue909",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue90f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "power_plant": [
           {
-            "char": "\ue112",
+            "char": "\ue920",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue113",
+            "char": "\ue921",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue922",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue923",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue924",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue925",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue926",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue927",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue928",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue929",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue92f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "quarry": [
           {
-            "char": "\ue114",
-            "y": 0,
-            "height": 72
+            "char": "\ue940",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue115",
+            "char": "\ue941",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue942",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue943",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue944",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue945",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue946",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue947",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue948",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue949",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue94a",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue94b",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue94c",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue94d",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
           }
         ],
         "sawmill": [
           {
-            "char": "\ue116",
+            "char": "\ue960",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue117",
+            "char": "\ue961",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue962",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue963",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue964",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue965",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue966",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue967",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue968",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue969",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue96f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "sigil_altar": [
           {
-            "char": "\ue118",
+            "char": "\ue980",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue119",
+            "char": "\ue981",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue982",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue983",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue984",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue985",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue986",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue987",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue988",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue989",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue98f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "smelter": [
           {
-            "char": "\ue11a",
+            "char": "\ue9a0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue11b",
+            "char": "\ue9a1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9a9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9aa",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ab",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ac",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ad",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ae",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9af",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "town_hall": [
           {
-            "char": "\ue11c",
+            "char": "\ue9c0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue11d",
+            "char": "\ue9c1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9c9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ca",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9cb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9cc",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9cd",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ce",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9cf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "woodcutter": [
           {
-            "char": "\ue11e",
+            "char": "\ue9e0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue11f",
+            "char": "\ue9e1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9e9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ea",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9eb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ec",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ed",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ee",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ue9ef",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "workshop": [
           {
-            "char": "\ue120",
+            "char": "\uea00",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue121",
+            "char": "\uea01",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea02",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea03",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea04",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea05",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea06",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea07",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea08",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea09",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea0f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ]
       },
       "industrial": {
         "armoury": [
           {
-            "char": "\ue122",
+            "char": "\uea20",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue123",
+            "char": "\uea21",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea22",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea23",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea24",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea25",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea26",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea27",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea28",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea29",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea2f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "concrete_mixer": [
           {
-            "char": "\ue124",
+            "char": "\uea40",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue125",
+            "char": "\uea41",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea42",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea43",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea44",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea45",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea46",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea47",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea48",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea49",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea4f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "crop_farm": [
           {
-            "char": "\ue126",
+            "char": "\uea60",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue127",
+            "char": "\uea61",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea62",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea63",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea64",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea65",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea66",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea67",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea68",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea69",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea6f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "crusher": [
           {
-            "char": "\ue128",
+            "char": "\uea80",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue129",
+            "char": "\uea81",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea82",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea83",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea84",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea85",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea86",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea87",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea88",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea89",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uea8f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "deep_mine": [
           {
-            "char": "\ue12a",
+            "char": "\ueaa0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue12b",
+            "char": "\ueaa1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaa9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaaa",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaab",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaac",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaad",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaae",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaaf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "electrolysis": [
           {
-            "char": "\ue12c",
+            "char": "\ueac0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue12d",
+            "char": "\ueac1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueac9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaca",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueacb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueacc",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueacd",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueace",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueacf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "enchantment_centrifuge": [
           {
-            "char": "\ue12e",
+            "char": "\ueae0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue12f",
+            "char": "\ueae1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueae9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaea",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaeb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaec",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaed",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaee",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueaef",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "mud_pit": [
           {
-            "char": "\ue130",
+            "char": "\ueb00",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue131",
+            "char": "\ueb01",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb02",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb03",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb04",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb05",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb06",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb07",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb08",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb09",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb0f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "munitions_factory": [
           {
-            "char": "\ue132",
+            "char": "\ueb20",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue133",
+            "char": "\ueb21",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb22",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb23",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb24",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb25",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb26",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb27",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb28",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb29",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb2f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "power_plant": [
           {
-            "char": "\ue134",
+            "char": "\ueb40",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue135",
+            "char": "\ueb41",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb42",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb43",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb44",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb45",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb46",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb47",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb48",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb49",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb4f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "quarry": [
           {
-            "char": "\ue136",
+            "char": "\ueb60",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue137",
+            "char": "\ueb61",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb62",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb63",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb64",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb65",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb66",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb67",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb68",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb69",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb6f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "sawmill": [
           {
-            "char": "\ue138",
-            "y": 0,
-            "height": 72
+            "char": "\ueb80",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue139",
+            "char": "\ueb81",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb82",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb83",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb84",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb85",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb86",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb87",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb88",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb89",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb8a",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb8b",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb8c",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueb8d",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
           }
         ],
         "sigil_altar": [
           {
-            "char": "\ue13a",
+            "char": "\ueba0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue13b",
+            "char": "\ueba1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\ueba9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebaa",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebab",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebac",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebad",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebae",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebaf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "smelter": [
           {
-            "char": "\ue13c",
+            "char": "\uebc0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue13d",
+            "char": "\uebc1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebc9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebca",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebcb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebcc",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebcd",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebce",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebcf",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "town_hall": [
           {
-            "char": "\ue13e",
+            "char": "\uebe0",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue13f",
+            "char": "\uebe1",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe2",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe3",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe4",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe5",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe6",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe7",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe8",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebe9",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebea",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebeb",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebec",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebed",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebee",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uebef",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "woodcutter": [
           {
-            "char": "\ue140",
+            "char": "\uec00",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue141",
+            "char": "\uec01",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec02",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec03",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec04",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec05",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec06",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec07",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec08",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec09",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec0f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ],
         "workshop": [
           {
-            "char": "\ue142",
+            "char": "\uec20",
+            "x": 0,
             "y": 0,
-            "height": 72
+            "width": 144,
+            "height": 9
           },
           {
-            "char": "\ue143",
+            "char": "\uec21",
+            "x": 0,
+            "y": 9,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec22",
+            "x": 0,
+            "y": 18,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec23",
+            "x": 0,
+            "y": 27,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec24",
+            "x": 0,
+            "y": 36,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec25",
+            "x": 0,
+            "y": 45,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec26",
+            "x": 0,
+            "y": 54,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec27",
+            "x": 0,
+            "y": 63,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec28",
+            "x": 0,
             "y": 72,
-            "height": 72
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec29",
+            "x": 0,
+            "y": 81,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2a",
+            "x": 0,
+            "y": 90,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2b",
+            "x": 0,
+            "y": 99,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2c",
+            "x": 0,
+            "y": 108,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2d",
+            "x": 0,
+            "y": 117,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2e",
+            "x": 0,
+            "y": 126,
+            "width": 144,
+            "height": 9
+          },
+          {
+            "char": "\uec2f",
+            "x": 0,
+            "y": 135,
+            "width": 144,
+            "height": 9
           }
         ]
       }

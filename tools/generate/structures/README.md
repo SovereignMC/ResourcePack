@@ -124,11 +124,15 @@ python3 tools/generate/structures/previews.py            # blocky + industrial (
 
 Renders `iso_ne` of each family (running at t=0 when present, else the rest pose); montage = 6x3 cells of
 60x60 with one shared scale per style, hero = 144x144 fitted
-per machine; both are cut into strips of at most 72 px. Writes `assets/sovereignmc/textures/font/structure_preview/*.png`,
-`assets/sovereignmc/font/structure_preview.json` (bitmap, ascent 7, height = strip height) and
-`tools/generate/structures/preview_manifest.json` (format in the plan). Output is deterministic and committed,
-like the gui_skins font. Codepoints: montage `U+E000 + style*8 + strip`, hero
-`U+E100 + (style*17 + family)*2 + strip`; hero codepoints of missing models stay reserved and their strip
+per machine. Each image is one PNG cut into a grid of one-line tiles (9 px tall; montage 180 px, hero 144 px
+wide) declared by one bitmap provider with a `chars` grid (`\u0000` = empty tile). Why: the client stitches glyphs
+into 256x256 pages (wider glyphs show as missing boxes), and a dialog paints line by line, so a glyph taller than
+a line is overpainted by panels on later lines. The last column of every tile carries one alpha-1 texel so the glyph
+advances exactly width + 1 (a bitmap glyph's advance follows its rightmost non-transparent column). Writes
+`assets/sovereignmc/textures/font/structure_preview/*.png`, `assets/sovereignmc/font/structure_preview.json`
+(ascent 7, height 9) and `tools/generate/structures/preview_manifest.json` (each tile: char, x, y, width, height).
+Output is deterministic and committed, like the gui_skins font. Codepoints: montage `U+E000 + style*0x80 + tile`,
+hero `U+E800 + (style*families + family)*32 + tile`; hero codepoints of missing models stay reserved and their tile
 list is empty. Re-run after any model change and commit the output.
 
 **Only the coordinator runs `previews.py`** (it writes the shared font, PNGs and manifest). Everyone else may
