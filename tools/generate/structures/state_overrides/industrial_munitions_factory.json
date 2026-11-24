@@ -1,0 +1,14 @@
+{
+  "input_bones": [
+    "shells",
+    "shells_e",
+    "shells_s",
+    "shells_w"
+  ],
+  "output_bones": [
+    "crate",
+    "crate_e",
+    "crate_s",
+    "crate_w"
+  ]
+}

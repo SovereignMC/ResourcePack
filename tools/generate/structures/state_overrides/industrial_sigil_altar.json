@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "orb"
+  ],
+  "output_bones": [
+    "cell",
+    "cell_1",
+    "cell_2",
+    "cell_3"
+  ]
+}

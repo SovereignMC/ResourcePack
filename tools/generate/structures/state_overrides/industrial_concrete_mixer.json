@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "bags_n",
+    "bags_n_e",
+    "bags_n_s",
+    "bags_n_w"
+  ],
+  "output_bones": [
+    "drum"
+  ]
+}

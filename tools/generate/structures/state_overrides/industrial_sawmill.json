@@ -1,0 +1,14 @@
+{
+  "input_bones": [
+    "carriage",
+    "carriage_e",
+    "carriage_s",
+    "carriage_w"
+  ],
+  "output_bones": [
+    "planks",
+    "planks_e",
+    "planks_s",
+    "planks_w"
+  ]
+}

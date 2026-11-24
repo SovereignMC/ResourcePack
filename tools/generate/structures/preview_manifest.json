@@ -1,0 +1,606 @@
+{
+  "font": "sovereignmc:structure_preview",
+  "strip_height": 72,
+  "styles": [
+    "blocky",
+    "industrial"
+  ],
+  "families": [
+    "armoury",
+    "concrete_mixer",
+    "crop_farm",
+    "crusher",
+    "deep_mine",
+    "electrolysis",
+    "enchantment_centrifuge",
+    "mud_pit",
+    "munitions_factory",
+    "power_plant",
+    "quarry",
+    "sawmill",
+    "sigil_altar",
+    "smelter",
+    "town_hall",
+    "woodcutter",
+    "workshop"
+  ],
+  "montage": {
+    "width": 360,
+    "height": 180,
+    "cells": [
+      {
+        "family": "armoury",
+        "x": 0,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "concrete_mixer",
+        "x": 60,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "crop_farm",
+        "x": 120,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "crusher",
+        "x": 180,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "deep_mine",
+        "x": 240,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "electrolysis",
+        "x": 300,
+        "y": 0,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "enchantment_centrifuge",
+        "x": 0,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "mud_pit",
+        "x": 60,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "munitions_factory",
+        "x": 120,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "power_plant",
+        "x": 180,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "quarry",
+        "x": 240,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "sawmill",
+        "x": 300,
+        "y": 60,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "sigil_altar",
+        "x": 0,
+        "y": 120,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "smelter",
+        "x": 60,
+        "y": 120,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "town_hall",
+        "x": 120,
+        "y": 120,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "woodcutter",
+        "x": 180,
+        "y": 120,
+        "w": 60,
+        "h": 60
+      },
+      {
+        "family": "workshop",
+        "x": 240,
+        "y": 120,
+        "w": 60,
+        "h": 60
+      }
+    ],
+    "strips": {
+      "blocky": [
+        {
+          "char": "\ue000",
+          "y": 0,
+          "height": 72
+        },
+        {
+          "char": "\ue001",
+          "y": 72,
+          "height": 72
+        },
+        {
+          "char": "\ue002",
+          "y": 144,
+          "height": 36
+        }
+      ],
+      "industrial": [
+        {
+          "char": "\ue008",
+          "y": 0,
+          "height": 72
+        },
+        {
+          "char": "\ue009",
+          "y": 72,
+          "height": 72
+        },
+        {
+          "char": "\ue00a",
+          "y": 144,
+          "height": 36
+        }
+      ]
+    }
+  },
+  "hero": {
+    "width": 144,
+    "height": 144,
+    "strips": {
+      "blocky": {
+        "armoury": [
+          {
+            "char": "\ue100",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue101",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "concrete_mixer": [
+          {
+            "char": "\ue102",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue103",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "crop_farm": [
+          {
+            "char": "\ue104",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue105",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "crusher": [
+          {
+            "char": "\ue106",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue107",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "deep_mine": [
+          {
+            "char": "\ue108",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue109",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "electrolysis": [
+          {
+            "char": "\ue10a",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue10b",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "enchantment_centrifuge": [
+          {
+            "char": "\ue10c",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue10d",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "mud_pit": [
+          {
+            "char": "\ue10e",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue10f",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "munitions_factory": [
+          {
+            "char": "\ue110",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue111",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "power_plant": [
+          {
+            "char": "\ue112",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue113",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "quarry": [
+          {
+            "char": "\ue114",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue115",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "sawmill": [
+          {
+            "char": "\ue116",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue117",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "sigil_altar": [
+          {
+            "char": "\ue118",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue119",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "smelter": [
+          {
+            "char": "\ue11a",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue11b",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "town_hall": [
+          {
+            "char": "\ue11c",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue11d",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "woodcutter": [
+          {
+            "char": "\ue11e",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue11f",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "workshop": [
+          {
+            "char": "\ue120",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue121",
+            "y": 72,
+            "height": 72
+          }
+        ]
+      },
+      "industrial": {
+        "armoury": [
+          {
+            "char": "\ue122",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue123",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "concrete_mixer": [
+          {
+            "char": "\ue124",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue125",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "crop_farm": [
+          {
+            "char": "\ue126",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue127",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "crusher": [
+          {
+            "char": "\ue128",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue129",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "deep_mine": [
+          {
+            "char": "\ue12a",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue12b",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "electrolysis": [
+          {
+            "char": "\ue12c",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue12d",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "enchantment_centrifuge": [
+          {
+            "char": "\ue12e",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue12f",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "mud_pit": [
+          {
+            "char": "\ue130",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue131",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "munitions_factory": [
+          {
+            "char": "\ue132",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue133",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "power_plant": [
+          {
+            "char": "\ue134",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue135",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "quarry": [
+          {
+            "char": "\ue136",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue137",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "sawmill": [
+          {
+            "char": "\ue138",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue139",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "sigil_altar": [
+          {
+            "char": "\ue13a",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue13b",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "smelter": [
+          {
+            "char": "\ue13c",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue13d",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "town_hall": [
+          {
+            "char": "\ue13e",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue13f",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "woodcutter": [
+          {
+            "char": "\ue140",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue141",
+            "y": 72,
+            "height": 72
+          }
+        ],
+        "workshop": [
+          {
+            "char": "\ue142",
+            "y": 0,
+            "height": 72
+          },
+          {
+            "char": "\ue143",
+            "y": 72,
+            "height": 72
+          }
+        ]
+      }
+    }
+  }
+}

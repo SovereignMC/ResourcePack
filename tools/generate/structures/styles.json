@@ -1,0 +1,11 @@
+{
+  "styles": [
+    {"id": "blocky", "name": "Blocky", "model_prefix": "structure_"},
+    {"id": "industrial", "name": "Industrial", "model_prefix": "structure_industrial_"}
+  ],
+  "families": [
+    "armoury", "concrete_mixer", "crop_farm", "crusher", "deep_mine", "electrolysis",
+    "enchantment_centrifuge", "mud_pit", "munitions_factory", "power_plant", "quarry", "sawmill",
+    "sigil_altar", "smelter", "town_hall", "woodcutter", "workshop"
+  ]
+}

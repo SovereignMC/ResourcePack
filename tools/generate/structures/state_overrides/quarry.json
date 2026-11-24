@@ -1,0 +1,19 @@
+{
+  "input_bones": [
+    "wheel",
+    "wheel_e",
+    "wheel_s",
+    "wheel_w"
+  ],
+  "output_bones": [
+    "boom",
+    "boom_e",
+    "boom_s",
+    "boom_w"
+  ],
+  "lamp_at": [
+    0,
+    0,
+    19.0
+  ]
+}

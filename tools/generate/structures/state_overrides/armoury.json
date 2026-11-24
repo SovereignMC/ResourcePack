@@ -1,0 +1,4 @@
+{
+  "input_bones": ["armour_stand"],
+  "output_bones": ["hammer", "hammer_e", "hammer_s", "hammer_w"]
+}

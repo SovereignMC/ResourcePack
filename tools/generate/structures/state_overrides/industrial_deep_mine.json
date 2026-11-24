@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "kelly"
+  ],
+  "output_bones": [
+    "side_n",
+    "side_n_e",
+    "side_n_s",
+    "side_n_w"
+  ]
+}

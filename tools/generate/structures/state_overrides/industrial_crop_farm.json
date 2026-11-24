@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "sprinkler"
+  ],
+  "output_bones": [
+    "crop_n",
+    "crop_n_e",
+    "crop_n_s",
+    "crop_n_w"
+  ]
+}

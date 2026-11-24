@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "carousel"
+  ],
+  "output_bones": [
+    "chest_n",
+    "chest_n_e",
+    "chest_n_s",
+    "chest_n_w"
+  ]
+}

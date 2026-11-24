@@ -1,0 +1,14 @@
+{
+  "input_bones": [
+    "hop_n",
+    "hop_n_e",
+    "hop_n_s",
+    "hop_n_w"
+  ],
+  "output_bones": [
+    "side_n",
+    "side_n_e",
+    "side_n_s",
+    "side_n_w"
+  ]
+}

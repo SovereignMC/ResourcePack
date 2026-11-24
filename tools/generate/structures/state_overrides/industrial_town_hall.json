@@ -1,0 +1,14 @@
+{
+  "input_bones": [
+    "door_n",
+    "door_n_e",
+    "door_n_s",
+    "door_n_w"
+  ],
+  "output_bones": [
+    "flag",
+    "flag_1",
+    "flag_2",
+    "flag_3"
+  ]
+}

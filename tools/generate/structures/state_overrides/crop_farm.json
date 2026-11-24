@@ -1,0 +1,4 @@
+{
+  "input_bones": ["pump_rod"],
+  "output_bones": ["wheat_0_1", "wheat_0_1_e", "wheat_0_1_s", "wheat_0_1_w"]
+}

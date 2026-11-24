@@ -1,0 +1,14 @@
+{
+  "input_bones": [
+    "cutter",
+    "cutter_e",
+    "cutter_s",
+    "cutter_w"
+  ],
+  "output_bones": [
+    "heap",
+    "heap_e",
+    "heap_s",
+    "heap_w"
+  ]
+}

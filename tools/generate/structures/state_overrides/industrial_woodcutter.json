@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "trunk"
+  ],
+  "output_bones": [
+    "crate_n",
+    "crate_n_e",
+    "crate_n_s",
+    "crate_n_w"
+  ]
+}

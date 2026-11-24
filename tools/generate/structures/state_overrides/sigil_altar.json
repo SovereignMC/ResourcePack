@@ -1,0 +1,5 @@
+{
+  "input_bones": ["orb"],
+  "output_bones": ["tomes"],
+  "lamp_at": [0, 0, 35]
+}

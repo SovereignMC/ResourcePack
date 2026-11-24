@@ -1,0 +1,4 @@
+{
+  "input_bones": ["tree"],
+  "output_bones": ["log_halves", "log_halves_e", "log_halves_s", "log_halves_w"]
+}

@@ -1,0 +1,16 @@
+{
+  "input_bones": [
+    "log",
+    "log_e",
+    "log_s",
+    "log_w"
+  ],
+  "output_bones": [
+    "plank_pile"
+  ],
+  "lamp_at": [
+    0,
+    0,
+    33.3
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "input_bones": [
+    "elec_n",
+    "elec_n_e",
+    "elec_n_s",
+    "elec_n_w"
+  ],
+  "output_bones": [
+    "coll"
+  ]
+}

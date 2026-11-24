@@ -1,0 +1,4 @@
+{
+  "input_bones": ["drum_tilt"],
+  "output_bones": ["drum"]
+}

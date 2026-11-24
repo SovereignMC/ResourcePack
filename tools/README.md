@@ -10,7 +10,8 @@ tools/
 │   ├── bettermodel/   BetterModel -> assets/bettermodel release pipeline
 │   ├── effects/       Aim beam and explosion particle art
 │   ├── gui/           GUI skins and dialogue-panel art
-│   └── items/         Flag holder textures
+│   ├── items/         Flag holder textures
+│   └── structures/    Structure bbmodel renderer, state-animation injector, preview font
 ├── verify/            Pack and Argentum integrity checks
 ├── render/            Offline Minecraft text renderer and metric reference
 ├── migrate/           One-shot Argentum texture migration
@@ -30,6 +31,7 @@ python3 tools/generate/effects/explosion_textures.py --src <frames> --pack-dir .
 python3 tools/generate/gui/menu_background.py --pack-dir . [--client-jar JAR]
 node tools/generate/gui/skins/generate.mjs
 python3 tools/generate/items/flag_holder_textures.py --pack-dir .
+python3 tools/generate/structures/previews.py --pack-dir .
 tools/generate/bettermodel/generate.sh
 ```
 

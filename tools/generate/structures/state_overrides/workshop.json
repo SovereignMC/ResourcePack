@@ -1,0 +1,4 @@
+{
+  "input_bones": ["lathe_spindle", "lathe_spindle_e", "lathe_spindle_s", "lathe_spindle_w"],
+  "output_bones": ["toolbox_bone", "toolbox_bone_e", "toolbox_bone_s", "toolbox_bone_w"]
+}
