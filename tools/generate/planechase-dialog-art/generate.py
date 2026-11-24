@@ -2,7 +2,7 @@
 """
 Pre-renders every PlaneChase bogie and rail piece as custom-font glyph art for SovereignTinsel dialogs.
 
-Reads the bogie item models named by PlaneChase rails/bogies.yml and the four rail piece item models,
+Reads the bogie bbmodels (bettermodel names in PlaneChase rails/bogies.yml) and the four rail piece item models,
 renders each with a small numpy z-buffer rasteriser (orthographic 3/4 view, nearest texture sampling,
 alpha cutout, Minecraft-style face shading) and writes:
 
@@ -22,6 +22,7 @@ Example:
 from __future__ import annotations
 
 import argparse
+import base64
 import io
 import json
 import math
@@ -99,6 +100,12 @@ class Assets:
             f = self.root / "assets" / (ns or "minecraft") / "models" / f"{path}.json"
             self.models[key] = json.loads(f.read_text("utf-8")) if f.is_file() else None
         return self.models[key]
+
+    def bbmodel(self, name: str) -> dict:
+        f = self.root / "bbmodels" / f"{name}.bbmodel"
+        if not f.is_file():
+            raise SystemExit(f"bbmodel not found: {f}")
+        return json.loads(f.read_text("utf-8"))
 
     def resolve(self, ref: str) -> tuple[list[dict], dict[str, str], bool]:
         """Elements, merged textures and whether the chain ends in item/generated."""
@@ -215,13 +222,94 @@ def build_quads(assets: Assets, ref: str) -> tuple[list[Quad], bool]:
     return quads, False
 
 
+def euler_zyx(rot: list[float]) -> np.ndarray:
+    """Blockbench Euler order ZYX: matrix Rz @ Ry @ Rx, angles in degrees."""
+    x, y, z = (math.radians(a) for a in rot)
+    return rot_matrix("z", z) @ rot_matrix("y", y) @ rot_matrix("x", x)
+
+
+def bb_parent_chains(model: dict) -> dict[str, list[tuple[np.ndarray, np.ndarray]]]:
+    """Element uuid -> (origin, matrix) of its ancestor groups, innermost first; hidden groups drop their elements."""
+    groups = {g["uuid"]: g for g in model.get("groups", [])}
+    chains: dict[str, list[tuple[np.ndarray, np.ndarray]]] = {}
+
+    def walk(node, chain: list, hidden: bool) -> None:
+        if isinstance(node, str):
+            chains[node] = None if hidden else list(chain)
+            return
+        g = {**groups.get(node.get("uuid"), {}), **node}
+        hid = hidden or g.get("visibility") is False or g.get("export") is False
+        entry = (np.array(g.get("origin", [0, 0, 0]), dtype=float), euler_zyx(g.get("rotation", [0, 0, 0])))
+        for child in node.get("children", []):
+            walk(child, [entry] + chain, hid)
+
+    for node in model.get("outliner", []):
+        walk(node, [], False)
+    return chains
+
+
+def build_quads_bb(assets: Assets, name: str) -> list[Quad]:
+    """Rest pose of a Blockbench bbmodel: cube elements in their group hierarchy, textures embedded."""
+    model = assets.bbmodel(name)
+    res = model.get("resolution", {"width": 16, "height": 16})
+    tex_refs: list[tuple[str, float, float]] = []
+    for i, t in enumerate(model.get("textures", [])):
+        ref = f"bbmodel_{name}:{i}"
+        src = t.get("source", "")
+        if src.startswith("data:") and ";base64," in src:
+            im = Image.open(io.BytesIO(base64.b64decode(src.split(";base64,", 1)[1]))).convert("RGBA")
+            assets.textures[ref] = np.asarray(im, dtype=np.uint8)
+        else:
+            warn(f"{name}: texture {i} has no embedded source")
+            assets.textures[ref] = None
+        tex_refs.append((ref, float(t.get("uv_width") or res["width"]), float(t.get("uv_height") or res["height"])))
+    chains = bb_parent_chains(model)
+    quads: list[Quad] = []
+    for el in model["elements"]:
+        if el.get("type", "cube") != "cube":
+            warn(f"{name}: skipped non-cube element type {el.get('type')}")
+            continue
+        if el.get("export") is False or el.get("visibility") is False:
+            continue
+        chain = chains.get(el["uuid"], [])
+        if chain is None:
+            continue
+        inflate = float(el.get("inflate", 0) or 0)
+        f = np.array(el["from"], dtype=float) - inflate
+        t = np.array(el["to"], dtype=float) + inflate
+        size = t - f
+        center = (f + t) / 2
+        eo = np.array(el.get("origin", [0, 0, 0]), dtype=float)
+        mats = [(eo, euler_zyx(el.get("rotation", [0, 0, 0])))] + chain
+        for fname, face in el.get("faces", {}).items():
+            tidx = face.get("texture")
+            if fname not in FACES or tidx is None or tidx >= len(tex_refs):
+                continue
+            ref, uw, vh = tex_refs[tidx]
+            n, u_dir, v_dir = (np.array(a, dtype=float) for a in FACES[fname])
+            du = u_dir * float(np.abs(u_dir) @ size)
+            dv = v_dir * float(np.abs(v_dir) @ size)
+            corner = center + n * size / 2 - du / 2 - dv / 2
+            normal = n
+            for o, m in mats:
+                corner = o + m @ (corner - o)
+                du, dv, normal = m @ du, m @ dv, m @ normal
+            uv = face.get("uv") or [0, 0, uw, vh]
+            uv16 = (uv[0] * 16 / uw, uv[1] * 16 / vh, uv[2] * 16 / uw, uv[3] * 16 / vh)
+            quads.append(Quad(corner, du, dv, normal, uv16, int(face.get("rotation", 0)) % 360, ref))
+    return quads
+
+
 def shade_of(n: np.ndarray) -> float:
     x2, y2, z2 = n[0] ** 2, n[1] ** 2, n[2] ** 2
     return float(0.6 * x2 + 0.8 * z2 + (1.0 if n[1] > 0 else 0.5) * y2)
 
 
 def render(assets: Assets, ref: str, out_w: int, out_h: int) -> Image.Image:
-    quads, flat = build_quads(assets, ref)
+    if ref.startswith("bbmodel:"):
+        quads, flat = build_quads_bb(assets, ref.split(":", 1)[1]), False
+    else:
+        quads, flat = build_quads(assets, ref)
     if not quads:
         raise RuntimeError(f"{ref}: nothing to render")
     view = np.eye(3) if flat else rot_matrix("x", PITCH) @ rot_matrix("y", YAW)
@@ -325,7 +413,7 @@ def build_sheet(rendered: Image.Image, gui_w: int, gui_h: int) -> tuple[Image.Im
 
 
 def read_bogies(yml: Path) -> list[tuple[str, str]]:
-    """(id, item model ref) for every style and size of bogies.yml."""
+    """(id, "bbmodel:<bettermodel name>") for every style and size of bogies.yml."""
     out = []
     style = size = None
     in_styles = False
@@ -343,10 +431,9 @@ def read_bogies(yml: Path) -> list[tuple[str, str]]:
         if m and m.group(1) in SIZES:
             size = m.group(1)
             continue
-        m = re.match(r"^        item:\s*(\S+)\s*$", line)
+        m = re.match(r"^        bettermodel:\s*(\S+)\s*$", line)
         if m and style and size:
-            ns, _, path = m.group(1).rpartition(":")
-            out.append((f"{NS}:bogie_{size}_{style}", f"{ns}:item/{path}"))
+            out.append((f"{NS}:bogie_{size}_{style}", f"bbmodel:{m.group(1)}"))
     return out
 
 

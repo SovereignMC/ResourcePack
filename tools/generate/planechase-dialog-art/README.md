@@ -17,12 +17,17 @@ the same directory (`--bogies-yml` overrides).
 
 ## Inputs
 
-- Every `item:` model of `rails/bogies.yml` (`models/item/bogie/<size>/<style>/item.json`, the frame with
-  wheels merged), id `planechase:bogie_<size>_<style>`.
+- Every bogie's BetterModel source `bbmodels/<name>.bbmodel` (`name` = the `bettermodel:` value of each size in
+  `rails/bogies.yml`), id `planechase:bogie_<size>_<style>`. Unlike the item models (frame and wheels only) these
+  carry the full bogie: cylinders, pistons, rods and axles. Rest pose as stored, no animation applied. Only `cube`
+  elements are read (all 27 bogies are cubes only); element `rotation` is Blockbench Euler ZYX about the element
+  `origin`, then the `outliner` group origins and rotations, groups or elements with `visibility` / `export` false are
+  skipped, faces without a `texture` are hidden, `inflate` is honoured, face `uv` is in pixels of the texture's
+  `uv_width` / `uv_height` (else `resolution`), textures are the embedded base64 PNG `source`.
 - The four rail piece item models, resolved from `assets/planechase/items/rail_{straight,curve,switch,buffer}.json`.
   They are `item/generated` sprites and are drawn flat front-on at an integer texel scale.
 
-Parents, `#texture` variables, element rotation (with `rescale`), face `uv` / `rotation` are resolved; `tintindex`
+For rails: parents, `#texture` variables, element rotation (with `rescale`), face `uv` / `rotation` are resolved; `tintindex`
 is ignored. A missing texture is drawn neutral grey with a warning (vanilla textures are not needed by these models).
 
 ## Rendering
