@@ -4,8 +4,8 @@ Generate the Cannons aim markers (item models under `sovereignmc:effect/`).
 
 Writes textures, item definitions and models for:
 
-  muzzle_pointer      Chevron strip drawn along the aim line (same 4-plane cross
-                      as aim_beam).  One 32x32 tile covers one segment (about as
+  muzzle_pointer      Chevron strip drawn along the aim line (one flat ribbon the
+                      plugin rolls to face the gunner).  One 32x32 tile covers one segment (about as
                       long as the pointer is wide) and shows 1 amber chevron
                       pointing away from the muzzle.
   landing_marker_1..3 A flagpole with a numbered pennant, placed at predicted
@@ -13,7 +13,7 @@ Writes textures, item definitions and models for:
 
 --- Muzzle pointer: which texture axis is "forward" ---------------------------
 The plugin rotates the display so local +Z points along the shot.  The model is
-the aim_beam cross (z 0..16).  Working through vanilla's face vertex/UV
+a flat plane (z 0..16; it was the aim_beam cross until 2026-11-24).  Working through vanilla's face vertex/UV
 mapping (FaceBakery), texture +u (to the right) maps to world/model +Z on:
   west  face, uv [0,0,16,16]            : u -> +Z
   east  face, uv [16,0,0,16] (mirrored)  : u -> +Z
