@@ -77,7 +77,7 @@ zip is built by CI (see below).
 | `tools/generate/argentum/` | Argentum item, block, machine and consumable art generators. |
 | `tools/generate/bettermodel/` | BetterModel release pipeline (`generate.sh`). |
 | `tools/generate/effects/` | Aim beam, aim marker (muzzle pointer, landing markers) and explosion particle generators. |
-| `tools/generate/gui/` | GUI skin generator and dialogue-panel generator. |
+| `tools/generate/gui/` | GUI skin generator, dialogue-panel generator and tablist art (`tablist.py`: TAB header wordmark/rule `sovereignmc:tab`, rank-tag font `sovereignmc:tab_small`). |
 | `tools/generate/items/` | Flag holder texture generator. |
 | `tools/verify/` | Pack and Argentum integrity checks. |
 | `tools/render/` | Offline Minecraft text renderer and its metric reference. |

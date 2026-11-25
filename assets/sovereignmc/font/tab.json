@@ -1,0 +1,22 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/tab/tab_rule.png",
+      "chars": [
+        "\ue100"
+      ],
+      "ascent": 4,
+      "height": 2
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/tab/tab_wordmark.png",
+      "chars": [
+        "\ue101"
+      ],
+      "ascent": 4,
+      "height": 29
+    }
+  ]
+}

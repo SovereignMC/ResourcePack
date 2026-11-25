@@ -1,0 +1,25 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        " ": 3,
+        "[": 0,
+        "]": 0
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "sovereignmc:font/tab/small_caps.png",
+      "ascent": 6,
+      "height": 6,
+      "chars": [
+        "ABCDEFGHIJKLMNOP",
+        "QRSTUVWXYZ012345",
+        "6789-_.+abcdefgh",
+        "ijklmnopqrstuvwx",
+        "yz\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    }
+  ]
+}
