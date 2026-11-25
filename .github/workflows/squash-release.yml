@@ -81,6 +81,13 @@ jobs:
             color_quantization_target = 'none'
             skip_alpha_optimizations = true
 
+            # Tablist header art: split glyphs are joined by pinning an alpha-1 texel in the
+            # left cell's last column (it sets the advance), and the wordmark is 2x art that
+            # quantization visibly bands. Keep them lossless.
+            ['assets/sovereignmc/textures/font/tab/*.png']
+            color_quantization_target = 'none'
+            skip_alpha_optimizations = true
+
             # Version overlays (pack.mcmeta "overlays"): PackSquash only knows the root
             # assets/ tree and silently drops overlay directories, which shipped the
             # 1.21.9+ menu blur to 1.21.7-1.21.8. Copy every overlay file as-is.

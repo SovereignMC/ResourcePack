@@ -28,7 +28,8 @@ Codec rules checked (a failure drops the whole file):
 Load rules checked (a failure drops the provider):
   * bitmap texture at assets/<ns>/textures/<path> exists and decodes; its size divides
     evenly into the chars grid (the client floors the cell size, so a remainder shifts
-    every glyph)
+    every glyph); no cell is larger than the 256x256 font atlas (the glyph would render
+    as a missing-glyph box even though the font loads)
   * ttf file at assets/<ns>/font/<path>; unihex zip at assets/<ns>/<path>
   * reference target is a font in the pack or a vanilla font; no reference cycles
 
@@ -77,6 +78,9 @@ VANILLA_FONT_TEXTURES = {
     f"assets/minecraft/textures/font/{name}.png"
     for name in ("ascii", "accented", "nonlatin_european", "asciillager", "ascii_sga")
 }
+# FontTexture is 256x256: a glyph cell larger than that never gets stitched and the client
+# substitutes the missing glyph (FontTexture.Node.insert returns null, FontSet falls back).
+ATLAS = 256
 FONT_PATH_RE = re.compile(r"^(?:(format_[^/]+)/)?assets/([^/]+)/font/(.+)\.json$")
 
 
@@ -279,7 +283,11 @@ class Checker:
             w, h = image.size
             if w // cols == 0 or h // rows == 0:
                 self.fails.append(f"{where}: {rel} is {w}x{h}, too small for a {cols}x{rows} grid")
-            elif w % cols or h % rows:
+            elif w // cols > ATLAS or h // rows > ATLAS:
+                self.fails.append(f"{where}: {rel} glyph cells are {w // cols}x{h // rows}, larger than "
+                                  f"the {ATLAS}x{ATLAS} font atlas; the client draws them as "
+                                  f"missing-glyph boxes (split the image into more cells)")
+            if w // cols and h // rows and (w % cols or h % rows):
                 self.fails.append(f"{where}: {rel} is {w}x{h}, which does not divide into a "
                                   f"{cols}x{rows} grid (cells would be {w / cols:g}x{h / rows:g})")
             seen: set[int] = set()

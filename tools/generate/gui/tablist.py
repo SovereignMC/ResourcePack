@@ -2,24 +2,33 @@
 """Draw the tablist header art and the small rank-tag font used by TAB on the proxy.
 
 Fonts:
-    sovereignmc:tab        U+E100  rule: 360 GUI px, #9FC3D4 over a 1 px dark under-shade, 40 px
-                                   fades at both ends; drawn in a 5 px cell (ascent 5) so the
-                                   line lands on rows 3-4 of its 9 px line. The client rejects
-                                   the whole font if any provider's ascent exceeds its height.
-                           U+E101  "SovereignMC" wordmark in Cinzel Bold small caps, 200 x 29
-                                   GUI px (ascent 4: drawn from its line down over the next
-                                   three empty header lines, centred between the two rules)
+    sovereignmc:tab        U+E100 U+E10F U+E102   rule: 360 GUI px, #9FC3D4 over a 1 px dark
+                                                  under-shade, 40 px fades at both ends,
+                                                  1 texel per GUI px in a 5 px cell
+                                                  (ascent 5) so it lands on rows 3-4 of its line
+                           U+E101 U+E10F U+E103   "SovereignMC" wordmark in Cinzel Bold small
+                                                  caps, 200 x 29 GUI px at 2 texels per GUI px
+                                                  (ascent 4: drawn from its line down over the
+                                                  next three empty header lines)
+                           U+E10F                 -1 px space that joins the halves
     sovereignmc:tab_small  5 px capitals for A-Z, 0-9 and - _ . + (lowercase maps to the
                            same capitals). "[" and "]" are zero-width spaces, so a LuckPerms
                            prefix such as "&8[&#D883E6Duke&8] " renders as just "DUKE " in
                            the tablist while chat keeps the brackets.
 
-Textures are drawn at 2 texels per GUI pixel (pixel-exact at GUI scale 2 and 4), except the
-small font, which is 1:1 in 5x6 cells (the blank bottom row keeps ascent 6 <= height 6, which
-the client requires; ascent 6 puts the 5 px capitals on rows 1-5 of the 9 px line).
+Client limits these follow (the 1.21.8/1.21.11 font loader, see tools/verify/glyphs.py):
+    * a bitmap provider's ascent may not exceed its height, or the whole font is dropped;
+    * a glyph cell larger than 256 px either way does not fit the 256x256 font atlas and
+      renders as a missing-glyph box. So the rule and the wordmark are each split into two
+      cells of the same image, drawn as  left, U+E10F (-1 px), right. The client measures a
+      glyph's advance from its last inked column, so a left cell whose last column is empty
+      gets one alpha-1 texel there (PackSquash must keep these PNGs lossless, see
+      .github/workflows/squash-release.yml).
 
 The proxy's TAB config uses them as:
     header: '', <rule>, <wordmark>, '', '', '', <rule>, ''
+        <rule>     = <font:sovereignmc:tab>\ue100\ue10f\ue102</font>
+        <wordmark> = <font:sovereignmc:tab>\ue101\ue10f\ue103</font>
     groups.yml _DEFAULT_:
         tabprefix:     "<font:sovereignmc:tab_small><!shadow>%luckperms-prefix%"
         customtabname: "<font:minecraft:default><shadow:#000000:0.75>%condition:nick%"
@@ -130,17 +139,35 @@ def wordmark(font_path: str, gui_h: int = 36) -> Image.Image:
 RULE_CELL = 5       # GUI px tall: blank, colour, shade, blank, blank (ascent 5 <= height 5)
 
 
+ATLAS = 256         # the client's font atlas is 256x256: no glyph cell may be larger
+JOIN = "\ue10f"     # -1 px space between the halves of a split glyph
+
+
 def rule() -> Image.Image:
-    w, h, fade = RULE_WIDTH * TEXELS, RULE_CELL * TEXELS, 40 * TEXELS
+    """1 texel per GUI px: a flat line gains nothing from more texels."""
+    w, h, fade = RULE_WIDTH, RULE_CELL, 40
     img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     px = img.load()
     for x in range(w):
         a = min(1, x / fade, (w - 1 - x) / fade)
-        for y in range(TEXELS, 2 * TEXELS):
-            px[x, y] = RULE_COLOR + (int(255 * a),)
-        for y in range(2 * TEXELS, 3 * TEXELS):
-            px[x, y] = SHADE + (int(150 * a),)
+        px[x, 1] = RULE_COLOR + (int(255 * a),)
+        px[x, 2] = SHADE + (int(150 * a),)
     return img
+
+
+def split_cells(img: Image.Image, cells: int) -> Image.Image:
+    """Pad to a whole number of equal cells no wider than the atlas, and pin each left
+    cell's last column so its advance reaches the next cell."""
+    cell_w = -(-img.width // cells)
+    if cell_w > ATLAS or img.height > ATLAS:
+        raise SystemExit(f"{img.size} does not fit {cells} cells of at most {ATLAS} px")
+    out = Image.new("RGBA", (cell_w * cells, img.height), (0, 0, 0, 0))
+    out.paste(img, (0, 0))
+    for c in range(cells - 1):
+        x = (c + 1) * cell_w - 1
+        if all(out.getpixel((x, y))[3] == 0 for y in range(out.height)):
+            out.putpixel((x, 0), (0, 0, 0, 1))
+    return out
 
 
 def small_font() -> tuple[Image.Image, list[str]]:
@@ -168,17 +195,18 @@ def main() -> None:
     font_dir = os.path.join(args.pack_dir, "assets/sovereignmc/font")
     os.makedirs(tex_dir, exist_ok=True)
 
-    mark = wordmark(find_cinzel(args.cinzel))
+    mark = split_cells(wordmark(find_cinzel(args.cinzel)), 2)
     mark.save(os.path.join(tex_dir, "tab_wordmark.png"), optimize=True)
-    rule().save(os.path.join(tex_dir, "tab_rule.png"), optimize=True)
+    split_cells(rule(), 2).save(os.path.join(tex_dir, "tab_rule.png"), optimize=True)
     small, lines = small_font()
     small.save(os.path.join(tex_dir, "small_caps.png"), optimize=True)
 
     tab = {"providers": [
+        {"type": "space", "advances": {JOIN: -1}},
         {"type": "bitmap", "file": "sovereignmc:font/tab/tab_rule.png",
-         "chars": ["\ue100"], "ascent": RULE_CELL, "height": RULE_CELL},
+         "chars": ["\ue100\ue102"], "ascent": RULE_CELL, "height": RULE_CELL},
         {"type": "bitmap", "file": "sovereignmc:font/tab/tab_wordmark.png",
-         "chars": ["\ue101"], "ascent": 4, "height": mark.height // TEXELS},
+         "chars": ["\ue101\ue103"], "ascent": 4, "height": mark.height // TEXELS},
     ]}
     tab_small = {"providers": [
         {"type": "space", "advances": {" ": 3, "[": 0, "]": 0}},
@@ -189,7 +217,7 @@ def main() -> None:
         with open(os.path.join(font_dir, name), "w", encoding="utf-8") as handle:
             json.dump(data, handle, indent=2)
             handle.write("\n")
-    print(f"wordmark {mark.width // TEXELS}x{mark.height // TEXELS} GUI px, "
+    print(f"wordmark {mark.width // TEXELS}x{mark.height // TEXELS} GUI px in 2 cells, "
           f"rule {RULE_WIDTH} GUI px, {sum(len(l.rstrip(chr(0))) for l in lines)} small glyphs")
 
 
