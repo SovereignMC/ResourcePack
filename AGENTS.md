@@ -113,6 +113,7 @@ refers to `file/SovereignMC.zip`. The local output is `pack.zip` at the repo roo
 ```bash
 tools/verify/pack.sh                     # bash + jq; this is what CI runs
 python3 tools/verify/argentum_refs.py    # python3 + Pillow; extra Argentum checks
+python3 tools/verify/glyphs.py           # python3 + Pillow; every font loads in game
 ```
 
 `tools/verify/pack.sh` exits 1 on:
@@ -123,7 +124,8 @@ python3 tools/verify/argentum_refs.py    # python3 + Pillow; extra Argentum chec
 - unparseable JSON, or a missing/invalid `pack.mcmeta`;
 - `pack.mcmeta` format fields that break the 1.21.9+ loader or 1.21.8 (missing
   `min_format`/`max_format`, `supported_formats`/`pack_format`/overlay `formats` out of step
-  with them while format 64 is supported), or an overlay whose directory has no `assets/`.
+  with them while format 64 is supported), or an overlay whose directory has no `assets/`;
+- a bitmap font provider whose `ascent` exceeds its `height`.
 
 It warns on flat `item/x` / `block/x` references, allowlisted machine model refs and PNGs
 that no JSON references. It only walks `assets/argentum/**/*.json`, so a green run does
@@ -132,6 +134,20 @@ not validate texture/model references in the other namespaces.
 `tools/verify/argentum_refs.py` mirrors the same checks without jq and adds the 16×16 RGBA
 tile audit, the item ids StructuresRevamped resolves (`TARGET_IDS`) and an
 unreferenced-PNG check. Keep both green before committing.
+
+`tools/verify/glyphs.py` checks every font (`assets/` and `format_*/assets/`) against the
+1.21.8/1.21.11 client's own font codecs and loaders. One bad provider makes the client
+drop the whole font file, and every glyph in it then renders as a box. It fails on
+invalid JSON, unknown provider types, bad identifiers, `ascent` > `height`, uneven or
+empty `chars` grids, multi-codepoint `space` keys, a bad `ttf` shift or `unihex` range,
+missing or undecodable textures, textures that do not divide evenly into the grid,
+missing `ttf`/`unihex` files, and missing or circular `reference` fonts. It warns on a
+codepoint declared twice in a provider or defined by two bitmap providers of one font.
+CI runs it on every push (`ci.yml`), and `squash-release.yml` runs it on the source
+before PackSquash and on the built `/tmp/pack.zip` before publishing, so a font the
+game would reject never reaches the release. Run it on a downloaded release with
+`--zip pack.zip`, and add `--client-jar <client.jar>` to check vanilla references
+against a real client.
 
 ## CI and releases
 
