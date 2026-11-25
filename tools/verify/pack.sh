@@ -9,6 +9,7 @@
 #   * pack.mcmeta follows the 1.21.9+ format rules while still loading on 1.21.8:
 #     min_format/max_format present, pack_format + supported_formats kept in step with
 #     them while format 64 is supported, every overlay entry valid and its directory present
+#   * every bitmap font provider has ascent <= height (else the client drops the whole font)
 #
 # Exit 0 = clean (warnings allowed); exit 1 = hard failure.
 # Requires bash and jq.
@@ -146,6 +147,20 @@ if [[ ${#all_textures[@]} -gt 0 ]]; then
         warns+=("texture not referenced by any JSON: ${tex#"$PWD"/}")
     done < <(comm -23 "$tmpdir/all" "$tmpdir/referenced")
 fi
+
+# fonts: the client rejects the whole font file when a bitmap provider's ascent exceeds its
+# height (default 8), and every glyph of that font then renders as a missing-glyph box.
+while IFS= read -r -d '' font; do
+    if ! bad=$(jq -r '.providers[]? | select(.type == "bitmap")
+            | select((.ascent // 0) > (.height // 8))
+            | "\(.file): ascent \(.ascent) > height \(.height // 8)"' -- "$font" 2>/dev/null); then
+        fails+=("font is not valid JSON: $font")
+        continue
+    fi
+    while IFS= read -r line; do
+        [[ -n $line ]] && fails+=("$font: $line")
+    done <<<"$bad"
+done < <(find assets format_* -path '*/font/*.json' -print0 2>/dev/null)
 
 # pack.mcmeta: the rules of the 1.21.9+ loader (PackFormat.IntermediaryFormat.validate).
 # 64 is the last resource format without minor versions (1.21.7-1.21.8): while the pack or

@@ -2,8 +2,10 @@
 """Draw the tablist header art and the small rank-tag font used by TAB on the proxy.
 
 Fonts:
-    sovereignmc:tab        U+E100  rule: 360 x 2 GUI px, #9FC3D4 over a 1 px dark under-shade,
-                                   40 px fades at both ends (ascent 4, centred in a 9 px line)
+    sovereignmc:tab        U+E100  rule: 360 GUI px, #9FC3D4 over a 1 px dark under-shade, 40 px
+                                   fades at both ends; drawn in a 5 px cell (ascent 5) so the
+                                   line lands on rows 3-4 of its 9 px line. The client rejects
+                                   the whole font if any provider's ascent exceeds its height.
                            U+E101  "SovereignMC" wordmark in Cinzel Bold small caps, 200 x 29
                                    GUI px (ascent 4: drawn from its line down over the next
                                    three empty header lines, centred between the two rules)
@@ -18,8 +20,11 @@ the client requires; ascent 6 puts the 5 px capitals on rows 1-5 of the 9 px lin
 
 The proxy's TAB config uses them as:
     header: '', <rule>, <wordmark>, '', '', '', <rule>, ''
-    groups.yml _DEFAULT_.tabprefix:
-        "<font:sovereignmc:tab_small><!shadow>%luckperms-prefix%</!shadow></font>"
+    groups.yml _DEFAULT_:
+        tabprefix:     "<font:sovereignmc:tab_small><!shadow>%luckperms-prefix%"
+        customtabname: "<font:minecraft:default><shadow:#000000:0.75>%condition:nick%"
+    Nothing is closed: TAB parses prefix + name as one string, so a closing tag would also
+    close the name colour that ends the LuckPerms prefix (and TAB prints "</!shadow>" as text).
 
 Writes (relative to --pack-dir):
     assets/sovereignmc/textures/font/tab/{tab_rule,tab_wordmark,small_caps}.png
@@ -122,15 +127,18 @@ def wordmark(font_path: str, gui_h: int = 36) -> Image.Image:
     return out
 
 
+RULE_CELL = 5       # GUI px tall: blank, colour, shade, blank, blank (ascent 5 <= height 5)
+
+
 def rule() -> Image.Image:
-    w, h, fade = RULE_WIDTH * TEXELS, 2 * TEXELS, 40 * TEXELS
+    w, h, fade = RULE_WIDTH * TEXELS, RULE_CELL * TEXELS, 40 * TEXELS
     img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     px = img.load()
     for x in range(w):
         a = min(1, x / fade, (w - 1 - x) / fade)
-        for y in range(TEXELS):
-            px[x, y] = RULE_COLOR + (int(255 * a),)
         for y in range(TEXELS, 2 * TEXELS):
+            px[x, y] = RULE_COLOR + (int(255 * a),)
+        for y in range(2 * TEXELS, 3 * TEXELS):
             px[x, y] = SHADE + (int(150 * a),)
     return img
 
@@ -168,9 +176,9 @@ def main() -> None:
 
     tab = {"providers": [
         {"type": "bitmap", "file": "sovereignmc:font/tab/tab_rule.png",
-         "chars": [""], "ascent": 4, "height": 2},
+         "chars": ["\ue100"], "ascent": RULE_CELL, "height": RULE_CELL},
         {"type": "bitmap", "file": "sovereignmc:font/tab/tab_wordmark.png",
-         "chars": [""], "ascent": 4, "height": mark.height // TEXELS},
+         "chars": ["\ue101"], "ascent": 4, "height": mark.height // TEXELS},
     ]}
     tab_small = {"providers": [
         {"type": "space", "advances": {" ": 3, "[": 0, "]": 0}},
