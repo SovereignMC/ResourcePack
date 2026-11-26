@@ -127,6 +127,18 @@
     {"type":"bitmap","file":"sovereignmc:gui/skins/emblem_power_plant.png","ascent":-24,"height":32,"chars":["\uE70D"]},
     {"type":"bitmap","file":"sovereignmc:gui/skins/emblem_armoury.png","ascent":-24,"height":32,"chars":["\uE70E"]},
     {"type":"bitmap","file":"sovereignmc:gui/skins/emblem_munitions.png","ascent":-24,"height":32,"chars":["\uE70F"]},
-    {"type":"bitmap","file":"sovereignmc:gui/skins/emblem_town_hall.png","ascent":-24,"height":32,"chars":["\uE710"]}
+    {"type":"bitmap","file":"sovereignmc:gui/skins/emblem_town_hall.png","ascent":-24,"height":32,"chars":["\uE710"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/planechase_wheel.png","ascent":31,"height":192,"chars":["\uE647"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/planechase_engine.png","ascent":31,"height":174,"chars":["\uE648"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_0_row5.png","ascent":-26,"height":10,"chars":["\uE649"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_1_row5.png","ascent":-26,"height":10,"chars":["\uE64A"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_2_row5.png","ascent":-26,"height":10,"chars":["\uE64B"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_3_row5.png","ascent":-26,"height":10,"chars":["\uE64C"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_4_row5.png","ascent":-26,"height":10,"chars":["\uE64D"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_5_row5.png","ascent":-26,"height":10,"chars":["\uE64E"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_6_row5.png","ascent":-26,"height":10,"chars":["\uE64F"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_7_row5.png","ascent":-26,"height":10,"chars":["\uE650"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_8_row5.png","ascent":-26,"height":10,"chars":["\uE651"]},
+    {"type":"bitmap","file":"sovereignmc:gui/skins/ov_digit_9_row5.png","ascent":-26,"height":10,"chars":["\uE652"]}
   ]
 }
