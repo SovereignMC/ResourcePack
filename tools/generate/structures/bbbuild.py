@@ -60,7 +60,7 @@ class Builder:
         self.lamps_at = tuple(lamps_at)
         self._n = 0
         self._terms = {}
-        self._inputs, self._outputs = [], []
+        self._inputs, self._outputs, self._full_amp = [], [], []
         self._lamp_site = None
         d = {
             "meta": {"format_version": "5.0", "model_format": "free", "box_uv": False},
@@ -597,6 +597,10 @@ class Builder:
         """Declare the bones that wobble in the NEEDS INPUT state (written to state_overrides)."""
         self._inputs = list(names)
 
+    def full_amplitude(self, names):
+        """Bones whose motion keeps its full amplitude in idle/no_power (only slowed), e.g. show/hide scale toggles."""
+        self._full_amp = list(names)
+
     def output_bones(self, names):
         """Declare the bones that pulse in the OUTPUT FULL state (written to state_overrides)."""
         self._outputs = list(names)
@@ -795,13 +799,15 @@ class Builder:
         data = self.finalize()
         with open(path, "w", encoding="utf-8", newline="") as f:
             f.write(json.dumps(data, separators=(",", ":"), ensure_ascii=False))
-        if self._inputs or self._outputs:
+        if self._inputs or self._outputs or self._full_amp:
             os.makedirs(states.OVERRIDES_DIR, exist_ok=True)
             ov = {}
             if self._inputs:
                 ov["input_bones"] = self._inputs
             if self._outputs:
                 ov["output_bones"] = self._outputs
+            if self._full_amp:
+                ov["full_amplitude"] = self._full_amp
             with open(os.path.join(states.OVERRIDES_DIR, self.name + ".json"), "w", encoding="utf-8", newline="\n") as f:
                 json.dump(ov, f, indent=2)
                 f.write("\n")

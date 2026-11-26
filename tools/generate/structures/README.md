@@ -104,13 +104,15 @@ Override file `tools/generate/structures/state_overrides/<model name>.json` (the
   "hide": ["extra_bone"],
   "idle_visible": ["flames"],
   "lamp_at": [0, 0, 36],
+  "full_amplitude": ["held_log"],
   "paint_lamps": true
 }
 ```
 
 `input_bones` / `output_bones` default to bones whose name contains hopper/input/intake/feed/chute resp.
 output/crate/pile/outbox; `hide` adds bones to the smoke/fire hiding rule; `idle_visible` keeps listed hidden
-bones visible (with the slowed motion) in `idle`; `lamp_at` = `[x, z, top_y]` of the housing centre and the
+bones visible (with the slowed motion) in `idle`; `full_amplitude` bones keep their full amplitude in `idle` / `no_power` (only slowed; use it for
+show/hide scale toggles, Builder: `b.full_amplitude([...])`); `lamp_at` = `[x, z, top_y]` of the housing centre and the
 height it sits on (only used when `status` is created).
 
 Cannot handle: models without a `root` group get the status group at the top level; animators for Molang
@@ -205,6 +207,11 @@ b.sheet("sheet.png"); b.save("bbmodels/structure_industrial_crusher.bbmodel")   
   glow_cyan, warning_paint_yellow, warning_paint_red, wood_plank, brick, stone, dirt, water, leaves.
   Faces are painted in reading orientation (up faces: north at the top). To add a material add a function and a
   `MATERIALS` entry; to retint, edit the palette JSON.
+* Vanilla materials (blocky style): `mc:<texture path>[#rrggbb]`, e.g. `mc:block/cobblestone`,
+  `mc:block/grass_block_top#79c05a`, tile that texture from the vanilla client jar at 1 px = 1 texel (random offset
+  per variant, optional RGB tint for the greyscale grass/leaves/water textures, alpha kept for cut-outs such as
+  `mc:block/wheat_stage7`; animated strips use their first frame). The jar is `$MC_CLIENT_JAR`, default
+  `~/.minecraft/versions/1.21.11/1.21.11.jar`. Blocky Builder scripts (`models/blocky_<family>.py`) use only these.
 * Helpers (all take `group=` and return elements, or the sub-group they create): `cylinder(name, cx, cz, y0, y1, r,
   mat, sides=8, cap_mat=)`, `pipe(name, centre, length, r, axis)` (horizontal cylinder in a rotated sub-group),
   `ring(name, cx, cz, y0, y1, r_out, r_in)`, `taper(...)` (stepped cone), `chimney`, `hopper`, `tank`, `beam(a, b,

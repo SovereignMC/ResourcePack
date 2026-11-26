@@ -252,7 +252,51 @@ MATERIALS = {
 }
 
 
+_MC_CACHE = {}
+
+
+def _mc_jar():
+    """Vanilla client jar for `mc:` materials: $MC_CLIENT_JAR, else ~/.minecraft/versions/1.21.11/1.21.11.jar."""
+    p = os.environ.get("MC_CLIENT_JAR") or os.path.expanduser("~/.minecraft/versions/1.21.11/1.21.11.jar")
+    if not os.path.isfile(p):
+        raise FileNotFoundError("mc: materials need the vanilla client jar; set MC_CLIENT_JAR (tried %s)" % p)
+    return p
+
+
+def _mc_texture(path):
+    """First 16x16 frame (or the whole image if not an animation strip) of assets/minecraft/textures/<path>.png."""
+    if path not in _MC_CACHE:
+        import io
+        import zipfile
+        from PIL import Image
+        with zipfile.ZipFile(_mc_jar()) as z:
+            im = Image.open(io.BytesIO(z.read("assets/minecraft/textures/%s.png" % path))).convert("RGBA")
+        if im.height > im.width and im.height % im.width == 0:
+            im = im.crop((0, 0, im.width, im.width))
+        _MC_CACHE[path] = np.asarray(im, float)
+    return _MC_CACHE[path]
+
+
+def mc(spec, w, h, rng, kind):
+    """`mc:<texture path>[#rrggbb]`, e.g. `mc:block/cobblestone`, `mc:block/grass_block_top#79c05a`.
+
+    Tiles the vanilla texture at 1 px = 1 texel from a random offset (so variants differ); the optional
+    tint multiplies RGB (grass, leaves, water are greyscale in the jar). Alpha is kept (cut-out textures)."""
+    path, _, tint = spec[3:].partition("#")
+    t = _mc_texture(path)
+    th, tw = t.shape[:2]
+    oy, ox = int(rng.integers(0, th)), int(rng.integers(0, tw))
+    ys = (np.arange(h) + oy) % th
+    xs = (np.arange(w) + ox) % tw
+    a = t[ys][:, xs].copy()
+    if tint:
+        a[..., :3] *= np.array([int(tint[i:i + 2], 16) for i in (0, 2, 4)], float) / 255.0
+    return _fin(a)
+
+
 def paint(name, w, h, rng, kind):
+    if name.startswith("mc:"):
+        return mc(name, w, h, rng, kind)
     if name not in MATERIALS:
         raise KeyError("unknown material %r (have: %s)" % (name, ", ".join(sorted(MATERIALS))))
     return MATERIALS[name](w, h, rng, kind)

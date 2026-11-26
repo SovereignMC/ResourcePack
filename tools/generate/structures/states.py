@@ -565,6 +565,7 @@ def build(doc, ov, model_path, report):
 
     hide_extra = {n.lower() for n in ov.get("hide", [])}
     idle_visible = {n.lower() for n in ov.get("idle_visible", [])}
+    full_amp = {n.lower() for n in ov.get("full_amplitude", [])}
 
     def hidden(gname):
         return is_hidden_name(gname) or gname.lower() in hide_extra
@@ -621,7 +622,8 @@ def build(doc, ov, model_path, report):
                     kfs = transform_keyframes(motion[gu], state, gname, mot_mul, amp, step)
             else:
                 if use_motion and gu in motion:
-                    kfs = transform_keyframes(motion[gu], state, gname, mot_mul, amp, step)
+                    bone_amp = 1.0 if gname.lower() in full_amp else amp
+                    kfs = transform_keyframes(motion[gu], state, gname, mot_mul, bone_amp, step)
                 if state == "needs_input" and gu in inputs:
                     kfs = wobble_keyframes(state, gname)
                 if state == "output_full" and gu in outputs:
