@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Industrial mud pit (structure_industrial_mud_pit): a bolted concrete basin of churned mud with a paddle mixer on a
-central shaft, driven by a gearbox + motor on a gantry, four feed hoppers dropping clay and valve outlets.
-4-fold symmetric.
+"""Industrial mud pit (structure_industrial_mud_pit): a dredged clay pit.
+
+A concrete retaining-wall basin of wet mud with puddles, a four-leg steel gantry with a trolley and a four-petal grab
+bucket on cables that lowers into the mud while the petals open and close, a slurry pump with a pipe over the wall on
+every side and clay heaps at the plinth corners. 4-fold symmetric.
 
     python3 tools/generate/structures/models/industrial_mud_pit.py
 """
+import math
 import os
 import sys
 
@@ -16,88 +19,104 @@ PACK = os.path.abspath(os.path.join(HERE, "..", "..", "..", ".."))
 OUT = os.path.join(PACK, "bbmodels", "structure_industrial_mud_pit.bbmodel")
 
 
-def rot(x, z, k):
-    for _ in range(k % 4):
-        x, z = -z, x
-    return x, z
-
-
 def build():
     b = Builder("industrial_mud_pit", run_length=4.0)
     industrial_plinth(b)
     Y0 = 3.4
+    D = 4.0           # the grab hangs this much lower than its first draft
+    W = 12.0          # basin outer half-width
+    WT = 9.4          # wall top
 
-    # ---- basin: pinwheel walls, mud ----------------------------------------------------------------------
-    b.group("basin", parent="frame")
-    b.cube("mud", (-14, Y0, -14), (14, 7.2, 14), {"up": "dirt", "*": "dirt"}, "basin", hide={"down"})
+    # ---- mud surface (centre, 4-fold) ------------------------------------------------------
+    b.group("mud", parent="frame")
+    b.cube("mud_bed", (-10.2, Y0, -10.2), (10.2, 7.0, 10.2), {"up": "dirt", "*": "dirt"}, "mud", hide={"north", "south", "east", "west"})
+    # rutted churned bands and puddles, placed pinwheel-wise so every side looks the same
+    b.cube("mud_wet", (-9.2, 7.0, -9.2), (9.2, 7.3, 9.2), {"up": "rusted_steel", "*": "dirt"}, "mud", hide={"down"})
+    pud = []
+    for i, (x0, z0, x1, z1) in enumerate(((-8.8, -8.8, -4.6, -5.2), (-8.8, 4.0, -5.2, 8.8), (5.0, 5.2, 8.8, 8.8), (4.4, -8.8, 8.8, -5.0))):
+        pud.append(b.cube("puddle%d" % i, (x0, 7.3, z0), (x1, 7.6, z1), {"up": "water", "*": "water"}, "mud", hide={"down"}))
+    for i, (x, z, s) in enumerate(((-7.4, 0.8, 2.6), (7.4, -0.8, 2.6), (0.8, 7.4, 2.6), (-0.8, -7.4, 2.6))):
+        b.cube("clod%d" % i, (x - s / 2, 7.3, z - s / 2), (x + s / 2, 8.4, z + s / 2), {"up": "dirt", "*": "dirt"}, "mud", hide={"down"})
+    # dug crater under the grab: dark wet ring
+    b.cube("crater", (-3.0, 7.3, -3.0), (3.0, 7.55, 3.0), {"up": "dark_steel", "*": "dark_steel"}, "mud", hide={"down"})
+
+    # ---- one side module: wall, pump, girder (built north, then 4-fold) ------------------------
     side = b.group("side_n", parent="frame")
-    b.cube("wall", (-16, Y0, -16), (14, 9, -14), "concrete", side)
-    b.cube("wall_cap", (-16.3, 9, -16.3), (14.3, 9.8, -13.7), "warning_paint_yellow", side)
-    b.cube("wall_band", (-16, 5.4, -16.3), (14, 6.6, -14), "hazard_stripe", side)
-    for i, x in enumerate((-12, -4, 4, 12)):
-        b.cube("wall_bolt%d" % i, (x - 0.6, 7.2, -16.5), (x + 0.6, 8.4, -16), "galvanized", side)
-    # outlet: pipe through the wall with a red valve
-    b.pipe_run("outlet", [(-8, Y0 + 2.2, -14), (-8, Y0 + 2.2, -17)], 1.2, "copper", "dark_steel", 8, side)
-    b.cube("valve", (-9.2, Y0 + 3.6, -16.8), (-6.8, Y0 + 4.3, -16.2), "warning_paint_red", side)
-    b.cube("valve_stem", (-8.3, Y0 + 2.2, -16.7), (-7.7, Y0 + 3.6, -16.3), "dark_steel", side)
-    # ---- feed hopper over each side ----------------------------------------------------------------------
-    hp = b.group("hop_n", parent="frame")
-    b.hopper("hop", 0, -9.8, 16, 24, 4.2, 1.5, "galvanized", "warning_paint_yellow", 8, hp)
-    b.cylinder("hop_spout", 0, -9.8, 11, 16, 1.2, "dark_steel", 8, hp)
-    for i, x in enumerate((-3.8, 3.8)):
-        b.cube("hop_leg%d" % i, (x - 0.5, 9.8, -14.8), (x + 0.5, 21, -13.8), "steel_plate", hp, hide={"down"})
-    b.cube("hop_arm", (-4.3, 20, -14.8), (4.3, 21.2, -13.6), "dark_steel", hp)
-    b.cube("hop_brace", (-0.5, 20, -14.8), (0.5, 21.2, -13), "dark_steel", hp)
-    b.cube("hop_load", (-3, 24, -12.8), (3, 24.8, -6.8), "rusted_steel", hp, hide={"down"})
-    pour = b.group("pour_n", parent="frame", origin=(0, 11, -9.8))
-    b.cube("pour_s", (-0.6, 7.6, -10.4), (0.6, 11, -9.2), "dirt", pour)
+    b.cube("wall", (-W, Y0, -W), (W - 2, WT, -W + 2), {"up": "dark_steel", "*": "concrete"}, side)
+    b.cube("wall_band", (-W, WT - 3.4, -W - 0.3), (W - 2, WT - 2.6, -W), "dark_steel", side, hide={"down"})
+    b.cube("wall_foot", (-W - 0.3, Y0, -W - 0.3), (W - 1.7, Y0 + 1.2, -W), "concrete", side, hide={"down"})
+    # slurry pump housing outside the wall
+    b.cube("pump_base", (-5, Y0, -15.7), (5, Y0 + 1.0, -W), "dark_steel", side)
+    b.cube("pump_body", (-4.2, Y0 + 1.0, -15.2), (1.2, 8.4, -W - 0.4), "galvanized", side)
+    b.cube("pump_cap", (-4.6, 8.4, -15.5), (1.6, 9.0, -W - 0.2), "steel_plate", side)
+    b.cylinder("pump_motor", 3.2, -13.4, Y0 + 1.0, 8.2, 1.7, "steel_plate", 8, side)
+    b.cylinder("motor_band", 3.2, -13.4, 5.4, 6.2, 1.95, "dark_steel", 8, side)
+    b.cylinder("motor_cap", 3.2, -13.4, 8.2, 8.8, 1.3, "dark_steel", 8, side)
+    b.cube("pump_vent", (-3.4, 5.0, -15.5), (0.4, 7.4, -15.2), "grate", side, hide={"down", "up"})
+    b.cube("pump_hazard", (-4.2, Y0 + 1.0, -15.4), (1.2, 4.6, -15.2), "hazard_stripe", side, hide={"down", "up"})
+    b.pipe_run("slurry", [(-1.6, 9.0, -13.6), (-1.6, 12.4, -13.6), (-1.6, 12.4, -9.0), (-1.6, 9.6, -9.0)], 0.9,
+               "galvanized", "dark_steel", 8, side)
+    b.cube("slurry_nozzle", (-2.5, 8.6, -9.8), (-0.7, 9.6, -8.2), "dark_steel", side, hide={"up"})
+    # gantry girders along the side: lower cross girder and top girder
+    b.beam("girder_low", (-W + 3.0, 21.0, -10.4), (W - 3.0, 22.2, -10.4), 1.6, 1.2, "steel_plate", "box", side)
+    b.beam("girder_top", (-W, 29.0, -10.4), (W, 31.0, -10.4), 2.4, 2.0, "galvanized", "I", side)
 
-    # ---- mixer -------------------------------------------------------------------------------------------
-    b.group("mixer", parent="frame", origin=(0, 10, 0))
-    m = "mixer"
-    b.cylinder("shaft", 0, 0, 5, 28, 1.5, "galvanized", 8, m)
-    b.cylinder("shaft_hub", 0, 0, 7.6, 9.6, 2.6, "dark_steel", 8, m)
-    b.cylinder("shaft_band", 0, 0, 14, 15, 1.9, "brass", 8, m)
-    p0 = b.cube("padd_arm", (1.5, 8, -0.8), (11.6, 9.2, 0.8), "steel_plate", m)
-    p1 = b.cube("padd_blade", (9.4, 4.6, -2.6), (10.8, 8, 2.6), "rusted_steel", m)
-    p2 = b.cube("padd_tip", (8.6, 8.4, -0.5), (9.0, 11, 0.5), "dark_steel", m)
-    p3 = b.cube("padd_haz", (3.6, 9.2, -0.8), (5.4, 9.5, 0.8), "hazard_stripe", m, hide={"down"})
-    b.m.radial4([p0, p1, p2, p3], ("_1", "_2", "_3"))
+    # ---- corner leg (truss leg, clay heap beside it) -------------------------------------
+    leg = b.group("leg_nw", parent="frame")
+    b.truss("leg", -W, -W, -W + 3.2, -W + 3.2, WT, 29.0, "steel_plate", 1.0, True, leg, rail_mat="dark_steel")
+    b.cube("leg_shoe", (-W - 0.4, WT, -W - 0.4), (-W + 3.6, WT + 0.8, -W + 3.6), "dark_steel", leg, hide={"down"})
+    b.cube("leg_cap", (-W - 0.4, 28.2, -W - 0.4), (-W + 3.6, 29.0, -W + 3.6), "dark_steel", leg)
+    b.cube("wall_corner", (-W, Y0, -W), (-W + 2, WT, -W + 2), {"up": "dark_steel", "*": "concrete"}, leg)
+    # clay heap outside the wall corner
+    heap = b.group("clay_heap", parent="frame")
+    hx = -13.6
+    b.cube("heap_pad", (hx - 2.3, Y0, hx - 2.3), (hx + 2.3, Y0 + 0.5, hx + 2.3), "dark_steel", heap)
+    b.taper("heap_lo", hx, hx, Y0 + 0.5, Y0 + 3.0, 2.9, 2.2, "brick", 2, 8, heap)
+    b.taper("heap_mid", hx, hx, Y0 + 3.0, Y0 + 5.2, 2.2, 1.2, "dirt", 2, 8, heap)
+    b.cylinder("heap_top", hx, hx, Y0 + 5.2, Y0 + 6.0, 0.7, "brick", 8, heap)
+    b.m.radial4([side, leg, heap], ("_e", "_s", "_w"))
 
-    # ---- gantry + drive ----------------------------------------------------------------------------------
-    for i, (x, z) in enumerate(((-14.2, -14.2), (14.2, -14.2), (14.2, 14.2), (-14.2, 14.2))):
-        b.cube("gp%d" % i, (x - 0.9, 9.8, z - 0.9), (x + 0.9, 26, z + 0.9), "steel_plate", "frame", hide={"down"})
-        b.cube("gp_haz%d" % i, (x - 1.1, 10.4, z - 1.1), (x + 1.1, 12.4, z + 1.1), "hazard_stripe", "frame")
-    b.beam("gx", (-15, 27, 0), (15, 27, 0), 2.2, 2.2, "steel_plate", "I", "frame")
-    b.beam("gz1", (0, 27, -15), (0, 27, -1.1), 2.2, 2.2, "steel_plate", "I", "frame")
-    b.beam("gz2", (0, 27, 1.1), (0, 27, 15), 2.2, 2.2, "steel_plate", "I", "frame")
-    edge = b.group("edge_n", parent="frame")
-    b.cube("ge", (-15.8, 25.4, -15.8), (14, 26.8, -13.6), "dark_steel", edge)
-    b.cube("ge_haz", (-12, 26.8, -15.8), (-6, 27.2, -13.6), "hazard_stripe", edge, hide={"down"})
-    b.cube("ge_lamp", (-1, 26.8, -15.2), (1, 27.8, -14.2), "glow_amber", edge, hide={"down"})
-    b.cube("gearbox", (-4.4, 28, -4.4), (4.4, 33, 4.4), "dark_steel", "frame")
-    b.cube("gearbox_haz", (-4.7, 29.2, -4.7), (4.7, 30.4, 4.7), "hazard_stripe", "frame")
-    b.cylinder("motor", 0, 0, 33, 38, 3.2, "steel_plate", 8, "frame")
-    b.cylinder("motor_band", 0, 0, 34.4, 35.4, 3.6, "copper", 8, "frame")
-    b.cylinder("motor_cap", 0, 0, 38, 38.6, 2.2, "dark_steel", 8, "frame")
-    mp = b.group("mpanel_n", parent="frame")
-    b.cube("gb_glow", (-1.6, 30.6, -4.9), (1.6, 32.4, -4.4), "glow_amber", mp, hide={"up", "down"})
+    # ---- central cross girders, trolley, cables and grab -----------------------------------------
+    b.group("gantry_top", parent="frame")
+    g = "gantry_top"
+    b.cube("cross_x", (-W + 2.4, 29.0, -1.2), (W - 2.4, 31.0, 1.2), "galvanized", g)
+    b.cube("cross_z1", (-1.2, 29.0, -W + 2.4), (1.2, 31.0, -1.2), "galvanized", g)
+    b.cube("cross_z2", (-1.2, 29.0, 1.2), (1.2, 31.0, W - 2.4), "galvanized", g)
+    b.cube("trolley", (-3.4, 26.4, -3.4), (3.4, 29.0, 3.4), "dark_steel", g)
+    b.cube("trolley_motor", (-2.4, 28.4, -2.4), (2.4, 29.0, 2.4), "steel_plate", g, hide={"up"})
+    for i, (x, z) in enumerate(((-3.0, -3.0), (3.0, -3.0), (3.0, 3.0), (-3.0, 3.0))):
+        b.cube("trolley_wheel%d" % i, (x - 0.8, 26.4, z - 0.8), (x + 0.8, 27.4, z + 0.8), "brass", g, hide={"up"})
+    b.cube("trolley_hazard", (-3.5, 26.4, -3.5), (3.5, 26.9, 3.5), "hazard_stripe", g, hide={"up", "down"})
 
-    # ---- 4-fold ------------------------------------------------------------------------------------------
-    for g in (side, hp, pour, edge, mp):
-        b.m.radial4([g], ("_e", "_s", "_w"))
-    # ---- animation ---------------------------------------------------------------------------------------
-    b.spin("mixer", "y", 2.0)
-    names = ["", "_e", "_s", "_w"]
-    for k, sfx in enumerate(names):
-        b.rise("pour_n" + sfx, -3.0, 1.0, phase=0.25 * k, scale_from=1.0, scale_to=0.5)
-        x, z = rot(6.2, -6.2, k)
-        b.smoke("mb%d" % k, x, 7.2, z, puffs=2, rise=1.6, period=2.0, size=1.6, group="basin", mat="dirt")
-        x, z = rot(-6.0, 5.0, k)
-        b.smoke("mc%d" % k, x, 7.2, z, puffs=2, rise=1.4, period=4.0, size=1.4, group="basin", mat="dirt")
-    b.input_bones(["hop_n", "hop_n_e", "hop_n_s", "hop_n_w"])
-    b.output_bones(["side_n", "side_n_e", "side_n_s", "side_n_w"])
-    industrial_status_mast(b, 0, 0, 38.6)
+    b.group("cables", parent="frame", origin=(0, 26.4, 0))
+    for i, (x, z) in enumerate(((-1.6, 0), (1.6, 0), (0, -1.6), (0, 1.6))):
+        b.cube("cable%d" % i, (x - 0.3, 22.6 - D, z - 0.3), (x + 0.3, 26.4, z + 0.3), "dark_steel", "cables")
+
+    grab = b.group("grab", parent="frame", origin=(0, 22.6 - D, 0))
+    b.cube("grab_head", (-2.6, 20.0 - D, -2.6), (2.6, 22.6 - D, 2.6), "steel_plate", grab)
+    b.cube("grab_cap", (-2.0, 22.6 - D, -2.0), (2.0, 23.2 - D, 2.0), "dark_steel", grab, hide={"down"})
+    b.cube("grab_stripe", (-2.7, 20.6 - D, -2.7), (2.7, 21.4 - D, 2.7), "warning_paint_yellow", grab, hide={"up", "down"})
+    # four petals hinged at the bottom of the head, each tilted inward when closed
+    for nm, (hx_, hz_), axis in (("n", (0, -2.4), "x"), ("e", (2.4, 0), "z"), ("s", (0, 2.4), "x"), ("w", (-2.4, 0), "z")):
+        pg = b.group("jaw_" + nm, parent=grab, origin=(hx_, 20.0 - D, hz_))
+        if axis == "x":
+            b.cube("jaw_" + nm, (-1.8, 14.6 - D, hz_ - 0.5), (1.8, 20.0 - D, hz_ + 0.5), "dark_steel", pg)
+            b.cube("jaw_tip_" + nm, (-1.8, 14.6 - D, hz_ - 0.7), (1.8, 15.8 - D, hz_ + 0.7), "steel_plate", pg)
+        else:
+            b.cube("jaw_" + nm, (hx_ - 0.5, 14.6 - D, -1.8), (hx_ + 0.5, 20.0 - D, 1.8), "dark_steel", pg)
+            b.cube("jaw_tip_" + nm, (hx_ - 0.7, 14.6 - D, -1.8), (hx_ + 0.7, 15.8 - D, 1.8), "steel_plate", pg)
+    industrial_status_mast(b, 0, 0, 31.0)
+
+    # ---- animation ------------------------------------------------------------------------
+    T = 4.0
+    b.piston("grab", "y", -7.0, T)
+    s = 7.0 / (26.4 - (22.6 - D))
+    b._add("cables", "scale", "y", "osc", lambda t, p=T, k=s: 1 + k * (1 - math.cos(2 * math.pi * t / p)) / 2, T)
+    for nm, ax, sg in (("n", "x", 1), ("s", "x", -1), ("e", "z", -1), ("w", "z", 1)):
+        # petals swing open as the grab hits the mud (phase offset half a cycle) and close while it rises
+        b.oscillate("jaw_" + nm, "rotation", ax, 28.0 * sg, T, 0.25)
+    b.input_bones(["grab"])
+    b.output_bones(["clay_heap", "clay_heap_e", "clay_heap_s", "clay_heap_w"])
     return b
 
 

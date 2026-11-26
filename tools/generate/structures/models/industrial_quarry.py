@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Industrial quarry rig (structure_industrial_quarry), 4-fold symmetric.
-
-Square steel tower (swinging turret) on a base block with a glazed cab, four cutter-head arms that each carry a
-spinning toothed cutter wheel and a rising conveyor, rock heaps and a diesel stack in the corners.
+"""Industrial open-pit quarry with a blast-hole drill rig (structure_industrial_quarry), 4-fold symmetric.
 
     python3 tools/generate/structures/models/industrial_quarry.py
+
+A three-bench stone mesa with hazard-striped bench lips and yellow railings carries a drill rig on the top bench:
+a lattice mast with four power-pack housings around its foot, a rotary head that slides along the mast and a
+spinning drill rod. Blasted-rock piles sit on the plinth corners. Running: the head travels down the mast while
+the rod spins.
 """
 import os
 import sys
@@ -17,58 +19,91 @@ PACK = os.path.abspath(os.path.join(HERE, "..", "..", "..", ".."))
 OUT = os.path.join(PACK, "bbmodels", "structure_industrial_quarry.bbmodel")
 SUF = ("", "_e", "_s", "_w")
 Y0 = 3.4
+BENCH = ((12.5, 3.4, 8.6), (9.5, 8.6, 13.8), (6.5, 13.8, 19.0))  # half-width, y0, top
 
 
 def build():
     b = Builder("industrial_quarry", run_length=4.0)
     industrial_plinth(b)
     F = "frame"
-    b.cube("base", (-8, Y0, -8), (8, 9, 8), {"up": "dark_steel", "*": "steel_plate"}, F)
-    b.cube("base_haz", (-8.3, Y0, -8.3), (8.3, Y0 + 1.2, 8.3), "hazard_stripe", F)
-    b.cube("base_top", (-8.4, 9, -8.4), (8.4, 10, 8.4), "dark_steel", F)
-    b.cylinder("ring", 0, 0, 10, 11, 8.2, "steel_plate", 12, F)
-    up = b.group("upper", parent=F, origin=(0, 11, 0))
-    b.cube("cab", (-6, 11, -6), (6, 22, 6), "galvanized", up)
-    b.cube("cab_band", (-6.3, 11, -6.3), (6.3, 12.4, 6.3), "dark_steel", up)
-    b.cube("cab_haz", (-6.3, 20.4, -6.3), (6.3, 22, 6.3), "hazard_stripe", up)
-    b.cube("cab_roof", (-6.8, 22, -6.8), (6.8, 23, 6.8), "dark_steel", up)
-    b.cube("roof_plate", (-4, 23, -4), (4, 24, 4), "steel_plate", up)
-    side = b.group("side", parent=up)
-    for sx, n in ((-1, "l"), (1, "r")):
-        x = sx * 3.4
-        b.cube("win_%s_f" % n, (x - 1.8, 14, -6.5), (x + 1.8, 19.4, -6), "dark_steel", side)
-        b.cube("win_%s" % n, (x - 1.3, 14.6, -6.9), (x + 1.3, 18.8, -6.5), "glass", side, hide={"down", "up"})
-    # cutter arm: beam, hub, wheel, rising conveyor
-    b.cube("arm_beam", (-2.4, 8.4, -11), (2.4, 10.8, -6), "dark_steel", side)
-    b.cube("arm_beam_top", (-2.8, 10.8, -11), (2.8, 11.4, -6), "steel_plate", side)
-    b.cube("arm_hub", (-1.4, 6.6, -12.4), (1.4, 9.4, -10.6), "dark_steel", side)
-    cut = b.gear("cutter", (0, 8, -13.2), 5.0, 2.2, 10, "z", "dark_steel", "galvanized", "brass", side)
-    b.strut("belt", (0, 13.6, -13.2), (0, 21, -6.6), 1.8, 3.2, "rubber", side)
-    b.strut("belt_rail_l", (-1.9, 13.9, -13.2), (-1.9, 21.3, -6.6), 0.8, 0.8, "warning_paint_yellow", side)
-    b.strut("belt_rail_r", (1.9, 13.9, -13.2), (1.9, 21.3, -6.6), 0.8, 0.8, "warning_paint_yellow", side)
-    b.cube("belt_leg", (-0.6, 8.4, -13.8), (0.6, 14, -12.6), "dark_steel", side)
-    b.cube("belt_head", (-2.2, 20, -7.2), (2.2, 22, -5.8), "steel_plate", side)
-    # diesel stack (NW roof corner) and a hazard lamp
-    b.cylinder("exh", -4.6, -4.6, 23, 30, 0.9, "dark_steel", 8, side)
-    b.cylinder("exh_cap", -4.6, -4.6, 29.2, 30, 1.3, "rusted_steel", 8, side)
-    # rock heap (NE corner) with output hint
-    heap = b.group("heap", parent=side, origin=(12, Y0, -12))
-    b.taper("rock", 12, -12, Y0, 9.4, 4.4, 1.4, "stone", 4, 8, heap)
-    for i, (x, z, s) in enumerate(((8.6, -8.4, 1.6), (15, -8.8, 1.3), (9, -15, 1.4))):
-        b.cube("chunk%d" % i, (x - s, Y0, z - s), (x + s, Y0 + 2 * s, z + s), "stone", heap, rotation=(0, 30, 0))
-    b.cube("heap_haz", (8.2, Y0, -16), (16, Y0 + 0.8, -15.5), "hazard_stripe", heap)
-    b.radial4([side], ("_e", "_s", "_w"))
-    industrial_status_mast(b, 0, 0, 24.0)
-    for k, s in enumerate(SUF):
-        axis = "z" if k % 2 == 0 else "x"
-        b.spin("cutter" + s, axis, 0.5, 1 if k < 2 else -1)
-        x, z = -4.6, -4.6
-        for _ in range(k):
-            x, z = -z, x
-        b.smoke("q%d" % k, x, 30.4, z, puffs=2, rise=8, period=4.0, size=1.8, group="side" + s)
-    b.oscillate("upper", "rotation", "y", 5.0, 4.0)
-    b.input_bones(["cutter" + s for s in SUF])
-    b.output_bones(["heap" + s for s in SUF])
+    b.group("mesa", parent=F)
+    for i, (h, y0, y1) in enumerate(BENCH):
+        b.cube("bench%d" % i, (-h, y0 if i == 0 else y0 - 0.2, -h), (h, y1, h), {"up": "dirt", "*": "stone"}, "mesa")
+        # hazard-striped lip: four thin strips on the bench top edge
+        lip = {"up": "hazard_stripe", "*": "hazard_stripe"}
+        e = 0.7
+        b.cube("lip%d_n" % i, (-h, y1, -h), (h, y1 + 0.4, -h + e), lip, "mesa", hide={"down"})
+        b.cube("lip%d_s" % i, (-h, y1, h - e), (h, y1 + 0.4, h), lip, "mesa", hide={"down"})
+        b.cube("lip%d_w" % i, (-h, y1, -h + e), (-h + e, y1 + 0.4, h - e), lip, "mesa", hide={"down"})
+        b.cube("lip%d_e" % i, (h - e, y1, -h + e), (h, y1 + 0.4, h - e), lip, "mesa", hide={"down"})
+    # loose rocks on the bench tops and floodlight poles on the lower bench corners
+    for i, (h, y0, y1) in enumerate(BENCH[:2]):
+        for k, (sx, sz) in enumerate(((1, 1), (1, -1), (-1, 1), (-1, -1))):
+            b.cube("rock%d_%d" % (i, k), (sx * (h - 2.2) - 0.8, y1, sz * (h - 2.2) - 0.8),
+                   (sx * (h - 2.2) + 0.8, y1 + 1.4, sz * (h - 2.2) + 0.8), "stone", "mesa", rotation=(0, 20 + 30 * k, 0), hide={"down"})
+    for k, (sx, sz) in enumerate(((1, 1), (1, -1), (-1, 1), (-1, -1))):
+        px, pz = sx * 10.9, sz * 10.9
+        b.cube("flood%d_pole" % k, (px - 0.5, 8.6, pz - 0.5), (px + 0.5, 17.0, pz + 0.5), "galvanized", "mesa", hide={"down"})
+        b.cube("flood%d_head" % k, (px - 1.4, 17.0, pz - 1.4), (px + 1.4, 18.4, pz + 1.4), "dark_steel", "mesa", hide={"down"})
+        b.cube("flood%d_lamp" % k, (px - 1.6, 17.2, pz - 1.6), (px + 1.6, 18.0, pz + 1.6), "glow_amber", "mesa", hide={"up", "down"})
+    # railings on the two upper benches
+    for i in (1, 2):
+        h, _, y1 = BENCH[i]
+        k = h - 0.8
+        b.railing("rail%d_n" % i, (-k, y1 + 0.4, -k), (k, y1 + 0.4, -k), 3.0, 0.6, 7.0, group="mesa")
+        b.railing("rail%d_s" % i, (-k, y1 + 0.4, k), (k, y1 + 0.4, k), 3.0, 0.6, 7.0, group="mesa")
+        b.railing("rail%d_w" % i, (-k, y1 + 0.4, -k), (-k, y1 + 0.4, k), 3.0, 0.6, 7.0, group="mesa")
+        b.railing("rail%d_e" % i, (k, y1 + 0.4, -k), (k, y1 + 0.4, k), 3.0, 0.6, 7.0, group="mesa")
+    # ---- drill rig ----------------------------------------------------------------------------------------
+    rig = b.group("rig", parent=F)
+    T = 19.4
+    # four power packs around the mast foot (louvred housings with a hazard band and a stack)
+    for i, (dx, dz) in enumerate(((0, -1), (1, 0), (0, 1), (-1, 0))):
+        cx, cz = dx * 3.9, dz * 3.9
+        w, d = (2.4, 1.2) if dx == 0 else (1.2, 2.4)
+        b.cube("pack%d" % i, (cx - w, T, cz - d), (cx + w, T + 4.6, cz + d), "galvanized", rig)
+        b.cube("pack%d_haz" % i, (cx - w - 0.2, T + 3.4, cz - d - 0.2), (cx + w + 0.2, T + 4.2, cz + d + 0.2), "hazard_stripe", rig)
+        b.cube("pack%d_top" % i, (cx - w - 0.3, T + 4.6, cz - d - 0.3), (cx + w + 0.3, T + 5.2, cz + d + 0.3), "dark_steel", rig)
+        for j in (-1, 1):
+            lx = cx + (j * 1.4 if dx == 0 else 0)
+            lz = cz + (j * 1.4 if dx != 0 else 0)
+            fx = cx + dx * (1.2 + 0.1) if dx else lx
+            fz = cz + dz * (1.2 + 0.1) if dz else lz
+            b.cube("pack%d_lv%d" % (i, j), (fx - (0.7 if dz else 0.15), T + 1.0, fz - (0.7 if dx else 0.15)),
+                   (fx + (0.7 if dz else 0.15), T + 3.0, fz + (0.7 if dx else 0.15)), "dark_steel", rig)
+    # base plate
+    b.cube("mast_base", (-3.0, T, -3.0), (3.0, T + 1.0, 3.0), "dark_steel", rig)
+    b.truss("mast", -2.4, -2.4, 2.4, 2.4, T + 1.0, 38.0, "warning_paint_yellow", 0.8, True, rig, "dark_steel")
+    for i, y in enumerate((T + 10.0, T + 17.0)):
+        b.cube("collar%d" % i, (-2.8, y, -2.8), (2.8, y + 0.8, 2.8), "dark_steel", rig, hide={"down"} if False else ())
+    b.cube("crown", (-3.0, 38.0, -3.0), (3.0, 38.8, 3.0), "dark_steel", rig)
+    b.cube("crown_cap", (-2.2, 38.8, -2.2), (2.2, 39.2, 2.2), "steel_plate", rig, hide={"down"})
+    # rotary head + drill rod (head slides on Y)
+    H = 26.0
+    head = b.group("head", parent=rig, origin=(0, H, 0))
+    b.cube("head_body", (-3.0, H, -3.0), (3.0, H + 3.4, 3.0), "dark_steel", head)
+    b.cube("head_haz", (-3.3, H + 1.6, -3.3), (3.3, H + 2.4, 3.3), "hazard_stripe", head)
+    b.cube("head_motor", (-2.0, H + 3.4, -2.0), (2.0, H + 4.8, 2.0), "steel_plate", head, hide={"down"})
+    b.cube("head_eye_x", (-3.6, H + 0.4, -0.8), (3.6, H + 1.2, 0.8), "galvanized", head)
+    b.cube("head_eye_z", (-0.8, H + 0.4, -3.6), (0.8, H + 1.2, 3.6), "galvanized", head)
+    rod = b.group("rod", parent=head, origin=(0, H, 0))
+    b.cylinder("rod_t", 0, 0, 20.9, H, 0.9, "galvanized", 8, rod)
+    b.cube("rod_vane_x", (-1.5, 21.8, -0.3), (1.5, H, 0.3), "steel_plate", rod)
+    b.cube("rod_vane_z", (-0.3, 21.8, -1.5), (0.3, H, 1.5), "steel_plate", rod)
+    b.cube("rod_bit", (-1.4, 20.5, -1.4), (1.4, 21.5, 1.4), "dark_steel", rod)
+    # ---- corner blast-rock pile (NE, cloned 4x) ---------------------------------------------------------------
+    pile = b.group("pile", parent=F, origin=(13.2, Y0, -13.2))
+    b.taper("pile_t", 13.2, -13.2, Y0, 8.6, 3.6, 1.0, "stone", 4, 8, pile)
+    for i, (x, z, s, r) in enumerate(((10.6, -11.2, 1.2, 20), (15.2, -10.8, 1.1, 50), (10.8, -15.4, 1.1, 70), (15.0, -15.0, 0.9, 35))):
+        b.cube("pchunk%d" % i, (x - s, Y0, z - s), (x + s, Y0 + 1.7 * s, z + s), "stone", pile, rotation=(0, r, 0))
+    b.cube("pile_haz", (9.8, Y0, -16.2), (16.4, Y0 + 0.6, -15.7), "hazard_stripe", pile)
+    b.radial4([pile], ("_e", "_s", "_w"))
+    industrial_status_mast(b, 0, 0, 39.2)
+    # ---- animation ----------------------------------------------------------------------------------------------
+    b.piston("head", "y", 5.0, 4.0)
+    b.spin("rod", "y", 0.5)
+    b.input_bones(["head"])
+    b.output_bones(["pile" + s for s in SUF])
     return b
 
 

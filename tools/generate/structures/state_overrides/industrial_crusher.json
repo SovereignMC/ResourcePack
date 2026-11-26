@@ -1,14 +1,14 @@
 {
   "input_bones": [
-    "bin_n",
-    "bin_n_e",
-    "bin_n_s",
-    "bin_n_w"
+    "ore",
+    "ore_e",
+    "ore_s",
+    "ore_w"
   ],
   "output_bones": [
-    "pile_n",
-    "pile_n_e",
-    "pile_n_s",
-    "pile_n_w"
+    "pile",
+    "pile_e",
+    "pile_s",
+    "pile_w"
   ]
 }

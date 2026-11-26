@@ -1,14 +1,14 @@
 {
   "input_bones": [
-    "corner",
-    "corner_e",
-    "corner_s",
-    "corner_w"
+    "hop_n",
+    "hop_n_e",
+    "hop_n_s",
+    "hop_n_w"
   ],
   "output_bones": [
-    "spark",
-    "spark_e",
-    "spark_s",
-    "spark_w"
+    "trafo_n",
+    "trafo_n_e",
+    "trafo_n_s",
+    "trafo_n_w"
   ]
 }

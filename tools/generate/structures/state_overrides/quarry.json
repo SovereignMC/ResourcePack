@@ -1,19 +1,12 @@
 {
   "input_bones": [
-    "wheel",
-    "wheel_e",
-    "wheel_s",
-    "wheel_w"
+    "block",
+    "drum0",
+    "drum1",
+    "drum2",
+    "drum3"
   ],
   "output_bones": [
-    "boom",
-    "boom_e",
-    "boom_s",
-    "boom_w"
-  ],
-  "lamp_at": [
-    0,
-    0,
-    19.0
+    "stacks"
   ]
 }

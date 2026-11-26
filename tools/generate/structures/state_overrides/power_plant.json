@@ -1,19 +1,14 @@
 {
   "input_bones": [
-    "flywheel",
-    "flywheel_e",
-    "flywheel_s",
-    "flywheel_w"
+    "heap",
+    "heap_e",
+    "heap_s",
+    "heap_w"
   ],
   "output_bones": [
-    "spark",
-    "spark_e",
-    "spark_s",
-    "spark_w"
-  ],
-  "lamp_at": [
-    0,
-    0,
-    19.4
+    "dynamo",
+    "dynamo_e",
+    "dynamo_s",
+    "dynamo_w"
   ]
 }

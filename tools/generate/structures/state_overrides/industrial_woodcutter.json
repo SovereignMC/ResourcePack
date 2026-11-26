@@ -1,11 +1,20 @@
 {
   "input_bones": [
-    "trunk"
+    "grapple"
   ],
   "output_bones": [
-    "crate_n",
-    "crate_n_e",
-    "crate_n_s",
-    "crate_n_w"
+    "pile_n",
+    "pile_n_1",
+    "pile_n_2",
+    "pile_n_3"
+  ],
+  "full_amplitude": [
+    "arm",
+    "grapple",
+    "held_log",
+    "feed_log_a",
+    "feed_log_a_1",
+    "feed_log_a_2",
+    "feed_log_a_3"
   ]
 }

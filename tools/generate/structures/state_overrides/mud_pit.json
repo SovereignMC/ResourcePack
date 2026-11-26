@@ -1,1 +1,14 @@
-{"input_bones":["bucket"],"output_bones":["shovel","shovel_e","shovel_s","shovel_w"]}
+{
+  "input_bones": [
+    "bucket",
+    "bucket_e",
+    "bucket_s",
+    "bucket_w"
+  ],
+  "output_bones": [
+    "stack",
+    "stack_e",
+    "stack_s",
+    "stack_w"
+  ]
+}

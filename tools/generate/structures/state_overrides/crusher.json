@@ -1,5 +1,8 @@
 {
-  "input_bones": ["stamp_1"],
-  "output_bones": ["stamp_0", "stamp_0_e", "stamp_0_s", "stamp_0_w"],
-  "lamp_at": [0, 0, 36.5]
+  "input_bones": [
+    "heaps"
+  ],
+  "output_bones": [
+    "sacks"
+  ]
 }
