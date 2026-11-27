@@ -1,8 +1,9 @@
 #version 330
 
 // PlaneChase head canvas: quads on the canvas palette's face headers are cell proxy faces (palette
-// format 2, planechase:pcanvas.glsl); hidden cells and occluded faces collapse, visible ones pass the
-// shape, sprite origin and cell corner to the fragment ray cast. The sgvm path below is unchanged.
+// format 3, planechase:pcanvas.glsl). Hidden cells and occluded faces collapse; a full-cube face gets
+// its real texture corner, tint and vanilla face lighting here so its fragment is one texel fetch;
+// other shapes pass the shape header and camera for the fragment ray cast. The sgvm path is unchanged.
 
 // Vanilla rendertype_item_entity_translucent_cull (1.21.8 - 1.21.11) + the SovereignMC gun
 // viewmodel decoder ("sgvm"). Derived from objmc by Godlander (MIT, see LICENSE-OBJMC):
@@ -49,7 +50,17 @@ flat out vec4 sgvmColor;
 flat out int pcShape;
 flat out int pcMode;
 flat out int pcFace;
+flat out int pcFast;
+flat out int pcTranslucent;
 flat out ivec2 pcOrigin;
+flat out ivec2 pcTile;
+flat out ivec4 pcInfo;
+flat out vec4 pcUvBounds;
+flat out vec3 pcBoxLo;
+flat out vec3 pcBoxHi;
+flat out vec3 pcCamera;
+flat out vec3 pcTint;
+out vec2 pcFaceUv;
 out vec3 pcLocal;
 out vec3 pcView;
 
@@ -93,16 +104,37 @@ void main() {
     sgvmColor = vec4(0.0);
     sgvmLight = texelFetch(Sampler2, UV2 / 16, 0);
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color) * sgvmLight;
+    pcFast = 0;
+    pcTranslucent = 0;
+    pcTile = ivec2(0);
+    pcInfo = ivec4(0);
+    pcUvBounds = vec4(0.0);
+    pcBoxLo = vec3(0.0);
+    pcBoxHi = vec3(0.0);
+    pcCamera = vec3(0.0);
+    pcTint = vec3(1.0);
+    pcFaceUv = vec2(0.0);
     pcView = Position;
-    int canvas = pcanvasVertex(Sampler0, UV0, Color, pcShape, pcMode, pcFace, pcOrigin, pcLocal);
+    int pcVertex;
+    int canvas = pcanvasVertex(Sampler0, UV0, Color, pcShape, pcMode, pcFace, pcVertex, pcOrigin, pcLocal);
     if (canvas != PCANVAS_NONE) {
-        if (canvas == PCANVAS_HIDDEN) {
-            pcShape = -1;
-        }
         sgvmPos = Position;
-        gl_Position = canvas == PCANVAS_HIDDEN ? vec4(0.0, 0.0, 0.0, 1.0) : ProjMat * ModelViewMat * vec4(Position, 1.0);
         sphericalVertexDistance = fog_spherical_distance(Position);
         cylindricalVertexDistance = fog_cylindrical_distance(Position);
+        if (canvas == PCANVAS_HIDDEN) {
+            pcShape = -1;
+            gl_Position = vec4(0.0, 0.0, 0.0, 1.0);
+            return;
+        }
+        int flags;
+        pcanvasShapeHeader(Sampler0, pcOrigin, pcShape, pcInfo, pcBoxLo, pcBoxHi, flags);
+        pcFast = (flags & 1) != 0 && pcMode == 0 ? 1 : 0;
+        if (pcFast == 1) {
+            pcanvasFaceTexture(Sampler0, pcOrigin, pcInfo, pcFace, pcVertex, pcTile, pcFaceUv, pcUvBounds, pcTint, pcTranslucent);
+        }
+        pcCamera = -(transpose(mat3(ModelViewMat)) * ModelViewMat[3].xyz);
+        vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, vec4(pcTint, 1.0)) * sgvmLight;
+        gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
         return;
     }
 

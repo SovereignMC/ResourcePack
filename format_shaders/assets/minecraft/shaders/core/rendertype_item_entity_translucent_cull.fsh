@@ -15,9 +15,10 @@ layout(depth_greater) out float gl_FragDepth;
 #define PC_DFDY dFdy
 #endif
 
-// PlaneChase head canvas: a canvas proxy fragment ray casts its cell's shape (palette format 2,
-// planechase:pcanvas.glsl), shades the hit like a block display and writes its depth; outward
-// proxies keep the hit behind the face, so the write is depth_greater and early-z stays on.
+// PlaneChase head canvas (palette format 3, planechase:pcanvas.glsl): a full-cube proxy fragment is
+// one nearest texel of its face, lit per vertex like vanilla and at its own depth; any other proxy
+// fragment ray casts its cell's shape, shades the hit like a block display and writes its depth.
+// Outward proxies keep the hit behind the face, so the write is depth_greater and early-z stays on.
 
 // Vanilla rendertype_item_entity_translucent_cull + SovereignMC gun viewmodel lighting.
 // Arm texels (sgvmGun == 2) take their colour from the tint and are shaded like the gun.
@@ -43,7 +44,17 @@ flat in vec4 sgvmColor;
 flat in int pcShape;
 flat in int pcMode;
 flat in int pcFace;
+flat in int pcFast;
+flat in int pcTranslucent;
 flat in ivec2 pcOrigin;
+flat in ivec2 pcTile;
+flat in ivec4 pcInfo;
+flat in vec4 pcUvBounds;
+flat in vec3 pcBoxLo;
+flat in vec3 pcBoxHi;
+flat in vec3 pcCamera;
+flat in vec3 pcTint;
+in vec2 pcFaceUv;
 in vec3 pcLocal;
 in vec3 pcView;
 
@@ -54,8 +65,18 @@ void main() {
         if (pcShape < 0) {
             discard;
         }
+        if (pcFast == 1) {
+            vec4 texel = pcanvasFaceTexel(Sampler0, pcTile, pcFaceUv, pcUvBounds, pcTranslucent);
+            if (texel.a < 0.1) {
+                discard;
+            }
+            gl_FragDepth = gl_FragCoord.z;
+            fragColor = apply_fog(texel * vertexColor * ColorModulator, sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
+            return;
+        }
         mat3 basis;
-        if (!pcanvasBasis(pcFace, PC_DFDX(pcView), PC_DFDY(pcView), PC_DFDX(pcLocal), PC_DFDY(pcLocal), basis)) {
+        mat3 toLocal;
+        if (!pcanvasBasis(pcFace, PC_DFDX(pcView), PC_DFDY(pcView), PC_DFDX(pcLocal), PC_DFDY(pcLocal), basis, toLocal)) {
             discard;
         }
         if (pcMode == 1) {
@@ -63,11 +84,10 @@ void main() {
             fragColor = vec4(pcLocal, 1.0);
             return;
         }
-        vec3 camera = (inverse(ModelViewMat) * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
         vec4 albedo;
         vec3 hit;
         vec3 normal;
-        if (!pcanvasTrace(Sampler0, pcShape, pcOrigin, pcLocal, pcView, camera, basis, albedo, hit, normal)) {
+        if (!pcanvasTrace(Sampler0, pcOrigin, pcInfo, pcBoxLo, pcBoxHi, pcLocal, pcView, pcCamera, basis, toLocal, albedo, hit, normal)) {
             discard;
         }
         vec4 shaded = albedo * minecraft_mix_light(Light0_Direction, Light1_Direction, normal, vec4(1.0)) * sgvmLight * ColorModulator;
