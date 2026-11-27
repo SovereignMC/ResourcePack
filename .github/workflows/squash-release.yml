@@ -74,6 +74,12 @@ jobs:
             color_quantization_target = 'none'
             skip_alpha_optimizations = true
 
+            # PlaneChase head canvas palette: header, shape table and element rows are shader
+            # data read with texelFetch (tools/generate/canvas). Keep every texel exact.
+            ['assets/planechase/textures/block/canvas_palette.png']
+            color_quantization_target = 'none'
+            skip_alpha_optimizations = true
+
             # /ts style preview tiles: each tile's last column holds a near-transparent
             # texel that pins the glyph advance. Quantization drops it, the line gets
             # narrower and the client re-centres it (rows of the montage slide sideways).
