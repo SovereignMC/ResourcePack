@@ -1,5 +1,9 @@
 #version 330
 
+// PlaneChase head canvas: quads on the canvas palette's face headers are cell proxy faces (palette
+// format 2, planechase:pcanvas.glsl); hidden cells and occluded faces collapse, visible ones pass the
+// shape, sprite origin and cell corner to the fragment ray cast. The sgvm path below is unchanged.
+
 // Vanilla rendertype_item_entity_translucent_cull (1.21.8 - 1.21.11) + the SovereignMC gun
 // viewmodel decoder ("sgvm"). Derived from objmc by Godlander (MIT, see LICENSE-OBJMC):
 // the face-header / topleft-marker trick, first-person hand detection and the camera-space
@@ -20,6 +24,7 @@
 #moj_import <minecraft:dynamictransforms.glsl>
 #moj_import <minecraft:projection.glsl>
 #moj_import <minecraft:globals.glsl>
+#moj_import <planechase:pcanvas.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -41,6 +46,12 @@ out vec4 sgvmLight;
 out vec3 sgvmPos;
 flat out int sgvmGun;
 flat out vec4 sgvmColor;
+flat out int pcShape;
+flat out int pcMode;
+flat out int pcFace;
+flat out ivec2 pcOrigin;
+out vec3 pcLocal;
+out vec3 pcView;
 
 ivec4 sgvmTexel(ivec2 p) {
     return ivec4(texelFetch(Sampler0, p, 0) * 255.0 + 0.5);
@@ -82,6 +93,18 @@ void main() {
     sgvmColor = vec4(0.0);
     sgvmLight = texelFetch(Sampler2, UV2 / 16, 0);
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color) * sgvmLight;
+    pcView = Position;
+    int canvas = pcanvasVertex(Sampler0, UV0, Color, pcShape, pcMode, pcFace, pcOrigin, pcLocal);
+    if (canvas != PCANVAS_NONE) {
+        if (canvas == PCANVAS_HIDDEN) {
+            pcShape = -1;
+        }
+        sgvmPos = Position;
+        gl_Position = canvas == PCANVAS_HIDDEN ? vec4(0.0, 0.0, 0.0, 1.0) : ProjMat * ModelViewMat * vec4(Position, 1.0);
+        sphericalVertexDistance = fog_spherical_distance(Position);
+        cylindricalVertexDistance = fog_cylindrical_distance(Position);
+        return;
+    }
 
     if (sgvmIsHand(ProjMat)) {
         ivec2 atlas = textureSize(Sampler0, 0);
