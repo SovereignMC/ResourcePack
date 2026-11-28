@@ -1,4 +1,4 @@
-// PlaneChase head canvas decoder, palette format 3. Shared verbatim by the vanilla core shader
+// PlaneChase head canvas decoder, palette format 4. Shared verbatim by the vanilla core shader
 // (assets/planechase/shaders/include/pcanvas.glsl, #moj_import <planechase:pcanvas.glsl>) and the
 // Iris shader pack (shaders/lib/pcanvas_core.glsl). Pure functions only: no inputs, outputs or
 // uniforms, so each host declares its own varyings. Written by canvas_gen.py; edit it there.
@@ -9,23 +9,27 @@
 //   row 16..: four texels per shape id s at linear index 4s: (start hi, start lo, element count),
 //     (bbox min x, y, z), (bbox max x, y, z) with byte b = model pixel b / 4 - 16 (floor / ceil),
 //     (flags: bit0 full cube = one unrotated 0..16 element with all six faces).
-//   element rows: 32 texels per element: 0-5 from, to, pivot (16-bit fixed, value / 256 - 16),
-//     6 rotation (axis 1..3, angle * 2 + 128, rescale), 7 (face mask, flags bit0 translucent),
-//     8 + 4f per face f: (tile hi, tile lo, light dir), (u0, v0, u3), (v3, u1, v1), (tint r, g, b)
-//     with u/v at face corners 0, 1, 3 in 1/16 texel (255 = 16).
+//   element rows: 30 texels per element: 0-2 from and to as six 12-bit values packed big-endian
+//     over the RGB bytes (value / 64 - 16), 3 (flags: axis bits 0-1, rescale bit 2, translucent
+//     bit 3, opaque textures bit 4; angle * 2 + 128; face mask), 4-5 rotation pivot (three 12-bit
+//     values, read only for rotated elements), 6 + 4f per face f: (tile hi, tile lo, light dir),
+//     (u0, v0, u3), (v3, u1, v1), (tint r, g, b) with u/v at face corners 0, 1, 3 in 1/16 texel
+//     (255 = 16).
 //   texture rows: 16x16 tiles, 16 per row.
 // Cell word (vertex colour, 24 bits): shape id bits 0-14, occluded face mask bits 15-20 (down, up,
 // north, south, west, east), debug mode bits 21-23. Proxy cubes face outward.
 //
 // Cost model: the vertex stage does every per-quad read (marker, shape header, and for full cubes
-// the face's texture tile, UV corners and tint), so a full-cube fragment is one texelFetch and every
-// other fragment reads only its elements.
+// the face's texture tile, UV corners and tint), so a full-cube fragment is one texelFetch; any other
+// fragment reads four texels per element and, for elements with fully opaque textures, its face data
+// and texel once for the nearest hit only.
 
 #ifndef PCANVAS_GLSL
 #define PCANVAS_GLSL
 
 const ivec4 PC_MARKER = ivec4(80, 67, 86, 255);
-const int PC_ELEMENT_TEXELS = 32;
+const int PC_ELEMENT_TEXELS = 30;
+const int PC_FACE_TEXELS = 6;
 const int PC_MAX_ELEMENTS = 32;
 const int PC_SHAPE_ROW = 16;
 const int PC_SHAPE_TEXELS = 4;
@@ -55,6 +59,16 @@ ivec4 pcAt(sampler2D atlas, ivec2 origin, int row, int index) {
 
 float pcCoord(int hi, int lo) {
     return float(hi * 256 + lo) * 0.00390625 - 16.0;
+}
+
+vec3 pcUnpack12a(ivec4 a, ivec4 b) {
+    return vec3(float((a.r << 4) | (a.g >> 4)), float(((a.g & 15) << 8) | a.b), float((b.r << 4) | (b.g >> 4)))
+        * 0.015625 - 16.0;
+}
+
+vec3 pcUnpack12b(ivec4 b, ivec4 c) {
+    return vec3(float(((b.g & 15) << 8) | b.b), float((c.r << 4) | (c.g >> 4)), float(((c.g & 15) << 8) | c.b))
+        * 0.015625 - 16.0;
 }
 
 float pcUv(int v) {
@@ -121,12 +135,12 @@ void pcanvasShapeHeader(sampler2D atlas, ivec2 origin, int shape, out ivec4 info
 void pcanvasFaceTexture(sampler2D atlas, ivec2 origin, ivec4 info, int face, int vertex, out ivec2 tile,
         out vec2 uv, out vec4 uvBounds, out vec3 tint, out int translucent) {
     int base = info.x * PC_ELEMENT_TEXELS;
-    int fb = base + 8 + face * 4;
+    int fb = base + PC_FACE_TEXELS + face * 4;
     ivec4 fa = pcAt(atlas, origin, info.z, fb);
     ivec4 fu = pcAt(atlas, origin, info.z, fb + 1);
     ivec4 fv = pcAt(atlas, origin, info.z, fb + 2);
     tint = vec3(pcAt(atlas, origin, info.z, fb + 3).rgb) / 255.0;
-    translucent = pcAt(atlas, origin, info.z, base + 7).g & 1;
+    translucent = (pcAt(atlas, origin, info.z, base + 3).r >> 3) & 1;
     vec2 uv0 = vec2(pcUv(fu.r), pcUv(fu.g));
     vec2 uv3 = vec2(pcUv(fu.b), pcUv(fv.r));
     vec2 uv1 = vec2(pcUv(fv.g), pcUv(fv.b));
@@ -159,6 +173,35 @@ mat3 pcRotation(int axis, float angle) {
 vec3 pcCorner(int face, int vertex, vec3 lo, vec3 hi) {
     ivec3 e = PC_FACE_INFO[face * 4 + vertex];
     return mix(lo, hi, vec3(e));
+}
+
+// The texel of face `face` of the element at `base` under the cell-space point p (clamped into the
+// element box, the face's UV rectangle and the 16x16 tile so nothing bleeds), tinted; light is the
+// face's snapped lighting direction.
+vec4 pcanvasElementTexel(sampler2D atlas, ivec2 origin, int elementRow, int textureRow, int base, int face, vec3 p,
+        vec3 lo, vec3 hi, out int light) {
+    int fb = base + PC_FACE_TEXELS + face * 4;
+    ivec4 fa = pcAt(atlas, origin, elementRow, fb);
+    ivec4 fu = pcAt(atlas, origin, elementRow, fb + 1);
+    ivec4 fv = pcAt(atlas, origin, elementRow, fb + 2);
+    vec3 v0 = pcCorner(face, 0, lo, hi);
+    vec3 e3 = pcCorner(face, 3, lo, hi) - v0;
+    vec3 e1 = pcCorner(face, 1, lo, hi) - v0;
+    float s3 = clamp(dot(e3, e3) > 0.0 ? dot(p - v0, e3) / dot(e3, e3) : 0.0, 0.0, 1.0);
+    float s1 = clamp(dot(e1, e1) > 0.0 ? dot(p - v0, e1) / dot(e1, e1) : 0.0, 0.0, 1.0);
+    vec2 uv0 = vec2(pcUv(fu.r), pcUv(fu.g));
+    vec2 uv3 = vec2(pcUv(fu.b), pcUv(fv.r));
+    vec2 uv1 = vec2(pcUv(fv.g), pcUv(fv.b));
+    vec2 uv2 = uv3 + uv1 - uv0;
+    vec2 uv = uv0 + s3 * (uv3 - uv0) + s1 * (uv1 - uv0);
+    vec2 uvMin = min(min(uv0, uv1), min(uv2, uv3)) + 1e-3;
+    vec2 uvMax = max(uvMin, max(max(uv0, uv1), max(uv2, uv3)) - 1e-3);
+    ivec2 texel = clamp(ivec2(clamp(uv, uvMin, uvMax)), ivec2(0), ivec2(15));
+    int tile = fa.r * 256 + fa.g;
+    light = fa.b;
+    vec4 color = texelFetch(atlas, origin + ivec2(16 * (tile & 15), textureRow + 16 * (tile >> 4)) + texel, 0);
+    color.rgb *= vec3(pcAt(atlas, origin, elementRow, fb + 3).rgb) / 255.0;
+    return color;
 }
 
 // Fragment stage: the proxy face's cell-to-model basis from the screen-space derivatives (the face
@@ -209,26 +252,32 @@ bool pcanvasTrace(sampler2D atlas, ivec2 origin, ivec4 info, vec3 boxLo, vec3 bo
     float bestT = 1e30;
     vec4 bestColor = vec4(0.0);
     int bestLight = 1;
+    int bestFace = -1;
+    int bestBase = 0;
+    vec3 bestHit = vec3(0.0);
+    vec3 bestLo = vec3(0.0);
+    vec3 bestHi = vec3(0.0);
+    bool bestDeferred = false;
     for (int e = 0; e < PC_MAX_ELEMENTS; e++) {
         if (e >= count) break;
         int base = (info.x + e) * PC_ELEMENT_TEXELS;
-        ivec4 spin = pcAt(atlas, origin, elementRow, base + 6);
-        ivec4 t0 = pcAt(atlas, origin, elementRow, base);
-        ivec4 t1 = pcAt(atlas, origin, elementRow, base + 1);
-        ivec4 t2 = pcAt(atlas, origin, elementRow, base + 2);
-        ivec4 t3 = pcAt(atlas, origin, elementRow, base + 3);
-        vec3 lo = vec3(pcCoord(t0.r, t0.g), pcCoord(t0.b, t1.r), pcCoord(t1.g, t1.b));
-        vec3 hi = vec3(pcCoord(t2.r, t2.g), pcCoord(t2.b, t3.r), pcCoord(t3.g, t3.b));
+        ivec4 flags = pcAt(atlas, origin, elementRow, base + 3);
+        ivec4 b0 = pcAt(atlas, origin, elementRow, base);
+        ivec4 b1 = pcAt(atlas, origin, elementRow, base + 1);
+        ivec4 b2 = pcAt(atlas, origin, elementRow, base + 2);
+        vec3 lo = pcUnpack12a(b0, b1);
+        vec3 hi = pcUnpack12b(b1, b2);
+        int axisCode = flags.r & 3;
         vec3 o = rayOrigin;
         vec3 d = rayDir;
         vec3 invD = invRay;
-        if (spin.r != 0) {
-            ivec4 t4 = pcAt(atlas, origin, elementRow, base + 4);
-            ivec4 t5 = pcAt(atlas, origin, elementRow, base + 5);
-            vec3 pivot = vec3(pcCoord(t4.r, t4.g), pcCoord(t4.b, t5.r), pcCoord(t5.g, t5.b));
-            mat3 r = pcRotation(spin.r, radians(float(spin.g - 128) * 0.5));
+        if (axisCode != 0) {
+            ivec4 p0 = pcAt(atlas, origin, elementRow, base + 4);
+            ivec4 p1 = pcAt(atlas, origin, elementRow, base + 5);
+            vec3 pivot = pcUnpack12a(p0, p1);
+            mat3 r = pcRotation(axisCode, radians(float(flags.g - 128) * 0.5));
             vec3 s = vec3(1.0);
-            if (spin.b == 1) {
+            if ((flags.r & 4) != 0) {
                 for (int i = 0; i < 3; i++) {
                     vec3 col = abs(r[i]);
                     s[i] = 1.0 / max(max(col.x, col.y), col.z);
@@ -249,35 +298,28 @@ bool pcanvasTrace(sampler2D atlas, ivec2 origin, ivec4 info, vec3 boxLo, vec3 bo
 
         int axis = tNear.x >= tNear.y && tNear.x >= tNear.z ? 0 : (tNear.y >= tNear.z ? 1 : 2);
         int face = axis == 0 ? (d.x > 0.0 ? 4 : 5) : (axis == 1 ? (d.y > 0.0 ? 0 : 1) : (d.z > 0.0 ? 2 : 3));
-        ivec4 flags = pcAt(atlas, origin, elementRow, base + 7);
-        if ((flags.r & (1 << face)) == 0) continue;
-
-        int fb = base + 8 + face * 4;
-        ivec4 fa = pcAt(atlas, origin, elementRow, fb);
-        ivec4 fu = pcAt(atlas, origin, elementRow, fb + 1);
-        ivec4 fv = pcAt(atlas, origin, elementRow, fb + 2);
+        if ((flags.b & (1 << face)) == 0) continue;
         vec3 p = clamp(o + tEnter * d, lo, hi);
-        vec3 v0 = pcCorner(face, 0, lo, hi);
-        vec3 e3 = pcCorner(face, 3, lo, hi) - v0;
-        vec3 e1 = pcCorner(face, 1, lo, hi) - v0;
-        float s3 = clamp(dot(e3, e3) > 0.0 ? dot(p - v0, e3) / dot(e3, e3) : 0.0, 0.0, 1.0);
-        float s1 = clamp(dot(e1, e1) > 0.0 ? dot(p - v0, e1) / dot(e1, e1) : 0.0, 0.0, 1.0);
-        vec2 uv0 = vec2(pcUv(fu.r), pcUv(fu.g));
-        vec2 uv3 = vec2(pcUv(fu.b), pcUv(fv.r));
-        vec2 uv1 = vec2(pcUv(fv.g), pcUv(fv.b));
-        vec2 uv2 = uv3 + uv1 - uv0;
-        vec2 uv = uv0 + s3 * (uv3 - uv0) + s1 * (uv1 - uv0);
-        vec2 uvMin = min(min(uv0, uv1), min(uv2, uv3)) + 1e-3;
-        vec2 uvMax = max(uvMin, max(max(uv0, uv1), max(uv2, uv3)) - 1e-3);
-        ivec2 texel = clamp(ivec2(clamp(uv, uvMin, uvMax)), ivec2(0), ivec2(15));
-        int tile = fa.r * 256 + fa.g;
-        vec4 color = texelFetch(atlas, origin + ivec2(16 * (tile & 15), info.w + 16 * (tile >> 4)) + texel, 0);
+        if ((flags.r & 16) != 0) {
+            bestT = tEnter;
+            bestFace = face;
+            bestBase = base;
+            bestHit = p;
+            bestLo = lo;
+            bestHi = hi;
+            bestDeferred = true;
+            continue;
+        }
+        vec4 color = pcanvasElementTexel(atlas, origin, elementRow, info.w, base, face, p, lo, hi, bestLight);
         if (color.a < 0.1) continue;
-        if ((flags.g & 1) == 0) color.a = 1.0;
-        color.rgb *= vec3(pcAt(atlas, origin, elementRow, fb + 3).rgb) / 255.0;
+        if ((flags.r & 8) == 0) color.a = 1.0;
         bestT = tEnter;
         bestColor = color;
-        bestLight = fa.b;
+        bestDeferred = false;
+    }
+    if (bestDeferred) {
+        bestColor = pcanvasElementTexel(atlas, origin, elementRow, info.w, bestBase, bestFace, bestHit, bestLo, bestHi, bestLight);
+        bestColor.a = 1.0;
     }
     if (bestT >= 1e29) {
         return false;

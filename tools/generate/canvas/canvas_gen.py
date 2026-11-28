@@ -1,4 +1,4 @@
-"""PlaneChase head canvas generator, Phase 1 (palette format 3).
+"""PlaneChase head canvas generator, Phase 1 (palette format 4).
 
 Reads every block state from the vanilla data report (blocks.json) and every blockstate, model and
 texture from a client jar, resolves each state the way a block display renders it (variant pick with
@@ -34,10 +34,10 @@ NS = "planechase"
 MARKER = (80, 67, 86, 255)
 SPRITE_W = 256
 SHAPE_ROW = 16
-ELEMENT_TEXELS = 32
+ELEMENT_TEXELS = 30
 SHAPE_TEXELS = 4
 MAX_ELEMENTS = 32
-FORMAT = 3
+FORMAT = 4
 FACES = ["down", "up", "north", "south", "west", "east"]
 DIRECTIONS = [(0, -1, 0), (0, 1, 0), (0, 0, -1), (0, 0, 1), (-1, 0, 0), (1, 0, 0)]
 FACE_INFO = [
@@ -528,17 +528,38 @@ def element_bounds(element):
     return [min(p[k] for p in pts) for k in range(3)], [max(p[k] for p in pts) for k in range(3)]
 
 
-def encode(elements, tile_of):
+def coord12(value):
+    encoded = round((value + 16) * 64)
+    if not 0 <= encoded < 4096:
+        raise ValueError(f"coordinate {value} outside the palette range")
+    return encoded
+
+
+def pack12(values):
+    bits = 0
+    for v in values:
+        bits = (bits << 12) | coord12(v)
+    width = 12 * len(values)
+    pad = (-width) % 24
+    bits <<= pad
+    nbytes = (width + pad) // 8
+    data = bits.to_bytes(nbytes, "big")
+    return [(data[i], data[i + 1], data[i + 2], 255) for i in range(0, nbytes, 3)]
+
+
+def encode(elements, tile_of, client):
     texels = []
     for element in elements:
-        data = []
-        for value in (*element["lo"], *element["hi"], *element["pivot"]):
-            data += coord16(value)
-        texels += [(*data[i:i + 3], 255) for i in range(0, 18, 3)]
-        texels.append((*element["spin"], 255))
-        mask = sum(1 << i for i, f in enumerate(element["faces"]) if f)
-        texels.append((mask, 1 if element["translucent"] else 0, 0, 255))
-        for face in element["faces"]:
+        texels += pack12([*element["lo"], *element["hi"]])
+        axis, angle, rescale = element["spin"]
+        faces = element["faces"]
+        mask = sum(1 << i for i, f in enumerate(faces) if f)
+        opaque = not element["translucent"] and all(
+            all(px[3] == 255 for px in client.texture(f[0])) for f in faces if f)
+        flags = axis | (rescale << 2) | ((1 if element["translucent"] else 0) << 3) | ((1 if opaque else 0) << 4)
+        texels.append((flags, angle, mask, 255))
+        texels += pack12(element["pivot"])
+        for face in faces:
             if face is None:
                 texels += [(0, 0, 0, 255)] * 4
                 continue
@@ -549,6 +570,7 @@ def encode(elements, tile_of):
             u1, v1 = corner_uv[1]
             texels += [(tile >> 8, tile & 255, light, 255), (uv8(u0), uv8(v0), uv8(u3), 255),
                        (uv8(v3), uv8(u1), uv8(v1), 255), (*tint, 255)]
+        assert len(texels) % ELEMENT_TEXELS == 0
     return tuple(texels)
 
 
@@ -665,7 +687,7 @@ def main(argv):
         lo = [min(b[0][k] for b in bounds) for k in range(3)]
         hi = [max(b[1][k] for b in bounds) for k in range(3)]
         headers[sid] = (len(element_texels) // ELEMENT_TEXELS, len(elements), lo, hi, full_cube(elements))
-        element_texels += encode(elements, tile_of)
+        element_texels += encode(elements, tile_of, client)
 
     header_rows = math.ceil(SHAPE_TEXELS * (len(shapes) + 1) / SPRITE_W)
     element_row = 16 * math.ceil((SHAPE_ROW + header_rows) / 16)
@@ -707,7 +729,7 @@ def main(argv):
     glsl = (HERE / "pcanvas.glsl").read_bytes()
     with zipfile.ZipFile(pack_out, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("pack.mcmeta", json.dumps({"pack": {
-            "description": "PlaneChase head canvas (palette format 3)",
+            "description": "PlaneChase head canvas (palette format 4)",
             "pack_format": 69, "min_format": 69, "max_format": 75}}, indent=2))
         buffer = io.BytesIO()
         image = Image.new("RGBA", (SPRITE_W, rows))
