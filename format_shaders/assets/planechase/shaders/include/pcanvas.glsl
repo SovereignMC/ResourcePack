@@ -19,6 +19,11 @@
 // Cell word (vertex colour, 24 bits): shape id bits 0-14, occluded face mask bits 15-20 (down, up,
 // north, south, west, east), debug mode bits 21-23. Proxy cubes face outward.
 //
+// Proxy geometry: the cell models are split per face (planechase:canvas/g_<gx>_<gy>_<gz>_<face>, one
+// face of each of a 2x2x2 group's eight cells). The plugin turns a face model on only for the faces
+// that can be seen (custom model data flags G + 6g + f), so the client sorts and transforms only
+// those quads instead of all 48 per group; the shader treats every quad the same as before.
+//
 // Cost model: the vertex stage does every per-quad read (marker, shape header, and for full cubes
 // the face's texture tile, UV corners and tint), so a full-cube fragment is one texelFetch; any other
 // fragment reads four texels per element and, for elements with fully opaque textures, its face data
@@ -310,8 +315,10 @@ bool pcanvasTrace(sampler2D atlas, ivec2 origin, ivec4 info, vec3 boxLo, vec3 bo
             bestDeferred = true;
             continue;
         }
-        vec4 color = pcanvasElementTexel(atlas, origin, elementRow, info.w, base, face, p, lo, hi, bestLight);
+        int hitLight;
+        vec4 color = pcanvasElementTexel(atlas, origin, elementRow, info.w, base, face, p, lo, hi, hitLight);
         if (color.a < 0.1) continue;
+        bestLight = hitLight;
         if ((flags.r & 8) == 0) color.a = 1.0;
         bestT = tEnter;
         bestColor = color;

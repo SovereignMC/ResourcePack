@@ -6,8 +6,9 @@ RandomSource 42, multipart parts reseeded per part, variant x/y rotation and uvl
 elements, default tints), deduplicates the rendered shapes, and writes:
 
   * the resource pack pieces: the palette sprite (planechase:block/canvas_palette), the 2x2x2 cell
-    group models (planechase:canvas/g_<gx>_<gy>_<gz>), one item definition per tile size
-    (planechase:canvas_<x>x<y>x<z>, a composite of condition-gated groups), the item-entity translucent
+    per-face group models (planechase:canvas/g_<gx>_<gy>_<gz>_<face>: eight cells, one face each), one
+    item definition per tile size (planechase:canvas_<x>x<y>x<z>, a composite of condition-gated
+    groups, each a composite of six condition-gated faces), the item-entity translucent
     shaders (vanilla + sgvm gun viewmodel + canvas) and the shared decoder include;
   * canvas-shapes.json for PlaneChase (normalised blockstate -> shape id and flags).
 
@@ -18,6 +19,9 @@ for them. Animated textures use their first frame.
 
 Usage:
   python -I canvas_gen.py <client.jar> <blocks.json> <pack_out.zip> <canvas-shapes.json> [--iris <dir>]
+  python3 -I canvas_gen.py --layout <pack_root>
+    refreshes the models, item definitions and shaders of a pack checkout without a client jar (the
+    palette height is read from its canvas_palette.png, which is left as is).
 """
 
 import io
@@ -599,19 +603,18 @@ def normalise(block, props):
     return f"minecraft:{block}[" + ",".join(f"{k}={props[k]}" for k in sorted(props)) + "]"
 
 
-def group_model(gx, gy, gz, rows):
+def face_model(gx, gy, gz, face, rows):
+    name = FACES[face]
+    left = 16 * (face + 1)
     elements = []
     for dx in range(2):
         for dy in range(2):
             for dz in range(2):
                 cx, cy, cz = 2 * gx + dx, 2 * gy + dy, 2 * gz + dz
-                faces = {}
-                for face, name in enumerate(FACES):
-                    left = 16 * (face + 1)
-                    faces[name] = {
-                        "uv": [round((left + 0.5) * 16 / SPRITE_W, 6), round(0.5 * 16 / rows, 6),
-                               round((left + 15.5) * 16 / SPRITE_W, 6), round(15.5 * 16 / rows, 6)],
-                        "texture": "#p", "tintindex": dx * 4 + dy * 2 + dz}
+                faces = {name: {
+                    "uv": [round((left + 0.5) * 16 / SPRITE_W, 6), round(0.5 * 16 / rows, 6),
+                           round((left + 15.5) * 16 / SPRITE_W, 6), round(15.5 * 16 / rows, 6)],
+                    "texture": "#p", "tintindex": dx * 4 + dy * 2 + dz}}
                 elements.append({"from": [cx - 16, cy - 16, cz - 16], "to": [cx - 15, cy - 15, cz - 15],
                                  "faces": faces})
     return {"textures": {"p": f"{NS}:block/canvas_palette", "particle": f"{NS}:block/canvas_palette"},
@@ -619,23 +622,82 @@ def group_model(gx, gy, gz, rows):
 
 
 def tile_item(size):
+    """Custom model data flags 0..G-1: group g on; G + 6g + f: face f of group g on (face order down,
+    up, north, south, west, east). Colors 8g + k: the word of cell k of group g."""
     sx, sy, sz = size
     gxn, gyn, gzn = sx // 2, sy // 2, sz // 2
+    count = gxn * gyn * gzn
     entries = []
     for gx in range(gxn):
         for gy in range(gyn):
             for gz in range(gzn):
                 g = (gx * gyn + gy) * gzn + gz
+                tints = [{"type": "minecraft:custom_model_data", "index": 8 * g + k, "default": 0}
+                         for k in range(8)]
+                faces = [{
+                    "type": "minecraft:condition", "property": "minecraft:custom_model_data",
+                    "index": count + 6 * g + f,
+                    "on_true": {"type": "minecraft:model", "model": f"{NS}:canvas/g_{gx}_{gy}_{gz}_{FACES[f]}",
+                                "tints": tints},
+                    "on_false": {"type": "minecraft:empty"}} for f in range(6)]
                 entries.append({
                     "type": "minecraft:condition", "property": "minecraft:custom_model_data", "index": g,
-                    "on_true": {"type": "minecraft:model", "model": f"{NS}:canvas/g_{gx}_{gy}_{gz}",
-                                "tints": [{"type": "minecraft:custom_model_data", "index": 8 * g + k, "default": 0}
-                                          for k in range(8)]},
+                    "on_true": {"type": "minecraft:composite", "models": faces},
                     "on_false": {"type": "minecraft:empty"}})
     return {"model": {"type": "minecraft:composite", "models": entries}}
 
 
+SEP = (",", ":")
+
+
+def write_layout(put, rows, glsl_and_shaders):
+    """Calls put(relative path, bytes) for every model and item definition, then for the shaders."""
+    for gx in range(MAX_TILE[0] // 2):
+        for gy in range(MAX_TILE[1] // 2):
+            for gz in range(MAX_TILE[2] // 2):
+                for face in range(6):
+                    put(f"assets/{NS}/models/canvas/g_{gx}_{gy}_{gz}_{FACES[face]}.json",
+                        json.dumps(face_model(gx, gy, gz, face, rows), separators=SEP).encode())
+    for size in TILE_LADDER:
+        put(f"assets/{NS}/items/canvas_{size[0]}x{size[1]}x{size[2]}.json",
+            json.dumps(tile_item(size), separators=SEP).encode())
+    glsl_and_shaders(put)
+
+
+def shader_files():
+    out = [("assets/planechase/shaders/include/pcanvas.glsl", HERE / "pcanvas.glsl")]
+    for ext in ("vsh", "fsh"):
+        out.append((f"assets/minecraft/shaders/core/rendertype_item_entity_translucent_cull.{ext}",
+                    HERE / f"item_translucent_cull.{ext}"))
+    return out
+
+
+def layout(root):
+    root = Path(root)
+    with Image.open(root / "assets" / NS / "textures" / "block" / "canvas_palette.png") as image:
+        rows = image.height
+    models = root / "assets" / NS / "models" / "canvas"
+    for old in models.glob("*.json"):
+        old.unlink()
+    models.mkdir(parents=True, exist_ok=True)
+
+    def put(rel, data):
+        target = root / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
+
+    def shaders(put):
+        for rel, src in shader_files():
+            put(rel.replace("assets/", "format_shaders/assets/", 1), src.read_bytes())
+
+    write_layout(put, rows, shaders)
+    print(f"layout written to {root} (palette height {rows})")
+
+
 def main(argv):
+    if argv[1] == "--layout":
+        layout(argv[2])
+        return
     jar, blocks_json, pack_out, shapes_out = argv[1:5]
     iris_dir = argv[argv.index("--iris") + 1] if "--iris" in argv else None
     client = Client(jar)
@@ -736,19 +798,12 @@ def main(argv):
         image.putdata(sprite)
         image.save(buffer, "PNG", optimize=True)
         z.writestr(f"assets/{NS}/textures/block/canvas_palette.png", buffer.getvalue())
-        sep = (",", ":")
-        for gx in range(MAX_TILE[0] // 2):
-            for gy in range(MAX_TILE[1] // 2):
-                for gz in range(MAX_TILE[2] // 2):
-                    z.writestr(f"assets/{NS}/models/canvas/g_{gx}_{gy}_{gz}.json",
-                               json.dumps(group_model(gx, gy, gz, rows), separators=sep))
-        for size in TILE_LADDER:
-            z.writestr(f"assets/{NS}/items/canvas_{size[0]}x{size[1]}x{size[2]}.json",
-                       json.dumps(tile_item(size), separators=sep))
-        z.writestr(f"assets/{NS}/shaders/include/pcanvas.glsl", glsl)
-        for ext in ("vsh", "fsh"):
-            z.write(HERE / f"item_translucent_cull.{ext}",
-                    f"assets/minecraft/shaders/core/rendertype_item_entity_translucent_cull.{ext}")
+
+        def shaders(put):
+            for rel, src in shader_files():
+                put(rel, src.read_bytes())
+
+        write_layout(lambda rel, data: z.writestr(rel, data), rows, shaders)
     for old, new in RENAMED.items():
         for key in [k for k in table if k == f"minecraft:{new}" or k.startswith(f"minecraft:{new}[")]:
             table[f"minecraft:{old}" + key[len(f"minecraft:{new}"):]] = table[key]
